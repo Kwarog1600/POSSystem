@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "PSH0jyO92uJ5Z+fMB4aTEdS11U45ErIGZbNQD6cL1oDmiS0Cxozt9Shqg+RuWzLQdp27B9K3Etk7Zdm8igmyAw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS System Test.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
