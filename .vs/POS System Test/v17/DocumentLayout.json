@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\main program\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
@@ -38,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Inventory.vb",
               "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeDocumentMoniker": "POS System Test\\Inventory\\Inventory.vb",
               "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeToolTip": "POS System Test\\Inventory\\Inventory.vb",
-              "ViewState": "AQIAADEAAAAAAAAAAAAUwFcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-03-19T07:16:43.889Z",
               "EditorCaption": ""
@@ -103,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Inventory.vb [Design]",
               "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeDocumentMoniker": "POS System Test\\Inventory\\Inventory.vb",
