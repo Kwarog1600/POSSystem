@@ -6,26 +6,6 @@ Module ProgramLoad
     Public screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
     Public screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
 
-    Sub Main()
-
-        ' Create CSV files for each list if they do not exist
-        CreateCsvFileIfNotExists("Users.csv", "Username,Password,Access Level")
-        CreateCsvFileIfNotExists("Stock.csv", "ID,Brand,Model,Description,Qty")
-        CreateCsvFileIfNotExists("Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
-        CreateCsvFileIfNotExists("Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
-    End Sub
-
-    Private Sub CreateCsvFileIfNotExists(fileName As String, header As String)
-        Dim filePath As String = fileName
-
-        ' Check if the CSV file exists, if not, create it and write the header
-        If Not File.Exists(filePath) Then
-            Using writer As New StreamWriter(filePath)
-                writer.WriteLine(header)
-            End Using
-        End If
-    End Sub
-
     Public Sub LoadAll()
 
         Main()
@@ -67,5 +47,25 @@ Module ProgramLoad
             .Size = New Size(screenWidth - 200, screenHeight - 50)
         End With
 
+    End Sub
+
+    Private Sub CreateCsvFileIfNotExists(fileName As String, header As String)
+        Dim filePath As String = fileName
+
+        ' Check if the CSV file exists, if not, create it and write the header
+        If Not File.Exists(filePath) Then
+            Using writer As New StreamWriter(filePath)
+                writer.WriteLine(header)
+            End Using
+        End If
+    End Sub
+
+    Sub Main()
+
+        ' Create CSV files for each list if they do not exist
+        CreateCsvFileIfNotExists("Users.csv", "Username,Password,Access Level")
+        CreateCsvFileIfNotExists("Stock.csv", "ID,Brand,Model,Description,Qty")
+        CreateCsvFileIfNotExists("Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
+        CreateCsvFileIfNotExists("Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
     End Sub
 End Module
