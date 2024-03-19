@@ -66,11 +66,14 @@ Partial Class Inventory
         ' 
         ' btAddCat
         ' 
+        btAddCat.BackColor = Color.Transparent
+        btAddCat.BorderRadius = 25
         btAddCat.CustomizableEdges = CustomizableEdges1
         btAddCat.DisabledState.BorderColor = Color.DarkGray
         btAddCat.DisabledState.CustomBorderColor = Color.DarkGray
         btAddCat.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btAddCat.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btAddCat.FillColor = Color.DimGray
         btAddCat.Font = New Font("Segoe UI", 9F)
         btAddCat.ForeColor = Color.White
         btAddCat.Location = New Point(260, 492)
@@ -100,11 +103,14 @@ Partial Class Inventory
         ' 
         ' Guna2Button2
         ' 
+        Guna2Button2.BackColor = Color.Transparent
+        Guna2Button2.BorderRadius = 25
         Guna2Button2.CustomizableEdges = CustomizableEdges3
         Guna2Button2.DisabledState.BorderColor = Color.DarkGray
         Guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         Guna2Button2.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        Guna2Button2.FillColor = Color.DimGray
         Guna2Button2.Font = New Font("Segoe UI", 9F)
         Guna2Button2.ForeColor = Color.White
         Guna2Button2.Location = New Point(670, 492)
@@ -116,11 +122,14 @@ Partial Class Inventory
         ' 
         ' btAddStock
         ' 
+        btAddStock.BackColor = Color.Transparent
+        btAddStock.BorderRadius = 25
         btAddStock.CustomizableEdges = CustomizableEdges5
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
         btAddStock.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btAddStock.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btAddStock.FillColor = Color.DimGray
         btAddStock.Font = New Font("Segoe UI", 9F)
         btAddStock.ForeColor = Color.White
         btAddStock.Location = New Point(466, 492)

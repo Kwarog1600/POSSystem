@@ -28,7 +28,6 @@ C:\Users\cutie\Desktop\Caccam\POS System Test\POS System Test\obj\Debug\net8.0-w
 C:\Users\cutie\Desktop\Caccam\POS System Test\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Sales.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS System Test.vbproj.AssemblyReference.cache
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Dashboard.resources
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Expenses.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.History.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Inventory.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.LoginForm.resources

@@ -57,8 +57,6 @@ Partial Class MainForm
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlSelection = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -80,14 +78,12 @@ Partial Class MainForm
         btMin = New Guna.UI2.WinForms.Guna2Button()
         btLgtClose = New Guna.UI2.WinForms.Guna2Button()
         pnlSwitch = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         pnlSelection.SuspendLayout()
         pnlLgtSt.SuspendLayout()
         Guna2Panel1.SuspendLayout()
         PnlBtnSelection.SuspendLayout()
         pnlRibbon.SuspendLayout()
         pnlFormCtrl.SuspendLayout()
-        pnlSwitch.SuspendLayout()
         SuspendLayout()
         ' 
         ' pnlSelection
@@ -382,22 +378,12 @@ Partial Class MainForm
         ' 
         ' pnlSwitch
         ' 
-        pnlSwitch.Controls.Add(Guna2CustomGradientPanel1)
-        pnlSwitch.CustomizableEdges = CustomizableEdges37
+        pnlSwitch.CustomizableEdges = CustomizableEdges35
         pnlSwitch.Location = New Point(200, 50)
         pnlSwitch.Name = "pnlSwitch"
-        pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges38
+        pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges36
         pnlSwitch.Size = New Size(600, 694)
         pnlSwitch.TabIndex = 1
-        ' 
-        ' Guna2CustomGradientPanel1
-        ' 
-        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges35
-        Guna2CustomGradientPanel1.Location = New Point(225, 308)
-        Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges36
-        Guna2CustomGradientPanel1.Size = New Size(8, 8)
-        Guna2CustomGradientPanel1.TabIndex = 7
         ' 
         ' MainForm
         ' 
@@ -418,7 +404,6 @@ Partial Class MainForm
         pnlRibbon.ResumeLayout(False)
         pnlRibbon.PerformLayout()
         pnlFormCtrl.ResumeLayout(False)
-        pnlSwitch.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -440,6 +425,5 @@ Partial Class MainForm
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents btEmplyMngt As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btSettings As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents pnlLgtSt As Guna.UI2.WinForms.Guna2Panel
 End Class
