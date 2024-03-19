@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("POS System Test"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6ec781cc4ac918a4067167b1695c52db1339033"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+066f34453d95c49f1faa55bbe8383e3bd9df853b"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("POS System Test"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("POS System Test"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

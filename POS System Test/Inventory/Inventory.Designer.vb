@@ -35,7 +35,7 @@ Partial Class Inventory
         pnlDashBoardContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         btAddCat = New Guna.UI2.WinForms.Guna2Button()
         lblStockCategory = New Label()
-        ComboBox1 = New ComboBox()
+        cbxCategory = New ComboBox()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         DataGridView1 = New DataGridView()
@@ -53,7 +53,7 @@ Partial Class Inventory
         pnlDashBoardContainer.BorderRadius = 25
         pnlDashBoardContainer.Controls.Add(btAddCat)
         pnlDashBoardContainer.Controls.Add(lblStockCategory)
-        pnlDashBoardContainer.Controls.Add(ComboBox1)
+        pnlDashBoardContainer.Controls.Add(cbxCategory)
         pnlDashBoardContainer.Controls.Add(Guna2Button2)
         pnlDashBoardContainer.Controls.Add(btAddStock)
         pnlDashBoardContainer.Controls.Add(DataGridView1)
@@ -86,20 +86,25 @@ Partial Class Inventory
         ' lblStockCategory
         ' 
         lblStockCategory.AutoSize = True
+        lblStockCategory.BackColor = Color.Transparent
         lblStockCategory.Location = New Point(50, 16)
         lblStockCategory.Name = "lblStockCategory"
         lblStockCategory.Size = New Size(55, 15)
         lblStockCategory.TabIndex = 4
         lblStockCategory.Text = "Category"
         ' 
-        ' ComboBox1
+        ' cbxCategory
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"All"})
-        ComboBox1.Location = New Point(50, 34)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(121, 23)
-        ComboBox1.TabIndex = 3
+        cbxCategory.AutoCompleteCustomSource.AddRange(New String() {"All"})
+        cbxCategory.DropDownStyle = ComboBoxStyle.DropDownList
+        cbxCategory.FormattingEnabled = True
+        cbxCategory.Items.AddRange(New Object() {"All"})
+        cbxCategory.Location = New Point(50, 34)
+        cbxCategory.Name = "cbxCategory"
+        cbxCategory.Size = New Size(128, 23)
+        cbxCategory.Sorted = True
+        cbxCategory.TabIndex = 3
+        cbxCategory.TabStop = False
         ' 
         ' Guna2Button2
         ' 
@@ -233,6 +238,6 @@ Partial Class Inventory
     Friend WithEvents Description As DataGridViewTextBoxColumn
     Friend WithEvents Quantity As DataGridViewTextBoxColumn
     Friend WithEvents lblStockCategory As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxCategory As ComboBox
     Friend WithEvents btAddCat As Guna.UI2.WinForms.Guna2Button
 End Class
