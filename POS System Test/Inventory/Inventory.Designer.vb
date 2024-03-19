@@ -38,14 +38,14 @@ Partial Class Inventory
         cbxCategory = New ComboBox()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
-        DataGridView1 = New DataGridView()
+        dgvStockList = New DataGridView()
         ID = New DataGridViewTextBoxColumn()
         Brand = New DataGridViewTextBoxColumn()
         Model = New DataGridViewTextBoxColumn()
         Description = New DataGridViewTextBoxColumn()
         Quantity = New DataGridViewTextBoxColumn()
         pnlDashBoardContainer.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlDashBoardContainer
@@ -56,7 +56,7 @@ Partial Class Inventory
         pnlDashBoardContainer.Controls.Add(cbxCategory)
         pnlDashBoardContainer.Controls.Add(Guna2Button2)
         pnlDashBoardContainer.Controls.Add(btAddStock)
-        pnlDashBoardContainer.Controls.Add(DataGridView1)
+        pnlDashBoardContainer.Controls.Add(dgvStockList)
         pnlDashBoardContainer.CustomizableEdges = CustomizableEdges7
         pnlDashBoardContainer.Location = New Point(24, 51)
         pnlDashBoardContainer.Name = "pnlDashBoardContainer"
@@ -98,7 +98,6 @@ Partial Class Inventory
         cbxCategory.AutoCompleteCustomSource.AddRange(New String() {"All"})
         cbxCategory.DropDownStyle = ComboBoxStyle.DropDownList
         cbxCategory.FormattingEnabled = True
-        cbxCategory.Items.AddRange(New Object() {"All"})
         cbxCategory.Location = New Point(50, 34)
         cbxCategory.Name = "cbxCategory"
         cbxCategory.Size = New Size(128, 23)
@@ -144,24 +143,24 @@ Partial Class Inventory
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
         ' 
-        ' DataGridView1
+        ' dgvStockList
         ' 
-        DataGridView1.AllowUserToAddRows = False
-        DataGridView1.AllowUserToDeleteRows = False
-        DataGridView1.AllowUserToResizeColumns = False
-        DataGridView1.AllowUserToResizeRows = False
-        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
-        DataGridView1.BorderStyle = BorderStyle.None
-        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised
-        DataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {ID, Brand, Model, Description, Quantity})
-        DataGridView1.ImeMode = ImeMode.NoControl
-        DataGridView1.Location = New Point(50, 75)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.ReadOnly = True
-        DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken
+        dgvStockList.AllowUserToAddRows = False
+        dgvStockList.AllowUserToDeleteRows = False
+        dgvStockList.AllowUserToResizeColumns = False
+        dgvStockList.AllowUserToResizeRows = False
+        dgvStockList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvStockList.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
+        dgvStockList.BorderStyle = BorderStyle.None
+        dgvStockList.CellBorderStyle = DataGridViewCellBorderStyle.Raised
+        dgvStockList.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
+        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvStockList.Columns.AddRange(New DataGridViewColumn() {ID, Brand, Model, Description, Quantity})
+        dgvStockList.ImeMode = ImeMode.NoControl
+        dgvStockList.Location = New Point(50, 75)
+        dgvStockList.Name = "dgvStockList"
+        dgvStockList.ReadOnly = True
+        dgvStockList.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter
         DataGridViewCellStyle1.BackColor = SystemColors.Control
         DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F)
@@ -169,14 +168,14 @@ Partial Class Inventory
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
+        dgvStockList.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        dgvStockList.RowHeadersVisible = False
+        dgvStockList.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(800, 400)
-        DataGridView1.TabIndex = 0
+        dgvStockList.RowsDefaultCellStyle = DataGridViewCellStyle2
+        dgvStockList.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvStockList.Size = New Size(800, 400)
+        dgvStockList.TabIndex = 0
         ' 
         ' ID
         ' 
@@ -224,12 +223,12 @@ Partial Class Inventory
         Text = "Inventory"
         pnlDashBoardContainer.ResumeLayout(False)
         pnlDashBoardContainer.PerformLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvStockList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents pnlDashBoardContainer As Guna.UI2.WinForms.Guna2CustomGradientPanel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvStockList As DataGridView
     Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btAddStock As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ID As DataGridViewTextBoxColumn
