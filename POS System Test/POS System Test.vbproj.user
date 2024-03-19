@@ -7,7 +7,7 @@
     <Compile Update="Analytics\Analytics.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dashboard.vb">
+    <Compile Update="Main Program\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="History\History.vb">

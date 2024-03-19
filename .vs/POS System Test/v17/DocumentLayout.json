@@ -23,8 +23,8 @@
       "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\my project\\application.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\main program\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\main program\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\sales\\sales.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
@@ -66,8 +66,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -157,10 +161,10 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Dashboard.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Dashboard.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Dashboard.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Dashboard.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Dashboard.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Main Program\\Dashboard.vb",
+              "RelativeDocumentMoniker": "POS System Test\\Main Program\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Main Program\\Dashboard.vb [Design]",
+              "RelativeToolTip": "POS System Test\\Main Program\\Dashboard.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-03-19T05:26:35.495Z",
               "EditorCaption": " [Design]"
