@@ -24,15 +24,16 @@ Partial Class Inventory
     Private Sub InitializeComponent()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlDashBoardContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        btAddCat = New Guna.UI2.WinForms.Guna2Button()
         lblStockCategory = New Label()
         ComboBox1 = New ComboBox()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
@@ -43,7 +44,6 @@ Partial Class Inventory
         Model = New DataGridViewTextBoxColumn()
         Description = New DataGridViewTextBoxColumn()
         Quantity = New DataGridViewTextBoxColumn()
-        btAddCat = New Guna.UI2.WinForms.Guna2Button()
         pnlDashBoardContainer.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -63,6 +63,22 @@ Partial Class Inventory
         pnlDashBoardContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         pnlDashBoardContainer.Size = New Size(920, 575)
         pnlDashBoardContainer.TabIndex = 3
+        ' 
+        ' btAddCat
+        ' 
+        btAddCat.CustomizableEdges = CustomizableEdges1
+        btAddCat.DisabledState.BorderColor = Color.DarkGray
+        btAddCat.DisabledState.CustomBorderColor = Color.DarkGray
+        btAddCat.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btAddCat.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btAddCat.Font = New Font("Segoe UI", 9F)
+        btAddCat.ForeColor = Color.White
+        btAddCat.Location = New Point(260, 492)
+        btAddCat.Name = "btAddCat"
+        btAddCat.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btAddCat.Size = New Size(180, 45)
+        btAddCat.TabIndex = 5
+        btAddCat.Text = "Edit Stock Category"
         ' 
         ' lblStockCategory
         ' 
@@ -182,26 +198,11 @@ Partial Class Inventory
         Quantity.Name = "Quantity"
         Quantity.ReadOnly = True
         ' 
-        ' btAddCat
-        ' 
-        btAddCat.CustomizableEdges = CustomizableEdges1
-        btAddCat.DisabledState.BorderColor = Color.DarkGray
-        btAddCat.DisabledState.CustomBorderColor = Color.DarkGray
-        btAddCat.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btAddCat.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btAddCat.Font = New Font("Segoe UI", 9F)
-        btAddCat.ForeColor = Color.White
-        btAddCat.Location = New Point(260, 492)
-        btAddCat.Name = "btAddCat"
-        btAddCat.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btAddCat.Size = New Size(180, 45)
-        btAddCat.TabIndex = 5
-        btAddCat.Text = "Edit Stock Category"
-        ' 
         ' Inventory
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.LightGray
         ClientSize = New Size(1000, 1000)
         Controls.Add(pnlDashBoardContainer)
         FormBorderStyle = FormBorderStyle.None

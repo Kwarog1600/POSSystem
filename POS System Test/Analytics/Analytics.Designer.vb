@@ -28,6 +28,7 @@ Partial Class Analytics
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.LightGray
         ClientSize = New Size(1000, 1000)
         FormBorderStyle = FormBorderStyle.None
         Name = "Analytics"

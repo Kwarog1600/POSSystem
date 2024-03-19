@@ -28,6 +28,7 @@ Partial Class Sales
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.LightGray
         ClientSize = New Size(800, 450)
         FormBorderStyle = FormBorderStyle.None
         Name = "Sales"
