@@ -1,7 +1,5 @@
-﻿Public Class AddStock
-    Private Sub lbBrand_Click(sender As Object, e As EventArgs) Handles lbBrand.Click
+﻿Imports System.IO
 
-    End Sub
-
+Public Class AddStock
 
 End Class

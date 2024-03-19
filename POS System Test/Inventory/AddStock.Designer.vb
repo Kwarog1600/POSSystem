@@ -32,84 +32,58 @@ Partial Class AddStock
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2TextBox3 = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxBrand = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxID = New Guna.UI2.WinForms.Guna2TextBox()
         lbBrand = New Label()
         lbID = New Label()
         lbCat = New Label()
         lbModel = New Label()
-        Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxModel = New Guna.UI2.WinForms.Guna2TextBox()
         lbDescription = New Label()
-        Guna2TextBox5 = New Guna.UI2.WinForms.Guna2TextBox()
-        lbSave = New Guna.UI2.WinForms.Guna2Button()
-        cbxSerial = New Guna.UI2.WinForms.Guna2CheckBox()
-        Guna2TextBox6 = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxDescription = New Guna.UI2.WinForms.Guna2TextBox()
+        cbxCategory = New ComboBox()
+        btAddStock = New Guna.UI2.WinForms.Guna2Button()
         SuspendLayout()
         ' 
-        ' Guna2TextBox1
+        ' txbxBrand
         ' 
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges1
-        Guna2TextBox1.DefaultText = ""
-        Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox1.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Location = New Point(73, 118)
-        Guna2TextBox1.Name = "Guna2TextBox1"
-        Guna2TextBox1.PasswordChar = ChrW(0)
-        Guna2TextBox1.PlaceholderText = ""
-        Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2TextBox1.Size = New Size(200, 36)
-        Guna2TextBox1.TabIndex = 4
+        txbxBrand.CustomizableEdges = CustomizableEdges1
+        txbxBrand.DefaultText = ""
+        txbxBrand.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxBrand.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxBrand.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxBrand.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxBrand.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxBrand.Font = New Font("Segoe UI", 9F)
+        txbxBrand.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxBrand.Location = New Point(73, 118)
+        txbxBrand.Name = "txbxBrand"
+        txbxBrand.PasswordChar = ChrW(0)
+        txbxBrand.PlaceholderText = ""
+        txbxBrand.SelectedText = ""
+        txbxBrand.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxBrand.Size = New Size(200, 36)
+        txbxBrand.TabIndex = 4
         ' 
-        ' Guna2TextBox2
+        ' txbxID
         ' 
-        Guna2TextBox2.CustomizableEdges = CustomizableEdges3
-        Guna2TextBox2.DefaultText = ""
-        Guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox2.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox2.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox2.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox2.Location = New Point(429, 57)
-        Guna2TextBox2.Name = "Guna2TextBox2"
-        Guna2TextBox2.PasswordChar = ChrW(0)
-        Guna2TextBox2.PlaceholderText = ""
-        Guna2TextBox2.SelectedText = ""
-        Guna2TextBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        Guna2TextBox2.Size = New Size(200, 36)
-        Guna2TextBox2.TabIndex = 5
-        ' 
-        ' Guna2TextBox3
-        ' 
-        Guna2TextBox3.CustomizableEdges = CustomizableEdges5
-        Guna2TextBox3.DefaultText = ""
-        Guna2TextBox3.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox3.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox3.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox3.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox3.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox3.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox3.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox3.Location = New Point(73, 57)
-        Guna2TextBox3.Name = "Guna2TextBox3"
-        Guna2TextBox3.PasswordChar = ChrW(0)
-        Guna2TextBox3.PlaceholderText = ""
-        Guna2TextBox3.SelectedText = ""
-        Guna2TextBox3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2TextBox3.Size = New Size(200, 36)
-        Guna2TextBox3.TabIndex = 6
+        txbxID.CustomizableEdges = CustomizableEdges3
+        txbxID.DefaultText = ""
+        txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxID.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxID.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxID.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxID.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxID.Font = New Font("Segoe UI", 9F)
+        txbxID.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxID.Location = New Point(73, 57)
+        txbxID.Name = "txbxID"
+        txbxID.PasswordChar = ChrW(0)
+        txbxID.PlaceholderText = ""
+        txbxID.SelectedText = ""
+        txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txbxID.Size = New Size(200, 36)
+        txbxID.TabIndex = 6
         ' 
         ' lbBrand
         ' 
@@ -147,25 +121,25 @@ Partial Class AddStock
         lbModel.TabIndex = 11
         lbModel.Text = "Model"
         ' 
-        ' Guna2TextBox4
+        ' txbxModel
         ' 
-        Guna2TextBox4.CustomizableEdges = CustomizableEdges7
-        Guna2TextBox4.DefaultText = ""
-        Guna2TextBox4.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox4.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox4.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox4.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox4.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Location = New Point(429, 118)
-        Guna2TextBox4.Name = "Guna2TextBox4"
-        Guna2TextBox4.PasswordChar = ChrW(0)
-        Guna2TextBox4.PlaceholderText = ""
-        Guna2TextBox4.SelectedText = ""
-        Guna2TextBox4.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        Guna2TextBox4.Size = New Size(200, 36)
-        Guna2TextBox4.TabIndex = 10
+        txbxModel.CustomizableEdges = CustomizableEdges5
+        txbxModel.DefaultText = ""
+        txbxModel.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxModel.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxModel.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxModel.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxModel.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxModel.Font = New Font("Segoe UI", 9F)
+        txbxModel.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxModel.Location = New Point(429, 118)
+        txbxModel.Name = "txbxModel"
+        txbxModel.PasswordChar = ChrW(0)
+        txbxModel.PlaceholderText = ""
+        txbxModel.SelectedText = ""
+        txbxModel.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txbxModel.Size = New Size(200, 36)
+        txbxModel.TabIndex = 10
         ' 
         ' lbDescription
         ' 
@@ -176,113 +150,87 @@ Partial Class AddStock
         lbDescription.TabIndex = 13
         lbDescription.Text = "Description"
         ' 
-        ' Guna2TextBox5
+        ' txbxDescription
         ' 
-        Guna2TextBox5.CustomizableEdges = CustomizableEdges9
-        Guna2TextBox5.DefaultText = ""
-        Guna2TextBox5.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox5.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox5.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox5.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox5.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox5.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox5.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox5.Location = New Point(89, 189)
-        Guna2TextBox5.Name = "Guna2TextBox5"
-        Guna2TextBox5.PasswordChar = ChrW(0)
-        Guna2TextBox5.PlaceholderText = ""
-        Guna2TextBox5.SelectedText = ""
-        Guna2TextBox5.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        Guna2TextBox5.Size = New Size(542, 95)
-        Guna2TextBox5.TabIndex = 12
+        txbxDescription.CustomizableEdges = CustomizableEdges7
+        txbxDescription.DefaultText = ""
+        txbxDescription.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxDescription.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxDescription.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxDescription.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxDescription.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxDescription.Font = New Font("Segoe UI", 9F)
+        txbxDescription.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxDescription.Location = New Point(89, 189)
+        txbxDescription.Name = "txbxDescription"
+        txbxDescription.PasswordChar = ChrW(0)
+        txbxDescription.PlaceholderText = ""
+        txbxDescription.SelectedText = ""
+        txbxDescription.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        txbxDescription.Size = New Size(542, 95)
+        txbxDescription.TabIndex = 12
         ' 
-        ' lbSave
+        ' cbxCategory
         ' 
-        lbSave.CustomizableEdges = CustomizableEdges11
-        lbSave.DisabledState.BorderColor = Color.DarkGray
-        lbSave.DisabledState.CustomBorderColor = Color.DarkGray
-        lbSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        lbSave.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        lbSave.Font = New Font("Segoe UI", 9F)
-        lbSave.ForeColor = Color.White
-        lbSave.Location = New Point(449, 453)
-        lbSave.Name = "lbSave"
-        lbSave.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        lbSave.Size = New Size(180, 45)
-        lbSave.TabIndex = 14
-        lbSave.Text = "Save"
+        cbxCategory.AutoCompleteCustomSource.AddRange(New String() {"All"})
+        cbxCategory.DropDownStyle = ComboBoxStyle.DropDownList
+        cbxCategory.FormattingEnabled = True
+        cbxCategory.Location = New Point(429, 57)
+        cbxCategory.Name = "cbxCategory"
+        cbxCategory.Size = New Size(128, 23)
+        cbxCategory.Sorted = True
+        cbxCategory.TabIndex = 17
+        cbxCategory.TabStop = False
         ' 
-        ' cbxSerial
+        ' btAddStock
         ' 
-        cbxSerial.AutoSize = True
-        cbxSerial.CheckedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cbxSerial.CheckedState.BorderRadius = 0
-        cbxSerial.CheckedState.BorderThickness = 0
-        cbxSerial.CheckedState.FillColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cbxSerial.Location = New Point(12, 290)
-        cbxSerial.Name = "cbxSerial"
-        cbxSerial.Size = New Size(143, 19)
-        cbxSerial.TabIndex = 15
-        cbxSerial.Text = "Include Serial Number"
-        cbxSerial.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
-        cbxSerial.UncheckedState.BorderRadius = 0
-        cbxSerial.UncheckedState.BorderThickness = 0
-        cbxSerial.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
-        ' 
-        ' Guna2TextBox6
-        ' 
-        Guna2TextBox6.CustomizableEdges = CustomizableEdges13
-        Guna2TextBox6.DefaultText = ""
-        Guna2TextBox6.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox6.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox6.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox6.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox6.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox6.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox6.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox6.Location = New Point(73, 315)
-        Guna2TextBox6.Name = "Guna2TextBox6"
-        Guna2TextBox6.PasswordChar = ChrW(0)
-        Guna2TextBox6.PlaceholderText = ""
-        Guna2TextBox6.SelectedText = ""
-        Guna2TextBox6.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        Guna2TextBox6.Size = New Size(200, 36)
-        Guna2TextBox6.TabIndex = 16
+        btAddStock.BackColor = Color.Transparent
+        btAddStock.BorderRadius = 25
+        btAddStock.CustomizableEdges = CustomizableEdges9
+        btAddStock.DisabledState.BorderColor = Color.DarkGray
+        btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
+        btAddStock.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btAddStock.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btAddStock.FillColor = Color.DimGray
+        btAddStock.Font = New Font("Segoe UI", 9F)
+        btAddStock.ForeColor = Color.White
+        btAddStock.Location = New Point(451, 315)
+        btAddStock.Name = "btAddStock"
+        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        btAddStock.Size = New Size(180, 45)
+        btAddStock.TabIndex = 18
+        btAddStock.Text = "Add Stock"
         ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(643, 525)
-        Controls.Add(Guna2TextBox6)
-        Controls.Add(cbxSerial)
-        Controls.Add(lbSave)
+        ClientSize = New Size(643, 372)
+        Controls.Add(btAddStock)
+        Controls.Add(cbxCategory)
         Controls.Add(lbDescription)
-        Controls.Add(Guna2TextBox5)
+        Controls.Add(txbxDescription)
         Controls.Add(lbModel)
-        Controls.Add(Guna2TextBox4)
+        Controls.Add(txbxModel)
         Controls.Add(lbCat)
         Controls.Add(lbID)
         Controls.Add(lbBrand)
-        Controls.Add(Guna2TextBox3)
-        Controls.Add(Guna2TextBox2)
-        Controls.Add(Guna2TextBox1)
+        Controls.Add(txbxID)
+        Controls.Add(txbxBrand)
         Name = "AddStock"
         Text = "AddStock"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox3 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxBrand As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbBrand As Label
     Friend WithEvents lbID As Label
     Private WithEvents lbCat As Label
     Friend WithEvents lbModel As Label
-    Friend WithEvents Guna2TextBox4 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxModel As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbDescription As Label
-    Friend WithEvents Guna2TextBox5 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lbSave As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents cbxSerial As Guna.UI2.WinForms.Guna2CheckBox
-    Friend WithEvents Guna2TextBox6 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxDescription As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents cbxCategory As ComboBox
+    Friend WithEvents btAddStock As Guna.UI2.WinForms.Guna2Button
 End Class

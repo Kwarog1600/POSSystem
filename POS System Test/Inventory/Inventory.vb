@@ -3,7 +3,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Inventory
     Public filePath As String = "Stock.csv"
-    Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btAddCat.Click
+    Private Sub btAddCat_Click(sender As Object, e As EventArgs)
         StockCategoryAdd.Visible = True
 
     End Sub
@@ -86,4 +86,7 @@ Public Class Inventory
         End If
     End Sub
 
+    Private Sub dgvStockList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellContentClick
+
+    End Sub
 End Class

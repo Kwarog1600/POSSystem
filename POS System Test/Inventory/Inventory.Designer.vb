@@ -22,18 +22,15 @@ Partial Class Inventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         pnlDashBoardContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        btAddCat = New Guna.UI2.WinForms.Guna2Button()
         lblStockCategory = New Label()
         cbxCategory = New ComboBox()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
@@ -51,37 +48,17 @@ Partial Class Inventory
         ' pnlDashBoardContainer
         ' 
         pnlDashBoardContainer.BorderRadius = 25
-        pnlDashBoardContainer.Controls.Add(btAddCat)
         pnlDashBoardContainer.Controls.Add(lblStockCategory)
         pnlDashBoardContainer.Controls.Add(cbxCategory)
         pnlDashBoardContainer.Controls.Add(Guna2Button2)
         pnlDashBoardContainer.Controls.Add(btAddStock)
         pnlDashBoardContainer.Controls.Add(dgvStockList)
-        pnlDashBoardContainer.CustomizableEdges = CustomizableEdges7
+        pnlDashBoardContainer.CustomizableEdges = CustomizableEdges5
         pnlDashBoardContainer.Location = New Point(24, 51)
         pnlDashBoardContainer.Name = "pnlDashBoardContainer"
-        pnlDashBoardContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        pnlDashBoardContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         pnlDashBoardContainer.Size = New Size(920, 575)
         pnlDashBoardContainer.TabIndex = 3
-        ' 
-        ' btAddCat
-        ' 
-        btAddCat.BackColor = Color.Transparent
-        btAddCat.BorderRadius = 25
-        btAddCat.CustomizableEdges = CustomizableEdges1
-        btAddCat.DisabledState.BorderColor = Color.DarkGray
-        btAddCat.DisabledState.CustomBorderColor = Color.DarkGray
-        btAddCat.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btAddCat.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btAddCat.FillColor = Color.DimGray
-        btAddCat.Font = New Font("Segoe UI", 9F)
-        btAddCat.ForeColor = Color.White
-        btAddCat.Location = New Point(260, 492)
-        btAddCat.Name = "btAddCat"
-        btAddCat.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btAddCat.Size = New Size(180, 45)
-        btAddCat.TabIndex = 5
-        btAddCat.Text = "Edit Stock Category"
         ' 
         ' lblStockCategory
         ' 
@@ -109,7 +86,7 @@ Partial Class Inventory
         ' 
         Guna2Button2.BackColor = Color.Transparent
         Guna2Button2.BorderRadius = 25
-        Guna2Button2.CustomizableEdges = CustomizableEdges3
+        Guna2Button2.CustomizableEdges = CustomizableEdges1
         Guna2Button2.DisabledState.BorderColor = Color.DarkGray
         Guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -119,7 +96,7 @@ Partial Class Inventory
         Guna2Button2.ForeColor = Color.White
         Guna2Button2.Location = New Point(670, 492)
         Guna2Button2.Name = "Guna2Button2"
-        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Guna2Button2.Size = New Size(180, 45)
         Guna2Button2.TabIndex = 2
         Guna2Button2.Text = "Stock History"
@@ -128,7 +105,7 @@ Partial Class Inventory
         ' 
         btAddStock.BackColor = Color.Transparent
         btAddStock.BorderRadius = 25
-        btAddStock.CustomizableEdges = CustomizableEdges5
+        btAddStock.CustomizableEdges = CustomizableEdges3
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
         btAddStock.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -138,7 +115,7 @@ Partial Class Inventory
         btAddStock.ForeColor = Color.White
         btAddStock.Location = New Point(466, 492)
         btAddStock.Name = "btAddStock"
-        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btAddStock.Size = New Size(180, 45)
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
@@ -238,5 +215,4 @@ Partial Class Inventory
     Friend WithEvents Quantity As DataGridViewTextBoxColumn
     Friend WithEvents lblStockCategory As Label
     Friend WithEvents cbxCategory As ComboBox
-    Friend WithEvents btAddCat As Guna.UI2.WinForms.Guna2Button
 End Class
