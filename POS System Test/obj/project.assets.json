@@ -151,9 +151,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS System Test.vbproj",
-      "projectName": "POS System Test",
-      "projectPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS System Test.vbproj",
+      "projectUniqueName": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
+      "projectName": "POS And Inventory",
+      "projectPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
       "packagesPath": "C:\\Users\\HP EliteDesk\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\obj\\",
       "projectStyle": "PackageReference",
