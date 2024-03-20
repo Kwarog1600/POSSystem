@@ -64,8 +64,9 @@ Module ProgramLoad
 
         ' Create CSV files for each list if they do not exist
         CreateCsvFileIfNotExists("Users.csv", "Username,Password,Access Level")
-        CreateCsvFileIfNotExists("Stock.csv", "ID,Brand,Model,Description,Qty")
         CreateCsvFileIfNotExists("Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
         CreateCsvFileIfNotExists("Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
+        CreateCsvFileIfNotExists("Stock Category.csv", "CategoryName,DescriptionList")
+        CreateCsvFileIfNotExists("Stock Category.csv", "Date & Time, Items")
     End Sub
 End Module
