@@ -214,8 +214,8 @@ Public Class Inventory
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
         Dim searchText As String = txbxSearch.Text.Trim().ToLower()
 
-        ' Clear the selection before applying the new search results
-        dgvStockList.ClearSelection()
+        ' Clear dgvStockList before anything else
+        dgvStockList.Rows.Clear()
 
         ' Iterate through each category in cxbxCategory
         For Each category As String In cbxCategory.Items
@@ -223,6 +223,9 @@ Public Class Inventory
                 Dim csvFileName As String = category & ".csv" ' Assuming CSV file names are based on the category names
                 If File.Exists(csvFileName) Then
                     Using reader As New StreamReader(csvFileName)
+                        ' Skip the first line (column headers)
+                        reader.ReadLine()
+
                         ' Read each line in the CSV file
                         While Not reader.EndOfStream
                             Dim line As String = reader.ReadLine()
@@ -244,10 +247,6 @@ Public Class Inventory
             End If
         Next
     End Sub
-
-
-
-
 
 End Class
 
