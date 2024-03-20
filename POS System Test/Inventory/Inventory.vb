@@ -46,38 +46,39 @@ Public Class Inventory
     End Sub
 
     Private Sub LoadItems()
-        ' Clear existing items in dgvItems
         dgvStockList.Rows.Clear()
-
-        ' Load items based on selected category from Stock Category.csv
         Dim selectedCategory As String = cbxCategory.SelectedItem.ToString()
-        Dim items As New List(Of String)
+
         Try
-            Using reader As New StreamReader("Stock Category.csv")
-                Dim isFirstLine As Boolean = True ' Flag to skip the first line (headers)
+            Dim stockCategoryFile As String = "Stock Category.csv"
+            Dim itemsFileName As String = ""
+
+            Using reader As New StreamReader(stockCategoryFile)
                 While Not reader.EndOfStream
                     Dim line = reader.ReadLine()
-                    If isFirstLine Then
-                        isFirstLine = False
-                        Continue While ' Skip headers
-                    End If
-                    Dim categoryAndItems = line.Split(","c)
-                    If categoryAndItems(0) = selectedCategory OrElse selectedCategory = "All" Then
-                        For i As Integer = 1 To categoryAndItems.Length - 1
-                            items.Add(categoryAndItems(i))
-                        Next
+                    Dim categoryAndFileName = line.Split(","c)
+                    If categoryAndFileName(0) = selectedCategory OrElse selectedCategory = "All" Then
+                        itemsFileName = categoryAndFileName(0) & ".csv" ' Assuming the category name determines the filename
+                        Exit While
                     End If
                 End While
             End Using
 
-            ' Add items to dgvItems
-            For Each item In items
-                dgvStockList.Rows.Add(item)
-            Next
+            If Not String.IsNullOrEmpty(itemsFileName) Then
+                Using reader As New StreamReader(itemsFileName)
+                    While Not reader.EndOfStream
+                        Dim line = reader.ReadLine()
+                        dgvStockList.Rows.Add(line)
+                    End While
+                End Using
+            Else
+                MessageBox.Show("No matching category found.")
+            End If
         Catch ex As Exception
             Throw New Exception("Error loading items", ex)
         End Try
     End Sub
+
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged, cbxCategory.SelectedIndexChanged
         Try
