@@ -212,8 +212,39 @@ Public Class Inventory
     End Sub
 
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
+        Dim searchText As String = txbxSearch.Text.Trim().ToLower()
 
+        ' Clear the selection before applying the new search results
+        dgvStockList.ClearSelection()
+
+        ' Iterate through each category in cxbxCategory
+        For Each category As String In cbxCategory.Items
+            If category <> "All" Then
+                Dim csvFileName As String = category & ".csv" ' Assuming CSV file names are based on the category names
+                If File.Exists(csvFileName) Then
+                    Using reader As New StreamReader(csvFileName)
+                        ' Read each line in the CSV file
+                        While Not reader.EndOfStream
+                            Dim line As String = reader.ReadLine()
+                            Dim values As String() = line.Split(","c) ' Assuming CSV files are comma-separated
+
+                            ' Check if any value in the current line contains the search text
+                            For Each value As String In values
+                                If value.ToLower().Contains(searchText) Then
+                                    ' If a match is found, add the values to dgvStockList
+                                    dgvStockList.Rows.Add(values)
+                                    Exit While ' Exit the inner loop since we found a match in this file
+                                End If
+                            Next
+                        End While
+                    End Using
+                Else
+                    MessageBox.Show("CSV file not found for category: " & category, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            End If
+        Next
     End Sub
+
 
 
 
