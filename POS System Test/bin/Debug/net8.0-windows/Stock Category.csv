@@ -1,2 +1,4 @@
 CategoryName,DescriptionList
 Shoes,Size|Color
+Apparel,Color|Type|Size
+Socks,Color

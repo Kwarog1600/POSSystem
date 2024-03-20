@@ -3,13 +3,14 @@
 Public Class Inventory
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            LoadCategoriesAndItems()
+            LoadCategories()
+            LoadItems()
         Catch ex As Exception
             MessageBox.Show($"Error loading categories and items: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Private Sub LoadCategoriesAndItems()
+    Private Sub LoadCategories()
         ' Clear existing items in cbxCategory
         cbxCategory.Items.Clear()
 
@@ -44,7 +45,41 @@ Public Class Inventory
         cbxCategory.SelectedIndex = 0
     End Sub
 
-    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+    Private Sub LoadItems()
+        ' Clear existing items in dgvItems
+        dgvStockList.Rows.Clear()
+
+        ' Load items based on selected category from Stock Category.csv
+        Dim selectedCategory As String = cbxCategory.SelectedItem.ToString()
+        Dim items As New List(Of String)
+        Try
+            Using reader As New StreamReader("Stock Category.csv")
+                Dim isFirstLine As Boolean = True ' Flag to skip the first line (headers)
+                While Not reader.EndOfStream
+                    Dim line = reader.ReadLine()
+                    If isFirstLine Then
+                        isFirstLine = False
+                        Continue While ' Skip headers
+                    End If
+                    Dim categoryAndItems = line.Split(","c)
+                    If categoryAndItems(0) = selectedCategory OrElse selectedCategory = "All" Then
+                        For i As Integer = 1 To categoryAndItems.Length - 1
+                            items.Add(categoryAndItems(i))
+                        Next
+                    End If
+                End While
+            End Using
+
+            ' Add items to dgvItems
+            For Each item In items
+                dgvStockList.Rows.Add(item)
+            Next
+        Catch ex As Exception
+            Throw New Exception("Error loading items", ex)
+        End Try
+    End Sub
+
+    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged, cbxCategory.SelectedIndexChanged
         Try
             ' Clear existing columns and rows in dgvStockList
             dgvStockList.Columns.Clear()
@@ -57,14 +92,14 @@ Public Class Inventory
             dgvStockList.Columns.Add("ID", "ID")
 
             ' Add columns for the selected category (if not "All")
-            Dim selectedCategory = cbxCategory.SelectedItem.ToString()
+            Dim selectedCategory = cbxCategory.SelectedItem.ToString
             If selectedCategory <> "All" Then
                 Dim categoryFileName = selectedCategory & ".csv"
                 If File.Exists(categoryFileName) Then
                     Using reader As New StreamReader(categoryFileName)
-                        Dim isFirstLine As Boolean = True ' Flag to skip the first line (headers)
+                        Dim isFirstLine = True ' Flag to skip the first line (headers)
                         If Not reader.EndOfStream Then
-                            Dim headers = reader.ReadLine().Split(","c)
+                            Dim headers = reader.ReadLine.Split(","c)
                             For Each header In headers
                                 If isFirstLine Then
                                     isFirstLine = False
@@ -83,9 +118,9 @@ Public Class Inventory
                 ' Populate dgvStockList with items from the selected category
                 If dgvStockList.Columns.Count > 0 Then
                     Using reader As New StreamReader(categoryFileName)
-                        Dim isFirstLine As Boolean = True ' Flag to skip the first line (headers)
+                        Dim isFirstLine = True ' Flag to skip the first line (headers)
                         While Not reader.EndOfStream
-                            Dim line = reader.ReadLine()
+                            Dim line = reader.ReadLine
                             If isFirstLine Then
                                 isFirstLine = False
                                 Continue While ' Skip headers
@@ -175,8 +210,61 @@ Public Class Inventory
     End Sub
 
     Private Sub cbxCategory_Click(sender As Object, e As EventArgs) Handles cbxCategory.Click
-        LoadCategoriesAndItems()
+        LoadCategories()
     End Sub
+
+    Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
+        ' Clear the existing rows and columns in dgvStocklist
+        dgvStockList.Rows.Clear()
+
+        ' Get the search text
+        Dim searchText As String = txbxSearch.Text.Trim()
+
+        ' Scan for CSV files in the program folder
+        Dim programFolder As String = Application.StartupPath
+        Dim csvFiles() As String = System.IO.Directory.GetFiles(programFolder, "*.csv")
+
+        ' Loop through each CSV file
+        For Each csvFile As String In csvFiles
+            ' Read the CSV file
+            Dim lines() As String = System.IO.File.ReadAllLines(csvFile)
+
+            ' Assume the first line contains the column headers
+            Dim headers() As String = lines(0).Split(","c)
+
+            ' Add columns to dgvStocklist if not added already
+            If dgvStockList.ColumnCount = 0 Then
+                For Each header As String In headers
+                    dgvStockList.Columns.Add(header, header)
+                Next
+            End If
+
+            ' Loop through each line (excluding the header line)
+            For i As Integer = 1 To lines.Length - 1
+                Dim values() As String = lines(i).Split(","c)
+
+                ' Check if any value in the line contains the search text, excluding Quantity column
+                Dim foundMatchingItem As Boolean = False
+                For j As Integer = 0 To values.Length - 1
+                    If dgvStockList.Columns(j).HeaderText.Trim().ToLower() <> "quantity" Then
+                        If values(j).Contains(searchText, StringComparison.OrdinalIgnoreCase) Then
+                            foundMatchingItem = True
+                            Exit For
+                        End If
+                    End If
+                Next
+
+                ' If any value matches the search text, add the row to dgvStocklist
+                If foundMatchingItem Then
+                    dgvStockList.Rows.Add(values)
+                End If
+            Next
+        Next
+    End Sub
+
+
+
+
 End Class
 
 
