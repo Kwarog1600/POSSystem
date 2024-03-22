@@ -135,6 +135,8 @@ Public Class AddStock
         Dim Brand As String = txbxBrand.Text
         Dim Quantity As String = txbxQty.Text
         Dim descriptions As New List(Of String)
+
+        dgvAddedList.Rows.Add(Category, ID, Brand, Quantity)
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
