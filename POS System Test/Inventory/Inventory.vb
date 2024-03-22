@@ -46,37 +46,34 @@ Public Class Inventory
     End Sub
 
     Private Sub LoadItems()
-        dgvStockList.Rows.Clear()
-        Dim selectedCategory As String = cbxCategory.SelectedItem.ToString()
-
-        Try
-            Dim stockCategoryFile As String = "Stock Category.csv"
-            Dim itemsFileName As String = ""
-
-            Using reader As New StreamReader(stockCategoryFile)
-                While Not reader.EndOfStream
-                    Dim line = reader.ReadLine()
-                    Dim categoryAndFileName = line.Split(","c)
-                    If categoryAndFileName(0) = selectedCategory OrElse selectedCategory = "All" Then
-                        itemsFileName = categoryAndFileName(0) & ".csv" ' Assuming the category name determines the filename
-                        Exit While
-                    End If
-                End While
-            End Using
-
-            If Not String.IsNullOrEmpty(itemsFileName) Then
-                Using reader As New StreamReader(itemsFileName)
-                    While Not reader.EndOfStream
-                        Dim line = reader.ReadLine()
-                        dgvStockList.Rows.Add(line)
-                    End While
-                End Using
-            Else
-                MessageBox.Show("No matching category found.")
+        ' Assuming cxbxCategory is a ComboBox control
+        For Each category As String In cbxCategory.Items
+            If category <> "All" Then
+                Dim csvFileName As String = category & ".csv" ' Assuming CSV file names are based on the category names
+                If File.Exists(csvFileName) Then
+                    Using reader As New StreamReader(csvFileName)
+                        Dim line As String = reader.ReadLine()
+                        If line IsNot Nothing Then
+                            Dim headers As String() = line.Split(","c) ' Assuming CSV files are comma-separated
+                            ' Add headers to dgvStockList if they are not already included
+                            For Each header As String In headers
+                                If Not dgvStockList.Columns.Contains(header) Then
+                                    dgvStockList.Columns.Add(header, header)
+                                End If
+                            Next
+                        End If
+                        ' Read and add contents to dgvStockList
+                        While Not reader.EndOfStream
+                            Dim contentLine As String = reader.ReadLine()
+                            Dim values As String() = contentLine.Split(","c) ' Assuming CSV files are comma-separated
+                            dgvStockList.Rows.Add(values)
+                        End While
+                    End Using
+                Else
+                    MessageBox.Show("CSV file not found for category: " & category, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
-        Catch ex As Exception
-            Throw New Exception("Error loading items", ex)
-        End Try
+        Next
     End Sub
 
 
@@ -215,56 +212,41 @@ Public Class Inventory
     End Sub
 
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
-        ' Clear the existing rows and columns in dgvStocklist
+        Dim searchText As String = txbxSearch.Text.Trim().ToLower()
+
+        ' Clear dgvStockList before anything else
         dgvStockList.Rows.Clear()
 
-        ' Get the search text
-        Dim searchText As String = txbxSearch.Text.Trim()
+        ' Iterate through each category in cxbxCategory
+        For Each category As String In cbxCategory.Items
+            If category <> "All" Then
+                Dim csvFileName As String = category & ".csv" ' Assuming CSV file names are based on the category names
+                If File.Exists(csvFileName) Then
+                    Using reader As New StreamReader(csvFileName)
+                        ' Skip the first line (column headers)
+                        reader.ReadLine()
 
-        ' Scan for CSV files in the program folder
-        Dim programFolder As String = Application.StartupPath
-        Dim csvFiles() As String = System.IO.Directory.GetFiles(programFolder, "*.csv")
+                        ' Read each line in the CSV file
+                        While Not reader.EndOfStream
+                            Dim line As String = reader.ReadLine()
+                            Dim values As String() = line.Split(","c) ' Assuming CSV files are comma-separated
 
-        ' Loop through each CSV file
-        For Each csvFile As String In csvFiles
-            ' Read the CSV file
-            Dim lines() As String = System.IO.File.ReadAllLines(csvFile)
-
-            ' Assume the first line contains the column headers
-            Dim headers() As String = lines(0).Split(","c)
-
-            ' Add columns to dgvStocklist if not added already
-            If dgvStockList.ColumnCount = 0 Then
-                For Each header As String In headers
-                    dgvStockList.Columns.Add(header, header)
-                Next
-            End If
-
-            ' Loop through each line (excluding the header line)
-            For i As Integer = 1 To lines.Length - 1
-                Dim values() As String = lines(i).Split(","c)
-
-                ' Check if any value in the line contains the search text, excluding Quantity column
-                Dim foundMatchingItem As Boolean = False
-                For j As Integer = 0 To values.Length - 1
-                    If dgvStockList.Columns(j).HeaderText.Trim().ToLower() <> "quantity" Then
-                        If values(j).Contains(searchText, StringComparison.OrdinalIgnoreCase) Then
-                            foundMatchingItem = True
-                            Exit For
-                        End If
-                    End If
-                Next
-
-                ' If any value matches the search text, add the row to dgvStocklist
-                If foundMatchingItem Then
-                    dgvStockList.Rows.Add(values)
+                            ' Check if any value in the current line contains the search text
+                            For Each value As String In values
+                                If value.ToLower().Contains(searchText) Then
+                                    ' If a match is found, add the values to dgvStockList
+                                    dgvStockList.Rows.Add(values)
+                                    Exit While ' Exit the inner loop since we found a match in this file
+                                End If
+                            Next
+                        End While
+                    End Using
+                Else
+                    MessageBox.Show("CSV file not found for category: " & category, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
-            Next
+            End If
         Next
     End Sub
-
-
-
 
 End Class
 

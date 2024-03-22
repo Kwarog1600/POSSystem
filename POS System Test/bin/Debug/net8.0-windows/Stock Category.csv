@@ -1,2 +1,3 @@
 CategoryName,DescriptionList
-Shoes,Color|Size
+Shoes,Size|Color
+Apparel,Size|Type|Color

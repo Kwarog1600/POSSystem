@@ -31,3 +31,36 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.pdb
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.genruntimeconfig.cache
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\ref\POS And Inventory.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\POS And Inventory.exe
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\POS And Inventory.deps.json
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\POS And Inventory.runtimeconfig.json
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\POS And Inventory.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\POS And Inventory.pdb
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\Guna.UI2.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\System.Management.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.vbproj.AssemblyReference.cache
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Analytics.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.History.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.AddStock.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Inventory.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.StockCategoryAdd.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.StockHistory.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Dashboard.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.LoginForm.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.MainForm.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Settings.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Resources.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Sales.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.vbproj.GenerateResource.cache
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.AssemblyInfoInputs.cache
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.AssemblyInfo.vb
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.vbproj.CoreCompileInputs.cache
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.sourcelink.json
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And .8A4DEEDA.Up2Date
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\refint\POS And Inventory.dll
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.pdb
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.genruntimeconfig.cache
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\ref\POS And Inventory.dll

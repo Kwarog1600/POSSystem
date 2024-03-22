@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ExplorerBar
 
 Public Class AddStock
     Private Sub AddStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -82,11 +83,8 @@ Public Class AddStock
                                                     dgvDescriptions.Rows.Clear()
                                                     dgvDescriptions.Columns.Clear()
 
-                                                    ' Add headers to dgvDescriptions
-                                                    Dim headers As String() = lines(0).Split(","c)
-                                                    For k As Integer = 4 To headers.Length - 1 ' Assuming details start from the 5th column
-                                                        dgvDescriptions.Columns.Add(headers(k), headers(k))
-                                                    Next
+                                                    ' Update column headers
+                                                    UpdateColumnHeaders(lines(0))
 
                                                     ' Add corresponding details to dgvDescriptions
                                                     dgvDescriptions.Rows.Add()
@@ -120,5 +118,48 @@ Public Class AddStock
             End If
         End If
     End Sub
+
+    Private Sub UpdateColumnHeaders(headerLine As String)
+        ' Add headers to dgvDescriptions
+        Dim headers As String() = headerLine.Split(","c)
+        For k As Integer = 4 To headers.Length - 1 ' Assuming details start from the 5th column
+            dgvDescriptions.Columns.Add(headers(k), headers(k))
+        Next
+    End Sub
+
+    Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
+        Dim Category As String = cbxCategory.SelectedItem.ToString()
+        Dim csvFileName As String = Category & ".csv"
+        Dim ID As String = txbxID.Text
+        Dim Model As String = txbxModel.Text
+        Dim Brand As String = txbxBrand.Text
+        Dim Quantity As String = txbxQty.Text
+        Dim descriptions As New List(Of String)
+    End Sub
+
+    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+        ' Get the selected content
+        Dim selectedContent As String = cbxCategory.SelectedItem.ToString()
+
+        ' Create the file path using the selected content as the filename
+        Dim filePath As String = Path.Combine(Application.StartupPath, $"{selectedContent}.csv")
+
+        ' Check if the file exists
+        If File.Exists(filePath) Then
+            ' Read the first line of the CSV file to get column headers
+            Dim headers As String() = File.ReadLines(filePath).First().Split(","c)
+
+            ' Clear existing columns from the DataGridView
+            dgvDescriptions.Columns.Clear()
+
+            ' Add columns to the DataGridView using the headers from the CSV file starting from the 5th column
+            For i As Integer = 4 To headers.Length - 1
+                dgvDescriptions.Columns.Add(headers(i), headers(i))
+            Next
+        Else
+            MessageBox.Show($"CSV file '{filePath}' does not exist.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
 
 End Class
