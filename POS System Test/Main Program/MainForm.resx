@@ -121,7 +121,7 @@
   <data name="btSettings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAJPpJREFUeF7t3Qe0rWdd5/E0wAAJEAhN6U3EASFIlKKICKIioDIaByIiBlGUxVhQ
+        DAAACwwBP0AiyAAAJPpJREFUeF7t3Qe0rWdd5/E0wAAJEAhN6U3EASFIlKKICKIioDIaByIiBlGUxVhQ
         QEnoYEVlRqrSghTL0BQQQxUEBBGQIdKRoiAkJCGQNvP7By7c3PzvPfucs8tbPt+1PktWTO7d593P3s/Z
         737e5z1IkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ
         kiRJkqQNd2j8WDwrTo0z4v9N2FnxoXhB3DsuFZIkjbq7xAeim/jm4t/jJ0OSpFH2qLgguklujp4WdbZC
@@ -282,4 +282,7 @@
         3H7S7nkKsGUAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="Guna2ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

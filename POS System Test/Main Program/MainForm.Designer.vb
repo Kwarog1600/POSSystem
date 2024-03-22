@@ -78,6 +78,7 @@ Partial Class MainForm
         btMin = New Guna.UI2.WinForms.Guna2Button()
         btLgtClose = New Guna.UI2.WinForms.Guna2Button()
         pnlSwitch = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         pnlSelection.SuspendLayout()
         pnlLgtSt.SuspendLayout()
         Guna2Panel1.SuspendLayout()
@@ -385,6 +386,20 @@ Partial Class MainForm
         pnlSwitch.Size = New Size(600, 694)
         pnlSwitch.TabIndex = 1
         ' 
+        ' Guna2ContextMenuStrip1
+        ' 
+        Guna2ContextMenuStrip1.Name = "Guna2ContextMenuStrip1"
+        Guna2ContextMenuStrip1.RenderStyle.ArrowColor = Color.FromArgb(CByte(151), CByte(143), CByte(255))
+        Guna2ContextMenuStrip1.RenderStyle.BorderColor = Color.Gainsboro
+        Guna2ContextMenuStrip1.RenderStyle.ColorTable = Nothing
+        Guna2ContextMenuStrip1.RenderStyle.RoundedEdges = True
+        Guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = Color.White
+        Guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        Guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = Color.White
+        Guna2ContextMenuStrip1.RenderStyle.SeparatorColor = Color.Gainsboro
+        Guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = Drawing.Text.TextRenderingHint.SystemDefault
+        Guna2ContextMenuStrip1.Size = New Size(181, 26)
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -426,4 +441,5 @@ Partial Class MainForm
     Friend WithEvents btEmplyMngt As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btSettings As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlLgtSt As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
 End Class
