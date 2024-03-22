@@ -56,6 +56,7 @@ Partial Class AddStock
         clmID = New DataGridViewTextBoxColumn()
         clmBrand = New DataGridViewTextBoxColumn()
         clmModel = New DataGridViewTextBoxColumn()
+        clmQuantity = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
@@ -201,6 +202,7 @@ Partial Class AddStock
         ' 
         ' dgvDescriptions
         ' 
+        dgvDescriptions.AllowUserToAddRows = False
         dgvDescriptions.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         dgvDescriptions.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
@@ -212,7 +214,7 @@ Partial Class AddStock
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvDescriptions.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvDescriptions.ColumnHeadersHeight = 4
+        dgvDescriptions.ColumnHeadersHeight = 20
         dgvDescriptions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
@@ -240,7 +242,7 @@ Partial Class AddStock
         dgvDescriptions.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvDescriptions.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgvDescriptions.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvDescriptions.ThemeStyle.HeaderStyle.Height = 4
+        dgvDescriptions.ThemeStyle.HeaderStyle.Height = 20
         dgvDescriptions.ThemeStyle.ReadOnly = False
         dgvDescriptions.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvDescriptions.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
@@ -264,7 +266,7 @@ Partial Class AddStock
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmBrand, clmModel})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmBrand, clmModel, clmQuantity})
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
         DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
@@ -320,6 +322,11 @@ Partial Class AddStock
         ' 
         clmModel.HeaderText = "Model"
         clmModel.Name = "clmModel"
+        ' 
+        ' clmQuantity
+        ' 
+        clmQuantity.HeaderText = "Quantity"
+        clmQuantity.Name = "clmQuantity"
         ' 
         ' btSave
         ' 
@@ -410,10 +417,11 @@ Partial Class AddStock
     Friend WithEvents dgvDescriptions As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents dgvAddedList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btSave As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblQuantity As Label
+    Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents clmCategory As DataGridViewTextBoxColumn
     Friend WithEvents clmID As DataGridViewTextBoxColumn
     Friend WithEvents clmBrand As DataGridViewTextBoxColumn
     Friend WithEvents clmModel As DataGridViewTextBoxColumn
-    Friend WithEvents lblQuantity As Label
-    Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
 End Class

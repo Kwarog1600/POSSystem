@@ -136,6 +136,13 @@ Public Class AddStock
         Dim Quantity As String = txbxQty.Text
         Dim descriptions As New List(Of String)
 
+        For Each column As DataGridViewColumn In dgvDescriptions.Columns
+            If dgvAddedList.Columns.Contains(column.Name) Then
+                Continue For ' Skip adding the column if it already exists
+            End If
+            dgvAddedList.Columns.Add(column.Name, column.HeaderText)
+        Next
+
         dgvAddedList.Rows.Add(Category, ID, Brand, Quantity)
     End Sub
 
