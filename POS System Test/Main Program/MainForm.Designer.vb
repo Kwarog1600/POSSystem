@@ -152,7 +152,7 @@ Partial Class MainForm
         ' 
         Guna2Panel1.Controls.Add(btEmplyMngt)
         Guna2Panel1.CustomizableEdges = CustomizableEdges9
-        Guna2Panel1.Location = New Point(6, 607)
+        Guna2Panel1.Location = New Point(3, 504)
         Guna2Panel1.Name = "Guna2Panel1"
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2Panel1.Size = New Size(190, 87)
@@ -186,7 +186,7 @@ Partial Class MainForm
         PnlBtnSelection.Controls.Add(btAnalytics)
         PnlBtnSelection.Controls.Add(btSale)
         PnlBtnSelection.CustomizableEdges = CustomizableEdges23
-        PnlBtnSelection.Location = New Point(6, 304)
+        PnlBtnSelection.Location = New Point(4, 160)
         PnlBtnSelection.Name = "PnlBtnSelection"
         PnlBtnSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         PnlBtnSelection.Size = New Size(190, 300)
@@ -312,7 +312,7 @@ Partial Class MainForm
         pnlRibbon.Location = New Point(200, 0)
         pnlRibbon.Name = "pnlRibbon"
         pnlRibbon.ShadowDecoration.CustomizableEdges = CustomizableEdges34
-        pnlRibbon.Size = New Size(600, 50)
+        pnlRibbon.Size = New Size(1080, 50)
         pnlRibbon.TabIndex = 1
         ' 
         ' lblUser
@@ -383,7 +383,7 @@ Partial Class MainForm
         pnlSwitch.Location = New Point(200, 50)
         pnlSwitch.Name = "pnlSwitch"
         pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges36
-        pnlSwitch.Size = New Size(600, 694)
+        pnlSwitch.Size = New Size(1080, 670)
         pnlSwitch.TabIndex = 1
         ' 
         ' Guna2ContextMenuStrip1
@@ -398,13 +398,13 @@ Partial Class MainForm
         Guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = Color.White
         Guna2ContextMenuStrip1.RenderStyle.SeparatorColor = Color.Gainsboro
         Guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = Drawing.Text.TextRenderingHint.SystemDefault
-        Guna2ContextMenuStrip1.Size = New Size(181, 26)
+        Guna2ContextMenuStrip1.Size = New Size(61, 4)
         ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 743)
+        ClientSize = New Size(1280, 720)
         Controls.Add(pnlSwitch)
         Controls.Add(pnlRibbon)
         Controls.Add(pnlSelection)
