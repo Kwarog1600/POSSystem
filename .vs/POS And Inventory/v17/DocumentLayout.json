@@ -1,38 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\main program\\mainform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\main program\\mainform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\hp elitedesk\\source\\repos\\possystem\\pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\cacca\\onedrive\\desktop\\centralized pos system\\pos\\pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\pos system test\\inventory\\stockcategoryadd.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\stockcategoryadd.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\pos system test\\inventory\\stockcategoryadd.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS System Test.vbproj|solutionrelative:pos system test\\inventory\\stockcategoryadd.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,100 +18,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddStock.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\AddStock.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Inventory\\AddStock.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\AddStock.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-22T08:21:56.851Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainForm.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Main Program\\MainForm.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Main Program\\MainForm.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Main Program\\MainForm.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Main Program\\MainForm.vb [Design]",
+              "Title": "AddStock.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb",
+              "RelativeDocumentMoniker": "POS System Test\\Inventory\\AddStock.vb",
+              "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb [Design]",
+              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-22T08:19:08.203Z",
+              "WhenOpened": "2024-03-22T12:19:54.458Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AddStock.vb",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\AddStock.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Inventory\\AddStock.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\AddStock.vb",
-              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb",
-              "ViewState": "AQIAAHsAAAAAAAAAAAAawIUAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-22T03:31:32.923Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "StockCategoryAdd.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\StockCategoryAdd.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Inventory\\StockCategoryAdd.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\StockCategoryAdd.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Inventory\\StockCategoryAdd.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-22T03:31:24.82Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Inventory.vb",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb",
+              "DocumentMoniker": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeDocumentMoniker": "POS System Test\\Inventory\\Inventory.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb",
+              "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeToolTip": "POS System Test\\Inventory\\Inventory.vb",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowEcAAAAUAAAA",
+              "ViewState": "AQIAAMgAAAAAAAAAAAAhwNoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-22T03:17:57.747Z"
-            },
+              "WhenOpened": "2024-03-20T13:14:02.1Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 105,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Inventory.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Inventory\\Inventory.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\Inventory.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Inventory\\Inventory.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-21T01:39:24.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AddStock.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\AddStock.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Inventory\\AddStock.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\AddStock.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-20T05:51:06.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "StockCategoryAdd.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\StockCategoryAdd.vb",
-              "RelativeDocumentMoniker": "POS System Test\\Inventory\\StockCategoryAdd.vb",
-              "ToolTip": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\Inventory\\StockCategoryAdd.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Inventory\\StockCategoryAdd.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-20T05:51:07.381Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }
