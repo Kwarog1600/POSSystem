@@ -34,13 +34,47 @@ Public Class AddStock
     End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
+        If txbxID IsNot Nothing Then
+            For Each filename As String In cbxCategory.Items
+                Dim filePath As String = filename & ".csv"
+                ' Check if the file exists
+                If File.Exists(filePath) Then
 
+                    Try
+                        ' Read all lines from the file
+                        Dim lines As String() = File.ReadAllLines(filePath)
+
+                        ' Check if there are items in the file
+                        If lines.Length > 1 Then
+                            ' Iterate through each line starting from index 1 (to skip header)
+                            For i As Integer = 1 To lines.Length - 1
+                                ' Split the line by comma to get individual values
+                                Dim values As String() = lines(i).Split(","c)
+                                If values(0).Equals(txbxID.Text) Then
+                                    txbxBrand.Text = values(2)
+                                    txbxModel.Text = values(3)
+                                    txbxPrice.Text = values(1)
+                                    cbxCategory.SelectedItem = filename
+                                    Exit For
+                                End If
+                            Next
+                        End If
+                    Catch ex As Exception
+                        ' Handle any exceptions that might occur during file reading
+                        MessageBox.Show("Error reading file: " & ex.Message)
+                    End Try
+                Else
+                    ' Handle case where file doesn't exist
+                    MessageBox.Show("File does not exist: " & filePath)
+                End If
+            Next
+        End If
     End Sub
 
     Private Sub UpdateRowHeaders()
         ' Get the selected content
         Dim selectedContent As String = cbxCategory.SelectedItem.ToString()
-
+        dgvDescriptions.Rows.Clear()
         ' Create the file path using the selected content as the filename
         Dim filePath As String = Path.Combine(Application.StartupPath, $"{selectedContent}.csv")
 
@@ -48,12 +82,6 @@ Public Class AddStock
         If File.Exists(filePath) Then
             ' Read the first line of the CSV file to get column headers
             Dim headers As String() = File.ReadLines(filePath).First().Split(","c)
-
-            ' Add a column for headers
-            dgvDescriptions.Columns.Add("HeaderColumn", "Description")
-
-            ' Add a column for editing
-            dgvDescriptions.Columns.Add("EditingColumn", "Value")
 
             ' Add row headers to the DataGridView using the headers from the CSV file starting from the 6th column
             For i As Integer = 5 To headers.Length - 1
@@ -65,7 +93,7 @@ Public Class AddStock
             MessageBox.Show($"Row for '{selectedContent}' does not exist. Added a default row to the DataGridView.", "Row Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-        dgvDescriptions.Columns("HeaderColumn").ReadOnly = True
+        dgvDescriptions.Columns("clmDesciptions").ReadOnly = True
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
