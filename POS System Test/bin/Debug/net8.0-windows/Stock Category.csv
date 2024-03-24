@@ -1,2 +1,3 @@
 CategoryName,DescriptionList
 Shoes,Size|Color
+Apparel,Apparel_ID|Price|Brand|Type|Gender|Size|Color|Quantity

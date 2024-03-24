@@ -30,13 +30,6 @@ Public Class StockCategoryAdd
         ' Construct full file path for the new category CSV file in the program folder
         Dim filePath As String = Path.Combine(Application.StartupPath, filename)
 
-        ' Write headers and dummy data to the new category CSV file
-        Using sw As New StreamWriter(filePath, False, Encoding.UTF8)
-            sw.WriteLine(String.Join(",", headers))
-            ' You can add some dummy data here if needed
-            sw.WriteLine(String.Join(",", Enumerable.Repeat("", headers.Count)))
-        End Using
-
         ' Write category name and descriptions to "Stock Categories.csv"
         Dim categoryInfo As String = $"{category},{String.Join("|", descriptions)}"
         File.AppendAllText(stockCategoriesFilePath, categoryInfo & Environment.NewLine)

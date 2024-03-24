@@ -4,7 +4,6 @@ Public Class Inventory
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             LoadCategories()
-            LoadItems()
         Catch ex As Exception
             MessageBox.Show($"Error loading categories and items: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -45,39 +44,7 @@ Public Class Inventory
         cbxCategory.SelectedIndex = 0
     End Sub
 
-    Private Sub LoadItems()
-        ' Assuming cxbxCategory is a ComboBox control
-        For Each category As String In cbxCategory.Items
-            If category <> "All" Then
-                Dim csvFileName As String = category & ".csv" ' Assuming CSV file names are based on the category names
-                If File.Exists(csvFileName) Then
-                    Using reader As New StreamReader(csvFileName)
-                        Dim line As String = reader.ReadLine()
-                        If line IsNot Nothing Then
-                            Dim headers As String() = line.Split(","c) ' Assuming CSV files are comma-separated
-                            ' Add headers to dgvStockList if they are not already included
-                            For Each header As String In headers
-                                If Not dgvStockList.Columns.Contains(header) Then
-                                    dgvStockList.Columns.Add(header, header)
-                                End If
-                            Next
-                        End If
-                        ' Read and add contents to dgvStockList
-                        While Not reader.EndOfStream
-                            Dim contentLine As String = reader.ReadLine()
-                            Dim values As String() = contentLine.Split(","c) ' Assuming CSV files are comma-separated
-                            dgvStockList.Rows.Add(values)
-                        End While
-                    End Using
-                Else
-                    MessageBox.Show("CSV file not found for category: " & category, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            End If
-        Next
-    End Sub
-
-
-    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged, cbxCategory.SelectedIndexChanged
+    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         Try
             ' Clear existing columns and rows in dgvStockList
             dgvStockList.Columns.Clear()
@@ -111,24 +78,24 @@ Public Class Inventory
                             Next
                         End If
                     End Using
-                End If
 
-                ' Populate dgvStockList with items from the selected category
-                If dgvStockList.Columns.Count > 0 Then
-                    Using reader As New StreamReader(categoryFileName)
-                        Dim isFirstLine = True ' Flag to skip the first line (headers)
-                        While Not reader.EndOfStream
-                            Dim line = reader.ReadLine
-                            If isFirstLine Then
-                                isFirstLine = False
-                                Continue While ' Skip headers
-                            End If
-                            Dim values = line.Split(","c)
-                            If values.Length = dgvStockList.Columns.Count Then
-                                dgvStockList.Rows.Add(values)
-                            End If
-                        End While
-                    End Using
+                    ' Populate dgvStockList with items from the selected category
+                    If dgvStockList.Columns.Count > 0 Then
+                        Using reader As New StreamReader(categoryFileName)
+                            Dim isFirstLine = True ' Flag to skip the first line (headers)
+                            While Not reader.EndOfStream
+                                Dim line = reader.ReadLine
+                                If isFirstLine Then
+                                    isFirstLine = False
+                                    Continue While ' Skip headers
+                                End If
+                                Dim values = line.Split(","c)
+                                If values.Length = dgvStockList.Columns.Count Then
+                                    dgvStockList.Rows.Add(values)
+                                End If
+                            End While
+                        End Using
+                    End If
                 End If
             Else
                 ' If "All" selected, you can handle what you want to show in the DataGridView here.
@@ -184,7 +151,12 @@ Public Class Inventory
                             For i As Integer = 0 To values.Length - 1
                                 Dim columnName As String = headers(i)
                                 Dim columnIndex As Integer = headerColumnIndex(columnName)
-                                dgvStockList.Rows(rowIndex).Cells(columnIndex).Value = values(i)
+
+                                ' Check if the value already exists in the DataGridView
+                                Dim existingValue As String = dgvStockList.Rows(rowIndex).Cells(columnIndex).Value?.ToString()
+                                If existingValue <> values(i) Then
+                                    dgvStockList.Rows(rowIndex).Cells(columnIndex).Value = values(i)
+                                End If
                             Next
                         End While
                     End Using

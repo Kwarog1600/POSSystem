@@ -24,6 +24,8 @@ Partial Class Inventory
     Private Sub InitializeComponent()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -33,9 +35,8 @@ Partial Class Inventory
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlDashBoardContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         btAddCategory = New Guna.UI2.WinForms.Guna2Button()
         dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
         clmID = New DataGridViewTextBoxColumn()
@@ -47,7 +48,6 @@ Partial Class Inventory
         cbxCategory = New ComboBox()
         btStockHistory = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
-        txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         pnlDashBoardContainer.SuspendLayout()
         CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -68,6 +68,26 @@ Partial Class Inventory
         pnlDashBoardContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         pnlDashBoardContainer.Size = New Size(920, 575)
         pnlDashBoardContainer.TabIndex = 3
+        ' 
+        ' txbxSearch
+        ' 
+        txbxSearch.CustomizableEdges = CustomizableEdges1
+        txbxSearch.DefaultText = ""
+        txbxSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxSearch.Font = New Font("Segoe UI", 9F)
+        txbxSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxSearch.Location = New Point(650, 21)
+        txbxSearch.Name = "txbxSearch"
+        txbxSearch.PasswordChar = ChrW(0)
+        txbxSearch.PlaceholderText = "Search"
+        txbxSearch.SelectedText = ""
+        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxSearch.Size = New Size(200, 36)
+        txbxSearch.TabIndex = 7
         ' 
         ' btAddCategory
         ' 
@@ -118,6 +138,7 @@ Partial Class Inventory
         dgvStockList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvStockList.Location = New Point(50, 77)
         dgvStockList.Name = "dgvStockList"
+        dgvStockList.ReadOnly = True
         dgvStockList.RowHeadersVisible = False
         dgvStockList.Size = New Size(800, 389)
         dgvStockList.TabIndex = 5
@@ -134,7 +155,7 @@ Partial Class Inventory
         dgvStockList.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvStockList.ThemeStyle.HeaderStyle.Height = 17
-        dgvStockList.ThemeStyle.ReadOnly = False
+        dgvStockList.ThemeStyle.ReadOnly = True
         dgvStockList.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvStockList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         dgvStockList.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
@@ -147,26 +168,31 @@ Partial Class Inventory
         ' 
         clmID.HeaderText = "ID"
         clmID.Name = "clmID"
+        clmID.ReadOnly = True
         ' 
         ' clmCategory
         ' 
         clmCategory.HeaderText = "Category"
         clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
         ' 
         ' clmBrand
         ' 
         clmBrand.HeaderText = "Brand"
         clmBrand.Name = "clmBrand"
+        clmBrand.ReadOnly = True
         ' 
         ' clmModel
         ' 
         clmModel.HeaderText = "Model"
         clmModel.Name = "clmModel"
+        clmModel.ReadOnly = True
         ' 
         ' clmQty
         ' 
         clmQty.HeaderText = "Quantity"
         clmQty.Name = "clmQty"
+        clmQty.ReadOnly = True
         ' 
         ' lblStockCategory
         ' 
@@ -228,32 +254,12 @@ Partial Class Inventory
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
         ' 
-        ' txbxSearch
-        ' 
-        txbxSearch.CustomizableEdges = CustomizableEdges1
-        txbxSearch.DefaultText = ""
-        txbxSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxSearch.Font = New Font("Segoe UI", 9F)
-        txbxSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxSearch.Location = New Point(650, 21)
-        txbxSearch.Name = "txbxSearch"
-        txbxSearch.PasswordChar = ChrW(0)
-        txbxSearch.PlaceholderText = "Search"
-        txbxSearch.SelectedText = ""
-        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxSearch.Size = New Size(200, 36)
-        txbxSearch.TabIndex = 7
-        ' 
         ' Inventory
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightGray
-        ClientSize = New Size(1000, 1000)
+        ClientSize = New Size(1000, 788)
         Controls.Add(pnlDashBoardContainer)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inventory"
