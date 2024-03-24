@@ -75,13 +75,13 @@ Partial Class AddStock
         txbxBrand.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxBrand.Font = New Font("Segoe UI", 9F)
         txbxBrand.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxBrand.Location = New Point(73, 118)
+        txbxBrand.Location = New Point(73, 75)
         txbxBrand.Name = "txbxBrand"
         txbxBrand.PasswordChar = ChrW(0)
         txbxBrand.PlaceholderText = ""
         txbxBrand.SelectedText = ""
         txbxBrand.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxBrand.Size = New Size(200, 36)
+        txbxBrand.Size = New Size(242, 36)
         txbxBrand.TabIndex = 4
         ' 
         ' txbxID
@@ -95,19 +95,19 @@ Partial Class AddStock
         txbxID.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxID.Font = New Font("Segoe UI", 9F)
         txbxID.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxID.Location = New Point(73, 57)
+        txbxID.Location = New Point(73, 21)
         txbxID.Name = "txbxID"
         txbxID.PasswordChar = ChrW(0)
         txbxID.PlaceholderText = ""
         txbxID.SelectedText = ""
         txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        txbxID.Size = New Size(200, 36)
+        txbxID.Size = New Size(242, 36)
         txbxID.TabIndex = 6
         ' 
         ' lbBrand
         ' 
         lbBrand.AutoSize = True
-        lbBrand.Location = New Point(12, 118)
+        lbBrand.Location = New Point(12, 75)
         lbBrand.Name = "lbBrand"
         lbBrand.Size = New Size(38, 15)
         lbBrand.TabIndex = 7
@@ -116,7 +116,7 @@ Partial Class AddStock
         ' lbID
         ' 
         lbID.AutoSize = True
-        lbID.Location = New Point(12, 57)
+        lbID.Location = New Point(12, 21)
         lbID.Name = "lbID"
         lbID.Size = New Size(18, 15)
         lbID.TabIndex = 8
@@ -125,7 +125,7 @@ Partial Class AddStock
         ' lbCat
         ' 
         lbCat.AutoSize = True
-        lbCat.Location = New Point(368, 57)
+        lbCat.Location = New Point(321, 21)
         lbCat.Name = "lbCat"
         lbCat.Size = New Size(55, 15)
         lbCat.TabIndex = 9
@@ -134,7 +134,7 @@ Partial Class AddStock
         ' lbModel
         ' 
         lbModel.AutoSize = True
-        lbModel.Location = New Point(368, 118)
+        lbModel.Location = New Point(321, 75)
         lbModel.Name = "lbModel"
         lbModel.Size = New Size(41, 15)
         lbModel.TabIndex = 11
@@ -151,19 +151,19 @@ Partial Class AddStock
         txbxModel.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxModel.Font = New Font("Segoe UI", 9F)
         txbxModel.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxModel.Location = New Point(429, 118)
+        txbxModel.Location = New Point(382, 75)
         txbxModel.Name = "txbxModel"
         txbxModel.PasswordChar = ChrW(0)
         txbxModel.PlaceholderText = ""
         txbxModel.SelectedText = ""
         txbxModel.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        txbxModel.Size = New Size(200, 36)
+        txbxModel.Size = New Size(247, 36)
         txbxModel.TabIndex = 10
         ' 
         ' lbDescription
         ' 
         lbDescription.AutoSize = True
-        lbDescription.Location = New Point(12, 177)
+        lbDescription.Location = New Point(12, 128)
         lbDescription.Name = "lbDescription"
         lbDescription.Size = New Size(67, 15)
         lbDescription.TabIndex = 13
@@ -174,9 +174,9 @@ Partial Class AddStock
         cbxCategory.AutoCompleteCustomSource.AddRange(New String() {"All"})
         cbxCategory.DropDownStyle = ComboBoxStyle.DropDownList
         cbxCategory.FormattingEnabled = True
-        cbxCategory.Location = New Point(429, 57)
+        cbxCategory.Location = New Point(382, 21)
         cbxCategory.Name = "cbxCategory"
-        cbxCategory.Size = New Size(200, 23)
+        cbxCategory.Size = New Size(156, 23)
         cbxCategory.Sorted = True
         cbxCategory.TabIndex = 17
         cbxCategory.TabStop = False
@@ -193,10 +193,10 @@ Partial Class AddStock
         btAddStock.FillColor = Color.DimGray
         btAddStock.Font = New Font("Segoe UI", 9F)
         btAddStock.ForeColor = Color.White
-        btAddStock.Location = New Point(243, 266)
+        btAddStock.Location = New Point(449, 195)
         btAddStock.Name = "btAddStock"
         btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        btAddStock.Size = New Size(180, 45)
+        btAddStock.Size = New Size(180, 50)
         btAddStock.TabIndex = 18
         btAddStock.Text = "Add Stock"
         ' 
@@ -226,10 +226,10 @@ Partial Class AddStock
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
         dgvDescriptions.DefaultCellStyle = DataGridViewCellStyle3
         dgvDescriptions.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvDescriptions.Location = New Point(96, 186)
+        dgvDescriptions.Location = New Point(96, 128)
         dgvDescriptions.Name = "dgvDescriptions"
         dgvDescriptions.RowHeadersVisible = False
-        dgvDescriptions.Size = New Size(533, 60)
+        dgvDescriptions.Size = New Size(219, 170)
         dgvDescriptions.TabIndex = 19
         dgvDescriptions.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvDescriptions.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -277,7 +277,7 @@ Partial Class AddStock
         DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
         dgvAddedList.DefaultCellStyle = DataGridViewCellStyle6
         dgvAddedList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvAddedList.Location = New Point(12, 343)
+        dgvAddedList.Location = New Point(12, 326)
         dgvAddedList.Name = "dgvAddedList"
         dgvAddedList.RowHeadersVisible = False
         dgvAddedList.Size = New Size(617, 249)
@@ -341,17 +341,17 @@ Partial Class AddStock
         btSave.FillColor = Color.DimGray
         btSave.Font = New Font("Segoe UI", 9F)
         btSave.ForeColor = Color.White
-        btSave.Location = New Point(449, 266)
+        btSave.Location = New Point(449, 261)
         btSave.Name = "btSave"
         btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        btSave.Size = New Size(180, 45)
+        btSave.Size = New Size(180, 50)
         btSave.TabIndex = 21
         btSave.Text = "Save"
         ' 
         ' lblQuantity
         ' 
         lblQuantity.AutoSize = True
-        lblQuantity.Location = New Point(12, 276)
+        lblQuantity.Location = New Point(321, 128)
         lblQuantity.Name = "lblQuantity"
         lblQuantity.Size = New Size(53, 15)
         lblQuantity.TabIndex = 23
@@ -368,20 +368,20 @@ Partial Class AddStock
         txbxQty.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxQty.Font = New Font("Segoe UI", 9F)
         txbxQty.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxQty.Location = New Point(73, 276)
+        txbxQty.Location = New Point(382, 128)
         txbxQty.Name = "txbxQty"
         txbxQty.PasswordChar = ChrW(0)
         txbxQty.PlaceholderText = ""
         txbxQty.SelectedText = ""
         txbxQty.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        txbxQty.Size = New Size(145, 36)
+        txbxQty.Size = New Size(247, 36)
         txbxQty.TabIndex = 22
         ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(664, 604)
+        ClientSize = New Size(642, 604)
         Controls.Add(lblQuantity)
         Controls.Add(txbxQty)
         Controls.Add(btSave)

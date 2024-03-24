@@ -84,7 +84,7 @@ Public Class AddStock
                                                     dgvDescriptions.Columns.Clear()
 
                                                     ' Update column headers
-                                                    UpdateColumnHeaders(lines(0))
+                                                    UpdateRowHeaders(lines(0))
 
                                                     ' Add corresponding details to dgvDescriptions
                                                     dgvDescriptions.Rows.Add()
@@ -119,11 +119,11 @@ Public Class AddStock
         End If
     End Sub
 
-    Private Sub UpdateColumnHeaders(headerLine As String)
-        ' Add headers to dgvDescriptions
+    Private Sub UpdateRowHeaders(headerLine As String)
+        ' Add row headers to dgvDescriptions
         Dim headers As String() = headerLine.Split(","c)
-        For k As Integer = 4 To headers.Length - 1 ' Assuming details start from the 5th column
-            dgvDescriptions.Columns.Add(headers(k), headers(k))
+        For k As Integer = 1 To headers.Length - 1 ' Assuming details start from the 2nd column
+            dgvDescriptions.Rows(k - 1).HeaderCell.Value = headers(k)
         Next
     End Sub
 
@@ -164,14 +164,24 @@ Public Class AddStock
             ' Clear existing columns from the DataGridView
             dgvDescriptions.Columns.Clear()
 
-            ' Add columns to the DataGridView using the headers from the CSV file starting from the 5th column
+            ' Add a column for headers
+            dgvDescriptions.Columns.Add("HeaderColumn", "Header")
+
+            ' Add a column for editing
+            dgvDescriptions.Columns.Add("EditingColumn", "Edit")
+
+            ' Add row headers to the DataGridView using the headers from the CSV file starting from the 5th column
             For i As Integer = 4 To headers.Length - 1
-                dgvDescriptions.Columns.Add(headers(i), headers(i))
+                dgvDescriptions.Rows.Add(headers(i), "")
             Next
         Else
-            MessageBox.Show($"CSV file '{filePath}' does not exist.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Add a new row to the DataGridView if the row does not exist
+            dgvDescriptions.Rows.Add("No data available", "")
+            MessageBox.Show($"Row for '{selectedContent}' does not exist. Added a default row to the DataGridView.", "Row Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
+    Private Sub lbModel_Click(sender As Object, e As EventArgs) Handles lbModel.Click
 
+    End Sub
 End Class
