@@ -121,40 +121,43 @@ Public Class AddStock
             Dim Model As String = txbxModel.Text
             Dim Brand As String = txbxBrand.Text
             Dim Quantity As String = txbxQty.Text
-
+            If Quantity <= 0 Then
+                MessageBox.Show("Quantity cannot be negative or zero.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
             If ID IsNot Nothing Then
-                For Each row As DataGridViewRow In dgvDescriptions.Rows
-                    Dim headerText As String = row.Cells(0).Value
-                    If dgvAddedList.Columns.Contains(headerText) Then
-                        Continue For ' Skip adding the column if it already exists
-                    End If
-                    dgvAddedList.Columns.Add(headerText, headerText)
-                Next
-
-                Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
-
-                If existingRow IsNot Nothing Then
-                    Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
-                    existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
-                Else
-                    Dim rowData As New List(Of Object)()
-                    rowData.Add(Category)
-                    rowData.Add(ID)
-                    rowData.Add(Model)
-                    rowData.Add(Brand)
-                    rowData.Add(Quantity)
-
                     For Each row As DataGridViewRow In dgvDescriptions.Rows
-                        rowData.Add(row.Cells(1).Value)
+                        Dim headerText As String = row.Cells(0).Value
+                        If dgvAddedList.Columns.Contains(headerText) Then
+                            Continue For ' Skip adding the column if it already exists
+                        End If
+                        dgvAddedList.Columns.Add(headerText, headerText)
                     Next
 
-                    dgvAddedList.Rows.Add(rowData.ToArray())
+                    Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
+
+                    If existingRow IsNot Nothing Then
+                        Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
+                        existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
+                    Else
+                        Dim rowData As New List(Of Object)()
+                        rowData.Add(Category)
+                        rowData.Add(ID)
+                        rowData.Add(Model)
+                        rowData.Add(Brand)
+                        rowData.Add(Quantity)
+
+                        For Each row As DataGridViewRow In dgvDescriptions.Rows
+                            rowData.Add(row.Cells(1).Value)
+                        Next
+
+                        dgvAddedList.Rows.Add(rowData.ToArray())
+                    End If
+                Else
+                    MessageBox.Show("Please enter an ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
-                MessageBox.Show("Please enter an ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Else
-            MessageBox.Show("Please select a category.", "No Category Selected", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Please select a category.", "No Category Selected", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
 

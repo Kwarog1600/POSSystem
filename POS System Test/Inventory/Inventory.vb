@@ -161,7 +161,6 @@ Public Class Inventory
         Next
     End Sub
 
-
     Private Sub PopulateDataGridViewForCategory(selectedCategory As String)
         Try
             ' Clear existing columns and rows in dgvStockList
