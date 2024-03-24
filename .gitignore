@@ -1,9 +1,6 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
-/.vs/POS And Inventory/v17/.suo
-/.vs/POS And Inventory/v17/DocumentLayout.json
 /POS System Test/bin/Debug/net8.0-windows/POS And Inventory.dll
 /POS System Test/bin/Debug/net8.0-windows/POS And Inventory.exe
 /POS System Test/bin/Debug/net8.0-windows/POS And Inventory.pdb
