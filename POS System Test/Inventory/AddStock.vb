@@ -39,26 +39,36 @@ Public Class AddStock
                 Dim filePath As String = filename & ".csv"
                 ' Check if the file exists
                 If File.Exists(filePath) Then
-
                     Try
-                        ' Read all lines from the file
-                        Dim lines As String() = File.ReadAllLines(filePath)
-
-                        ' Check if there are items in the file
-                        If lines.Length > 1 Then
-                            ' Iterate through each line starting from index 1 (to skip header)
-                            For i As Integer = 1 To lines.Length - 1
-                                ' Split the line by comma to get individual values
-                                Dim values As String() = lines(i).Split(","c)
+                        ' Read all lines from the file using StreamReader
+                        Using reader As New StreamReader(filePath)
+                            Dim line As String
+                            ' Read each line until the end of the file
+                            Do While reader.Peek() >= 0
+                                line = reader.ReadLine()
+                                Dim values As String() = line.Split(","c)
                                 If values(0).Equals(txbxID.Text) Then
                                     txbxBrand.Text = values(2)
                                     txbxModel.Text = values(3)
                                     txbxPrice.Text = values(1)
+                                    txbxQty.Text = 1
                                     cbxCategory.SelectedItem = filename
+                                    Dim i As Integer = 5
+                                    For Each row As DataGridViewRow In dgvDescriptions.Rows
+                                        If values(i) IsNot Nothing Then
+                                            row.Cells(1).Value = values(i)
+                                            i += 1
+                                        End If
+                                    Next
                                     Exit For
+                                Else
+                                    txbxBrand.Clear()
+                                    txbxModel.Clear()
+                                    txbxPrice.Clear()
+                                    txbxQty.Clear()
                                 End If
-                            Next
-                        End If
+                            Loop
+                        End Using
                     Catch ex As Exception
                         ' Handle any exceptions that might occur during file reading
                         MessageBox.Show("Error reading file: " & ex.Message)
@@ -68,7 +78,11 @@ Public Class AddStock
                     MessageBox.Show("File does not exist: " & filePath)
                 End If
             Next
+        Else
+            dgvDescriptions.Rows.Clear()
+            cbxCategory.SelectedIndex = -1
         End If
+
     End Sub
 
     Private Sub UpdateRowHeaders()
@@ -93,6 +107,10 @@ Public Class AddStock
             MessageBox.Show($"Row for '{selectedContent}' does not exist. Added a default row to the DataGridView.", "Row Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
+        Using reader As New StreamReader(filePath)
+            ' Use the reader here for further processing
+        End Using
+
         dgvDescriptions.Columns("clmDesciptions").ReadOnly = True
     End Sub
 
@@ -103,7 +121,6 @@ Public Class AddStock
         Dim Brand As String = txbxBrand.Text
         Dim Quantity As String = txbxQty.Text
 
-
         For Each row As DataGridViewRow In dgvDescriptions.Rows
             Dim headerText As String = row.Cells(0).Value
             If dgvAddedList.Columns.Contains(headerText) Then
@@ -112,10 +129,50 @@ Public Class AddStock
             dgvAddedList.Columns.Add(headerText, headerText)
         Next
 
+        Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
+
+        If existingRow IsNot Nothing Then
+            Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
+            existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
+        Else
+            Dim rowData As New List(Of Object)()
+            rowData.Add(Category)
+            rowData.Add(ID)
+            rowData.Add(Model)
+            rowData.Add(Brand)
+            rowData.Add(Quantity)
+
+            For Each row As DataGridViewRow In dgvDescriptions.Rows
+                rowData.Add(row.Cells(1).Value)
+            Next
+
+            dgvAddedList.Rows.Add(rowData.ToArray())
+        End If
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         UpdateRowHeaders()
     End Sub
 
+    Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
+        For Each row As DataGridViewRow In dgvAddedList.Rows
+            Dim category As String = row.Cells("clmCategory").Value.ToString()
+            Dim id As String = row.Cells("clmID").Value.ToString()
+            Dim fileName As String = category & ".csv"
+            Dim originalLines = File.ReadAllLines(fileName)
+
+            ' Use StreamReader to scan the CSV file for matching ID
+            Using reader As New StreamReader(fileName)
+                Dim line As String
+                While Not reader.EndOfStream
+                    line = reader.ReadLine()
+                    ' Split the line into fields
+                    Dim values As String() = line.Split(","c)
+                    If values(0) = id Then
+
+                    End If
+                End While
+            End Using
+        Next
+    End Sub
 End Class

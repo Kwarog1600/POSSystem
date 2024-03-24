@@ -53,6 +53,8 @@ Partial Class AddStock
         cbxCategory = New ComboBox()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         dgvDescriptions = New Guna.UI2.WinForms.Guna2DataGridView()
+        clmDesciptions = New DataGridViewTextBoxColumn()
+        clmValue = New DataGridViewTextBoxColumn()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
         clmCategory = New DataGridViewTextBoxColumn()
         clmID = New DataGridViewTextBoxColumn()
@@ -64,8 +66,6 @@ Partial Class AddStock
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         lblPrice = New Label()
         txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
-        clmDesciptions = New DataGridViewTextBoxColumn()
-        clmValue = New DataGridViewTextBoxColumn()
         CType(dgvDescriptions, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -260,6 +260,16 @@ Partial Class AddStock
         dgvDescriptions.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvDescriptions.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
+        ' clmDesciptions
+        ' 
+        clmDesciptions.HeaderText = "Descriptions"
+        clmDesciptions.Name = "clmDesciptions"
+        ' 
+        ' clmValue
+        ' 
+        clmValue.HeaderText = "Value"
+        clmValue.Name = "clmValue"
+        ' 
         ' dgvAddedList
         ' 
         dgvAddedList.AllowUserToAddRows = False
@@ -420,16 +430,6 @@ Partial Class AddStock
         txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         txbxPrice.Size = New Size(247, 36)
         txbxPrice.TabIndex = 24
-        ' 
-        ' clmDesciptions
-        ' 
-        clmDesciptions.HeaderText = "Descriptions"
-        clmDesciptions.Name = "clmDesciptions"
-        ' 
-        ' clmValue
-        ' 
-        clmValue.HeaderText = "Value"
-        clmValue.Name = "clmValue"
         ' 
         ' AddStock
         ' 
