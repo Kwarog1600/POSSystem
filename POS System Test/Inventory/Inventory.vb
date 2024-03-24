@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 
 Public Class Inventory
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -221,6 +222,7 @@ Public Class Inventory
             MessageBox.Show($"Error loading items for the selected category: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 End Class
 
 
