@@ -23,20 +23,20 @@ Partial Class Inventory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        pnlDashBoardContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         btAddCategory = New Guna.UI2.WinForms.Guna2Button()
         dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -50,30 +50,30 @@ Partial Class Inventory
         btStockHistory = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         TableRefresh = New Timer(components)
-        pnlDashBoardContainer.SuspendLayout()
+        pnlContainer.SuspendLayout()
         CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' pnlDashBoardContainer
+        ' pnlContainer
         ' 
-        pnlDashBoardContainer.BorderRadius = 25
-        pnlDashBoardContainer.Controls.Add(txbxSearch)
-        pnlDashBoardContainer.Controls.Add(btAddCategory)
-        pnlDashBoardContainer.Controls.Add(dgvStockList)
-        pnlDashBoardContainer.Controls.Add(lblStockCategory)
-        pnlDashBoardContainer.Controls.Add(cbxCategory)
-        pnlDashBoardContainer.Controls.Add(btStockHistory)
-        pnlDashBoardContainer.Controls.Add(btAddStock)
-        pnlDashBoardContainer.CustomizableEdges = CustomizableEdges9
-        pnlDashBoardContainer.Location = New Point(24, 51)
-        pnlDashBoardContainer.Name = "pnlDashBoardContainer"
-        pnlDashBoardContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        pnlDashBoardContainer.Size = New Size(920, 575)
-        pnlDashBoardContainer.TabIndex = 3
+        pnlContainer.BorderRadius = 25
+        pnlContainer.Controls.Add(txbxSearch)
+        pnlContainer.Controls.Add(btAddCategory)
+        pnlContainer.Controls.Add(dgvStockList)
+        pnlContainer.Controls.Add(lblStockCategory)
+        pnlContainer.Controls.Add(cbxCategory)
+        pnlContainer.Controls.Add(btStockHistory)
+        pnlContainer.Controls.Add(btAddStock)
+        pnlContainer.CustomizableEdges = CustomizableEdges19
+        pnlContainer.Location = New Point(24, 51)
+        pnlContainer.Name = "pnlContainer"
+        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        pnlContainer.Size = New Size(920, 575)
+        pnlContainer.TabIndex = 3
         ' 
         ' txbxSearch
         ' 
-        txbxSearch.CustomizableEdges = CustomizableEdges1
+        txbxSearch.CustomizableEdges = CustomizableEdges11
         txbxSearch.DefaultText = ""
         txbxSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -87,7 +87,7 @@ Partial Class Inventory
         txbxSearch.PasswordChar = ChrW(0)
         txbxSearch.PlaceholderText = "Search"
         txbxSearch.SelectedText = ""
-        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         txbxSearch.Size = New Size(200, 36)
         txbxSearch.TabIndex = 7
         ' 
@@ -95,7 +95,7 @@ Partial Class Inventory
         ' 
         btAddCategory.BackColor = Color.Transparent
         btAddCategory.BorderRadius = 25
-        btAddCategory.CustomizableEdges = CustomizableEdges3
+        btAddCategory.CustomizableEdges = CustomizableEdges13
         btAddCategory.DisabledState.BorderColor = Color.DarkGray
         btAddCategory.DisabledState.CustomBorderColor = Color.DarkGray
         btAddCategory.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -105,7 +105,7 @@ Partial Class Inventory
         btAddCategory.ForeColor = Color.White
         btAddCategory.Location = New Point(265, 492)
         btAddCategory.Name = "btAddCategory"
-        btAddCategory.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btAddCategory.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btAddCategory.Size = New Size(180, 45)
         btAddCategory.TabIndex = 6
         btAddCategory.Text = "Add Category"
@@ -115,28 +115,28 @@ Partial Class Inventory
         dgvStockList.AllowUserToAddRows = False
         dgvStockList.AllowUserToDeleteRows = False
         dgvStockList.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = Color.White
-        dgvStockList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.BackColor = Color.White
+        dgvStockList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         dgvStockList.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.ButtonShadow
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = SystemColors.ButtonShadow
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.White
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvStockList.ColumnHeadersHeight = 17
         dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvStockList.Columns.AddRange(New DataGridViewColumn() {clmID, clmCategory, clmBrand, clmModel, clmQty})
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
-        dgvStockList.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        dgvStockList.DefaultCellStyle = DataGridViewCellStyle6
         dgvStockList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvStockList.Location = New Point(50, 77)
         dgvStockList.Name = "dgvStockList"
@@ -222,7 +222,7 @@ Partial Class Inventory
         ' 
         btStockHistory.BackColor = Color.Transparent
         btStockHistory.BorderRadius = 25
-        btStockHistory.CustomizableEdges = CustomizableEdges5
+        btStockHistory.CustomizableEdges = CustomizableEdges15
         btStockHistory.DisabledState.BorderColor = Color.DarkGray
         btStockHistory.DisabledState.CustomBorderColor = Color.DarkGray
         btStockHistory.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -232,7 +232,7 @@ Partial Class Inventory
         btStockHistory.ForeColor = Color.White
         btStockHistory.Location = New Point(670, 492)
         btStockHistory.Name = "btStockHistory"
-        btStockHistory.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btStockHistory.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         btStockHistory.Size = New Size(180, 45)
         btStockHistory.TabIndex = 2
         btStockHistory.Text = "Stock History"
@@ -241,7 +241,7 @@ Partial Class Inventory
         ' 
         btAddStock.BackColor = Color.Transparent
         btAddStock.BorderRadius = 25
-        btAddStock.CustomizableEdges = CustomizableEdges7
+        btAddStock.CustomizableEdges = CustomizableEdges17
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
         btAddStock.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -251,7 +251,7 @@ Partial Class Inventory
         btAddStock.ForeColor = Color.White
         btAddStock.Location = New Point(466, 492)
         btAddStock.Name = "btAddStock"
-        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         btAddStock.Size = New Size(180, 45)
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
@@ -267,17 +267,17 @@ Partial Class Inventory
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightGray
         ClientSize = New Size(1000, 788)
-        Controls.Add(pnlDashBoardContainer)
+        Controls.Add(pnlContainer)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inventory"
         Text = "Inventory"
-        pnlDashBoardContainer.ResumeLayout(False)
-        pnlDashBoardContainer.PerformLayout()
+        pnlContainer.ResumeLayout(False)
+        pnlContainer.PerformLayout()
         CType(dgvStockList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents pnlDashBoardContainer As Guna.UI2.WinForms.Guna2CustomGradientPanel
+    Friend WithEvents pnlContainer As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents btStockHistory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btAddStock As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblStockCategory As Label

@@ -34,10 +34,11 @@ Module ProgramLoad
         'Load For pnlSwitch Forms
         With Dashboard
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
-            .pnlDashBoardContainer.Location = New Point(50, 50)
+            .pnlContainer.Location = New Point(50, 50)
         End With
         With Inventory
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
+            .pnlContainer.Location = New Point(50, 50)
         End With
         With Sales
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
