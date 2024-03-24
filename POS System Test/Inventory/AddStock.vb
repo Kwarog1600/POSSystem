@@ -75,8 +75,10 @@ Public Class AddStock
                                                 ' Check if the first value (ID) matches the ID to search
                                                 If values.Length > 0 AndAlso values(0) = idToSearch Then
                                                     ' If a match is found, update the UI elements
+                                                    txbxPrice.Text = values(2) ' Assuming Price is in the fourth column
+
                                                     txbxBrand.Text = values(1) ' Assuming Brand is in the second column
-                                                    txbxModel.Text = values(2) ' Assuming Model is in the third column
+                                                    txbxModel.Text = values(3) ' Assuming Model is in the third column
                                                     cbxCategory.Text = categoryValues(0) ' Category name is in the first column of category file
 
                                                     ' Clear existing rows and columns in dgvDescriptions
@@ -90,6 +92,38 @@ Public Class AddStock
                                                     dgvDescriptions.Rows.Add()
                                                     For k As Integer = 4 To values.Length - 1 ' Assuming details start from the 5th column
                                                         dgvDescriptions.Rows(0).Cells(k - 4).Value = values(k)
+                                                    Next
+
+                                                    ' If a match is found, update the UI elements and make them non-editable
+                                                    txbxBrand.Text = values(1) ' Assuming Brand is in the second column
+                                                    txbxModel.Text = values(2) ' Assuming Model is in the third column
+                                                    cbxCategory.Text = categoryValues(0) ' Category name is in the first column of category file
+
+                                                    ' Make textboxes and combobox non-editable
+                                                    txbxBrand.ReadOnly = True
+                                                    txbxModel.ReadOnly = True
+                                                    txbxPrice.ReadOnly = True
+                                                    cbxCategory.Enabled = False
+
+                                                    ' Clear existing rows and columns in dgvDescriptions
+                                                    dgvDescriptions.Rows.Clear()
+                                                    dgvDescriptions.Columns.Clear()
+
+                                                    ' Make DataGridView non-editable
+                                                    dgvDescriptions.ReadOnly = True
+
+                                                    ' Update column headers
+                                                    UpdateRowHeaders(lines(0))
+
+                                                    ' Add corresponding details to dgvDescriptions
+                                                    dgvDescriptions.Rows.Add()
+                                                    For k As Integer = 4 To values.Length - 1 ' Assuming details start from the 5th column
+                                                        dgvDescriptions.Rows(0).Cells(k - 4).Value = values(k)
+                                                    Next
+
+                                                    ' Make DataGridView non-editable
+                                                    For Each column As DataGridViewColumn In dgvDescriptions.Columns
+                                                        column.ReadOnly = True
                                                     Next
 
                                                     ' Exit the event handler since the ID is found
@@ -129,24 +163,20 @@ Public Class AddStock
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
         Dim Category As String = cbxCategory.SelectedItem.ToString()
-        Dim csvFileName As String = Category & ".csv"
         Dim ID As String = txbxID.Text
         Dim Model As String = txbxModel.Text
         Dim Brand As String = txbxBrand.Text
         Dim Quantity As String = txbxQty.Text
-        Dim descriptions As New List(Of String)
 
-        For Each column As DataGridViewColumn In dgvDescriptions.Columns
-            If dgvAddedList.Columns.Contains(column.Name) Then
+
+        For Each row As DataGridViewRow In dgvDescriptions.Rows
+            Dim headerText As String = row.Cells(0).Value
+            If dgvAddedList.Columns.Contains(headerText) Then
                 Continue For ' Skip adding the column if it already exists
             End If
-            dgvAddedList.Columns.Add(column.Name, column.HeaderText)
+            dgvAddedList.Columns.Add(headerText, headerText)
         Next
-        ' Add a new row with empty cells under each column header
-        dgvDescriptions.Rows.Add()
-        For Each column As DataGridViewColumn In dgvDescriptions.Columns
-            dgvDescriptions.Rows(dgvDescriptions.Rows.Count - 1).Cells(column.Index).Value = "."
-        Next
+
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
@@ -165,13 +195,13 @@ Public Class AddStock
             dgvDescriptions.Columns.Clear()
 
             ' Add a column for headers
-            dgvDescriptions.Columns.Add("HeaderColumn", "Header")
+            dgvDescriptions.Columns.Add("HeaderColumn", "Description")
 
             ' Add a column for editing
-            dgvDescriptions.Columns.Add("EditingColumn", "Edit")
+            dgvDescriptions.Columns.Add("EditingColumn", "Value")
 
-            ' Add row headers to the DataGridView using the headers from the CSV file starting from the 5th column
-            For i As Integer = 4 To headers.Length - 1
+            ' Add row headers to the DataGridView using the headers from the CSV file starting from the 6th column
+            For i As Integer = 5 To headers.Length - 1
                 dgvDescriptions.Rows.Add(headers(i), "")
             Next
         Else
@@ -179,9 +209,8 @@ Public Class AddStock
             dgvDescriptions.Rows.Add("No data available", "")
             MessageBox.Show($"Row for '{selectedContent}' does not exist. Added a default row to the DataGridView.", "Row Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+
+        dgvDescriptions.Columns("HeaderColumn").ReadOnly = True
     End Sub
 
-    Private Sub lbModel_Click(sender As Object, e As EventArgs) Handles lbModel.Click
-
-    End Sub
 End Class

@@ -21,7 +21,7 @@ Public Class StockCategoryAdd
         End If
 
         ' Construct headers for the new category CSV file
-        Dim headers As New List(Of String) From {"ID", "Brand", "Model", "Quantity"}
+        Dim headers As New List(Of String) From {"ID", "Price", "Brand", "Model", "Quantity"}
         headers.AddRange(descriptions)
 
         ' Get the filename for the new category CSV file

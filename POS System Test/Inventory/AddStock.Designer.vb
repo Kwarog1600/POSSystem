@@ -40,6 +40,8 @@ Partial Class AddStock
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txbxBrand = New Guna.UI2.WinForms.Guna2TextBox()
         txbxID = New Guna.UI2.WinForms.Guna2TextBox()
         lbBrand = New Label()
@@ -60,6 +62,8 @@ Partial Class AddStock
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
+        lblPrice = New Label()
+        txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
         CType(dgvDescriptions, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -229,7 +233,7 @@ Partial Class AddStock
         dgvDescriptions.Location = New Point(96, 128)
         dgvDescriptions.Name = "dgvDescriptions"
         dgvDescriptions.RowHeadersVisible = False
-        dgvDescriptions.Size = New Size(219, 170)
+        dgvDescriptions.Size = New Size(219, 126)
         dgvDescriptions.TabIndex = 19
         dgvDescriptions.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvDescriptions.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -255,6 +259,8 @@ Partial Class AddStock
         ' 
         ' dgvAddedList
         ' 
+        dgvAddedList.AllowUserToAddRows = False
+        dgvAddedList.AllowUserToDeleteRows = False
         DataGridViewCellStyle4.BackColor = Color.White
         dgvAddedList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -279,6 +285,7 @@ Partial Class AddStock
         dgvAddedList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.Location = New Point(12, 326)
         dgvAddedList.Name = "dgvAddedList"
+        dgvAddedList.ReadOnly = True
         dgvAddedList.RowHeadersVisible = False
         dgvAddedList.Size = New Size(617, 249)
         dgvAddedList.TabIndex = 20
@@ -295,7 +302,7 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddedList.ThemeStyle.HeaderStyle.Height = 17
-        dgvAddedList.ThemeStyle.ReadOnly = False
+        dgvAddedList.ThemeStyle.ReadOnly = True
         dgvAddedList.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvAddedList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         dgvAddedList.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
@@ -308,26 +315,31 @@ Partial Class AddStock
         ' 
         clmCategory.HeaderText = "Category"
         clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
         ' 
         ' clmID
         ' 
         clmID.HeaderText = "ID"
         clmID.Name = "clmID"
+        clmID.ReadOnly = True
         ' 
         ' clmBrand
         ' 
         clmBrand.HeaderText = "Brand"
         clmBrand.Name = "clmBrand"
+        clmBrand.ReadOnly = True
         ' 
         ' clmModel
         ' 
         clmModel.HeaderText = "Model"
         clmModel.Name = "clmModel"
+        clmModel.ReadOnly = True
         ' 
         ' clmQuantity
         ' 
         clmQuantity.HeaderText = "Quantity"
         clmQuantity.Name = "clmQuantity"
+        clmQuantity.ReadOnly = True
         ' 
         ' btSave
         ' 
@@ -377,11 +389,42 @@ Partial Class AddStock
         txbxQty.Size = New Size(247, 36)
         txbxQty.TabIndex = 22
         ' 
+        ' lblPrice
+        ' 
+        lblPrice.AutoSize = True
+        lblPrice.Location = New Point(12, 275)
+        lblPrice.Name = "lblPrice"
+        lblPrice.Size = New Size(33, 15)
+        lblPrice.TabIndex = 25
+        lblPrice.Text = "Price"
+        ' 
+        ' txbxPrice
+        ' 
+        txbxPrice.CustomizableEdges = CustomizableEdges13
+        txbxPrice.DefaultText = ""
+        txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxPrice.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxPrice.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPrice.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPrice.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPrice.Font = New Font("Segoe UI", 9F)
+        txbxPrice.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPrice.Location = New Point(73, 275)
+        txbxPrice.Name = "txbxPrice"
+        txbxPrice.PasswordChar = ChrW(0)
+        txbxPrice.PlaceholderText = ""
+        txbxPrice.SelectedText = ""
+        txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        txbxPrice.Size = New Size(247, 36)
+        txbxPrice.TabIndex = 24
+        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(642, 604)
+        Controls.Add(lblPrice)
+        Controls.Add(txbxPrice)
         Controls.Add(lblQuantity)
         Controls.Add(txbxQty)
         Controls.Add(btSave)
@@ -425,4 +468,6 @@ Partial Class AddStock
     Friend WithEvents clmBrand As DataGridViewTextBoxColumn
     Friend WithEvents clmModel As DataGridViewTextBoxColumn
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
+    Friend WithEvents lblPrice As Label
+    Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
 End Class
