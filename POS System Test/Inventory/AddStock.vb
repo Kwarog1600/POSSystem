@@ -115,39 +115,49 @@ Public Class AddStock
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-        Dim Category As String = cbxCategory.SelectedItem.ToString()
-        Dim ID As String = txbxID.Text
-        Dim Model As String = txbxModel.Text
-        Dim Brand As String = txbxBrand.Text
-        Dim Quantity As String = txbxQty.Text
+        If Not cbxCategory.SelectedIndex = -1 Then
+            Dim Category As String = cbxCategory.SelectedItem.ToString()
+            Dim ID As String = txbxID.Text
+            Dim Model As String = txbxModel.Text
+            Dim Brand As String = txbxBrand.Text
+            Dim Quantity As String = txbxQty.Text
 
-        For Each row As DataGridViewRow In dgvDescriptions.Rows
-            Dim headerText As String = row.Cells(0).Value
-            If dgvAddedList.Columns.Contains(headerText) Then
-                Continue For ' Skip adding the column if it already exists
+            If ID IsNot Nothing Then
+                For Each row As DataGridViewRow In dgvDescriptions.Rows
+                    Dim headerText As String = row.Cells(0).Value
+                    If dgvAddedList.Columns.Contains(headerText) Then
+                        Continue For ' Skip adding the column if it already exists
+                    End If
+                    dgvAddedList.Columns.Add(headerText, headerText)
+                Next
+
+                Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
+
+                If existingRow IsNot Nothing Then
+                    Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
+                    existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
+                Else
+                    Dim rowData As New List(Of Object)()
+                    rowData.Add(Category)
+                    rowData.Add(ID)
+                    rowData.Add(Model)
+                    rowData.Add(Brand)
+                    rowData.Add(Quantity)
+
+                    For Each row As DataGridViewRow In dgvDescriptions.Rows
+                        rowData.Add(row.Cells(1).Value)
+                    Next
+
+                    dgvAddedList.Rows.Add(rowData.ToArray())
+                End If
+            Else
+                MessageBox.Show("Please enter an ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-            dgvAddedList.Columns.Add(headerText, headerText)
-        Next
-
-        Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
-
-        If existingRow IsNot Nothing Then
-            Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
-            existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
         Else
-            Dim rowData As New List(Of Object)()
-            rowData.Add(Category)
-            rowData.Add(ID)
-            rowData.Add(Model)
-            rowData.Add(Brand)
-            rowData.Add(Quantity)
-
-            For Each row As DataGridViewRow In dgvDescriptions.Rows
-                rowData.Add(row.Cells(1).Value)
-            Next
-
-            dgvAddedList.Rows.Add(rowData.ToArray())
+            MessageBox.Show("Please select a category.", "No Category Selected", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+
+
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
@@ -159,20 +169,46 @@ Public Class AddStock
             Dim category As String = row.Cells("clmCategory").Value.ToString()
             Dim id As String = row.Cells("clmID").Value.ToString()
             Dim fileName As String = category & ".csv"
-            Dim originalLines = File.ReadAllLines(fileName)
+            Dim lines As New List(Of String)
 
-            ' Use StreamReader to scan the CSV file for matching ID
+            ' Read all lines from the CSV file
             Using reader As New StreamReader(fileName)
-                Dim line As String
-                While Not reader.EndOfStream
-                    line = reader.ReadLine()
-                    ' Split the line into fields
-                    Dim values As String() = line.Split(","c)
-                    If values(0) = id Then
-
-                    End If
-                End While
+                Do While Not reader.EndOfStream
+                    lines.Add(reader.ReadLine())
+                Loop
             End Using
+
+            ' Find and update the line with the matching ID
+            For i As Integer = 0 To lines.Count - 1
+                Dim values As String() = lines(i).Split(","c)
+                If values(0) = id Then
+                    Dim quantity As Integer = Convert.ToInt32(values(4))
+                    quantity += Convert.ToInt32(row.Cells("clmQuantity").Value)
+                    values(4) = quantity.ToString()
+                    lines(i) = String.Join(",", values)
+                End If
+            Next
+
+            ' Write all lines back to the CSV file
+            Using writer As New StreamWriter(fileName)
+                For Each line As String In lines
+                    writer.WriteLine(line)
+                Next
+            End Using
+
+            AddToStockHistoryLog(id, row.Cells("clmModel").Value.ToString(), Convert.ToInt32(row.Cells("clmQuantity").Value))
         Next
+    End Sub
+
+    Private Sub AddToStockHistoryLog(id As String, model As String, quantity As Integer)
+        Dim fileName As String = "Stock History.csv"
+
+        ' Create the log entry string
+        Dim logEntry As String = $"{id},{model},{quantity},{DateTime.Now}"
+
+        ' Append the log entry to the CSV file
+        Using writer As New StreamWriter(fileName, True)
+            writer.WriteLine(logEntry)
+        End Using
     End Sub
 End Class

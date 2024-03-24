@@ -22,6 +22,7 @@ Partial Class Inventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -48,6 +49,7 @@ Partial Class Inventory
         cbxCategory = New ComboBox()
         btStockHistory = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
+        TableRefresh = New Timer(components)
         pnlDashBoardContainer.SuspendLayout()
         CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -254,6 +256,11 @@ Partial Class Inventory
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
         ' 
+        ' TableRefresh
+        ' 
+        TableRefresh.Enabled = True
+        TableRefresh.Interval = 1000
+        ' 
         ' Inventory
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -283,4 +290,6 @@ Partial Class Inventory
     Friend WithEvents clmModel As DataGridViewTextBoxColumn
     Friend WithEvents clmQty As DataGridViewTextBoxColumn
     Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents TableRefresh As Timer
 End Class

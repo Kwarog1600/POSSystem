@@ -70,6 +70,7 @@ Module ProgramLoad
         CreateCsvFileIfNotExists("Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
         CreateCsvFileIfNotExists("Stock Category.csv", "CategoryName,DescriptionList")
         CreateCsvFileIfNotExists("Stock Category.csv", "Date & Time, Items")
+        CreateCsvFileIfNotExists("Stock History.csv", "Transaction Reference Number,ID,Model,Quantity,Date and Time")
     End Sub
 End Module
 

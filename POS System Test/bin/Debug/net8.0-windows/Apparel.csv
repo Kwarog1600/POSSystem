@@ -1,6 +1,6 @@
-﻿ID,Price,Brand,Model,Quantity,Gender,Size,Color
-1001,29.99,Levi's,Jeans,20,Men,32x32,Blue
-1002,19.99,H&M,T-Shirt,30,Women,L,Black
+ID,Price,Brand,Model,Quantity,Gender,Size,Color
+1001,29.99,Levi's,Jeans,100,Men,32x32,Blue
+1002,19.99,H&M,T-Shirt,33,Women,L,Black
 1003,49.99,Zara,Dress,15,Women,M,Red
 1004,39.99,Gap,Hoodie,25,Men,S,Gray
 1005,59.99,Forever 21,Blouse,20,Women,S,White
@@ -8,4 +8,4 @@
 1007,25.99,Old Navy,Sweater,18,Women,XL,Green
 1008,69.99,Calvin Klein,Blazer,12,Women,10,Black
 1009,39.99,Hollister,Shorts,22,Men,30,Blue
-1010,49.99,Abercrombie & Fitch,Skirt,17,Women,S,Denim
+1010,49.99,Abercrombie & Fitch,Skirt,18,Women,S,Denim
