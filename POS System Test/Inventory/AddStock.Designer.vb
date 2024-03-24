@@ -206,6 +206,7 @@ Partial Class AddStock
         dgvDescriptions.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         dgvDescriptions.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvDescriptions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
@@ -228,7 +229,7 @@ Partial Class AddStock
         dgvDescriptions.Location = New Point(96, 186)
         dgvDescriptions.Name = "dgvDescriptions"
         dgvDescriptions.RowHeadersVisible = False
-        dgvDescriptions.Size = New Size(533, 61)
+        dgvDescriptions.Size = New Size(533, 60)
         dgvDescriptions.TabIndex = 19
         dgvDescriptions.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvDescriptions.ThemeStyle.AlternatingRowsStyle.Font = Nothing

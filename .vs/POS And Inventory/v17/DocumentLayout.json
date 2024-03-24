@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\cacca\\onedrive\\desktop\\centralized pos system\\pos\\pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\cacca\\onedrive\\desktop\\centralized pos system\\pos\\pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\addstock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|c:\\users\\cacca\\onedrive\\desktop\\centralized pos system\\pos\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|solutionrelative:pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55946E5E-244A-40C2-BEE0-9CCDBB2A2E59}|POS System Test\\POS And Inventory.vbproj|C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\pos system test\\inventory\\inventory.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,27 +38,53 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inventory.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\Inventory.vb",
+              "RelativeDocumentMoniker": "POS System Test\\Inventory\\Inventory.vb",
+              "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\Inventory.vb [Design]",
+              "RelativeToolTip": "POS System Test\\Inventory\\Inventory.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-03-24T00:51:30.609Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AddStock.vb",
+              "DocumentMoniker": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb",
+              "RelativeDocumentMoniker": "POS System Test\\Inventory\\AddStock.vb",
+              "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb*",
+              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb*",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAewBEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-03-23T23:43:08.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AddStock.vb [Design]",
               "DocumentMoniker": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb",
               "RelativeDocumentMoniker": "POS System Test\\Inventory\\AddStock.vb",
-              "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb [Design]",
-              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb [Design]",
+              "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\AddStock.vb [Design]*",
+              "RelativeToolTip": "POS System Test\\Inventory\\AddStock.vb [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-03-22T12:19:54.458Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Inventory.vb",
               "DocumentMoniker": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeDocumentMoniker": "POS System Test\\Inventory\\Inventory.vb",
               "ToolTip": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\Inventory\\Inventory.vb",
               "RelativeToolTip": "POS System Test\\Inventory\\Inventory.vb",
-              "ViewState": "AQIAAMgAAAAAAAAAAAAhwNoAAAAAAAAA",
+              "ViewState": "AQIAAMoAAAAAAAAAAAApwNoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-20T13:14:02.1Z"
+              "WhenOpened": "2024-03-20T13:14:02.1Z",
+              "EditorCaption": ""
             }
           ]
         },

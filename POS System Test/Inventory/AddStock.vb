@@ -142,8 +142,11 @@ Public Class AddStock
             End If
             dgvAddedList.Columns.Add(column.Name, column.HeaderText)
         Next
-
-        dgvAddedList.Rows.Add(Category, ID, Brand, Quantity)
+        ' Add a new row with empty cells under each column header
+        dgvDescriptions.Rows.Add()
+        For Each column As DataGridViewColumn In dgvDescriptions.Columns
+            dgvDescriptions.Rows(dgvDescriptions.Rows.Count - 1).Cells(column.Index).Value = "."
+        Next
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
