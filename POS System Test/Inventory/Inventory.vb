@@ -50,7 +50,7 @@ Public Class Inventory
         PopulateDataGridViewForCategory(cbxCategory.SelectedItem.ToString)
     End Sub
 
-    Private Sub AddItemsFromAllCategories()
+    Public Sub AddItemsFromAllCategories()
         Try
             ' Clear existing columns and rows in dgvStockList
             dgvStockList.Columns.Clear()
@@ -128,41 +128,24 @@ Public Class Inventory
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
         Dim searchText As String = txbxSearch.Text.Trim().ToLower()
 
-        ' Clear dgvStockList before anything else
-        dgvStockList.Rows.Clear()
-
-        ' Iterate through each category in cxbxCategory
-        For Each category As String In cbxCategory.Items
-            If category <> "All" Then
-                Dim csvFileName As String = category & ".csv" ' Assuming CSV file names are based on the category names
-                If File.Exists(csvFileName) Then
-                    Using reader As New StreamReader(csvFileName)
-                        ' Skip the first line (column headers)
-                        reader.ReadLine()
-
-                        ' Read each line in the CSV file
-                        While Not reader.EndOfStream
-                            Dim line As String = reader.ReadLine()
-                            Dim values As String() = line.Split(","c) ' Assuming CSV files are comma-separated
-
-                            ' Check if any value in the current line contains the search text
-                            For Each value As String In values
-                                If value.ToLower().Contains(searchText) Then
-                                    ' If a match is found, add the values to dgvStockList
-                                    dgvStockList.Rows.Add(values)
-                                    Exit While ' Exit the inner loop since we found a match in this file
-                                End If
-                            Next
-                        End While
-                    End Using
-                Else
-                    MessageBox.Show("CSV file not found for category: " & category, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ' Iterate through each row in dgvStockList
+        For Each row As DataGridViewRow In dgvStockList.Rows
+            ' Check if any value in the current row contains the search text
+            Dim matchFound As Boolean = False
+            For Each cell As DataGridViewCell In row.Cells
+                Dim cellValue As String = cell.Value?.ToString().ToLower()
+                If cellValue?.Contains(searchText) = True Then
+                    matchFound = True
+                    Exit For
                 End If
-            End If
+            Next
+
+            ' Show the row if a match is found
+            row.Visible = matchFound
         Next
     End Sub
 
-    Private Sub PopulateDataGridViewForCategory(selectedCategory As String)
+    Public Sub PopulateDataGridViewForCategory(selectedCategory As String)
         Try
             ' Clear existing columns and rows in dgvStockList
             dgvStockList.Columns.Clear()

@@ -56,22 +56,24 @@ Partial Class AddStock
         clmDesciptions = New DataGridViewTextBoxColumn()
         clmValue = New DataGridViewTextBoxColumn()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmCategory = New DataGridViewTextBoxColumn()
-        clmID = New DataGridViewTextBoxColumn()
-        clmBrand = New DataGridViewTextBoxColumn()
-        clmModel = New DataGridViewTextBoxColumn()
-        clmQuantity = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         lblPrice = New Label()
         txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
+        clmCategory = New DataGridViewTextBoxColumn()
+        clmID = New DataGridViewTextBoxColumn()
+        clmPrice = New DataGridViewTextBoxColumn()
+        clmBrand = New DataGridViewTextBoxColumn()
+        clmModel = New DataGridViewTextBoxColumn()
+        clmQuantity = New DataGridViewTextBoxColumn()
         CType(dgvDescriptions, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' txbxBrand
         ' 
+        txbxBrand.BorderRadius = 18
         txbxBrand.CustomizableEdges = CustomizableEdges1
         txbxBrand.DefaultText = ""
         txbxBrand.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -92,6 +94,7 @@ Partial Class AddStock
         ' 
         ' txbxID
         ' 
+        txbxID.BorderRadius = 18
         txbxID.CustomizableEdges = CustomizableEdges3
         txbxID.DefaultText = ""
         txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -148,6 +151,7 @@ Partial Class AddStock
         ' 
         ' txbxModel
         ' 
+        txbxModel.BorderRadius = 18
         txbxModel.CustomizableEdges = CustomizableEdges5
         txbxModel.DefaultText = ""
         txbxModel.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -286,7 +290,7 @@ Partial Class AddStock
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmBrand, clmModel, clmQuantity})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmPrice, clmBrand, clmModel, clmQuantity})
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
         DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
@@ -324,36 +328,6 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmBrand
-        ' 
-        clmBrand.HeaderText = "Brand"
-        clmBrand.Name = "clmBrand"
-        clmBrand.ReadOnly = True
-        ' 
-        ' clmModel
-        ' 
-        clmModel.HeaderText = "Model"
-        clmModel.Name = "clmModel"
-        clmModel.ReadOnly = True
-        ' 
-        ' clmQuantity
-        ' 
-        clmQuantity.HeaderText = "Quantity"
-        clmQuantity.Name = "clmQuantity"
-        clmQuantity.ReadOnly = True
-        ' 
         ' btSave
         ' 
         btSave.BackColor = Color.Transparent
@@ -384,6 +358,7 @@ Partial Class AddStock
         ' 
         ' txbxQty
         ' 
+        txbxQty.BorderRadius = 18
         txbxQty.CustomizableEdges = CustomizableEdges11
         txbxQty.DefaultText = ""
         txbxQty.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -413,6 +388,7 @@ Partial Class AddStock
         ' 
         ' txbxPrice
         ' 
+        txbxPrice.BorderRadius = 18
         txbxPrice.CustomizableEdges = CustomizableEdges13
         txbxPrice.DefaultText = ""
         txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -430,6 +406,42 @@ Partial Class AddStock
         txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         txbxPrice.Size = New Size(247, 36)
         txbxPrice.TabIndex = 24
+        ' 
+        ' clmCategory
+        ' 
+        clmCategory.HeaderText = "Category"
+        clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
+        ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmBrand
+        ' 
+        clmBrand.HeaderText = "Brand"
+        clmBrand.Name = "clmBrand"
+        clmBrand.ReadOnly = True
+        ' 
+        ' clmModel
+        ' 
+        clmModel.HeaderText = "Model"
+        clmModel.Name = "clmModel"
+        clmModel.ReadOnly = True
+        ' 
+        ' clmQuantity
+        ' 
+        clmQuantity.HeaderText = "Quantity"
+        clmQuantity.Name = "clmQuantity"
+        clmQuantity.ReadOnly = True
         ' 
         ' AddStock
         ' 
@@ -476,13 +488,14 @@ Partial Class AddStock
     Friend WithEvents btSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblQuantity As Label
     Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents clmCategory As DataGridViewTextBoxColumn
-    Friend WithEvents clmID As DataGridViewTextBoxColumn
-    Friend WithEvents clmBrand As DataGridViewTextBoxColumn
-    Friend WithEvents clmModel As DataGridViewTextBoxColumn
-    Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
     Friend WithEvents lblPrice As Label
     Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents clmDesciptions As DataGridViewTextBoxColumn
     Friend WithEvents clmValue As DataGridViewTextBoxColumn
+    Friend WithEvents clmCategory As DataGridViewTextBoxColumn
+    Friend WithEvents clmID As DataGridViewTextBoxColumn
+    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
+    Friend WithEvents clmBrand As DataGridViewTextBoxColumn
+    Friend WithEvents clmModel As DataGridViewTextBoxColumn
+    Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
 End Class

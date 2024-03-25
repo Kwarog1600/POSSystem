@@ -121,46 +121,48 @@ Public Class AddStock
             Dim Model As String = txbxModel.Text
             Dim Brand As String = txbxBrand.Text
             Dim Quantity As String = txbxQty.Text
+            Dim Price As String = txbxPrice.Text ' Assuming you have a textbox for the price
+
             If Quantity <= 0 Then
                 MessageBox.Show("Quantity cannot be negative or zero.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
+
             If ID IsNot Nothing Then
+                For Each row As DataGridViewRow In dgvDescriptions.Rows
+                    Dim headerText As String = row.Cells(0).Value
+                    If dgvAddedList.Columns.Contains(headerText) Then
+                        Continue For ' Skip adding the column if it already exists
+                    End If
+                    dgvAddedList.Columns.Add(headerText, headerText)
+                Next
+
+                Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
+
+                If existingRow IsNot Nothing Then
+                    Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
+                    existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
+                Else
+                    Dim rowData As New List(Of Object)()
+                    rowData.Add(Category)
+                    rowData.Add(ID)
+                    rowData.Add(Model)
+                    rowData.Add(Brand)
+                    rowData.Add(Quantity)
+                    rowData.Add(Price) ' Add the price to the row data
+
                     For Each row As DataGridViewRow In dgvDescriptions.Rows
-                        Dim headerText As String = row.Cells(0).Value
-                        If dgvAddedList.Columns.Contains(headerText) Then
-                            Continue For ' Skip adding the column if it already exists
-                        End If
-                        dgvAddedList.Columns.Add(headerText, headerText)
+                        rowData.Add(row.Cells(1).Value)
                     Next
 
-                    Dim existingRow As DataGridViewRow = dgvAddedList.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(r) r.Cells("clmID").Value IsNot Nothing AndAlso r.Cells("clmID").Value.ToString() = ID)
-
-                    If existingRow IsNot Nothing Then
-                        Dim existingQuantity As Integer = Convert.ToInt32(existingRow.Cells("clmQuantity").Value)
-                        existingRow.Cells("clmQuantity").Value = existingQuantity + Convert.ToInt32(Quantity)
-                    Else
-                        Dim rowData As New List(Of Object)()
-                        rowData.Add(Category)
-                        rowData.Add(ID)
-                        rowData.Add(Model)
-                        rowData.Add(Brand)
-                        rowData.Add(Quantity)
-
-                        For Each row As DataGridViewRow In dgvDescriptions.Rows
-                            rowData.Add(row.Cells(1).Value)
-                        Next
-
-                        dgvAddedList.Rows.Add(rowData.ToArray())
-                    End If
-                Else
-                    MessageBox.Show("Please enter an ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    dgvAddedList.Rows.Add(rowData.ToArray())
                 End If
             Else
-                MessageBox.Show("Please select a category.", "No Category Selected", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Please enter an ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            MessageBox.Show("Please select a category.", "No Category Selected", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
-
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
@@ -182,6 +184,7 @@ Public Class AddStock
             End Using
 
             ' Find and update the line with the matching ID
+            Dim found As Boolean = False
             For i As Integer = 0 To lines.Count - 1
                 Dim values As String() = lines(i).Split(","c)
                 If values(0) = id Then
@@ -189,8 +192,17 @@ Public Class AddStock
                     quantity += Convert.ToInt32(row.Cells("clmQuantity").Value)
                     values(4) = quantity.ToString()
                     lines(i) = String.Join(",", values)
+                    found = True
+                    Exit For
                 End If
             Next
+
+            ' Add the item if it does not match any
+            ' Add the item if it does not match any
+            If Not found Then
+                Dim newLine As String = String.Join(",", row.Cells.Cast(Of DataGridViewCell).Skip(1).Select(Function(cell) cell.Value), row.Cells("clmPrice").Value)
+                lines.Add(newLine)
+            End If
 
             ' Write all lines back to the CSV file
             Using writer As New StreamWriter(fileName)
@@ -200,6 +212,7 @@ Public Class AddStock
             End Using
 
             AddToStockHistoryLog(id, row.Cells("clmModel").Value.ToString(), Convert.ToInt32(row.Cells("clmQuantity").Value))
+            Inventory.PopulateDataGridViewForCategory(Inventory.cbxCategory.SelectedItem.ToString())
         Next
     End Sub
 
@@ -213,5 +226,7 @@ Public Class AddStock
         Using writer As New StreamWriter(fileName, True)
             writer.WriteLine(logEntry)
         End Using
+
+
     End Sub
 End Class
