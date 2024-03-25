@@ -94,10 +94,19 @@ Public Class Inventory
                                 Dim columnName As String = headers(i)
                                 Dim columnIndex As Integer = headerColumnIndex(columnName)
 
-                                ' Check if the value already exists in the DataGridView
-                                Dim existingValue As String = dgvStockList.Rows(rowIndex).Cells(columnIndex).Value?.ToString()
-                                If existingValue <> values(i) Then
-                                    dgvStockList.Rows(rowIndex).Cells(columnIndex).Value = values(i)
+                                If i = 1 Then ' Check if it's the second column
+                                    If Single.TryParse(values(i), 0.0F) Then ' Try to convert to float
+                                        dgvStockList.Rows(rowIndex).Cells(columnIndex).Value = Single.Parse(values(i)) ' Store as float
+                                    Else
+                                        ' Handle invalid float value
+                                        MessageBox.Show($"Invalid float value in column 2: {values(i)}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End If
+                                Else
+                                    ' Check if the value already exists in the DataGridView
+                                    Dim existingValue As String = dgvStockList.Rows(rowIndex).Cells(columnIndex).Value?.ToString()
+                                    If existingValue <> values(i) Then
+                                        dgvStockList.Rows(rowIndex).Cells(columnIndex).Value = values(i)
+                                    End If
                                 End If
                             Next
                         End While
@@ -146,65 +155,78 @@ Public Class Inventory
     End Sub
 
     Public Sub PopulateDataGridViewForCategory(selectedCategory As String)
-        Try
-            ' Clear existing columns and rows in dgvStockList
-            dgvStockList.Columns.Clear()
-            dgvStockList.Rows.Clear()
+    Try
+        ' Clear existing columns and rows in dgvStockList
+        dgvStockList.Columns.Clear()
+        dgvStockList.Rows.Clear()
 
-            ' Dictionary to store headers and corresponding column indices
-            Dim headerColumnIndex As New Dictionary(Of String, Integer)
+        ' Dictionary to store headers and corresponding column indices
+        Dim headerColumnIndex As New Dictionary(Of String, Integer)
 
-            ' Add a common "ID" column
-            dgvStockList.Columns.Add("ID", "ID")
+        ' Add a common "ID" column
+        dgvStockList.Columns.Add("ID", "ID")
 
-            ' Add columns for the selected category (if not "All")
-            If selectedCategory <> "All" Then
-                Dim categoryFileName = selectedCategory & ".csv"
-                If File.Exists(categoryFileName) Then
+        ' Add columns for the selected category (if not "All")
+        If selectedCategory <> "All" Then
+            Dim categoryFileName = selectedCategory & ".csv"
+            If File.Exists(categoryFileName) Then
+                Using reader As New StreamReader(categoryFileName)
+                    Dim isFirstLine = True ' Flag to skip the first line (headers)
+                    If Not reader.EndOfStream Then
+                        Dim headers = reader.ReadLine.Split(","c)
+                        For Each header In headers
+                            If isFirstLine Then
+                                isFirstLine = False
+                                Continue For ' Skip headers
+                            End If
+                            If Not headerColumnIndex.ContainsKey(header) Then
+                                Dim columnName = $"clm{header}" ' Prefix column name with 'clm'
+                                Dim columnIndex = dgvStockList.Columns.Add(columnName, header)
+                                headerColumnIndex.Add(header, columnIndex)
+                            End If
+                        Next
+                    End If
+                End Using
+
+                ' Populate dgvStockList with items from the selected category
+                If dgvStockList.Columns.Count > 0 Then
                     Using reader As New StreamReader(categoryFileName)
                         Dim isFirstLine = True ' Flag to skip the first line (headers)
-                        If Not reader.EndOfStream Then
-                            Dim headers = reader.ReadLine.Split(","c)
-                            For Each header In headers
-                                If isFirstLine Then
-                                    isFirstLine = False
-                                    Continue For ' Skip headers
+                        While Not reader.EndOfStream
+                            Dim line = reader.ReadLine
+                            If isFirstLine Then
+                                isFirstLine = False
+                                Continue While ' Skip headers
+                            End If
+                            Dim values = line.Split(","c)
+                            If values.Length = dgvStockList.Columns.Count Then
+                                ' Convert string value to float for the second column and integer for the fifth column before adding them to the DataGridView
+                                Dim floatVal As Double
+                                Dim intVal As Integer
+                                If Double.TryParse(values(1), floatVal) Then
+                                    values(1) = floatVal.ToString() ' Update the value in the array
+                                Else
+                                    values(1) = "0.0" ' Default value if conversion fails
                                 End If
-                                If Not headerColumnIndex.ContainsKey(header) Then
-                                    Dim columnName = $"clm{header}" ' Prefix column name with 'clm'
-                                    Dim columnIndex = dgvStockList.Columns.Add(columnName, header)
-                                    headerColumnIndex.Add(header, columnIndex)
+                                If Integer.TryParse(values(4), intVal) Then
+                                    values(4) = intVal.ToString() ' Update the value in the array
+                                Else
+                                    values(4) = "0" ' Default value if conversion fails
                                 End If
-                            Next
-                        End If
+                                dgvStockList.Rows.Add(values)
+                            End If
+                        End While
                     End Using
-
-                    ' Populate dgvStockList with items from the selected category
-                    If dgvStockList.Columns.Count > 0 Then
-                        Using reader As New StreamReader(categoryFileName)
-                            Dim isFirstLine = True ' Flag to skip the first line (headers)
-                            While Not reader.EndOfStream
-                                Dim line = reader.ReadLine
-                                If isFirstLine Then
-                                    isFirstLine = False
-                                    Continue While ' Skip headers
-                                End If
-                                Dim values = line.Split(","c)
-                                If values.Length = dgvStockList.Columns.Count Then
-                                    dgvStockList.Rows.Add(values)
-                                End If
-                            End While
-                        End Using
-                    End If
                 End If
-            Else
-                ' If "All" selected, you can handle what you want to show in the DataGridView here.
-                AddItemsFromAllCategories()
             End If
-        Catch ex As Exception
-            MessageBox.Show($"Error loading items for the selected category: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
+        Else
+            ' If "All" selected, you can handle what you want to show in the DataGridView here.
+            AddItemsFromAllCategories()
+        End If
+    Catch ex As Exception
+        MessageBox.Show($"Error loading items for the selected category: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    End Try
+End Sub
 
 End Class
 
