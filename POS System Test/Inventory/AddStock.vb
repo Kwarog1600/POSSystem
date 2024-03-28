@@ -226,7 +226,5 @@ Public Class AddStock
         Using writer As New StreamWriter(fileName, True)
             writer.WriteLine(logEntry)
         End Using
-
-
     End Sub
 End Class
