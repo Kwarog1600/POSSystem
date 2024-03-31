@@ -45,17 +45,16 @@ Partial Class AddStock
         cbxCategory = New ComboBox()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmCategory = New DataGridViewTextBoxColumn()
-        clmID = New DataGridViewTextBoxColumn()
-        clmPrice = New DataGridViewTextBoxColumn()
-        clmBrand = New DataGridViewTextBoxColumn()
-        clmModel = New DataGridViewTextBoxColumn()
-        clmQuantity = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         lblPrice = New Label()
         txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
+        clmCategory = New DataGridViewTextBoxColumn()
+        clmID = New DataGridViewTextBoxColumn()
+        clmProduct = New DataGridViewTextBoxColumn()
+        clmPrice = New DataGridViewTextBoxColumn()
+        clmQuantity = New DataGridViewTextBoxColumn()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -175,7 +174,7 @@ Partial Class AddStock
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmPrice, clmBrand, clmModel, clmQuantity})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -212,42 +211,6 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.RowsStyle.Height = 25
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmBrand
-        ' 
-        clmBrand.HeaderText = "Brand"
-        clmBrand.Name = "clmBrand"
-        clmBrand.ReadOnly = True
-        ' 
-        ' clmModel
-        ' 
-        clmModel.HeaderText = "Model"
-        clmModel.Name = "clmModel"
-        clmModel.ReadOnly = True
-        ' 
-        ' clmQuantity
-        ' 
-        clmQuantity.HeaderText = "Quantity"
-        clmQuantity.Name = "clmQuantity"
-        clmQuantity.ReadOnly = True
         ' 
         ' btSave
         ' 
@@ -328,6 +291,36 @@ Partial Class AddStock
         txbxPrice.Size = New Size(247, 36)
         txbxPrice.TabIndex = 24
         ' 
+        ' clmCategory
+        ' 
+        clmCategory.HeaderText = "Category"
+        clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
+        ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmProduct
+        ' 
+        clmProduct.HeaderText = "Brand"
+        clmProduct.Name = "clmProduct"
+        clmProduct.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmQuantity
+        ' 
+        clmQuantity.HeaderText = "Quantity"
+        clmQuantity.Name = "clmQuantity"
+        clmQuantity.ReadOnly = True
+        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -349,6 +342,7 @@ Partial Class AddStock
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "AddStock"
         Text = "AddStock"
+        TopMost = True
         CType(dgvAddedList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -368,8 +362,7 @@ Partial Class AddStock
     Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents clmCategory As DataGridViewTextBoxColumn
     Friend WithEvents clmID As DataGridViewTextBoxColumn
+    Friend WithEvents clmProduct As DataGridViewTextBoxColumn
     Friend WithEvents clmPrice As DataGridViewTextBoxColumn
-    Friend WithEvents clmBrand As DataGridViewTextBoxColumn
-    Friend WithEvents clmModel As DataGridViewTextBoxColumn
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
 End Class

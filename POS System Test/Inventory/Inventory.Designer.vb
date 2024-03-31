@@ -111,6 +111,7 @@ Partial Class Inventory
         ' 
         dgvStockList.AllowUserToAddRows = False
         dgvStockList.AllowUserToDeleteRows = False
+        dgvStockList.AllowUserToResizeColumns = False
         dgvStockList.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         dgvStockList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
@@ -123,8 +124,7 @@ Partial Class Inventory
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvStockList.ColumnHeadersHeight = 17
-        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvStockList.Columns.AddRange(New DataGridViewColumn() {clmID, clmProduct, clmPrice, clmQty})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
@@ -139,6 +139,7 @@ Partial Class Inventory
         dgvStockList.Name = "dgvStockList"
         dgvStockList.ReadOnly = True
         dgvStockList.RowHeadersVisible = False
+        dgvStockList.SelectionMode = DataGridViewSelectionMode.CellSelect
         dgvStockList.Size = New Size(800, 389)
         dgvStockList.TabIndex = 5
         dgvStockList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
@@ -152,7 +153,7 @@ Partial Class Inventory
         dgvStockList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvStockList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvStockList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvStockList.ThemeStyle.HeaderStyle.Height = 17
         dgvStockList.ThemeStyle.ReadOnly = True
         dgvStockList.ThemeStyle.RowsStyle.BackColor = Color.White

@@ -89,7 +89,9 @@ Partial Class StockCategoryAdd
         Controls.Add(txbxCategory)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "StockCategoryAdd"
+        ShowIcon = False
         Text = "StockCategoryAdd"
+        TopMost = True
         ResumeLayout(False)
         PerformLayout()
     End Sub

@@ -12,6 +12,10 @@ Public Class Inventory
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+        RefreshTable()
+    End Sub
+
+    Public Sub RefreshTable()
         Dim filePath As String = "Stock Category.csv"
         dgvStockList.Rows.Clear()
         If cbxCategory.SelectedIndex = 0 Then
@@ -71,7 +75,7 @@ Public Class Inventory
         StockHistory.Visible = True
     End Sub
 
-    Private Sub LoadStock(category As String)
+    Public Sub LoadStock(category As String)
 
         Dim filePath As String = category & ".csv"
 
@@ -93,6 +97,18 @@ Public Class Inventory
         End If
     End Sub
 
+    Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
+        Dim searchText As String = txbxSearch.Text.ToLower() ' Convert search text to lowercase for case-insensitive search
+        For Each row As DataGridViewRow In dgvStockList.Rows
+            ' Check if the text in the second column matches the search text
+            Dim cellValue As String = row.Cells(1).Value.ToString().ToLower() ' Assuming the second column index is 1
+            If cellValue.Contains(searchText) Then
+                row.Visible = True ' If there's a match, make the row visible
+            Else
+                row.Visible = False ' If there's no match, hide the row
+            End If
+        Next
+    End Sub
 End Class
 
 
