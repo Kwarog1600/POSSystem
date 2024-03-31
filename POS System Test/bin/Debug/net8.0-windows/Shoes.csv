@@ -1,11 +1,6 @@
-ID,Price,Brand,Model,Quantity,Size,Color
-1,49.99,Nike,Air Force 1,187,8,White
-2,89.99,Adidas,Superstar,60,9,Black
-3,64.99,Reebok,Classic Leather,170,7,Red
-4,79.99,Puma,Suede Classic,40,10,Blue
-5,99.99,New Balance,574,25,8.5,Gray
-6,69.99,Vans,Old Skool,35,9.5,Black/White
-7,59.99,Converse,Chuck Taylor All Star,45,7.5,White
-8,109.99,Under Armour,Hovr Phantom,15,11,Black/Red
-9,74.99,Asics,Gel-Lyte III,10,10.5,Blue/Orange
-10,39.99,Fila,Disruptor II,60,8,White/Navy
+Product ID,Product Name,Price,Quantity
+SH001,Adidas Ultraboost 21,$180 ,50
+SH002,Nike Air Force 1,$100 ,75
+SH003,Vans Old Skool Sneakers,$60 ,100
+SH004,Converse Chuck Taylor All Star,$55 ,80
+SH005,Puma RS-X3 Puzzle,$110 ,60

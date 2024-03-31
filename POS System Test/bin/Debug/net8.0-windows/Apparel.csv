@@ -1,11 +1,6 @@
-ID,Price,Brand,Model,Quantity,Gender,Size,Color
-1001,29.99,Levi's,Jeans,100,Men,32x32,Blue
-1002,19.99,H&M,T-Shirt,33,Women,L,Black
-1003,49.99,Zara,Dress,15,Women,M,Red
-1004,39.99,Gap,Hoodie,25,Men,S,Gray
-1005,59.99,Forever 21,Blouse,20,Women,S,White
-1006,34.99,Uniqlo,Chinos,10,Men,34x32,Beige
-1007,25.99,Old Navy,Sweater,18,Women,XL,Green
-1008,69.99,Calvin Klein,Blazer,12,Women,10,Black
-1009,39.99,Hollister,Shorts,22,Men,30,Blue
-1010,49.99,Abercrombie & Fitch,Skirt,73,Women,S,Denim
+Product ID,Product Name,Price,Quantity
+AP001,Levi's 501 Original Fit Jeans,$50 ,100
+AP002,Nike Sportswear Club Fleece Hoodie,$60 ,80
+AP003,Adidas Essentials 3-Stripes T-Shirt,$25 ,120
+AP004,The North Face Resolve 2 Jacket,$100 ,50
+AP005,Under Armour Tech 2.0 Short Sleeve T-Shirt,$30 ,90

@@ -37,9 +37,9 @@ Partial Class AddStock
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        txbxBrand = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
         txbxID = New Guna.UI2.WinForms.Guna2TextBox()
-        lbBrand = New Label()
+        lbProduct = New Label()
         lbID = New Label()
         lbCat = New Label()
         cbxCategory = New ComboBox()
@@ -59,26 +59,26 @@ Partial Class AddStock
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' txbxBrand
+        ' txbxProduct
         ' 
-        txbxBrand.BorderRadius = 18
-        txbxBrand.CustomizableEdges = CustomizableEdges1
-        txbxBrand.DefaultText = ""
-        txbxBrand.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxBrand.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxBrand.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxBrand.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxBrand.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxBrand.Font = New Font("Segoe UI", 9F)
-        txbxBrand.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxBrand.Location = New Point(73, 75)
-        txbxBrand.Name = "txbxBrand"
-        txbxBrand.PasswordChar = ChrW(0)
-        txbxBrand.PlaceholderText = ""
-        txbxBrand.SelectedText = ""
-        txbxBrand.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxBrand.Size = New Size(242, 36)
-        txbxBrand.TabIndex = 4
+        txbxProduct.BorderRadius = 18
+        txbxProduct.CustomizableEdges = CustomizableEdges1
+        txbxProduct.DefaultText = ""
+        txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxProduct.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxProduct.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxProduct.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxProduct.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxProduct.Font = New Font("Segoe UI", 9F)
+        txbxProduct.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxProduct.Location = New Point(73, 75)
+        txbxProduct.Name = "txbxProduct"
+        txbxProduct.PasswordChar = ChrW(0)
+        txbxProduct.PlaceholderText = ""
+        txbxProduct.SelectedText = ""
+        txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxProduct.Size = New Size(242, 36)
+        txbxProduct.TabIndex = 4
         ' 
         ' txbxID
         ' 
@@ -101,14 +101,14 @@ Partial Class AddStock
         txbxID.Size = New Size(242, 36)
         txbxID.TabIndex = 6
         ' 
-        ' lbBrand
+        ' lbProduct
         ' 
-        lbBrand.AutoSize = True
-        lbBrand.Location = New Point(12, 75)
-        lbBrand.Name = "lbBrand"
-        lbBrand.Size = New Size(38, 15)
-        lbBrand.TabIndex = 7
-        lbBrand.Text = "Brand"
+        lbProduct.AutoSize = True
+        lbProduct.Location = New Point(12, 75)
+        lbProduct.Name = "lbProduct"
+        lbProduct.Size = New Size(49, 15)
+        lbProduct.TabIndex = 7
+        lbProduct.Text = "Product"
         ' 
         ' lbID
         ' 
@@ -343,9 +343,9 @@ Partial Class AddStock
         Controls.Add(cbxCategory)
         Controls.Add(lbCat)
         Controls.Add(lbID)
-        Controls.Add(lbBrand)
+        Controls.Add(lbProduct)
         Controls.Add(txbxID)
-        Controls.Add(txbxBrand)
+        Controls.Add(txbxProduct)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "AddStock"
         Text = "AddStock"
@@ -353,9 +353,9 @@ Partial Class AddStock
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents txbxBrand As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxProduct As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txbxID As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lbBrand As Label
+    Friend WithEvents lbProduct As Label
     Friend WithEvents lbID As Label
     Private WithEvents lbCat As Label
     Friend WithEvents cbxCategory As ComboBox
