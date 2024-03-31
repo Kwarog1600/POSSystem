@@ -1,6 +1,11 @@
 Product ID,Product Name,Price,Quantity
-AP001,Levi's 501 Original Fit Jeans,$50 ,100
-AP002,Nike Sportswear Club Fleece Hoodie,$60 ,80
-AP003,Adidas Essentials 3-Stripes T-Shirt,$25 ,120
-AP004,The North Face Resolve 2 Jacket,$100 ,50
-AP005,Under Armour Tech 2.0 Short Sleeve T-Shirt,$30 ,90
+1001,Cotton T-shirt,12.99,150
+1002,Blue Jeans,34.99,80
+1003,Hooded Sweatshirt,29.99,65
+1004,Running Shoes,69.99,45
+1005,Floral Dress,39.99,70
+1006,Striped Polo Shirt,24.99,100
+1007,Yoga Pants,19.99,120
+1008,Leather Jacket,89.99,35
+1009,Cargo Shorts,27.99,90
+1010,Knit Sweater,49.99,60

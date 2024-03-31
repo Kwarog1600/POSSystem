@@ -1,6 +1,11 @@
 Product ID,Product Name,Price,Quantity
-SH001,Adidas Ultraboost 21,$180 ,62,Shoes
-SH002,Nike Air Force 1,$100 ,79,Shoes
-SH003,Vans Old Skool Sneakers,$60 ,104,Shoes
-SH004,Converse Chuck Taylor All Star,$55 ,80
-SH005,Puma RS-X3 Puzzle,$110 ,60
+001,Running Shoes,59.99,100
+002,Dress Shoes,79.99,50
+003,Sneakers,49.99,75
+004,Boots,89.99,40
+005,Sandals,29.99,120
+006,High Heels,69.99,30
+007,Flip Flops,19.99,90
+008,Hiking Boots,99.99,25
+009,Slippers,39.99,60
+010,Work Shoes,69.99,35

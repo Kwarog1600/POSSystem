@@ -25,10 +25,6 @@
         End If
     End Sub
 
-    Private Sub Guna2Button4_Click(sender As Object, e As EventArgs) Handles btAnalytics.Click
-
-    End Sub
-
     Private Sub btClose_Click(sender As Object, e As EventArgs) Handles btMin.Click
         WindowState = FormWindowState.Minimized
     End Sub
@@ -53,5 +49,9 @@
 
     Private Sub btInventory_Click(sender As Object, e As EventArgs) Handles btInventory.Click
         Me.switchPanel(Inventory)
+    End Sub
+
+    Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
+        Me.switchPanel(Sales)
     End Sub
 End Class

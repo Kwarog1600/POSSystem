@@ -22,8 +22,8 @@ Partial Class Sales
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -41,20 +41,14 @@ Partial Class Sales
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        showTotalPrice = New Label()
+        lblTotal = New Label()
         lblPrice = New Label()
         txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmCategory = New DataGridViewTextBoxColumn()
-        clmID = New DataGridViewTextBoxColumn()
-        clmPrice = New DataGridViewTextBoxColumn()
-        clmBrand = New DataGridViewTextBoxColumn()
-        clmModel = New DataGridViewTextBoxColumn()
-        clmQuantity = New DataGridViewTextBoxColumn()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         cbxCategory = New ComboBox()
         lbCat = New Label()
@@ -63,9 +57,14 @@ Partial Class Sales
         txbxID = New Guna.UI2.WinForms.Guna2TextBox()
         txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
         lblName = New Label()
-        txbxTotal = New Guna.UI2.WinForms.Guna2TextBox()
         txbxName = New Guna.UI2.WinForms.Guna2TextBox()
         btSale = New Guna.UI2.WinForms.Guna2Button()
+        clmCategory = New DataGridViewTextBoxColumn()
+        clmID = New DataGridViewTextBoxColumn()
+        clmProduct = New DataGridViewTextBoxColumn()
+        clmPrice = New DataGridViewTextBoxColumn()
+        clmQuantity = New DataGridViewTextBoxColumn()
+        Total = New DataGridViewTextBoxColumn()
         pnlContainer.SuspendLayout()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -73,6 +72,8 @@ Partial Class Sales
         ' pnlContainer
         ' 
         pnlContainer.BorderRadius = 25
+        pnlContainer.Controls.Add(showTotalPrice)
+        pnlContainer.Controls.Add(lblTotal)
         pnlContainer.Controls.Add(lblPrice)
         pnlContainer.Controls.Add(txbxPrice)
         pnlContainer.Controls.Add(lblQuantity)
@@ -86,25 +87,46 @@ Partial Class Sales
         pnlContainer.Controls.Add(txbxID)
         pnlContainer.Controls.Add(txbxProduct)
         pnlContainer.Controls.Add(lblName)
-        pnlContainer.Controls.Add(txbxTotal)
         pnlContainer.Controls.Add(txbxName)
         pnlContainer.Controls.Add(btSale)
-        pnlContainer.CustomizableEdges = CustomizableEdges17
-        pnlContainer.Location = New Point(40, 107)
+        pnlContainer.CustomizableEdges = CustomizableEdges15
+        pnlContainer.Location = New Point(28, 33)
         pnlContainer.Name = "pnlContainer"
-        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         pnlContainer.Size = New Size(920, 575)
         pnlContainer.TabIndex = 4
+        ' 
+        ' showTotalPrice
+        ' 
+        showTotalPrice.AutoSize = True
+        showTotalPrice.BackColor = Color.Transparent
+        showTotalPrice.Font = New Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        showTotalPrice.Location = New Point(683, 34)
+        showTotalPrice.Name = "showTotalPrice"
+        showTotalPrice.Size = New Size(74, 37)
+        showTotalPrice.TabIndex = 40
+        showTotalPrice.Text = "Total"
+        ' 
+        ' lblTotal
+        ' 
+        lblTotal.AutoSize = True
+        lblTotal.BackColor = Color.Transparent
+        lblTotal.Location = New Point(639, 34)
+        lblTotal.Name = "lblTotal"
+        lblTotal.Size = New Size(38, 15)
+        lblTotal.TabIndex = 39
+        lblTotal.Text = "Total :"
         ' 
         ' lblPrice
         ' 
         lblPrice.AutoSize = True
         lblPrice.BackColor = Color.Transparent
-        lblPrice.Location = New Point(373, 109)
+        lblPrice.ForeColor = Color.Black
+        lblPrice.Location = New Point(373, 88)
         lblPrice.Name = "lblPrice"
-        lblPrice.Size = New Size(33, 15)
+        lblPrice.Size = New Size(63, 15)
         lblPrice.TabIndex = 38
-        lblPrice.Text = "Price"
+        lblPrice.Text = "Price : Php"
         ' 
         ' txbxPrice
         ' 
@@ -119,13 +141,13 @@ Partial Class Sales
         txbxPrice.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxPrice.Font = New Font("Segoe UI", 9F)
         txbxPrice.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxPrice.Location = New Point(412, 88)
+        txbxPrice.Location = New Point(442, 88)
         txbxPrice.Name = "txbxPrice"
         txbxPrice.PasswordChar = ChrW(0)
         txbxPrice.PlaceholderText = ""
         txbxPrice.SelectedText = ""
         txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxPrice.Size = New Size(178, 36)
+        txbxPrice.Size = New Size(148, 36)
         txbxPrice.TabIndex = 37
         ' 
         ' lblQuantity
@@ -176,7 +198,7 @@ Partial Class Sales
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmPrice, clmBrand, clmModel, clmQuantity})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity, Total})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -190,7 +212,7 @@ Partial Class Sales
         dgvAddedList.Name = "dgvAddedList"
         dgvAddedList.ReadOnly = True
         dgvAddedList.RowHeadersVisible = False
-        dgvAddedList.Size = New Size(617, 249)
+        dgvAddedList.Size = New Size(831, 249)
         dgvAddedList.TabIndex = 33
         dgvAddedList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvAddedList.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -213,42 +235,6 @@ Partial Class Sales
         dgvAddedList.ThemeStyle.RowsStyle.Height = 25
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmBrand
-        ' 
-        clmBrand.HeaderText = "Brand"
-        clmBrand.Name = "clmBrand"
-        clmBrand.ReadOnly = True
-        ' 
-        ' clmModel
-        ' 
-        clmModel.HeaderText = "Model"
-        clmModel.Name = "clmModel"
-        clmModel.ReadOnly = True
-        ' 
-        ' clmQuantity
-        ' 
-        clmQuantity.HeaderText = "Quantity"
-        clmQuantity.Name = "clmQuantity"
-        clmQuantity.ReadOnly = True
         ' 
         ' btAddStock
         ' 
@@ -365,31 +351,11 @@ Partial Class Sales
         lblName.TabIndex = 9
         lblName.Text = "Sold To:"
         ' 
-        ' txbxTotal
-        ' 
-        txbxTotal.CustomizableEdges = CustomizableEdges11
-        txbxTotal.DefaultText = ""
-        txbxTotal.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxTotal.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxTotal.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxTotal.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxTotal.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxTotal.Font = New Font("Segoe UI", 9F)
-        txbxTotal.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxTotal.Location = New Point(685, 395)
-        txbxTotal.Name = "txbxTotal"
-        txbxTotal.PasswordChar = ChrW(0)
-        txbxTotal.PlaceholderText = "Total"
-        txbxTotal.SelectedText = ""
-        txbxTotal.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        txbxTotal.Size = New Size(200, 36)
-        txbxTotal.TabIndex = 8
-        ' 
         ' txbxName
         ' 
         txbxName.BackColor = Color.Transparent
         txbxName.BorderRadius = 16
-        txbxName.CustomizableEdges = CustomizableEdges13
+        txbxName.CustomizableEdges = CustomizableEdges11
         txbxName.DefaultText = ""
         txbxName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -403,7 +369,7 @@ Partial Class Sales
         txbxName.PasswordChar = ChrW(0)
         txbxName.PlaceholderText = "Name"
         txbxName.SelectedText = ""
-        txbxName.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        txbxName.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         txbxName.Size = New Size(180, 36)
         txbxName.TabIndex = 7
         ' 
@@ -411,7 +377,7 @@ Partial Class Sales
         ' 
         btSale.BackColor = Color.Transparent
         btSale.BorderRadius = 25
-        btSale.CustomizableEdges = CustomizableEdges15
+        btSale.CustomizableEdges = CustomizableEdges13
         btSale.DisabledState.BorderColor = Color.DarkGray
         btSale.DisabledState.CustomBorderColor = Color.DarkGray
         btSale.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -419,12 +385,48 @@ Partial Class Sales
         btSale.FillColor = Color.DimGray
         btSale.Font = New Font("Segoe UI", 9F)
         btSale.ForeColor = Color.White
-        btSale.Location = New Point(685, 483)
+        btSale.Location = New Point(705, 195)
         btSale.Name = "btSale"
-        btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btSale.Size = New Size(180, 45)
         btSale.TabIndex = 2
         btSale.Text = "Sale"
+        ' 
+        ' clmCategory
+        ' 
+        clmCategory.HeaderText = "Category"
+        clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
+        ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmProduct
+        ' 
+        clmProduct.HeaderText = "Product"
+        clmProduct.Name = "clmProduct"
+        clmProduct.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmQuantity
+        ' 
+        clmQuantity.HeaderText = "Quantity"
+        clmQuantity.Name = "clmQuantity"
+        clmQuantity.ReadOnly = True
+        ' 
+        ' Total
+        ' 
+        Total.HeaderText = "Total"
+        Total.Name = "Total"
+        Total.ReadOnly = True
         ' 
         ' Sales
         ' 
@@ -443,7 +445,6 @@ Partial Class Sales
     End Sub
 
     Friend WithEvents pnlContainer As Guna.UI2.WinForms.Guna2CustomGradientPanel
-    Friend WithEvents txbxTotal As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txbxName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btSale As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblName As Label
@@ -452,12 +453,6 @@ Partial Class Sales
     Friend WithEvents lblQuantity As Label
     Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dgvAddedList As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents clmCategory As DataGridViewTextBoxColumn
-    Friend WithEvents clmID As DataGridViewTextBoxColumn
-    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
-    Friend WithEvents clmBrand As DataGridViewTextBoxColumn
-    Friend WithEvents clmModel As DataGridViewTextBoxColumn
-    Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
     Friend WithEvents btAddStock As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cbxCategory As ComboBox
     Private WithEvents lbCat As Label
@@ -465,4 +460,12 @@ Partial Class Sales
     Friend WithEvents lbProduct As Label
     Friend WithEvents txbxID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txbxProduct As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblTotal As Label
+    Friend WithEvents showTotalPrice As Label
+    Friend WithEvents clmCategory As DataGridViewTextBoxColumn
+    Friend WithEvents clmID As DataGridViewTextBoxColumn
+    Friend WithEvents clmProduct As DataGridViewTextBoxColumn
+    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
+    Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
+    Friend WithEvents Total As DataGridViewTextBoxColumn
 End Class
