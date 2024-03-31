@@ -39,15 +39,14 @@ Partial Class Inventory
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         btAddCategory = New Guna.UI2.WinForms.Guna2Button()
         dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmID = New DataGridViewTextBoxColumn()
-        clmCategory = New DataGridViewTextBoxColumn()
-        clmBrand = New DataGridViewTextBoxColumn()
-        clmModel = New DataGridViewTextBoxColumn()
-        clmQty = New DataGridViewTextBoxColumn()
         lblStockCategory = New Label()
         cbxCategory = New ComboBox()
         btStockHistory = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
+        clmID = New DataGridViewTextBoxColumn()
+        clmProduct = New DataGridViewTextBoxColumn()
+        clmPrice = New DataGridViewTextBoxColumn()
+        clmQty = New DataGridViewTextBoxColumn()
         pnlContainer.SuspendLayout()
         CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -126,7 +125,7 @@ Partial Class Inventory
         dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvStockList.ColumnHeadersHeight = 17
         dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvStockList.Columns.AddRange(New DataGridViewColumn() {clmID, clmCategory, clmBrand, clmModel, clmQty})
+        dgvStockList.Columns.AddRange(New DataGridViewColumn() {clmID, clmProduct, clmPrice, clmQty})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -163,36 +162,6 @@ Partial Class Inventory
         dgvStockList.ThemeStyle.RowsStyle.Height = 25
         dgvStockList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvStockList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmBrand
-        ' 
-        clmBrand.HeaderText = "Brand"
-        clmBrand.Name = "clmBrand"
-        clmBrand.ReadOnly = True
-        ' 
-        ' clmModel
-        ' 
-        clmModel.HeaderText = "Model"
-        clmModel.Name = "clmModel"
-        clmModel.ReadOnly = True
-        ' 
-        ' clmQty
-        ' 
-        clmQty.HeaderText = "Quantity"
-        clmQty.Name = "clmQty"
-        clmQty.ReadOnly = True
         ' 
         ' lblStockCategory
         ' 
@@ -254,6 +223,30 @@ Partial Class Inventory
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
         ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmProduct
+        ' 
+        clmProduct.HeaderText = "Product"
+        clmProduct.Name = "clmProduct"
+        clmProduct.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmQty
+        ' 
+        clmQty.HeaderText = "Available"
+        clmQty.Name = "clmQty"
+        clmQty.ReadOnly = True
+        ' 
         ' Inventory
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -277,11 +270,10 @@ Partial Class Inventory
     Friend WithEvents cbxCategory As ComboBox
     Friend WithEvents dgvStockList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btAddCategory As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents clmID As DataGridViewTextBoxColumn
-    Friend WithEvents clmCategory As DataGridViewTextBoxColumn
-    Friend WithEvents clmBrand As DataGridViewTextBoxColumn
-    Friend WithEvents clmModel As DataGridViewTextBoxColumn
-    Friend WithEvents clmQty As DataGridViewTextBoxColumn
     Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents clmID As DataGridViewTextBoxColumn
+    Friend WithEvents clmProduct As DataGridViewTextBoxColumn
+    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
+    Friend WithEvents clmQty As DataGridViewTextBoxColumn
 End Class
