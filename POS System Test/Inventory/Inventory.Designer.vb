@@ -39,14 +39,14 @@ Partial Class Inventory
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         btAddCategory = New Guna.UI2.WinForms.Guna2Button()
         dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
-        lblStockCategory = New Label()
-        cbxCategory = New ComboBox()
-        btStockHistory = New Guna.UI2.WinForms.Guna2Button()
-        btAddStock = New Guna.UI2.WinForms.Guna2Button()
         clmID = New DataGridViewTextBoxColumn()
         clmProduct = New DataGridViewTextBoxColumn()
         clmPrice = New DataGridViewTextBoxColumn()
         clmQty = New DataGridViewTextBoxColumn()
+        lblStockCategory = New Label()
+        cbxCategory = New ComboBox()
+        btStockHistory = New Guna.UI2.WinForms.Guna2Button()
+        btAddStock = New Guna.UI2.WinForms.Guna2Button()
         pnlContainer.SuspendLayout()
         CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -163,6 +163,30 @@ Partial Class Inventory
         dgvStockList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvStockList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmProduct
+        ' 
+        clmProduct.HeaderText = "Product"
+        clmProduct.Name = "clmProduct"
+        clmProduct.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmQty
+        ' 
+        clmQty.HeaderText = "Available"
+        clmQty.Name = "clmQty"
+        clmQty.ReadOnly = True
+        ' 
         ' lblStockCategory
         ' 
         lblStockCategory.AutoSize = True
@@ -222,30 +246,6 @@ Partial Class Inventory
         btAddStock.Size = New Size(180, 45)
         btAddStock.TabIndex = 1
         btAddStock.Text = "Add Stock"
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmProduct
-        ' 
-        clmProduct.HeaderText = "Product"
-        clmProduct.Name = "clmProduct"
-        clmProduct.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmQty
-        ' 
-        clmQty.HeaderText = "Available"
-        clmQty.Name = "clmQty"
-        clmQty.ReadOnly = True
         ' 
         ' Inventory
         ' 
