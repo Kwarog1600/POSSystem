@@ -54,7 +54,7 @@ Module ProgramLoad
 
     End Sub
 
-    Private Sub CreateCsvFileIfNotExists(fileName As String, header As String)
+    Public Sub CreateCsvFileIfNotExists(fileName As String, header As String)
         Dim filePath As String = fileName
 
         ' Check if the CSV file exists, if not, create it and write the header

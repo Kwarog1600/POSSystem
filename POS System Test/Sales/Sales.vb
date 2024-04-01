@@ -1,15 +1,85 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Microsoft.VisualBasic.FileIO
 
 Public Class Sales
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
-        For Each row In dgvAddedList.Rows
-            Dim filePath As String = $"{row.Cells(0).Value.ToString()}.csv"
+        Dim newGuid As Guid = Guid.NewGuid()
+        Dim referencenumber As String = newGuid.ToString()
+        Dim filePath As String = "receipts/" & referencenumber & ".csv"
+        Dim directoryPath As String = "receipts/"
+        If Not Directory.Exists(directoryPath) Then
+            Directory.CreateDirectory(directoryPath)
+        End If
+        ' Check if the CSV file exists, if not, create it and write the header
+        If Not File.Exists(filePath) Then
+            Using writer As New StreamWriter(filePath)
+                writer.WriteLine($"Reference Number,{referencenumber}")
+                writer.WriteLine($"Date and Time,{DateAndTime.Now}")
+                writer.WriteLine($"Customer,{txbxName.Text}")
+                writer.WriteLine("Category, ID, Product, Price, Quantity, Subtotal")
+                For Each row As DataGridViewRow In dgvAddedList.Rows
 
-        Next
+                    Dim category As String = $"{row.Cells(0).Value.ToString()}.csv"
+
+                    ' Check if the file exists
+                    If File.Exists(category) Then
+                        Try
+                            ' Read all lines from the CSV file
+                            Dim lines As String() = File.ReadAllLines(category)
+
+                            ' Find the line with matching ID
+                            For Each line As String In lines
+                                Dim columns As String() = line.Split(","c) ' Assuming comma-separated values
+
+                                ' Check if the ID in the first column matches
+                                If columns.Length > 0 AndAlso columns(0) = row.Cells(1).Value.ToString() Then
+                                    ' Subtract the quantity from the line
+                                    Dim currentQuantity As Integer = Integer.Parse(columns(3)) ' Assuming the quantity is in the fourth column
+                                    Dim saleQuantity As Integer = Integer.Parse(row.Cells(4).Value.ToString()) ' Assuming the quantity to subtract is in the fifth column
+
+                                    ' Update the quantity
+                                    Dim newQuantity As Integer = currentQuantity - saleQuantity
+
+                                    ' Ensure the quantity doesn't go below zero
+                                    If newQuantity < 0 Then
+                                        newQuantity = 0
+                                    End If
+
+                                    ' Update the line with new quantity
+                                    columns(3) = newQuantity.ToString()
+
+                                    ' Join the columns back into a line
+                                    Dim updatedLine As String = String.Join(",", columns)
+
+                                    ' Replace the line in the array of lines
+                                    lines(Array.IndexOf(lines, line)) = updatedLine
+                                End If
+                            Next
+
+                            ' Write the updated lines back to the CSV file
+                            File.WriteAllLines(category, lines)
+                            With row
+                                writer.WriteLine($"{ .Cells(0).Value.ToString}, { .Cells(1).Value.ToString}, { .Cells(2).Value.ToString}, { .Cells(3).Value.ToString}, { .Cells(4).Value.ToString}, { .Cells(5).Value.ToString}")
+                            End With
+
+                        Catch ex As Exception
+                            MessageBox.Show($"Error processing file '{category}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End Try
+                    Else
+                        ' Handle the case where the file doesn't exist
+                        MessageBox.Show($"File '{category}' not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Next
+                writer.WriteLine($",,,,Total, {showTotalPrice.Text}")
+                Using log As New StreamWriter("Sales History.csv", True)
+                    log.WriteLine($"{referencenumber},{txbxName.Text}, {showTotalPrice.Text}, {DateAndTime.Now}")
+                End Using
+            End Using
+        End If
+        dgvAddedList.Rows.Clear()
     End Sub
-
 
     Private Sub txbxID_KeyDown(sender As Object, e As KeyEventArgs) Handles txbxID.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -101,12 +171,14 @@ Public Class Sales
                 dgvAddedList.Rows(rowIndex).Cells(5).Value = newTotal.ToString()
             Else
                 ' If item does not exist, add a new row
-                dgvAddedList.Rows.Add(cbxCategory.SelectedItem.ToString(),
-                                  txbxID.Text,
-                                  txbxProduct.Text,
-                                  txbxPrice.Text,
-                                  txbxQty.Text,
-                                  (Single.Parse(txbxPrice.Text) * Single.Parse(txbxQty.Text)).ToString())
+                dgvAddedList.Rows.Add(
+                    cbxCategory.SelectedItem.ToString(),
+                    txbxID.Text,
+                    txbxProduct.Text,
+                    txbxPrice.Text,
+                    txbxQty.Text,
+                    (Single.Parse(txbxPrice.Text) * Single.Parse(txbxQty.Text)).ToString()
+                    )
             End If
         End If
 
@@ -117,6 +189,6 @@ Public Class Sales
                 totalPrice += Single.Parse(row.Cells(5).Value.ToString())
             End If
         Next
-        showTotalPrice.Text = "Php" & totalPrice.ToString()
+        showTotalPrice.Text = "Php" & totalPrice.ToString("0.00")
     End Sub
 End Class
