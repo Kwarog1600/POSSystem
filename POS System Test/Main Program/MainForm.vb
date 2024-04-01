@@ -54,4 +54,8 @@
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Me.switchPanel(Sales)
     End Sub
+
+    Private Sub btHistory_Click(sender As Object, e As EventArgs) Handles btHistory.Click
+        Me.switchPanel(History)
+    End Sub
 End Class

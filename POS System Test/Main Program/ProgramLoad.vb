@@ -50,6 +50,7 @@ Module ProgramLoad
         End With
         With History
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
+            .pnlContainer.Location = New Point(50, 50)
         End With
 
     End Sub
