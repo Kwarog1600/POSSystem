@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "rliGiCeQvhms7zwWGP3KQySm0hZNaIkNw5gVlRfvM8NGgPc4nb7Q8BpcSVR2DJPwaOllvzcCM6Ii4+mcWLFNag==",
+  "dgSpecHash": "F4roYStvz3/P69ZS+bb9/NzHpDn/mD6Fc9AEbcL+Wzh72nE3L4f5wptg8e2DvHRF607BQd0sxJITBAgvsEWofA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
+  "projectFilePath": "C:\\Users\\cutie\\source\\repos\\Kwarog1600\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cacca\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
-    "C:\\Users\\cacca\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\cacca\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+    "C:\\Users\\cutie\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
+    "C:\\Users\\cutie\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\cutie\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }
