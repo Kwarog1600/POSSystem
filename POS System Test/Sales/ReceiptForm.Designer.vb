@@ -56,13 +56,13 @@ Partial Class ReceiptForm
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
         dgvReceipt.DefaultCellStyle = DataGridViewCellStyle3
         dgvReceipt.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvReceipt.Location = New Point(12, 12)
+        dgvReceipt.Location = New Point(12, 175)
         dgvReceipt.Name = "dgvReceipt"
         dgvReceipt.RowHeadersVisible = False
         dgvReceipt.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         dgvReceipt.RowTemplate.ReadOnly = True
         dgvReceipt.RowTemplate.Resizable = DataGridViewTriState.False
-        dgvReceipt.Size = New Size(402, 426)
+        dgvReceipt.Size = New Size(402, 143)
         dgvReceipt.TabIndex = 0
         dgvReceipt.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvReceipt.ThemeStyle.AlternatingRowsStyle.Font = Nothing
