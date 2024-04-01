@@ -97,3 +97,4 @@ C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.pdb
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.genruntimeconfig.cache
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\ref\POS And Inventory.dll
+C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources

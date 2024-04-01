@@ -26,4 +26,17 @@ Public Class History
             End While
         End Using
     End Sub
+
+
+    Private Sub dgvSaleHistory_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellContentDoubleClick
+        ' Check if a valid row and column index is selected
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex = 0 Then ' Assuming the first column index is 0
+            ' Retrieve the value of the first column of the selected row
+            Dim reference As String = dgvSaleHistory.Rows(e.RowIndex).Cells(0).Value.ToString()
+
+            ' Call the Receipt method with the reference as an argument
+            ReceiptForm.Receipt(reference)
+        End If
+    End Sub
+
 End Class
