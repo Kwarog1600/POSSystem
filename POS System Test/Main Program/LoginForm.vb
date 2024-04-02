@@ -32,7 +32,8 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-        Dim read As New StreamReader($"{Application.StartupPath}\Users.csv")
+        Dim csvFilePath As String = $"{Application.StartupPath}\Users.csv"
+        Dim read As New StreamReader(csvFilePath)
         read.ReadLine()
         While Not read.EndOfStream
             Dim line As String = read.ReadLine()

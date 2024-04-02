@@ -5,7 +5,7 @@ Public Class StockCategoryAdd
     Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btAddCat.Click
         ' Get the file name from the text box
         Dim csvCatList As String = "Stock Category.csv"
-        Dim csvFileName As String = $"{csvCatList}.csv"
+        Dim csvFileName As String = $"Stock\{txbxCategory.Text}.csv"
 
         ' Check if the file already exists
         If File.Exists(csvFileName) Then
