@@ -4,6 +4,7 @@ Imports System.Text
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class LoginForm
+
     Public Function HashPassword(password As String) As String
         ' Convert the password to bytes
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)

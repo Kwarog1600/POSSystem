@@ -161,7 +161,7 @@ Public Class Sales
     End Sub
 
     Public Sub LoadCategories()
-        Dim filePath As String = "Stock Category.csv"
+        Dim filePath As String = "Resources/Stock Category.csv"
 
         ' Check if the file exists
         If File.Exists(filePath) Then
