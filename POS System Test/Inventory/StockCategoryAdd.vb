@@ -28,6 +28,18 @@ Public Class StockCategoryAdd
         Inventory.LoadCategories()
     End Sub
 
+    Private Sub StockCategoryAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim csvCatList As String = "Stock Category.csv"
+        Using reader As New StreamReader(csvCatList)
+            Dim line As String
+            dgvCatList.Columns.Add("clm1", "")
+            reader.ReadLine()
+            While Not reader.EndOfStream
+                line = reader.ReadLine()
+                dgvCatList.Rows.Add(line)
+            End While
+        End Using
+    End Sub
 End Class
 
 

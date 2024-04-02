@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Drawing.Printing
 Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Microsoft.VisualBasic.FileIO
@@ -13,72 +14,70 @@ Public Class Sales
             Directory.CreateDirectory(directoryPath)
         End If
         ' Check if the CSV file exists, if not, create it and write the header
-        If Not File.Exists(filePath) Then
-            Using writer As New StreamWriter(filePath)
-                writer.WriteLine($"Reference Number,{referencenumber}")
-                writer.WriteLine($"Date and Time,{DateAndTime.Now}")
-                writer.WriteLine($"Customer,{txbxName.Text}")
-                writer.WriteLine("Category, ID, Product, Price, Quantity, Subtotal")
-                For Each row As DataGridViewRow In dgvAddedList.Rows
 
-                    Dim category As String = $"{row.Cells(0).Value.ToString()}.csv"
+        If dgvAddedList.Rows.Count > 0 Then
+            For Each row As DataGridViewRow In dgvAddedList.Rows
 
-                    ' Check if the file exists
-                    If File.Exists(category) Then
-                        Try
-                            ' Read all lines from the CSV file
-                            Dim lines As String() = File.ReadAllLines(category)
+                Dim category As String = $"{row.Cells(0).Value.ToString()}.csv"
 
-                            ' Find the line with matching ID
-                            For Each line As String In lines
-                                Dim columns As String() = line.Split(","c) ' Assuming comma-separated values
+                ' Check if the file exists
+                If File.Exists(category) Then
+                    Try
+                        ' Read all lines from the CSV file
+                        Dim lines As String() = File.ReadAllLines(category)
 
-                                ' Check if the ID in the first column matches
-                                If columns.Length > 0 AndAlso columns(0) = row.Cells(1).Value.ToString() Then
-                                    ' Subtract the quantity from the line
-                                    Dim currentQuantity As Integer = Integer.Parse(columns(3)) ' Assuming the quantity is in the fourth column
-                                    Dim saleQuantity As Integer = Integer.Parse(row.Cells(4).Value.ToString()) ' Assuming the quantity to subtract is in the fifth column
+                        ' Find the line with matching ID
+                        For Each line As String In lines
+                            Dim columns As String() = line.Split(","c) ' Assuming comma-separated values
 
-                                    ' Update the quantity
-                                    Dim newQuantity As Integer = currentQuantity - saleQuantity
+                            ' Check if the ID in the first column matches
+                            If columns.Length > 0 AndAlso columns(0) = row.Cells(1).Value.ToString() Then
+                                ' Subtract the quantity from the line
+                                Dim currentQuantity As Integer = Integer.Parse(columns(3)) ' Assuming the quantity is in the fourth column
+                                Dim saleQuantity As Integer = Integer.Parse(row.Cells(4).Value.ToString()) ' Assuming the quantity to subtract is in the fifth column
 
-                                    ' Ensure the quantity doesn't go below zero
-                                    If newQuantity < 0 Then
-                                        newQuantity = 0
-                                    End If
+                                ' Update the quantity
+                                Dim newQuantity As Integer = currentQuantity - saleQuantity
 
-                                    ' Update the line with new quantity
-                                    columns(3) = newQuantity.ToString()
-
-                                    ' Join the columns back into a line
-                                    Dim updatedLine As String = String.Join(",", columns)
-
-                                    ' Replace the line in the array of lines
-                                    lines(Array.IndexOf(lines, line)) = updatedLine
+                                ' Ensure the quantity doesn't go below zero
+                                If newQuantity < 0 Then
+                                    newQuantity = 0
                                 End If
-                            Next
 
-                            ' Write the updated lines back to the CSV file
-                            File.WriteAllLines(category, lines)
-                            With row
-                                writer.WriteLine($"{ .Cells(0).Value.ToString}, { .Cells(1).Value.ToString}, { .Cells(2).Value.ToString}, { .Cells(3).Value.ToString}, { .Cells(4).Value.ToString}, { .Cells(5).Value.ToString}")
-                            End With
+                                ' Update the line with new quantity
+                                columns(3) = newQuantity.ToString()
 
-                        Catch ex As Exception
-                            MessageBox.Show($"Error processing file '{category}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End Try
-                    Else
-                        ' Handle the case where the file doesn't exist
-                        MessageBox.Show($"File '{category}' not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                Next
-                writer.WriteLine($",,,,Total, {showTotalPrice.Text}")
-                Using log As New StreamWriter("Sales History.csv", True)
-                    log.WriteLine($"{referencenumber},{txbxName.Text}, {showTotalPrice.Text}, {DateAndTime.Now}")
-                End Using
+                                ' Join the columns back into a line
+                                Dim updatedLine As String = String.Join(",", columns)
+
+                                ' Replace the line in the array of lines
+                                lines(Array.IndexOf(lines, line)) = updatedLine
+                            End If
+                        Next
+
+                        ' Write the updated lines back to the CSV file
+                        File.WriteAllLines(category, lines)
+
+
+
+                    Catch ex As Exception
+                        MessageBox.Show($"Error processing file '{category}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End Try
+                Else
+                    ' Handle the case where the file doesn't exist
+                    MessageBox.Show($"File '{category}' not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            Next
+            Using log As New StreamWriter("Sales History.csv", True)
+                log.WriteLine($"{referencenumber},{txbxName.Text}, {showTotalPrice.Text}, {DateAndTime.Now}")
             End Using
+            PrintReceipt(referencenumber, dgvAddedList, txbxName.Text, showTotalPrice.Text, DateAndTime.Now)
+            showTotalPrice.Text = "0.00"
+            dgvAddedList.Rows.Clear()
+        Else
+            MessageBox.Show("Please add items to the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-        dgvAddedList.Rows.Clear()
+
     End Sub
 
     Private Sub txbxID_KeyDown(sender As Object, e As KeyEventArgs) Handles txbxID.KeyDown
@@ -113,6 +112,52 @@ Public Class Sales
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCategories()
+    End Sub
+
+    Private Sub PrintReceipt(referencenumber As String, dgvAdded As DataGridView, name As String, totalPrice As String, saleDate As DateTime)
+        ' Create an instance of PrintDocument
+        Dim printDoc As New Printing.PrintDocument()
+
+        ' Set the PrintPage event handler to generate the receipt content
+        AddHandler printDoc.PrintPage, Sub(senderPrint, ePrint)
+                                           ' Your logic to draw the receipt content on the print page
+                                           ePrint.Graphics.DrawString($"Reference: {referencenumber}", New Font("Arial", 9), Brushes.Black, 100, 100)
+                                           ePrint.Graphics.DrawString($"Name: {name}", New Font("Arial", 9), Brushes.Black, 100, 150)
+                                           ePrint.Graphics.DrawString($"Sale Date: {saleDate.ToString("MM/dd/yyyy")}", New Font("Arial", 9), Brushes.Black, 100, 200)
+
+                                           ' Draw column headers
+                                           Dim columnHeaders As String = "Product" & vbTab & vbTab & "Price" & vbTab & "Quantity" & vbTab & "Amount"  ' Adjust headers as needed
+                                           ePrint.Graphics.DrawString(columnHeaders, New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 100, 225)
+
+                                           ' Iterate through the rows in dgvAddedList and draw the content
+                                           Dim yPos As Integer = 250  ' Start position for items)
+                                           For Each row As DataGridViewRow In dgvAdded.Rows
+                                               ' Draw the item details
+                                               Dim itemDetails As String = $"{row.Cells("clmProduct").Value}" & vbTab & $"{row.Cells("clmPrice").Value}" & vbTab & $"{row.Cells("clmQuantity").Value}" & vbTab & vbTab & $"{row.Cells("clmAmount").Value}"
+                                               ePrint.Graphics.DrawString(itemDetails, New Font("Arial", 9), Brushes.Black, 100, yPos)
+                                               ' Draw more item details as needed
+                                               yPos += 20  ' Increase the Y position for the next item
+                                           Next
+                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 100, yPos + 50)
+                                           ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 200, yPos + 50)
+                                       End Sub
+
+        ' Calculate the required paper width and height based on the content
+        Dim standardWidth As Integer = 500  ' Standard width for receipts
+        Dim lineHeight As Integer = 50  ' Height of each line of text
+        Dim totalLines As Integer = 5 + dgvAdded.Rows.Count  ' Total lines of text content
+        Dim totalHeight As Integer = 150 + (totalLines * lineHeight)  ' Total height based on the number of lines
+        Dim requiredPaperSize As New PaperSize("Custom", standardWidth, totalHeight)
+
+        ' Set the paper size to the calculated size
+        printDoc.DefaultPageSettings.PaperSize = requiredPaperSize
+        printDoc.DefaultPageSettings.Margins = New Margins(5, 5, 5, 5)
+
+        printDoc.PrinterSettings.PrintToFile = True
+        printDoc.PrinterSettings.PrintFileName = $"receipts/{referencenumber}.pdf"
+        ' Start printing
+        printDoc.Print()
+
     End Sub
 
     Public Sub LoadCategories()
@@ -191,4 +236,5 @@ Public Class Sales
         Next
         showTotalPrice.Text = "Php" & totalPrice.ToString("0.00")
     End Sub
+
 End Class

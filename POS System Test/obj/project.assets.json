@@ -145,19 +145,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cutie\\.nuget\\packages\\": {}
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cutie\\source\\repos\\Kwarog1600\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
+      "projectUniqueName": "C:\\Users\\HP EliteDesk\\Source\\Repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
       "projectName": "POS And Inventory",
-      "projectPath": "C:\\Users\\cutie\\source\\repos\\Kwarog1600\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
-      "packagesPath": "C:\\Users\\cutie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cutie\\source\\repos\\Kwarog1600\\POSSystem\\POS System Test\\obj\\",
+      "projectPath": "C:\\Users\\HP EliteDesk\\Source\\Repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
+      "packagesPath": "C:\\Users\\HP EliteDesk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP EliteDesk\\Source\\Repos\\POSSystem\\POS System Test\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\cutie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP EliteDesk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -165,6 +170,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -212,7 +218,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

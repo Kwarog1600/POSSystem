@@ -35,7 +35,7 @@ Public Class History
             Dim reference As String = dgvSaleHistory.Rows(e.RowIndex).Cells(0).Value.ToString()
 
             ' Call the Receipt method with the reference as an argument
-            ReceiptForm.Receipt(reference)
+
         End If
     End Sub
 

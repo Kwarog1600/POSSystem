@@ -43,6 +43,7 @@ Partial Class Sales
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sales))
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         btVoid = New Guna.UI2.WinForms.Guna2Button()
         showTotalPrice = New Label()
@@ -57,7 +58,7 @@ Partial Class Sales
         clmProduct = New DataGridViewTextBoxColumn()
         clmPrice = New DataGridViewTextBoxColumn()
         clmQuantity = New DataGridViewTextBoxColumn()
-        Total = New DataGridViewTextBoxColumn()
+        clmAmount = New DataGridViewTextBoxColumn()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         cbxCategory = New ComboBox()
         lbCat = New Label()
@@ -68,6 +69,7 @@ Partial Class Sales
         lblName = New Label()
         txbxName = New Guna.UI2.WinForms.Guna2TextBox()
         btSale = New Guna.UI2.WinForms.Guna2Button()
+        PrintPreviewDialog1 = New PrintPreviewDialog()
         pnlContainer.SuspendLayout()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -219,8 +221,9 @@ Partial Class Sales
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity, Total})
+        dgvAddedList.ColumnHeadersHeight = 17
+        dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity, clmAmount})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -247,7 +250,7 @@ Partial Class Sales
         dgvAddedList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvAddedList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvAddedList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddedList.ThemeStyle.HeaderStyle.Height = 17
         dgvAddedList.ThemeStyle.ReadOnly = True
         dgvAddedList.ThemeStyle.RowsStyle.BackColor = Color.White
@@ -288,11 +291,11 @@ Partial Class Sales
         clmQuantity.Name = "clmQuantity"
         clmQuantity.ReadOnly = True
         ' 
-        ' Total
+        ' clmAmount
         ' 
-        Total.HeaderText = "Total"
-        Total.Name = "Total"
-        Total.ReadOnly = True
+        clmAmount.HeaderText = "Amount"
+        clmAmount.Name = "clmAmount"
+        clmAmount.ReadOnly = True
         ' 
         ' btAddStock
         ' 
@@ -450,6 +453,16 @@ Partial Class Sales
         btSale.TabIndex = 2
         btSale.Text = "Sale"
         ' 
+        ' PrintPreviewDialog1
+        ' 
+        PrintPreviewDialog1.AutoScrollMargin = New Size(0, 0)
+        PrintPreviewDialog1.AutoScrollMinSize = New Size(0, 0)
+        PrintPreviewDialog1.ClientSize = New Size(400, 300)
+        PrintPreviewDialog1.Enabled = True
+        PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), Icon)
+        PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        PrintPreviewDialog1.Visible = False
+        ' 
         ' Sales
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -484,11 +497,12 @@ Partial Class Sales
     Friend WithEvents txbxProduct As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblTotal As Label
     Friend WithEvents showTotalPrice As Label
+    Friend WithEvents btVoid As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents clmCategory As DataGridViewTextBoxColumn
     Friend WithEvents clmID As DataGridViewTextBoxColumn
     Friend WithEvents clmProduct As DataGridViewTextBoxColumn
     Friend WithEvents clmPrice As DataGridViewTextBoxColumn
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
-    Friend WithEvents Total As DataGridViewTextBoxColumn
-    Friend WithEvents btVoid As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents clmAmount As DataGridViewTextBoxColumn
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

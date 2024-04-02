@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "F4roYStvz3/P69ZS+bb9/NzHpDn/mD6Fc9AEbcL+Wzh72nE3L4f5wptg8e2DvHRF607BQd0sxJITBAgvsEWofA==",
+  "dgSpecHash": "u0VlAmzjjJ/95FlW2oLoOrPJOq6F9GXebvZrWUMjTWEMdosSZcCCjqx82DZGimUHDbg/64N2ozTSsVDu23xC2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cutie\\source\\repos\\Kwarog1600\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
+  "projectFilePath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cutie\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
-    "C:\\Users\\cutie\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\cutie\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }
