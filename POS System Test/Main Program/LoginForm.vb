@@ -4,7 +4,7 @@ Imports System.Text
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class LoginForm
-    Private Function HashPassword(password As String) As String
+    Public Function HashPassword(password As String) As String
         ' Convert the password to bytes
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
 
@@ -31,12 +31,21 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-
-        MainForm.Visible = True
-        MainForm.switchPanel(Dashboard)
-        Me.Visible = False
-
-
+        Dim read As New StreamReader($"{Application.StartupPath}\Users.csv")
+        read.ReadLine()
+        While Not read.EndOfStream
+            Dim line As String = read.ReadLine()
+            Dim data As String() = line.Split(","c)
+            Dim dataWithoutLastColumn As String() = data.Take(data.Length - 1).ToArray()
+            Dim joinedData As String = String.Join(",", dataWithoutLastColumn)
+            If joinedData = $"{txbxUsername.Text},{HashPassword(txbxPassword.Text)}" Then
+                MainForm.Visible = True
+                MainForm.switchPanel(Dashboard)
+                Me.Visible = False
+            Else
+                MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End While
     End Sub
 
 End Class

@@ -2,7 +2,7 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ExplorerBar
 
 Public Class AddStock
-    Dim categoryFilePath As String = "Stock Category.csv"
+    Dim categoryFilePath As String = "Resources/Stock Category.csv"
     Dim categoryNames As New List(Of String)
 
     Private Sub AddStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -90,6 +90,8 @@ Partial Class StockCategoryAdd
         ' 
         ' dgvCatList
         ' 
+        dgvCatList.AllowUserToAddRows = False
+        dgvCatList.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         dgvCatList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -113,6 +115,7 @@ Partial Class StockCategoryAdd
         dgvCatList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvCatList.Location = New Point(40, 86)
         dgvCatList.Name = "dgvCatList"
+        dgvCatList.ReadOnly = True
         dgvCatList.RowHeadersVisible = False
         dgvCatList.Size = New Size(247, 150)
         dgvCatList.TabIndex = 4
@@ -129,7 +132,7 @@ Partial Class StockCategoryAdd
         dgvCatList.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgvCatList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvCatList.ThemeStyle.HeaderStyle.Height = 4
-        dgvCatList.ThemeStyle.ReadOnly = False
+        dgvCatList.ThemeStyle.ReadOnly = True
         dgvCatList.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvCatList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         dgvCatList.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)

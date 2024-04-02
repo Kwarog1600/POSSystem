@@ -16,7 +16,7 @@ Public Class Inventory
     End Sub
 
     Public Sub RefreshTable()
-        Dim filePath As String = "Stock Category.csv"
+        Dim filePath As String = "Resources/Stock Category.csv"
         dgvStockList.Rows.Clear()
         If cbxCategory.SelectedIndex = 0 Then
             Using reader As New StreamReader(filePath)
@@ -42,7 +42,7 @@ Public Class Inventory
     End Sub
 
     Public Sub LoadCategories()
-        Dim filePath As String = "Stock Category.csv"
+        Dim filePath As String = "Resources/Stock Category.csv"
 
         ' Check if the file exists
         If File.Exists(filePath) Then
