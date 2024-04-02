@@ -77,7 +77,7 @@ Public Class Inventory
 
     Public Sub LoadStock(category As String)
 
-        Dim filePath As String = category & ".csv"
+        Dim filePath As String = $"Stock\{category}.csv"
 
         If System.IO.File.Exists(filePath) Then
             Using parser As New TextFieldParser(filePath)

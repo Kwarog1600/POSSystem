@@ -5,7 +5,7 @@ Public Class StockCategoryAdd
     Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btAddCat.Click
         ' Get the file name from the text box
         Dim csvCatList As String = "Stock Category.csv"
-        Dim csvFileName As String = txbxCategory.Text & ".csv"
+        Dim csvFileName As String = $"Stock\{csvCatList}.csv"
 
         ' Check if the file already exists
         If File.Exists(csvFileName) Then
@@ -39,6 +39,19 @@ Public Class StockCategoryAdd
                 dgvCatList.Rows.Add(line)
             End While
         End Using
+    End Sub
+
+    Private Sub btRemove_Click(sender As Object, e As EventArgs) Handles btRemove.Click
+        Dim csvCatList As String = "Stock Category.csv"
+        Using read As New StreamReader(csvCatList)
+            Dim line As String
+            While Not read.EndOfStream
+                If read.ReadLine() = dgvCatList.SelectedRows(0).Cells(0).Value Then
+
+                End If
+            End While
+        End Using
+        dgvCatList.Rows.Remove(dgvCatList.SelectedRows(0))
     End Sub
 End Class
 

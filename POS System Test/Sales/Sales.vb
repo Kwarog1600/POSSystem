@@ -18,7 +18,7 @@ Public Class Sales
         If dgvAddedList.Rows.Count > 0 Then
             For Each row As DataGridViewRow In dgvAddedList.Rows
 
-                Dim category As String = $"{row.Cells(0).Value.ToString()}.csv"
+                Dim category As String = $"Stock\{row.Cells(0).Value.ToString()}.csv"
 
                 ' Check if the file exists
                 If File.Exists(category) Then
@@ -89,8 +89,8 @@ Public Class Sales
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
         For Each Item As String In cbxCategory.Items
-            If File.Exists($"{Item}.csv") Then
-                Dim lines As String() = File.ReadAllLines($"{Item}.csv")
+            If File.Exists($"Stock\{Item}.csv") Then
+                Dim lines As String() = File.ReadAllLines($"Stock\{Item}.csv")
                 For Each line As String In lines
                     Dim contents As String() = line.Split(","c)
                     If contents(0).Trim = txbxID.Text.Trim Then

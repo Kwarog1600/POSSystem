@@ -66,14 +66,19 @@ Module ProgramLoad
         End If
     End Sub
 
+    Public Sub CreateDir()
+        Directory.CreateDirectory("Stock")
+        Directory.CreateDirectory("Receipts")
+    End Sub
     Sub Main()
-
+        CreateDir()
         ' Create CSV files for each list if they do not exist
         CreateCsvFileIfNotExists("Users.csv", "Username,Password,Access Level")
         CreateCsvFileIfNotExists("Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
         CreateCsvFileIfNotExists("Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
         CreateCsvFileIfNotExists("Stock Category.csv", "CategoryName")
         CreateCsvFileIfNotExists("Stock History.csv", "Transaction Reference Number,ID,Model,Quantity,Date and Time")
+
     End Sub
 End Module
 
