@@ -42,16 +42,23 @@ Public Class LoginForm
             Dim dataWithoutLastColumn As String() = data.Take(data.Length - 1).ToArray()
             Dim joinedData As String = String.Join(",", dataWithoutLastColumn)
             If joinedData = $"{txbxUsername.Text},{HashPassword(txbxPassword.Text)}" Then
-                MainForm.Visible = True
+                TimeLog("In", txbxUsername.Text)
                 ProgramLoad.AccessLevel(Int32.Parse(data(2)))
+                MainForm.Visible = True
+                MainForm.lbUsername.Text = data(0)
                 MainForm.switchPanel(Dashboard)
-
                 Me.Visible = False
             Else
                 MessageBox.Show("Incorrect username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-
         End While
+    End Sub
+
+    Public Sub TimeLog(InOut As String, Username As String)
+        Dim csvFilePath As String = $"Resources\TimeLog.csv"
+        Using Write As New StreamWriter(csvFilePath, True)
+            Write.WriteLine($"Logged {InOut},{DateTime.Now},{Username}")
+        End Using
     End Sub
 
 End Class

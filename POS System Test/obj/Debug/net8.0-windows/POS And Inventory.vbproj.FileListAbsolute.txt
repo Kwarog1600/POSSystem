@@ -100,3 +100,4 @@ C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources
 C:\Users\HP EliteDesk\Source\Repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\Guna.Charts.WinForms.dll

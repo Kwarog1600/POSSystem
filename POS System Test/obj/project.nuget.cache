@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rliGiCeQvhms7zwWGP3KQySm0hZNaIkNw5gVlRfvM8NGgPc4nb7Q8BpcSVR2DJPwaOllvzcCM6Ii4+mcWLFNag==",
+  "dgSpecHash": "1B87CIjN0uwAGbcMmI53XJmripcTV78NHCNsakZ0ge69YlnDsz7OX9humuwSS3XPg9Ypep3mtRUqxjM5RNH7cg==",
   "success": true,
   "projectFilePath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
   "expectedPackageFiles": [
+    "C:\\Users\\cacca\\.nuget\\packages\\guna.charts.winforms\\1.0.9\\guna.charts.winforms.1.0.9.nupkg.sha512",
     "C:\\Users\\cacca\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
     "C:\\Users\\cacca\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
     "C:\\Users\\cacca\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"

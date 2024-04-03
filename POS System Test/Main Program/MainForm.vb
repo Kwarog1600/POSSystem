@@ -30,6 +30,7 @@
     End Sub
 
     Private Sub btLgtCLose_Click(sender As Object, e As EventArgs) Handles btLgtClose.Click
+        LoginForm.TimeLog("Out", lbUsername.Text)
         Application.Exit()
     End Sub
 
@@ -57,5 +58,13 @@
 
     Private Sub btHistory_Click(sender As Object, e As EventArgs) Handles btHistory.Click
         Me.switchPanel(History)
+    End Sub
+
+    Private Sub btExpenses_Click(sender As Object, e As EventArgs) Handles btExpenses.Click
+
+    End Sub
+
+    Private Sub btAnalytics_Click(sender As Object, e As EventArgs) Handles btAnalytics.Click
+        Me.switchPanel(Analytics)
     End Sub
 End Class

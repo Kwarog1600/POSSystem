@@ -47,6 +47,7 @@ Module ProgramLoad
         End With
         With Analytics
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
+            .pnlContainer.Location = New Point(50, 50)
         End With
         With History
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
@@ -79,6 +80,7 @@ Module ProgramLoad
         CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
         CreateCsvFileIfNotExists("Resources/Stock History.csv", "Transaction Reference Number,ID,Model,Quantity,Date and Time")
+        CreateCsvFileIfNotExists("Resources/TimeLog.csv", "Log,Date and Time,Username")
 
     End Sub
 
