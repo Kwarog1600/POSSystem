@@ -81,5 +81,18 @@ Module ProgramLoad
         CreateCsvFileIfNotExists("Resources/Stock History.csv", "Transaction Reference Number,ID,Model,Quantity,Date and Time")
 
     End Sub
+
+    Public Sub AccessLevel(level As Integer)
+        If level = 1 Then
+            Inventory.btAddCategory.Visible = False
+            Inventory.btStockHistory.Visible = False
+            MainForm.pnlAdminContainer.Visible = False
+        ElseIf level = 2 Then
+            MainForm.pnlAdminContainer.Visible = False
+        ElseIf level = 3 Then
+            MainForm.pnlAdminContainer.Visible = True
+        End If
+    End Sub
+
 End Module
 

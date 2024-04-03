@@ -24,6 +24,7 @@ Public Class LoginForm
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ProgramLoad.LoadAll()
+        Me.AcceptButton = btLogin
     End Sub
 
 
@@ -42,11 +43,14 @@ Public Class LoginForm
             Dim joinedData As String = String.Join(",", dataWithoutLastColumn)
             If joinedData = $"{txbxUsername.Text},{HashPassword(txbxPassword.Text)}" Then
                 MainForm.Visible = True
+                ProgramLoad.AccessLevel(Int32.Parse(data(2)))
                 MainForm.switchPanel(Dashboard)
+
                 Me.Visible = False
             Else
-                MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Incorrect username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+
         End While
     End Sub
 

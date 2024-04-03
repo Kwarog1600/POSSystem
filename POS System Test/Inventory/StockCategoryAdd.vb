@@ -4,7 +4,7 @@ Imports System.Text
 Public Class StockCategoryAdd
     Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btAddCat.Click
         ' Get the file name from the text box
-        Dim csvCatList As String = "Stock Category.csv"
+        Dim csvCatList As String = "Resources/Stock Category.csv"
         Dim csvFileName As String = $"Stock\{txbxCategory.Text}.csv"
 
         ' Check if the file already exists
@@ -53,8 +53,8 @@ Public Class StockCategoryAdd
             ' Read all lines from the file
             Dim lines As List(Of String) = File.ReadAllLines(csvCatList).ToList()
 
-            ' Remove the selected line from the list
-            lines.Remove(selectedValue)
+            ' Remove all lines that match the selectedValue
+            lines.RemoveAll(Function(line) line = selectedValue)
 
             ' Write the modified lines back to the file
             File.WriteAllLines(csvCatList, lines.ToArray())

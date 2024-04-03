@@ -7,7 +7,7 @@ Public Class History
         TableRefresh()
     End Sub
     Public Sub TableRefresh()
-        Dim filepath As String = "Sales History.csv"
+        Dim filepath As String = "Resources\Sales History.csv"
         ' Clear existing rows from the DataGridView
         dgvSaleHistory.Columns.Add("clm1", "")
         dgvSaleHistory.Columns.Add("clm2", "")
