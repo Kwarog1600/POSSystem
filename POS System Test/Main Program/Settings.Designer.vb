@@ -32,7 +32,7 @@ Partial Class Settings
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        btIPSet = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxIPSet = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         GUIColor1 = New ColorDialog()
         GUIColor2 = New ColorDialog()
@@ -43,26 +43,26 @@ Partial Class Settings
         Label2 = New Label()
         SuspendLayout()
         ' 
-        ' btIPSet
+        ' txbxIPSet
         ' 
-        btIPSet.BorderRadius = 20
-        btIPSet.CustomizableEdges = CustomizableEdges1
-        btIPSet.DefaultText = ""
-        btIPSet.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        btIPSet.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        btIPSet.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        btIPSet.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        btIPSet.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        btIPSet.Font = New Font("Segoe UI", 9F)
-        btIPSet.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        btIPSet.Location = New Point(43, 55)
-        btIPSet.Name = "btIPSet"
-        btIPSet.PasswordChar = ChrW(0)
-        btIPSet.PlaceholderText = ""
-        btIPSet.SelectedText = ""
-        btIPSet.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btIPSet.Size = New Size(200, 36)
-        btIPSet.TabIndex = 0
+        txbxIPSet.BorderRadius = 20
+        txbxIPSet.CustomizableEdges = CustomizableEdges1
+        txbxIPSet.DefaultText = ""
+        txbxIPSet.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxIPSet.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxIPSet.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxIPSet.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxIPSet.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxIPSet.Font = New Font("Segoe UI", 9.0F)
+        txbxIPSet.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxIPSet.Location = New Point(43, 55)
+        txbxIPSet.Name = "btIPSet"
+        txbxIPSet.PasswordChar = ChrW(0)
+        txbxIPSet.PlaceholderText = ""
+        txbxIPSet.SelectedText = ""
+        txbxIPSet.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxIPSet.Size = New Size(200, 36)
+        txbxIPSet.TabIndex = 0
         ' 
         ' Guna2TextBox2
         ' 
@@ -169,7 +169,7 @@ Partial Class Settings
         Controls.Add(Guna2Button1)
         Controls.Add(swDarkMode)
         Controls.Add(Guna2TextBox2)
-        Controls.Add(btIPSet)
+        Controls.Add(txbxIPSet)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Settings"
         Text = "Settings"
@@ -177,7 +177,7 @@ Partial Class Settings
         PerformLayout()
     End Sub
 
-    Friend WithEvents btIPSet As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxIPSet As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents GUIColor1 As ColorDialog
     Friend WithEvents GUIColor2 As ColorDialog
