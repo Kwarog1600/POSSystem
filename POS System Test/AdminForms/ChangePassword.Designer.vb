@@ -22,66 +22,67 @@ Partial Class ChangePassword
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        txbxNewPassword = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxOldPass = New Guna.UI2.WinForms.Guna2TextBox()
         SuspendLayout()
         ' 
-        ' Guna2TextBox1
+        ' txbxNewPassword
         ' 
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges1
-        Guna2TextBox1.DefaultText = ""
-        Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Font = New Font("Segoe UI", 9.0F)
-        Guna2TextBox1.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Location = New Point(12, 12)
-        Guna2TextBox1.Name = "Guna2TextBox1"
-        Guna2TextBox1.PasswordChar = ChrW(0)
-        Guna2TextBox1.PlaceholderText = ""
-        Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2TextBox1.Size = New Size(200, 36)
-        Guna2TextBox1.TabIndex = 0
+        txbxNewPassword.CustomizableEdges = CustomizableEdges5
+        txbxNewPassword.DefaultText = ""
+        txbxNewPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxNewPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxNewPassword.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxNewPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxNewPassword.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxNewPassword.Font = New Font("Segoe UI", 9.0F)
+        txbxNewPassword.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxNewPassword.Location = New Point(12, 12)
+        txbxNewPassword.Name = "txbxNewPassword"
+        txbxNewPassword.PasswordChar = ChrW(0)
+        txbxNewPassword.PlaceholderText = ""
+        txbxNewPassword.SelectedText = ""
+        txbxNewPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txbxNewPassword.Size = New Size(200, 36)
+        txbxNewPassword.TabIndex = 0
         ' 
-        ' Guna2TextBox2
+        ' txbxOldPass
         ' 
-        Guna2TextBox2.CustomizableEdges = CustomizableEdges3
-        Guna2TextBox2.DefaultText = ""
-        Guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox2.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox2.Font = New Font("Segoe UI", 9.0F)
-        Guna2TextBox2.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox2.Location = New Point(12, 54)
-        Guna2TextBox2.Name = "Guna2TextBox2"
-        Guna2TextBox2.PasswordChar = ChrW(0)
-        Guna2TextBox2.PlaceholderText = ""
-        Guna2TextBox2.SelectedText = ""
-        Guna2TextBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        Guna2TextBox2.Size = New Size(200, 36)
-        Guna2TextBox2.TabIndex = 1
+        txbxOldPass.CustomizableEdges = CustomizableEdges7
+        txbxOldPass.DefaultText = ""
+        txbxOldPass.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxOldPass.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxOldPass.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxOldPass.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxOldPass.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxOldPass.Font = New Font("Segoe UI", 9.0F)
+        txbxOldPass.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxOldPass.Location = New Point(12, 54)
+        txbxOldPass.Name = "txbxOldPass"
+        txbxOldPass.PasswordChar = ChrW(0)
+        txbxOldPass.PlaceholderText = ""
+        txbxOldPass.SelectedText = ""
+        txbxOldPass.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        txbxOldPass.Size = New Size(200, 36)
+        txbxOldPass.TabIndex = 1
         ' 
         ' ChangePassword
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(224, 102)
-        Controls.Add(Guna2TextBox2)
-        Controls.Add(Guna2TextBox1)
+        Controls.Add(txbxOldPass)
+        Controls.Add(txbxNewPassword)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "ChangePassword"
         Text = "Change Password"
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxNewPassword As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxOldPass As Guna.UI2.WinForms.Guna2TextBox
 End Class
