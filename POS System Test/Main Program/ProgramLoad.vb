@@ -73,7 +73,7 @@ Module ProgramLoad
     Sub Main()
         CreateDir()
         ' Create CSV files for each list if they do not exist
-        CreateCsvFileIfNotExists($"{Application.StartupPath}\Users.csv", "Username,Password,Access Level" & vbLf & $"admin,{LoginForm.HashPassword("admin")},3")
+        CreateCsvFileIfNotExists($"{Application.StartupPath}\Users.csv", "Username,Password,Access Level, First Name, Last Name" & vbLf & $"admin,{LoginForm.HashPassword("admin")},3,admin,admin")
         CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
         CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
@@ -92,10 +92,6 @@ Module ProgramLoad
         ElseIf level = 3 Then
             MainForm.pnlAdminContainer.Visible = True
         End If
-    End Sub
-
-    Public Sub Connect(IP As String, Port As Integer)
-
     End Sub
 
 End Module

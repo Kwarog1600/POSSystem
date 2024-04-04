@@ -342,7 +342,7 @@ Partial Class AddStock
         Controls.Add(txbxProduct)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "AddStock"
-        Text = "AddStock"
+        Text = "Add Stock"
         TopMost = True
         CType(dgvAddedList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

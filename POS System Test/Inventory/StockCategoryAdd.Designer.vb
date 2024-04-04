@@ -170,7 +170,7 @@ Partial Class StockCategoryAdd
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "StockCategoryAdd"
         ShowIcon = False
-        Text = "StockCategoryAdd"
+        Text = "Category"
         TopMost = True
         CType(dgvCatList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
