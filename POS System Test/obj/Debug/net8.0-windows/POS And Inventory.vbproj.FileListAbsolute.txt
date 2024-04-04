@@ -7,7 +7,6 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\System.Management.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.vbproj.AssemblyReference.cache
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Analytics.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.History.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.AddStock.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Inventory.resources
@@ -102,3 +101,4 @@ C:\Users\HP EliteDesk\Source\Repos\POSSystem\POS System Test\obj\Debug\net8.0-wi
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\Guna.Charts.WinForms.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\Guna.Charts.WinForms.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.EmployeeManagement.resources

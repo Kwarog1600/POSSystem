@@ -4,28 +4,23 @@ Imports System.Text
 Public Class StockCategoryAdd
     Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btAddCat.Click
         ' Get the file name from the text box
-        Dim csvCatList As String = "Resources/Stock Category.csv"
+        Dim csvCatList As String = "Resources\Stock Category.csv"
         Dim csvFileName As String = $"Stock\{txbxCategory.Text}.csv"
-
-        ' Check if the file already exists
-        If File.Exists(csvFileName) Then
-            MessageBox.Show("File already exists.")
-            Return
-        End If
-
         ' Content for the CSV file header
         Dim csvContent As String = "Product ID,Product Name,Price,Quantity" & Environment.NewLine
 
-        ' Write the header to the CSV file
-        Using sw As New System.IO.StreamWriter(csvFileName)
-            sw.WriteLine(csvContent)
-        End Using
+        ' Check if the file already exists and create it if not
+        If Not File.Exists(csvFileName) Then
+            ' Append the new category to the CSV file
+            System.IO.File.WriteAllText(csvFileName, csvContent)
 
-        ' Append the new category to the CSV file
-        Using sw As New System.IO.StreamWriter(csvCatList, True) ' Append mode
-            sw.WriteLine(txbxCategory.Text)
-        End Using
+            Using sw As New System.IO.StreamWriter(csvCatList, True) ' Append mode
+                sw.WriteLine(txbxCategory.Text)
+            End Using
+        End If
+
         Inventory.LoadCategories()
+        Me.dgvCatList.Rows.Add(txbxCategory.Text)
     End Sub
 
     Private Sub StockCategoryAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load

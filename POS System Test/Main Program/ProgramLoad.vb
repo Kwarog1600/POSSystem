@@ -30,8 +30,7 @@ Module ProgramLoad
             .pnlFormCtrl.Location = New Point(ProgramWidth - 280, 0)
             .PnlBtnSelection.Location = New Point(0, (ProgramHeight - 300) / 2)
             .pnlLgtSt.Location = New Point(5, ProgramHeight - 60)
-            .pnlAdminContainer.Location = New Point(0, ((ProgramHeight - 300) / 2) + 350)
-            .pnlAdminContainer.Location = New Point(0, ((ProgramHeight - 300) / 2) + 350)
+            .pnlAdminContainer.Location = New Point(0, (ProgramHeight - 300) / 2 + 300)
         End With
 
         'Load For pnlSwitch Forms
@@ -45,10 +44,6 @@ Module ProgramLoad
             .LoadCategories()
         End With
         With Sales
-            .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
-            .pnlContainer.Location = New Point(50, 50)
-        End With
-        With Analytics
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
             .pnlContainer.Location = New Point(50, 50)
         End With

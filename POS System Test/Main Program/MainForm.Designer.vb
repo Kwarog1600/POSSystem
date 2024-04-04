@@ -158,7 +158,7 @@ Partial Class MainForm
         pnlAdminContainer.Location = New Point(3, 504)
         pnlAdminContainer.Name = "pnlAdminContainer"
         pnlAdminContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        pnlAdminContainer.Size = New Size(190, 106)
+        pnlAdminContainer.Size = New Size(190, 100)
         pnlAdminContainer.TabIndex = 0
         pnlAdminContainer.Visible = False
         ' 
@@ -209,7 +209,7 @@ Partial Class MainForm
         PnlBtnSelection.Location = New Point(4, 160)
         PnlBtnSelection.Name = "PnlBtnSelection"
         PnlBtnSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        PnlBtnSelection.Size = New Size(190, 300)
+        PnlBtnSelection.Size = New Size(190, 275)
         PnlBtnSelection.TabIndex = 0
         ' 
         ' btHistory

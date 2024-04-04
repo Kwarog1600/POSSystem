@@ -305,7 +305,7 @@ Partial Class AddStock
         ' 
         ' clmProduct
         ' 
-        clmProduct.HeaderText = "Brand"
+        clmProduct.HeaderText = "Product"
         clmProduct.Name = "clmProduct"
         clmProduct.ReadOnly = True
         ' 

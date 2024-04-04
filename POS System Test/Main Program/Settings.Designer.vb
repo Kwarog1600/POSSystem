@@ -53,10 +53,10 @@ Partial Class Settings
         txbxIPSet.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txbxIPSet.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txbxIPSet.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxIPSet.Font = New Font("Segoe UI", 9.0F)
+        txbxIPSet.Font = New Font("Segoe UI", 9F)
         txbxIPSet.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxIPSet.Location = New Point(43, 55)
-        txbxIPSet.Name = "btIPSet"
+        txbxIPSet.Name = "txbxIPSet"
         txbxIPSet.PasswordChar = ChrW(0)
         txbxIPSet.PlaceholderText = ""
         txbxIPSet.SelectedText = ""
@@ -87,7 +87,7 @@ Partial Class Settings
         ' 
         ' GUIColor1
         ' 
-        GUIColor1.Color = SystemColors.ControlDark
+        GUIColor1.Color = SystemColors.Highlight
         ' 
         ' swDarkMode
         ' 

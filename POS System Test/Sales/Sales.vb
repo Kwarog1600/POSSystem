@@ -68,7 +68,7 @@ Public Class Sales
                     MessageBox.Show($"File '{category}' not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Next
-            Using log As New StreamWriter("Sales History.csv", True)
+            Using log As New StreamWriter("Resources\Sales History.csv", True)
                 log.WriteLine($"{referencenumber},{txbxName.Text}, {showTotalPrice.Text}, {DateAndTime.Now}")
             End Using
             PrintReceipt(referencenumber, dgvAddedList, txbxName.Text, showTotalPrice.Text, DateAndTime.Now)
@@ -122,24 +122,31 @@ Public Class Sales
         AddHandler printDoc.PrintPage, Sub(senderPrint, ePrint)
                                            ' Your logic to draw the receipt content on the print page
                                            ePrint.Graphics.DrawString($"Reference: {referencenumber}", New Font("Arial", 9), Brushes.Black, 100, 100)
-                                           ePrint.Graphics.DrawString($"Name: {name}", New Font("Arial", 9), Brushes.Black, 100, 150)
-                                           ePrint.Graphics.DrawString($"Sale Date: {saleDate.ToString("MM/dd/yyyy")}", New Font("Arial", 9), Brushes.Black, 100, 200)
-
-                                           ' Draw column headers
-                                           Dim columnHeaders As String = "Product" & vbTab & vbTab & "Price" & vbTab & "Quantity" & vbTab & "Amount"  ' Adjust headers as needed
-                                           ePrint.Graphics.DrawString(columnHeaders, New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 100, 225)
-
-                                           ' Iterate through the rows in dgvAddedList and draw the content
-                                           Dim yPos As Integer = 250  ' Start position for items)
+                                           ePrint.Graphics.DrawString($"Name: {name}", New Font("Arial", 9), Brushes.Black, 100, 120)
+                                           ePrint.Graphics.DrawString($"Sale Date: {saleDate.ToString("MM/dd/yyyy")}", New Font("Arial", 9), Brushes.Black, 100, 140)
+                                           ' Iterate through the rows in dgvAddedList and draw the content in a tabular format
+                                           Dim yPos As Integer = 160  ' Start position for items
+                                           Dim columnWidth As Integer = 100
                                            For Each row As DataGridViewRow In dgvAdded.Rows
-                                               ' Draw the item details
-                                               Dim itemDetails As String = $"{row.Cells("clmProduct").Value}" & vbTab & $"{row.Cells("clmPrice").Value}" & vbTab & $"{row.Cells("clmQuantity").Value}" & vbTab & vbTab & $"{row.Cells("clmAmount").Value}"
-                                               ePrint.Graphics.DrawString(itemDetails, New Font("Arial", 9), Brushes.Black, 100, yPos)
-                                               ' Draw more item details as needed
+                                               ' Draw the item details in a tabular format
+                                               Dim xPosition As Integer = 100
+                                               For Each cell As DataGridViewCell In row.Cells
+                                                   If Not cell.ColumnIndex = 0 Then
+                                                       If cell.ColumnIndex = 2 Then
+                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
+                                                           xPosition += columnWidth + 75  ' Adjust the width based on column content
+                                                       Else
+                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
+                                                           xPosition += columnWidth  ' Adjust the width based on column content
+                                                       End If
+
+                                                   End If
+                                               Next
                                                yPos += 20  ' Increase the Y position for the next item
                                            Next
-                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 100, yPos + 50)
-                                           ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 200, yPos + 50)
+                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 475, yPos + 20)
+                                           ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 575, yPos + 20)
+                                           ePrint.Graphics.DrawString($"Sold by: {MainForm.lbUsername.Text}", New Font("Arial", 9), Brushes.Black, 100, yPos + 40)
                                        End Sub
 
         ' Calculate the required paper width and height based on the content
@@ -235,6 +242,10 @@ Public Class Sales
             End If
         Next
         showTotalPrice.Text = "Php" & totalPrice.ToString("0.00")
+        txbxID.Text = ""
     End Sub
 
+    Private Sub btVoid_Click(sender As Object, e As EventArgs) Handles btVoid.Click
+
+    End Sub
 End Class

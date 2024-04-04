@@ -63,8 +63,4 @@
     Private Sub btExpenses_Click(sender As Object, e As EventArgs) Handles btExpenses.Click
 
     End Sub
-
-    Private Sub btAnalytics_Click(sender As Object, e As EventArgs)
-        switchPanel(Analytics)
-    End Sub
 End Class

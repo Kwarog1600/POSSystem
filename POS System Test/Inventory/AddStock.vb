@@ -26,8 +26,8 @@ Public Class AddStock
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
         For Each Item As String In cbxCategory.Items
-            If File.Exists($"{Item}.csv") Then
-                Dim lines As String() = File.ReadAllLines($"{Item}.csv")
+            If File.Exists($"Stock\{Item}.csv") Then
+                Dim lines As String() = File.ReadAllLines($"Stock\{Item}.csv")
                 For Each line As String In lines
                     Dim contents As String() = line.Split(","c)
                     If contents(0).Trim = txbxID.Text.Trim Then
@@ -66,12 +66,15 @@ Public Class AddStock
             ' Read the selected category from the ComboBox for each row
             Dim categoryName As String = row.Cells("clmCategory").Value.ToString()
             ' Construct the path to the category file for each row
-            Dim categoryFilePath As String = $"{categoryName}.csv"
+            Dim categoryFilePath As String = $"Stock\{categoryName}.csv"
 
             ' Check if the category file exists
             If File.Exists(categoryFilePath) Then
                 ' Read all lines from the category file
                 Dim lines As String() = File.ReadAllLines(categoryFilePath)
+
+                ' Flag to check if a match is found
+                Dim matchFound As Boolean = False
 
                 ' Iterate over each line (excluding the header)
                 For i As Integer = 1 To lines.Length - 1
@@ -90,10 +93,20 @@ Public Class AddStock
                         Dim logEntry As String = $"{transactionRefNumber},{values(0)},{values(1)},{row.Cells("clmQuantity").Value},{DateTime.Now}"
                         File.AppendAllText("Stock History.csv", logEntry & Environment.NewLine)
 
+                        ' Set the flag to true since a match is found
+                        matchFound = True
+
                         ' Exit the loop once the update is done for the current row
                         Exit For
                     End If
                 Next
+
+                ' If no match is found, append the data to the CSV file
+                If Not matchFound Then
+                    Dim newData As String = $"{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmPrice").Value},{row.Cells("clmQuantity").Value}"
+                    File.AppendAllText(categoryFilePath, newData & Environment.NewLine)
+                    File.AppendAllText("Stock History.csv", $"{transactionRefNumber},{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmQuantity").Value},{DateTime.Now}" & Environment.NewLine)
+                End If
             Else
                 MessageBox.Show($"Category file '{categoryFilePath}' not found.")
             End If
