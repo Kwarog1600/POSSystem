@@ -378,7 +378,7 @@ Partial Class Sales
         txbxID.SelectedText = ""
         txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         txbxID.Size = New Size(242, 36)
-        txbxID.TabIndex = 27
+        txbxID.TabIndex = 0
         ' 
         ' txbxProduct
         ' 

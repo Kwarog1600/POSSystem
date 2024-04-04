@@ -94,5 +94,9 @@ Module ProgramLoad
         End If
     End Sub
 
+    Public Sub Connect(IP As String, Port As Integer)
+
+    End Sub
+
 End Module
 

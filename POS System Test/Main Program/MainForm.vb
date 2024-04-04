@@ -45,22 +45,26 @@
 
 
     Private Sub btdashboard_Click(sender As Object, e As EventArgs) Handles btdashboard.Click
-        Me.switchPanel(Dashboard)
+        switchPanel(Dashboard)
     End Sub
 
     Private Sub btInventory_Click(sender As Object, e As EventArgs) Handles btInventory.Click
-        Me.switchPanel(Inventory)
+        switchPanel(Inventory)
     End Sub
 
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
-        Me.switchPanel(Sales)
+        switchPanel(Sales)
     End Sub
 
     Private Sub btHistory_Click(sender As Object, e As EventArgs) Handles btHistory.Click
-        Me.switchPanel(History)
+        switchPanel(History)
     End Sub
 
     Private Sub btExpenses_Click(sender As Object, e As EventArgs) Handles btExpenses.Click
 
+    End Sub
+
+    Private Sub btEmplyMngt_Click(sender As Object, e As EventArgs) Handles btEmplyMngt.Click
+        switchPanel(EmployeeManagement)
     End Sub
 End Class

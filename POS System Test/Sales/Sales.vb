@@ -112,6 +112,8 @@ Public Class Sales
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCategories()
+        Me.AcceptButton = btAddStock
+        Me.CancelButton = btVoid
     End Sub
 
     Private Sub PrintReceipt(referencenumber As String, dgvAdded As DataGridView, name As String, totalPrice As String, saleDate As DateTime)
@@ -243,6 +245,10 @@ Public Class Sales
         Next
         showTotalPrice.Text = "Php" & totalPrice.ToString("0.00")
         txbxID.Text = ""
+    End Sub
+
+    Private Sub CelloubleClick(sender As Object, e As EventArgs) Handles dgvAddedList.CellDoubleClick
+
     End Sub
 
     Private Sub btVoid_Click(sender As Object, e As EventArgs) Handles btVoid.Click

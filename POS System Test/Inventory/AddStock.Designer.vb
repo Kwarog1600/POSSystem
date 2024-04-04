@@ -45,16 +45,16 @@ Partial Class AddStock
         cbxCategory = New ComboBox()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        btSave = New Guna.UI2.WinForms.Guna2Button()
-        lblQuantity = New Label()
-        txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
-        lblPrice = New Label()
-        txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
         clmCategory = New DataGridViewTextBoxColumn()
         clmID = New DataGridViewTextBoxColumn()
         clmProduct = New DataGridViewTextBoxColumn()
         clmPrice = New DataGridViewTextBoxColumn()
         clmQuantity = New DataGridViewTextBoxColumn()
+        btSave = New Guna.UI2.WinForms.Guna2Button()
+        lblQuantity = New Label()
+        txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
+        lblPrice = New Label()
+        txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -77,7 +77,7 @@ Partial Class AddStock
         txbxProduct.SelectedText = ""
         txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txbxProduct.Size = New Size(242, 36)
-        txbxProduct.TabIndex = 4
+        txbxProduct.TabIndex = 1
         ' 
         ' txbxID
         ' 
@@ -98,7 +98,7 @@ Partial Class AddStock
         txbxID.SelectedText = ""
         txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         txbxID.Size = New Size(242, 36)
-        txbxID.TabIndex = 6
+        txbxID.TabIndex = 0
         ' 
         ' lbProduct
         ' 
@@ -132,11 +132,12 @@ Partial Class AddStock
         cbxCategory.AutoCompleteCustomSource.AddRange(New String() {"All"})
         cbxCategory.DropDownStyle = ComboBoxStyle.DropDownList
         cbxCategory.FormattingEnabled = True
+        cbxCategory.ItemHeight = 15
         cbxCategory.Location = New Point(382, 21)
         cbxCategory.Name = "cbxCategory"
         cbxCategory.Size = New Size(156, 23)
         cbxCategory.Sorted = True
-        cbxCategory.TabIndex = 17
+        cbxCategory.TabIndex = 4
         cbxCategory.TabStop = False
         ' 
         ' btAddStock
@@ -212,6 +213,36 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
+        ' clmCategory
+        ' 
+        clmCategory.HeaderText = "Category"
+        clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
+        ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmProduct
+        ' 
+        clmProduct.HeaderText = "Product"
+        clmProduct.Name = "clmProduct"
+        clmProduct.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmQuantity
+        ' 
+        clmQuantity.HeaderText = "Quantity"
+        clmQuantity.Name = "clmQuantity"
+        clmQuantity.ReadOnly = True
+        ' 
         ' btSave
         ' 
         btSave.BackColor = Color.Transparent
@@ -259,7 +290,7 @@ Partial Class AddStock
         txbxQty.SelectedText = ""
         txbxQty.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         txbxQty.Size = New Size(242, 36)
-        txbxQty.TabIndex = 22
+        txbxQty.TabIndex = 2
         ' 
         ' lblPrice
         ' 
@@ -289,37 +320,7 @@ Partial Class AddStock
         txbxPrice.SelectedText = ""
         txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         txbxPrice.Size = New Size(247, 36)
-        txbxPrice.TabIndex = 24
-        ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmProduct
-        ' 
-        clmProduct.HeaderText = "Product"
-        clmProduct.Name = "clmProduct"
-        clmProduct.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmQuantity
-        ' 
-        clmQuantity.HeaderText = "Quantity"
-        clmQuantity.Name = "clmQuantity"
-        clmQuantity.ReadOnly = True
+        txbxPrice.TabIndex = 3
         ' 
         ' AddStock
         ' 

@@ -100,7 +100,7 @@ Partial Class MainForm
         pnlSelection.Name = "pnlSelection"
         pnlSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         pnlSelection.Size = New Size(200, 744)
-        pnlSelection.TabIndex = 0
+        pnlSelection.TabIndex = 1
         ' 
         ' pnlLgtSt
         ' 
@@ -316,7 +316,7 @@ Partial Class MainForm
         pnlRibbon.Name = "pnlRibbon"
         pnlRibbon.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         pnlRibbon.Size = New Size(1080, 50)
-        pnlRibbon.TabIndex = 1
+        pnlRibbon.TabIndex = 2
         ' 
         ' lbUsername
         ' 
@@ -397,7 +397,7 @@ Partial Class MainForm
         pnlSwitch.Name = "pnlSwitch"
         pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges36
         pnlSwitch.Size = New Size(1080, 670)
-        pnlSwitch.TabIndex = 1
+        pnlSwitch.TabIndex = 0
         ' 
         ' Guna2ContextMenuStrip1
         ' 
