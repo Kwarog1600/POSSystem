@@ -64,7 +64,7 @@
 
     End Sub
 
-    Private Sub btAnalytics_Click(sender As Object, e As EventArgs) Handles btAnalytics.Click
-        Me.switchPanel(Analytics)
+    Private Sub btAnalytics_Click(sender As Object, e As EventArgs)
+        switchPanel(Analytics)
     End Sub
 End Class

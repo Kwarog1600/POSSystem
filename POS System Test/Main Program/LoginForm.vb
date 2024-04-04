@@ -44,10 +44,10 @@ Public Class LoginForm
             If joinedData = $"{txbxUsername.Text},{HashPassword(txbxPassword.Text)}" Then
                 TimeLog("In", txbxUsername.Text)
                 ProgramLoad.AccessLevel(Int32.Parse(data(2)))
-                MainForm.Visible = True
+                MainForm.Show()
                 MainForm.lbUsername.Text = data(0)
                 MainForm.switchPanel(Dashboard)
-                Me.Visible = False
+                Me.Hide()
             Else
                 MessageBox.Show("Incorrect username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

@@ -10,6 +10,7 @@ Module ProgramLoad
 
         Main()
 
+
         'LoginForm Load
         With LoginForm
             .MaximumSize = New Size(ProgramWidth, ProgramHeight)
@@ -29,6 +30,8 @@ Module ProgramLoad
             .pnlFormCtrl.Location = New Point(ProgramWidth - 280, 0)
             .PnlBtnSelection.Location = New Point(0, (ProgramHeight - 300) / 2)
             .pnlLgtSt.Location = New Point(5, ProgramHeight - 60)
+            .pnlAdminContainer.Location = New Point(0, ((ProgramHeight - 300) / 2) + 350)
+            .pnlAdminContainer.Location = New Point(0, ((ProgramHeight - 300) / 2) + 350)
         End With
 
         'Load For pnlSwitch Forms
