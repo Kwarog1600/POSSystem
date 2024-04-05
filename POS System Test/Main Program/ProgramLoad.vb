@@ -51,6 +51,10 @@ Module ProgramLoad
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
             .pnlContainer.Location = New Point(50, 50)
         End With
+        With EmployeeManagement
+            .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
 
     End Sub
 
@@ -73,7 +77,7 @@ Module ProgramLoad
     Sub Main()
         CreateDir()
         ' Create CSV files for each list if they do not exist
-        CreateCsvFileIfNotExists($"{Application.StartupPath}\Users.csv", "Username,Password,Access Level, First Name, Last Name" & vbLf & $"admin,{LoginForm.HashPassword("admin")},3,admin,admin")
+        CreateCsvFileIfNotExists($"Resources/Users.csv", "User ID,Username,Password,Access Level, First Name, Last Name" & vbLf & $"U000,admin,{LoginForm.HashPassword("admin")},3,admin,admin")
         CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
         CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Product ID List,Model List,ID List,Qty,Date and Time")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
@@ -87,6 +91,7 @@ Module ProgramLoad
             Inventory.btAddCategory.Visible = False
             Inventory.btStockHistory.Visible = False
             MainForm.pnlAdminContainer.Visible = False
+            MainForm.btExpenses.Visible = False
         ElseIf level = 2 Then
             MainForm.pnlAdminContainer.Visible = False
         ElseIf level = 3 Then

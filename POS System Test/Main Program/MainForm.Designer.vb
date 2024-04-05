@@ -39,10 +39,10 @@ Partial Class MainForm
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -200,8 +200,8 @@ Partial Class MainForm
         ' 
         ' PnlBtnSelection
         ' 
-        PnlBtnSelection.Controls.Add(btHistory)
         PnlBtnSelection.Controls.Add(btExpenses)
+        PnlBtnSelection.Controls.Add(btHistory)
         PnlBtnSelection.Controls.Add(btdashboard)
         PnlBtnSelection.Controls.Add(btInventory)
         PnlBtnSelection.Controls.Add(btSale)
@@ -214,7 +214,7 @@ Partial Class MainForm
         ' 
         ' btHistory
         ' 
-        btHistory.CustomizableEdges = CustomizableEdges13
+        btHistory.CustomizableEdges = CustomizableEdges15
         btHistory.DisabledState.BorderColor = Color.DarkGray
         btHistory.DisabledState.CustomBorderColor = Color.DarkGray
         btHistory.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -222,9 +222,9 @@ Partial Class MainForm
         btHistory.FillColor = Color.Transparent
         btHistory.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
         btHistory.ForeColor = Color.Black
-        btHistory.Location = New Point(-1, 204)
+        btHistory.Location = New Point(-1, 153)
         btHistory.Name = "btHistory"
-        btHistory.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btHistory.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         btHistory.Size = New Size(187, 45)
         btHistory.TabIndex = 4
         btHistory.Text = "History"
@@ -232,7 +232,7 @@ Partial Class MainForm
         ' 
         ' btExpenses
         ' 
-        btExpenses.CustomizableEdges = CustomizableEdges15
+        btExpenses.CustomizableEdges = CustomizableEdges13
         btExpenses.DisabledState.BorderColor = Color.DarkGray
         btExpenses.DisabledState.CustomBorderColor = Color.DarkGray
         btExpenses.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -240,9 +240,9 @@ Partial Class MainForm
         btExpenses.FillColor = Color.Transparent
         btExpenses.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
         btExpenses.ForeColor = Color.Black
-        btExpenses.Location = New Point(0, 153)
+        btExpenses.Location = New Point(-1, 204)
         btExpenses.Name = "btExpenses"
-        btExpenses.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btExpenses.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btExpenses.Size = New Size(187, 45)
         btExpenses.TabIndex = 5
         btExpenses.Text = "Expenses"

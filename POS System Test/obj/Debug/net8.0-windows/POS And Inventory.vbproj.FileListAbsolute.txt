@@ -15,7 +15,6 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Dashboard.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.LoginForm.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.MainForm.resources
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Settings.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Resources.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Sales.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.vbproj.GenerateResource.cache
@@ -116,3 +115,18 @@ C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\D
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ChangePassword.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.EmployeeManagement.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\Google.Protobuf.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\ZstdSharp.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ChangePassword.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.AddUser.resources
