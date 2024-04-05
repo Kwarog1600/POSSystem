@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Drawing.Printing
+Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ExplorerBar
 
 Public Class AddStock
@@ -92,7 +93,7 @@ Public Class AddStock
 
                         ' Log the transaction into Stock History.csv
                         Dim logEntry As String = $"{transactionRefNumber},{values(0)},{values(1)},{row.Cells("clmQuantity").Value},{DateTime.Now}"
-                        File.AppendAllText("Stock History.csv", logEntry & Environment.NewLine)
+                        File.AppendAllText("Resources/Stock History.csv", logEntry & Environment.NewLine)
 
                         ' Set the flag to true since a match is found
                         matchFound = True
@@ -106,7 +107,7 @@ Public Class AddStock
                 If Not matchFound Then
                     Dim newData As String = $"{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmPrice").Value},{row.Cells("clmQuantity").Value}"
                     File.AppendAllText(categoryFilePath, newData & Environment.NewLine)
-                    File.AppendAllText("Stock History.csv", $"{transactionRefNumber},{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmQuantity").Value},{DateTime.Now}" & Environment.NewLine)
+                    File.AppendAllText("Resources\Stock History.csv", $"{transactionRefNumber},{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmQuantity").Value},{DateTime.Now}" & Environment.NewLine)
                 End If
             Else
                 MessageBox.Show($"Category file '{categoryFilePath}' not found.")
@@ -117,5 +118,56 @@ Public Class AddStock
         MessageBox.Show("Stock saved successfully.")
     End Sub
 
+    Private Sub PrintReceipt(referencenumber As String, dgvAdded As DataGridView, name As String, totalPrice As String, saleDate As DateTime)
+        ' Create an instance of PrintDocument
+        Dim printDoc As New Printing.PrintDocument()
 
+        ' Set the PrintPage event handler to generate the receipt content
+        AddHandler printDoc.PrintPage, Sub(senderPrint, ePrint)
+                                           ' Your logic to draw the receipt content on the print page
+                                           ePrint.Graphics.DrawString($"Reference: {referencenumber}", New Font("Arial", 9), Brushes.Black, 100, 100)
+                                           ePrint.Graphics.DrawString($"Name: {name}", New Font("Arial", 9), Brushes.Black, 100, 120)
+                                           ePrint.Graphics.DrawString($"Sale Date: {saleDate.ToString("MM/dd/yyyy")}", New Font("Arial", 9), Brushes.Black, 100, 140)
+                                           ' Iterate through the rows in dgvAddedList and draw the content in a tabular format
+                                           Dim yPos As Integer = 160  ' Start position for items
+                                           Dim columnWidth As Integer = 100
+                                           For Each row As DataGridViewRow In dgvAdded.Rows
+                                               ' Draw the item details in a tabular format
+                                               Dim xPosition As Integer = 100
+                                               For Each cell As DataGridViewCell In row.Cells
+                                                   If Not cell.ColumnIndex = 0 Then
+                                                       If cell.ColumnIndex = 2 Then
+                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
+                                                           xPosition += columnWidth + 75  ' Adjust the width based on column content
+                                                       Else
+                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
+                                                           xPosition += columnWidth  ' Adjust the width based on column content
+                                                       End If
+
+                                                   End If
+                                               Next
+                                               yPos += 20  ' Increase the Y position for the next item
+                                           Next
+                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 475, yPos + 20)
+                                           ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 575, yPos + 20)
+                                           ePrint.Graphics.DrawString($"Sold by: {MainForm.lbUsername.Text}", New Font("Arial", 9), Brushes.Black, 100, yPos + 40)
+                                       End Sub
+
+        ' Calculate the required paper width and height based on the content
+        Dim standardWidth As Integer = 500  ' Standard width for receipts
+        Dim lineHeight As Integer = 50  ' Height of each line of text
+        Dim totalLines As Integer = 5 + dgvAdded.Rows.Count  ' Total lines of text content
+        Dim totalHeight As Integer = 150 + (totalLines * lineHeight)  ' Total height based on the number of lines
+        Dim requiredPaperSize As New PaperSize("Custom", standardWidth, totalHeight)
+
+        ' Set the paper size to the calculated size
+        printDoc.DefaultPageSettings.PaperSize = requiredPaperSize
+        printDoc.DefaultPageSettings.Margins = New Margins(5, 5, 5, 5)
+
+        printDoc.PrinterSettings.PrintToFile = True
+        printDoc.PrinterSettings.PrintFileName = $"receipts/{referencenumber}.pdf"
+        ' Start printing
+        printDoc.Print()
+
+    End Sub
 End Class

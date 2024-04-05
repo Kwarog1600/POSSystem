@@ -166,15 +166,14 @@ Partial Class AddStock
         DataGridViewCellStyle1.BackColor = Color.White
         dgvAddedList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.BackColor = SystemColors.ButtonShadow
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvAddedList.ColumnHeadersHeight = 17
-        dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
@@ -198,11 +197,11 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
         dgvAddedList.ThemeStyle.BackColor = Color.White
         dgvAddedList.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvAddedList.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvAddedList.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
         dgvAddedList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvAddedList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvAddedList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvAddedList.ThemeStyle.HeaderStyle.Height = 17
         dgvAddedList.ThemeStyle.ReadOnly = True
         dgvAddedList.ThemeStyle.RowsStyle.BackColor = Color.White

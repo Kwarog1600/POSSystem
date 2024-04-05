@@ -1,33 +1,33 @@
 ﻿Imports System.IO
 
 Public Class StockHistory
-    Private Sub StockHistory_Load(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+    Public Sub StockHistory_Load()
         ' Define the file path for Stock History.csv
-        Dim filePath As String = Path.Combine(Application.StartupPath, "Stock History.csv")
+        Dim filePath = Path.Combine(Application.StartupPath, "Resources\Stock History.csv")
 
         ' Check if the file exists
         If File.Exists(filePath) Then
             Try
                 ' Read all lines from the file
-                Dim lines As String() = File.ReadAllLines(filePath)
+                Dim lines = File.ReadAllLines(filePath)
 
                 ' Check if there are lines in the file
                 If lines.Length > 0 Then
                     ' Split the first line to get column headers
-                    Dim headers As String() = lines(0).Split(","c)
+                    Dim headers = lines(0).Split(","c)
 
-                    ' Add column headers to dgvHistory
-                    For Each header In headers
-                        dgvHistory.Columns.Add(header, header)
-                    Next
+                    ' Add column headers to dgvHistory if they haven't been added already
+                    If dgvHistory.Columns.Count = 0 Then
+                        For Each header In headers
+                            dgvHistory.Columns.Add(header, header)
+                        Next
+                    End If
 
                     ' Populate data rows in dgvHistory
-                    For i As Integer = 1 To lines.Length - 1
-                        Dim values As String() = lines(i).Split(","c)
+                    For i = 1 To lines.Length - 1
+                        Dim values = lines(i).Split(","c)
                         dgvHistory.Rows.Add(values)
                     Next
-                    ' Sort the DataGridView in descending order based on the 4th column
-                    dgvHistory.Sort(dgvHistory.Columns(3), System.ComponentModel.ListSortDirection.Descending)
                 End If
             Catch ex As Exception
                 ' Handle any exceptions that might occur during file reading
@@ -37,6 +37,7 @@ Public Class StockHistory
             ' Handle case where file doesn't exist
             MessageBox.Show("File does not exist: " & filePath)
         End If
+        Visible = True
     End Sub
 
 End Class

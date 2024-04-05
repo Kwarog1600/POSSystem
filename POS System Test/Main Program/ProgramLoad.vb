@@ -10,7 +10,6 @@ Module ProgramLoad
 
         Main()
 
-
         'LoginForm Load
         With LoginForm
             .MaximumSize = New Size(ProgramWidth, ProgramHeight)

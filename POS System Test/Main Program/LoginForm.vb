@@ -33,19 +33,17 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-        Dim csvFilePath As String = $"{Application.StartupPath}\Users.csv"
+        Dim csvFilePath As String = $"Resources\Users.csv"
         Dim read As New StreamReader(csvFilePath)
         read.ReadLine()
         While Not read.EndOfStream
             Dim line As String = read.ReadLine()
             Dim data As String() = line.Split(","c)
-            Dim dataWithoutLastColumn As String() = data.Take(data.Length - 1).ToArray()
-            Dim joinedData As String = String.Join(",", dataWithoutLastColumn)
-            If joinedData = $"{txbxUsername.Text},{HashPassword(txbxPassword.Text)}" Then
+            If data(1) = $"{txbxUsername.Text}" And data(2) = $"{HashPassword(txbxPassword.Text)}" Then
                 TimeLog("In", txbxUsername.Text)
-                ProgramLoad.AccessLevel(Int32.Parse(data(2)))
+                ProgramLoad.AccessLevel(Int32.Parse(data(3)))
                 MainForm.Show()
-                MainForm.lbUsername.Text = data(0)
+                MainForm.lbUsername.Text = data(1)
                 MainForm.switchPanel(Dashboard)
                 Me.Hide()
             Else

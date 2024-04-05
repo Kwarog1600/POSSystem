@@ -1,13 +1,14 @@
 ﻿Public Class EmployeeManagement
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles lbAccess.Click
 
+    Private Sub EmployeeManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MngtModule.Mngt()
     End Sub
 
-    Private Sub lbChangePass_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lbChangePass.LinkClicked
-
+    Private Sub btAdd_Click(sender As Object, e As EventArgs) Handles btAdd.Click
+        AddUser.Visible = True
     End Sub
 
-    Private Sub Guna2Button4_Click(sender As Object, e As EventArgs) Handles Guna2Button4.Click
-
+    Private Sub btChangePass_Click(sender As Object, e As EventArgs) Handles btChangePass.Click
+        ChangePassword.Visible = True
     End Sub
 End Class

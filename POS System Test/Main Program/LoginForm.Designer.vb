@@ -36,6 +36,7 @@ Partial Class LoginForm
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
         pnlMain = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         btClose = New Guna.UI2.WinForms.Guna2Button()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
@@ -206,6 +207,7 @@ Partial Class LoginForm
         ClientSize = New Size(800, 450)
         Controls.Add(pnlMain)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "LoginForm"
         StartPosition = FormStartPosition.Manual
         Text = "Form1"

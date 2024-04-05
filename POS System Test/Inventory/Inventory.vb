@@ -72,7 +72,7 @@ Public Class Inventory
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
-        StockHistory.Visible = True
+        StockHistory.StockHistory_Load()
     End Sub
 
     Public Sub LoadStock(category As String)

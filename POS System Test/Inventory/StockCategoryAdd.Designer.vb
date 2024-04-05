@@ -79,6 +79,7 @@ Partial Class StockCategoryAdd
         btAddCat.DisabledState.CustomBorderColor = Color.DarkGray
         btAddCat.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btAddCat.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btAddCat.FillColor = Color.DimGray
         btAddCat.Font = New Font("Segoe UI", 9F)
         btAddCat.ForeColor = Color.White
         btAddCat.Location = New Point(166, 261)
@@ -126,7 +127,7 @@ Partial Class StockCategoryAdd
         dgvCatList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
         dgvCatList.ThemeStyle.BackColor = Color.White
         dgvCatList.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvCatList.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvCatList.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
         dgvCatList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvCatList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvCatList.ThemeStyle.HeaderStyle.ForeColor = Color.White
@@ -148,6 +149,7 @@ Partial Class StockCategoryAdd
         btRemove.DisabledState.CustomBorderColor = Color.DarkGray
         btRemove.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btRemove.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btRemove.FillColor = Color.DimGray
         btRemove.Font = New Font("Segoe UI", 9F)
         btRemove.ForeColor = Color.White
         btRemove.Location = New Point(39, 261)

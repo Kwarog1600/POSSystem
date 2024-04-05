@@ -214,7 +214,7 @@ Partial Class Sales
         DataGridViewCellStyle1.BackColor = Color.White
         dgvAddedList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.BackColor = SystemColors.ButtonShadow
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight

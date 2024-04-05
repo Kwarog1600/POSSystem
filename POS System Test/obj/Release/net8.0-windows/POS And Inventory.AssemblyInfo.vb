@@ -13,10 +13,10 @@ Option Explicit On
 
 Imports System
 Imports System.Reflection
-<Assembly: System.Reflection.AssemblyCompanyAttribute("POS And Inventory"),  _
+<Assembly: System.Reflection.AssemblyCompanyAttribute("R3Hub Techologies Inc."),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Release"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c252ee8eaea690b3e0bb57558e4ba131b07ef3a"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f712eb9ab9ecefa8e598dc81d3bcd551104bcb2"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("POS And Inventory"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("POS And Inventory"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
