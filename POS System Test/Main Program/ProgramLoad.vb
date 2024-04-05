@@ -54,6 +54,14 @@ Module ProgramLoad
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
             .pnlContainer.Location = New Point(50, 50)
         End With
+        With Expenses
+            .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+        With TimeLog
+            .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
 
     End Sub
 

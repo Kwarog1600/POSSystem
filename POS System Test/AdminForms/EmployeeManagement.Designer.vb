@@ -33,6 +33,8 @@ Partial Class EmployeeManagement
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -45,13 +47,12 @@ Partial Class EmployeeManagement
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         dgvUserList = New Guna.UI2.WinForms.Guna2DataGridView()
         btDelete = New Guna.UI2.WinForms.Guna2Button()
         btAdd = New Guna.UI2.WinForms.Guna2Button()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        btChangePass = New Guna.UI2.WinForms.Guna2Button()
         Label1 = New Label()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
@@ -64,7 +65,6 @@ Partial Class EmployeeManagement
         lbLastName = New Label()
         txbxSurname = New Guna.UI2.WinForms.Guna2TextBox()
         lbUsers = New Label()
-        btChangePass = New Guna.UI2.WinForms.Guna2Button()
         pnlContainer.SuspendLayout()
         CType(dgvUserList, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel1.SuspendLayout()
@@ -174,6 +174,8 @@ Partial Class EmployeeManagement
         ' 
         ' Guna2Panel1
         ' 
+        Guna2Panel1.BackColor = Color.Transparent
+        Guna2Panel1.BorderRadius = 25
         Guna2Panel1.Controls.Add(btChangePass)
         Guna2Panel1.Controls.Add(Label1)
         Guna2Panel1.Controls.Add(btSave)
@@ -187,11 +189,29 @@ Partial Class EmployeeManagement
         Guna2Panel1.Controls.Add(lbLastName)
         Guna2Panel1.Controls.Add(txbxSurname)
         Guna2Panel1.CustomizableEdges = CustomizableEdges19
+        Guna2Panel1.FillColor = Color.LightGray
         Guna2Panel1.Location = New Point(386, 92)
         Guna2Panel1.Name = "Guna2Panel1"
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         Guna2Panel1.Size = New Size(477, 394)
         Guna2Panel1.TabIndex = 2
+        ' 
+        ' btChangePass
+        ' 
+        btChangePass.CustomizableEdges = CustomizableEdges5
+        btChangePass.DisabledState.BorderColor = Color.DarkGray
+        btChangePass.DisabledState.CustomBorderColor = Color.DarkGray
+        btChangePass.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btChangePass.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btChangePass.FillColor = Color.DimGray
+        btChangePass.Font = New Font("Segoe UI", 9F)
+        btChangePass.ForeColor = Color.White
+        btChangePass.Location = New Point(335, 210)
+        btChangePass.Name = "btChangePass"
+        btChangePass.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btChangePass.Size = New Size(82, 45)
+        btChangePass.TabIndex = 16
+        btChangePass.Text = "Change Password"
         ' 
         ' Label1
         ' 
@@ -363,23 +383,6 @@ Partial Class EmployeeManagement
         lbUsers.Size = New Size(41, 15)
         lbUsers.TabIndex = 1
         lbUsers.Text = "Users :"
-        ' 
-        ' btChangePass
-        ' 
-        btChangePass.CustomizableEdges = CustomizableEdges5
-        btChangePass.DisabledState.BorderColor = Color.DarkGray
-        btChangePass.DisabledState.CustomBorderColor = Color.DarkGray
-        btChangePass.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btChangePass.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btChangePass.FillColor = Color.DimGray
-        btChangePass.Font = New Font("Segoe UI", 9F)
-        btChangePass.ForeColor = Color.White
-        btChangePass.Location = New Point(335, 210)
-        btChangePass.Name = "btChangePass"
-        btChangePass.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        btChangePass.Size = New Size(82, 45)
-        btChangePass.TabIndex = 16
-        btChangePass.Text = "Change Password"
         ' 
         ' EmployeeManagement
         ' 

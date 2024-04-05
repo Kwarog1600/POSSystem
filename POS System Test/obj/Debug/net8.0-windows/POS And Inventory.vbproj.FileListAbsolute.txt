@@ -130,3 +130,6 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ChangePassword.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.AddUser.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Expenses.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ExpenseAdd.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.TimeLog.resources

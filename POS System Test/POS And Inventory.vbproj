@@ -17,11 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Expenses\**" />
     <Compile Remove="Program Data\**" />
-    <EmbeddedResource Remove="Expenses\**" />
     <EmbeddedResource Remove="Program Data\**" />
-    <None Remove="Expenses\**" />
     <None Remove="Program Data\**" />
   </ItemGroup>
 

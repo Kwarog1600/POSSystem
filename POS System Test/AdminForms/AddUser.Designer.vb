@@ -24,6 +24,8 @@ Partial Class AddUser
     Private Sub InitializeComponent()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -36,10 +38,9 @@ Partial Class AddUser
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AddUser))
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        btSave = New Guna.UI2.WinForms.Guna2Button()
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Label1 = New Label()
         Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
@@ -51,7 +52,6 @@ Partial Class AddUser
         Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         lbLastName = New Label()
         txbxSurname = New Guna.UI2.WinForms.Guna2TextBox()
-        btSave = New Guna.UI2.WinForms.Guna2Button()
         Guna2Panel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -75,6 +75,23 @@ Partial Class AddUser
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         Guna2Panel1.Size = New Size(375, 380)
         Guna2Panel1.TabIndex = 3
+        ' 
+        ' btSave
+        ' 
+        btSave.CustomizableEdges = CustomizableEdges1
+        btSave.DisabledState.BorderColor = Color.DarkGray
+        btSave.DisabledState.CustomBorderColor = Color.DarkGray
+        btSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btSave.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btSave.FillColor = Color.DimGray
+        btSave.Font = New Font("Segoe UI", 9F)
+        btSave.ForeColor = Color.White
+        btSave.Location = New Point(286, 310)
+        btSave.Name = "btSave"
+        btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btSave.Size = New Size(73, 45)
+        btSave.TabIndex = 17
+        btSave.Text = "Save"
         ' 
         ' Guna2TextBox1
         ' 
@@ -238,23 +255,6 @@ Partial Class AddUser
         txbxSurname.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         txbxSurname.Size = New Size(200, 36)
         txbxSurname.TabIndex = 0
-        ' 
-        ' btSave
-        ' 
-        btSave.CustomizableEdges = CustomizableEdges1
-        btSave.DisabledState.BorderColor = Color.DarkGray
-        btSave.DisabledState.CustomBorderColor = Color.DarkGray
-        btSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btSave.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btSave.FillColor = Color.DimGray
-        btSave.Font = New Font("Segoe UI", 9F)
-        btSave.ForeColor = Color.White
-        btSave.Location = New Point(286, 310)
-        btSave.Name = "btSave"
-        btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btSave.Size = New Size(73, 45)
-        btSave.TabIndex = 17
-        btSave.Text = "Save"
         ' 
         ' AddUser
         ' 

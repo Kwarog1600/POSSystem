@@ -61,10 +61,14 @@
     End Sub
 
     Private Sub btExpenses_Click(sender As Object, e As EventArgs) Handles btExpenses.Click
-
+        switchPanel(Expenses)
     End Sub
 
     Private Sub btEmplyMngt_Click(sender As Object, e As EventArgs) Handles btEmplyMngt.Click
         switchPanel(EmployeeManagement)
+    End Sub
+
+    Private Sub btTimeLog_Click(sender As Object, e As EventArgs) Handles btTimeLog.Click
+        switchPanel(TimeLog)
     End Sub
 End Class
