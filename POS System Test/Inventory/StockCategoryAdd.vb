@@ -16,6 +16,22 @@ Public Class StockCategoryAdd
         RemoveItem()
     End Sub
 
+    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles cbxAddDescr.CheckedChanged
+        If cbxAddDescr.Checked Then
+            With dgvAddDescr
+                .Enabled = True
+                .ReadOnly = False
+                .AllowUserToAddRows = True
+                .Columns.Add("clmDescr", "Description")
+            End With
+
+        Else
+            dgvAddDescr.Enabled = False
+            dgvAddDescr.ReadOnly = True
+            dgvAddDescr.Columns.Clear()
+            dgvAddDescr.AllowUserToAddRows = False
+        End If
+    End Sub
 End Class
 
 

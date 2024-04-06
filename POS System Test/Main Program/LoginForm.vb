@@ -59,4 +59,7 @@ Public Class LoginForm
         End Using
     End Sub
 
+    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
 End Class

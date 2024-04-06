@@ -1,6 +1,7 @@
 ﻿Imports System.Drawing.Printing
 Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ExplorerBar
+Imports Mysqlx.XDevAPI.Common
 
 Public Class AddStock
     Dim categoryFilePath As String = "Resources/Stock Category.csv"
@@ -50,13 +51,43 @@ Public Class AddStock
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-        ' Add information to DataGridView
-        If String.IsNullOrEmpty(txbxID.Text) OrElse String.IsNullOrEmpty(txbxProduct.Text) OrElse String.IsNullOrEmpty(txbxPrice.Text) OrElse String.IsNullOrEmpty(txbxQty.Text) OrElse String.IsNullOrEmpty(cbxCategory.SelectedItem.ToString) Then
-            MessageBox.Show("Please fill in all the required fields.")
-        Else
-            dgvAddedList.Rows.Add(cbxCategory.SelectedItem.ToString(), txbxID.Text, txbxProduct.Text, txbxPrice.Text, txbxQty.Text)
-        End If
+        Dim product As String = txbxProduct.Text
+        Dim price As String = txbxPrice.Text
+        Dim qty As String = txbxQty.Text
+        Dim category As String = cbxCategory.SelectedItem.ToString
+        Dim id As String = txbxID.Text
+        Dim DescrCol As New List(Of String)
+        Dim Descr As New List(Of String)
 
+        For Each row In dgvAddDescr.Rows
+            Dim columnName As String = row.Cells(0).Value.ToString()
+            id &= $"-{columnName(0)}{row.Cells(1).Value.ToString()}"
+            DescrCol.Add(row.Cells(0).Value)
+            Descr.Add(row.Cells(1).Value)
+            If Not dgvAddedList.Columns.Contains(columnName) Then
+                dgvAddedList.Columns.Add(columnName, columnName)
+            End If
+        Next
+
+        Dim rowExists As Boolean = False
+
+        For Each row In dgvAddedList.Rows
+            If row.Cells(1).Value.ToString() = id Then
+                row.Cells(4).Value += qty
+                rowExists = True
+                Exit For
+            End If
+        Next
+
+        If Not rowExists Then
+            Dim newRow As New DataGridViewRow()
+            dgvAddedList.Rows.Add(cbxCategory.SelectedItem.ToString, id, product, price, qty)
+            newRow = dgvAddedList.Rows(dgvAddedList.Rows.Count - 1)
+
+            For Each col In DescrCol
+                newRow.Cells(col).Value = Descr(DescrCol.IndexOf(col))
+            Next
+        End If
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
@@ -106,6 +137,9 @@ Public Class AddStock
                 ' If no match is found, append the data to the CSV file
                 If Not matchFound Then
                     Dim newData As String = $"{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmPrice").Value},{row.Cells("clmQuantity").Value}"
+                    For Each descr In dgvAddDescr.Rows
+                        newData += $",{descr.Cells(1).Value}"
+                    Next
                     File.AppendAllText(categoryFilePath, newData & Environment.NewLine)
                     File.AppendAllText("Resources\Stock History.csv", $"{transactionRefNumber},{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmQuantity").Value},{DateTime.Now}" & Environment.NewLine)
                 End If
@@ -169,5 +203,26 @@ Public Class AddStock
         ' Start printing
         printDoc.Print()
 
+    End Sub
+
+    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+        Dim Category As String = cbxCategory.SelectedItem.ToString
+        Dim filePath As String = $"Stock\{Category}.csv"
+        dgvAddDescr.Rows.Clear()
+
+        If File.Exists(filePath) Then
+            Dim lines As String() = File.ReadAllLines(filePath)
+            If lines.Length > 0 Then
+                Dim columnHeaders As String() = lines(0).Split(","c) ' Assuming columns are comma-separated
+                ' Assuming columnHeaders is the array containing all the column headers
+                If columnHeaders.Length > 4 Then
+                    For i As Integer = 4 To columnHeaders.Length - 1
+                        dgvAddDescr.Rows().Add(columnHeaders(i))
+                    Next
+                End If
+            End If
+        Else
+            MessageBox.Show("Category file not found.")
+        End If
     End Sub
 End Class

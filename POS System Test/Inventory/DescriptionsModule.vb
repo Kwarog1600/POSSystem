@@ -1,3 +1,0 @@
-﻿Module DescriptionsModule
-
-End Module

@@ -1,0 +1,3 @@
+﻿Module SalesDescrModule
+
+End Module

@@ -331,17 +331,20 @@ Partial Class AddStock
         ' 
         ' dgvAddDescr
         ' 
+        dgvAddDescr.AllowUserToAddRows = False
+        dgvAddDescr.AllowUserToDeleteRows = False
         DataGridViewCellStyle4.BackColor = Color.White
         dgvAddDescr.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle5.BackColor = SystemColors.ButtonShadow
         DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle5.ForeColor = Color.White
         DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
         dgvAddDescr.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        dgvAddDescr.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddDescr.ColumnHeadersHeight = 17
+        dgvAddDescr.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddDescr.Columns.AddRange(New DataGridViewColumn() {clmDescription, clmValue})
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
@@ -364,11 +367,11 @@ Partial Class AddStock
         dgvAddDescr.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
         dgvAddDescr.ThemeStyle.BackColor = Color.White
         dgvAddDescr.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvAddDescr.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvAddDescr.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
         dgvAddDescr.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvAddDescr.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvAddDescr.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvAddDescr.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddDescr.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddDescr.ThemeStyle.HeaderStyle.Height = 17
         dgvAddDescr.ThemeStyle.ReadOnly = False
         dgvAddDescr.ThemeStyle.RowsStyle.BackColor = Color.White
@@ -383,6 +386,7 @@ Partial Class AddStock
         ' 
         clmDescription.HeaderText = "Description"
         clmDescription.Name = "clmDescription"
+        clmDescription.ReadOnly = True
         ' 
         ' clmValue
         ' 

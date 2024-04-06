@@ -39,10 +39,6 @@ Partial Class Inventory
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         btAddCategory = New Guna.UI2.WinForms.Guna2Button()
         dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmID = New DataGridViewTextBoxColumn()
-        clmProduct = New DataGridViewTextBoxColumn()
-        clmPrice = New DataGridViewTextBoxColumn()
-        clmQty = New DataGridViewTextBoxColumn()
         lblStockCategory = New Label()
         cbxCategory = New ComboBox()
         btStockHistory = New Guna.UI2.WinForms.Guna2Button()
@@ -124,8 +120,8 @@ Partial Class Inventory
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvStockList.Columns.AddRange(New DataGridViewColumn() {clmID, clmProduct, clmPrice, clmQty})
+        dgvStockList.ColumnHeadersHeight = 17
+        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -153,7 +149,7 @@ Partial Class Inventory
         dgvStockList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvStockList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvStockList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvStockList.ThemeStyle.HeaderStyle.Height = 17
         dgvStockList.ThemeStyle.ReadOnly = True
         dgvStockList.ThemeStyle.RowsStyle.BackColor = Color.White
@@ -163,30 +159,6 @@ Partial Class Inventory
         dgvStockList.ThemeStyle.RowsStyle.Height = 25
         dgvStockList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvStockList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmProduct
-        ' 
-        clmProduct.HeaderText = "Product"
-        clmProduct.Name = "clmProduct"
-        clmProduct.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmQty
-        ' 
-        clmQty.HeaderText = "Available"
-        clmQty.Name = "clmQty"
-        clmQty.ReadOnly = True
         ' 
         ' lblStockCategory
         ' 
@@ -273,8 +245,4 @@ Partial Class Inventory
     Friend WithEvents btAddCategory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents clmID As DataGridViewTextBoxColumn
-    Friend WithEvents clmProduct As DataGridViewTextBoxColumn
-    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
-    Friend WithEvents clmQty As DataGridViewTextBoxColumn
 End Class

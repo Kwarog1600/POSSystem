@@ -41,29 +41,38 @@ Module InventoryModule1
             Dim filePath As String = $"Stock\{category}.csv"
 
             If System.IO.File.Exists(filePath) Then
-                Using parser As New TextFieldParser(filePath)
-                    parser.TextFieldType = FieldType.Delimited
-                    parser.SetDelimiters(",")
+                Dim headers As String() = File.ReadLines(filePath).First().Split(","c)
 
-                    ' Skip header row
-                    parser.ReadLine()
+                ' Add column headers to the DataGridView if they are not already added
+                For Each header As String In headers
 
-                    While Not parser.EndOfData
-                        Dim fields As String() = parser.ReadFields()
-                        .dgvStockList.Rows.Add(fields)
+                    If Not .dgvStockList.Columns.Cast(Of DataGridViewColumn)().Any(Function(x) x.HeaderText = header) Then
+                        .dgvStockList.Columns.Add(header, header)
+                    End If
+                Next
+
+                ' Add remaining data to respective column headers
+                Using reader As New StreamReader(filePath)
+                    ' Skip the first line (headers)
+                    reader.ReadLine()
+                    While Not reader.EndOfStream
+                        Dim dataLine As String = reader.ReadLine()
+                        Dim data As String() = dataLine.Split(","c)
+                        ' Add data to DataGridView
+                        .dgvStockList.Rows.Add(data)
                     End While
                 End Using
             Else
                 MessageBox.Show("File not found: " & filePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End With
-
     End Sub
 
     Public Sub RefreshTable()
         With Inventory
             Dim filePath As String = "Resources/Stock Category.csv"
             .dgvStockList.Rows.Clear()
+            .dgvStockList.Columns.Clear()
             If .cbxCategory.SelectedIndex = 0 Then
                 Using reader As New StreamReader(filePath)
                     ' Skip header line

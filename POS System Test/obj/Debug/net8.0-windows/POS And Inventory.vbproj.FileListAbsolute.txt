@@ -136,4 +136,5 @@ C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\D
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.TimeLog.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ExpenseAdd.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Expenses.resources
-C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Descriptions.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.SaleDescriptions.resources
+C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.SalesDescr.resources

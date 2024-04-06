@@ -7,29 +7,43 @@ Module StockCategoryAddModule
             Dim csvCatList As String = "Resources\Stock Category.csv"
             Dim csvFileName As String = $"Stock\{ .txbxCategory.Text}.csv"
             ' Content for the CSV file header
-            Dim csvContent As String = "Product ID,Product Name,Price,Quantity" & Environment.NewLine
+            Dim csvContent As String = "Product ID,Product Name,Price,Quantity" '
 
-            ' Check if the file already exists and create it if not
-            If Not File.Exists(csvFileName) Then
-                ' Append the new category to the CSV file
-                System.IO.File.WriteAllText(csvFileName, csvContent)
+            For Each row In .dgvCatList.Rows
+                csvContent += $",{row.Cells(0).Value}"
+            Next
 
-                Using sw As New System.IO.StreamWriter(csvCatList, True) ' Append mode
-                    sw.WriteLine(.txbxCategory.Text)
-                End Using
+            ' Read the Stock Category.csv file to check if the category already exists
+            If File.Exists(csvCatList) Then
+                Dim categories As String() = File.ReadAllLines(csvCatList)
+                If Not categories.Contains(.txbxCategory.Text) Then
+                    ' Check if the file already exists and create it if not
+                    If Not File.Exists(csvFileName) Then
+                        ' Append the new category to the CSV file
+                        System.IO.File.WriteAllText(csvFileName, csvContent)
+
+                        Using sw As New System.IO.StreamWriter(csvCatList, True) ' Append mode
+                            sw.WriteLine(.txbxCategory.Text)
+                        End Using
+                        LoadCategories()
+                        .dgvCatList.Rows.Add(.txbxCategory.Text)
+                    Else
+                        MessageBox.Show("File already exists.")
+                    End If
+                Else
+                    MessageBox.Show("Category already exists.")
+                End If
             End If
 
-            LoadCategories()
-            .dgvCatList.Rows.Add(.txbxCategory.Text)
-        End With
 
+        End With
     End Sub
 
 
     Public Sub LoadCat()
         With StockCategoryAdd
             Dim csvCatList As String = "Resources/Stock Category.csv"
-            Using reader As New StreamReader(csvCatList)
+                    Using reader As New StreamReader(csvCatList)
                 Dim line As String
                 .dgvCatList.Columns.Add("clm1", "")
                 reader.ReadLine()
@@ -46,7 +60,7 @@ Module StockCategoryAddModule
 
     Public Sub RemoveItem()
         With StockCategoryAdd
-            Dim csvCatList As String = "Stock Category.csv"
+            Dim csvCatList As String = "Resources\Stock Category.csv"
             Dim selectedValue As String = .dgvCatList.SelectedRows(0).Cells(0).Value
 
             ' Display a confirmation message box

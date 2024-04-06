@@ -1,0 +1,22 @@
+C:\Users\cacca\OneDrive\Desktop\POS\POS And Inventory.exe
+C:\Users\cacca\OneDrive\Desktop\POS\POS And Inventory.dll
+C:\Users\cacca\OneDrive\Desktop\POS\POS And Inventory.deps.json
+C:\Users\cacca\OneDrive\Desktop\POS\POS And Inventory.runtimeconfig.json
+C:\Users\cacca\OneDrive\Desktop\POS\POS And Inventory.pdb
+C:\Users\cacca\OneDrive\Desktop\POS\BouncyCastle.Cryptography.dll
+C:\Users\cacca\OneDrive\Desktop\POS\Google.Protobuf.dll
+C:\Users\cacca\OneDrive\Desktop\POS\Guna.Charts.WinForms.dll
+C:\Users\cacca\OneDrive\Desktop\POS\Guna.UI2.dll
+C:\Users\cacca\OneDrive\Desktop\POS\K4os.Compression.LZ4.dll
+C:\Users\cacca\OneDrive\Desktop\POS\K4os.Compression.LZ4.Streams.dll
+C:\Users\cacca\OneDrive\Desktop\POS\K4os.Hash.xxHash.dll
+C:\Users\cacca\OneDrive\Desktop\POS\MySql.Data.dll
+C:\Users\cacca\OneDrive\Desktop\POS\System.IO.Pipelines.dll
+C:\Users\cacca\OneDrive\Desktop\POS\System.Management.dll
+C:\Users\cacca\OneDrive\Desktop\POS\ZstdSharp.dll
+C:\Users\cacca\OneDrive\Desktop\POS\runtimes\win-x64\native\comerr64.dll
+C:\Users\cacca\OneDrive\Desktop\POS\runtimes\win-x64\native\gssapi64.dll
+C:\Users\cacca\OneDrive\Desktop\POS\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\cacca\OneDrive\Desktop\POS\runtimes\win-x64\native\krb5_64.dll
+C:\Users\cacca\OneDrive\Desktop\POS\runtimes\win-x64\native\krbcc64.dll
+C:\Users\cacca\OneDrive\Desktop\POS\runtimes\win\lib\net7.0\System.Management.dll
