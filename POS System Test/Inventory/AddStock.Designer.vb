@@ -37,6 +37,9 @@ Partial Class AddStock
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
         txbxID = New Guna.UI2.WinForms.Guna2TextBox()
         lbProduct = New Label()
@@ -55,7 +58,11 @@ Partial Class AddStock
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         lblPrice = New Label()
         txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
+        dgvAddDescr = New Guna.UI2.WinForms.Guna2DataGridView()
+        clmDescription = New DataGridViewTextBoxColumn()
+        clmValue = New DataGridViewTextBoxColumn()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvAddDescr, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' txbxProduct
@@ -152,10 +159,10 @@ Partial Class AddStock
         btAddStock.FillColor = Color.DimGray
         btAddStock.Font = New Font("Segoe UI", 9F)
         btAddStock.ForeColor = Color.White
-        btAddStock.Location = New Point(358, 70)
+        btAddStock.Location = New Point(509, 122)
         btAddStock.Name = "btAddStock"
         btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        btAddStock.Size = New Size(180, 50)
+        btAddStock.Size = New Size(120, 50)
         btAddStock.TabIndex = 18
         btAddStock.Text = "Add Stock"
         ' 
@@ -173,7 +180,8 @@ Partial Class AddStock
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddedList.ColumnHeadersHeight = 17
+        dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
@@ -201,7 +209,7 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvAddedList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvAddedList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddedList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddedList.ThemeStyle.HeaderStyle.Height = 17
         dgvAddedList.ThemeStyle.ReadOnly = True
         dgvAddedList.ThemeStyle.RowsStyle.BackColor = Color.White
@@ -254,10 +262,10 @@ Partial Class AddStock
         btSave.FillColor = Color.DimGray
         btSave.Font = New Font("Segoe UI", 9F)
         btSave.ForeColor = Color.White
-        btSave.Location = New Point(358, 136)
+        btSave.Location = New Point(509, 178)
         btSave.Name = "btSave"
         btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        btSave.Size = New Size(180, 50)
+        btSave.Size = New Size(120, 50)
         btSave.TabIndex = 21
         btSave.Text = "Save"
         ' 
@@ -321,11 +329,72 @@ Partial Class AddStock
         txbxPrice.Size = New Size(247, 36)
         txbxPrice.TabIndex = 3
         ' 
+        ' dgvAddDescr
+        ' 
+        DataGridViewCellStyle4.BackColor = Color.White
+        dgvAddDescr.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.White
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        dgvAddDescr.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        dgvAddDescr.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddDescr.Columns.AddRange(New DataGridViewColumn() {clmDescription, clmValue})
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        dgvAddDescr.DefaultCellStyle = DataGridViewCellStyle6
+        dgvAddDescr.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvAddDescr.Location = New Point(326, 60)
+        dgvAddDescr.Name = "dgvAddDescr"
+        dgvAddDescr.RowHeadersVisible = False
+        dgvAddDescr.Size = New Size(177, 171)
+        dgvAddDescr.TabIndex = 26
+        dgvAddDescr.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvAddDescr.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvAddDescr.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvAddDescr.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvAddDescr.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvAddDescr.ThemeStyle.BackColor = Color.White
+        dgvAddDescr.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvAddDescr.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvAddDescr.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvAddDescr.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvAddDescr.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvAddDescr.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAddDescr.ThemeStyle.HeaderStyle.Height = 17
+        dgvAddDescr.ThemeStyle.ReadOnly = False
+        dgvAddDescr.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvAddDescr.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvAddDescr.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvAddDescr.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvAddDescr.ThemeStyle.RowsStyle.Height = 25
+        dgvAddDescr.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvAddDescr.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' clmDescription
+        ' 
+        clmDescription.HeaderText = "Description"
+        clmDescription.Name = "clmDescription"
+        ' 
+        ' clmValue
+        ' 
+        clmValue.HeaderText = "Value"
+        clmValue.Name = "clmValue"
+        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(642, 516)
+        Controls.Add(dgvAddDescr)
         Controls.Add(lblPrice)
         Controls.Add(txbxPrice)
         Controls.Add(lblQuantity)
@@ -344,6 +413,7 @@ Partial Class AddStock
         Text = "Add Stock"
         TopMost = True
         CType(dgvAddedList, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvAddDescr, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -365,4 +435,7 @@ Partial Class AddStock
     Friend WithEvents clmProduct As DataGridViewTextBoxColumn
     Friend WithEvents clmPrice As DataGridViewTextBoxColumn
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
+    Friend WithEvents dgvAddDescr As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents clmDescription As DataGridViewTextBoxColumn
+    Friend WithEvents clmValue As DataGridViewTextBoxColumn
 End Class

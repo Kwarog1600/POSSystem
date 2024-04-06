@@ -114,7 +114,7 @@ Public Class AddStock
             End If
         Next
         ' Notify the user that the stock has been saved for all items
-        Inventory.RefreshTable()
+        RefreshTable()
         MessageBox.Show("Stock saved successfully.")
     End Sub
 

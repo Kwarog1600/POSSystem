@@ -40,7 +40,7 @@ Module ProgramLoad
         With Inventory
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)
             .pnlContainer.Location = New Point(50, 50)
-            .LoadCategories()
+            LoadCategories()
         End With
         With Sales
             .Size = New Size(ProgramWidth - 200, ProgramHeight - 50)

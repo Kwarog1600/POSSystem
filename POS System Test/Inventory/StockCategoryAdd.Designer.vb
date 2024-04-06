@@ -32,6 +32,9 @@ Partial Class StockCategoryAdd
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(components)
         Guna2AnimateWindow2 = New Guna.UI2.WinForms.Guna2AnimateWindow(components)
         txbxCategory = New Guna.UI2.WinForms.Guna2TextBox()
@@ -40,7 +43,10 @@ Partial Class StockCategoryAdd
         PrintDocument1 = New Printing.PrintDocument()
         dgvCatList = New Guna.UI2.WinForms.Guna2DataGridView()
         btRemove = New Guna.UI2.WinForms.Guna2Button()
+        Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
+        Guna2DataGridView1 = New Guna.UI2.WinForms.Guna2DataGridView()
         CType(dgvCatList, ComponentModel.ISupportInitialize).BeginInit()
+        CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' txbxCategory
@@ -82,7 +88,7 @@ Partial Class StockCategoryAdd
         btAddCat.FillColor = Color.DimGray
         btAddCat.Font = New Font("Segoe UI", 9F)
         btAddCat.ForeColor = Color.White
-        btAddCat.Location = New Point(166, 261)
+        btAddCat.Location = New Point(196, 261)
         btAddCat.Name = "btAddCat"
         btAddCat.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btAddCat.Size = New Size(121, 36)
@@ -118,7 +124,7 @@ Partial Class StockCategoryAdd
         dgvCatList.Name = "dgvCatList"
         dgvCatList.ReadOnly = True
         dgvCatList.RowHeadersVisible = False
-        dgvCatList.Size = New Size(247, 150)
+        dgvCatList.Size = New Size(120, 150)
         dgvCatList.TabIndex = 4
         dgvCatList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvCatList.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -159,11 +165,83 @@ Partial Class StockCategoryAdd
         btRemove.TabIndex = 5
         btRemove.Text = "Remove"
         ' 
+        ' Guna2CheckBox1
+        ' 
+        Guna2CheckBox1.AutoSize = True
+        Guna2CheckBox1.CheckedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Guna2CheckBox1.CheckedState.FillColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2CheckBox1.Location = New Point(293, 38)
+        Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Guna2CheckBox1.Size = New Size(119, 19)
+        Guna2CheckBox1.TabIndex = 6
+        Guna2CheckBox1.Text = "Guna2CheckBox1"
+        Guna2CheckBox1.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Guna2CheckBox1.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        ' 
+        ' Guna2DataGridView1
+        ' 
+        Guna2DataGridView1.AllowUserToAddRows = False
+        Guna2DataGridView1.AllowUserToDeleteRows = False
+        DataGridViewCellStyle4.BackColor = Color.White
+        Guna2DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.White
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        Guna2DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Guna2DataGridView1.ColumnHeadersHeight = 4
+        Guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        Guna2DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
+        Guna2DataGridView1.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        Guna2DataGridView1.Location = New Point(193, 86)
+        Guna2DataGridView1.Name = "Guna2DataGridView1"
+        Guna2DataGridView1.ReadOnly = True
+        Guna2DataGridView1.RowHeadersVisible = False
+        Guna2DataGridView1.Size = New Size(219, 150)
+        Guna2DataGridView1.TabIndex = 7
+        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        Guna2DataGridView1.ThemeStyle.BackColor = Color.White
+        Guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 4
+        Guna2DataGridView1.ThemeStyle.ReadOnly = True
+        Guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White
+        Guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        Guna2DataGridView1.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        Guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        Guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25
+        Guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        Guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
         ' StockCategoryAdd
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(326, 323)
+        ClientSize = New Size(426, 323)
+        Controls.Add(Guna2DataGridView1)
+        Controls.Add(Guna2CheckBox1)
         Controls.Add(btRemove)
         Controls.Add(dgvCatList)
         Controls.Add(btAddCat)
@@ -175,6 +253,7 @@ Partial Class StockCategoryAdd
         Text = "Category"
         TopMost = True
         CType(dgvCatList, ComponentModel.ISupportInitialize).EndInit()
+        CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -187,4 +266,6 @@ Partial Class StockCategoryAdd
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents dgvCatList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btRemove As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents Guna2DataGridView1 As Guna.UI2.WinForms.Guna2DataGridView
 End Class
