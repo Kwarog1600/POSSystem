@@ -52,8 +52,5 @@
     <Compile Update="Inventory\StockHistory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Sales\SalesDescr.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

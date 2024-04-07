@@ -277,7 +277,9 @@ Partial Class AddUser
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "AddUser"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Add User"
+        TopMost = True
         Guna2Panel1.ResumeLayout(False)
         Guna2Panel1.PerformLayout()
         ResumeLayout(False)

@@ -33,17 +33,17 @@ Partial Class Expenses
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
+        dgvExpenseList = New Guna.UI2.WinForms.Guna2DataGridView()
         btAddExpenses = New Guna.UI2.WinForms.Guna2Button()
         pnlContainer.SuspendLayout()
-        CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvExpenseList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlContainer
         ' 
         pnlContainer.BorderRadius = 25
         pnlContainer.Controls.Add(txbxSearch)
-        pnlContainer.Controls.Add(dgvStockList)
+        pnlContainer.Controls.Add(dgvExpenseList)
         pnlContainer.Controls.Add(btAddExpenses)
         pnlContainer.CustomizableEdges = CustomizableEdges11
         pnlContainer.Location = New Point(47, 47)
@@ -72,15 +72,15 @@ Partial Class Expenses
         txbxSearch.Size = New Size(321, 36)
         txbxSearch.TabIndex = 7
         ' 
-        ' dgvStockList
+        ' dgvExpenseList
         ' 
-        dgvStockList.AllowUserToAddRows = False
-        dgvStockList.AllowUserToDeleteRows = False
-        dgvStockList.AllowUserToResizeColumns = False
-        dgvStockList.AllowUserToResizeRows = False
+        dgvExpenseList.AllowUserToAddRows = False
+        dgvExpenseList.AllowUserToDeleteRows = False
+        dgvExpenseList.AllowUserToResizeColumns = False
+        dgvExpenseList.AllowUserToResizeRows = False
         DataGridViewCellStyle4.BackColor = Color.White
-        dgvStockList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        dgvStockList.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
+        dgvExpenseList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        dgvExpenseList.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = SystemColors.ButtonShadow
         DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
@@ -88,9 +88,9 @@ Partial Class Expenses
         DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        dgvStockList.ColumnHeadersHeight = 17
-        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvExpenseList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        dgvExpenseList.ColumnHeadersHeight = 17
+        dgvExpenseList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
         DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
@@ -98,36 +98,36 @@ Partial Class Expenses
         DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
-        dgvStockList.DefaultCellStyle = DataGridViewCellStyle6
-        dgvStockList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStockList.Location = New Point(59, 105)
-        dgvStockList.Name = "dgvStockList"
-        dgvStockList.ReadOnly = True
-        dgvStockList.RowHeadersVisible = False
-        dgvStockList.SelectionMode = DataGridViewSelectionMode.CellSelect
-        dgvStockList.Size = New Size(800, 446)
-        dgvStockList.TabIndex = 5
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
-        dgvStockList.ThemeStyle.BackColor = Color.White
-        dgvStockList.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStockList.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
-        dgvStockList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
-        dgvStockList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
-        dgvStockList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvStockList.ThemeStyle.HeaderStyle.Height = 17
-        dgvStockList.ThemeStyle.ReadOnly = True
-        dgvStockList.ThemeStyle.RowsStyle.BackColor = Color.White
-        dgvStockList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        dgvStockList.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
-        dgvStockList.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        dgvStockList.ThemeStyle.RowsStyle.Height = 25
-        dgvStockList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStockList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvExpenseList.DefaultCellStyle = DataGridViewCellStyle6
+        dgvExpenseList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvExpenseList.Location = New Point(59, 105)
+        dgvExpenseList.Name = "dgvExpenseList"
+        dgvExpenseList.ReadOnly = True
+        dgvExpenseList.RowHeadersVisible = False
+        dgvExpenseList.SelectionMode = DataGridViewSelectionMode.CellSelect
+        dgvExpenseList.Size = New Size(800, 446)
+        dgvExpenseList.TabIndex = 5
+        dgvExpenseList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvExpenseList.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvExpenseList.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvExpenseList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvExpenseList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvExpenseList.ThemeStyle.BackColor = Color.White
+        dgvExpenseList.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvExpenseList.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
+        dgvExpenseList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvExpenseList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvExpenseList.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvExpenseList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvExpenseList.ThemeStyle.HeaderStyle.Height = 17
+        dgvExpenseList.ThemeStyle.ReadOnly = True
+        dgvExpenseList.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvExpenseList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvExpenseList.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvExpenseList.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvExpenseList.ThemeStyle.RowsStyle.Height = 25
+        dgvExpenseList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvExpenseList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
         ' btAddExpenses
         ' 
@@ -159,12 +159,12 @@ Partial Class Expenses
         Name = "Expenses"
         Text = "Expenses"
         pnlContainer.ResumeLayout(False)
-        CType(dgvStockList, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvExpenseList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents pnlContainer As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents dgvStockList As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents dgvExpenseList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btAddExpenses As Guna.UI2.WinForms.Guna2Button
 End Class

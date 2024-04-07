@@ -86,7 +86,7 @@ Module ProgramLoad
         CreateDir()
         ' Create CSV files for each list if they do not exist
         CreateCsvFileIfNotExists($"Resources/Users.csv", "User ID,Username,Password,Access Level, First Name, Last Name" & vbLf & $"U000,admin,{LoginForm.HashPassword("admin")},3,admin,admin")
-        CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
+        CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
         CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Amount,Sold By,Date and Time")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
         CreateCsvFileIfNotExists("Resources/Stock History.csv", "Transaction Reference Number,Quantity,Date and Time")

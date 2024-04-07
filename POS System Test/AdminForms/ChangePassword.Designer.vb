@@ -22,64 +22,66 @@ Partial Class ChangePassword
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txbxNewPassword = New Guna.UI2.WinForms.Guna2TextBox()
         txbxOldPass = New Guna.UI2.WinForms.Guna2TextBox()
         SuspendLayout()
         ' 
         ' txbxNewPassword
         ' 
-        txbxNewPassword.CustomizableEdges = CustomizableEdges5
+        txbxNewPassword.CustomizableEdges = CustomizableEdges1
         txbxNewPassword.DefaultText = ""
         txbxNewPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxNewPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
         txbxNewPassword.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txbxNewPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txbxNewPassword.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxNewPassword.Font = New Font("Segoe UI", 9.0F)
+        txbxNewPassword.Font = New Font("Segoe UI", 9F)
         txbxNewPassword.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxNewPassword.Location = New Point(12, 12)
         txbxNewPassword.Name = "txbxNewPassword"
         txbxNewPassword.PasswordChar = ChrW(0)
         txbxNewPassword.PlaceholderText = ""
         txbxNewPassword.SelectedText = ""
-        txbxNewPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txbxNewPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txbxNewPassword.Size = New Size(200, 36)
         txbxNewPassword.TabIndex = 0
         ' 
         ' txbxOldPass
         ' 
-        txbxOldPass.CustomizableEdges = CustomizableEdges7
+        txbxOldPass.CustomizableEdges = CustomizableEdges3
         txbxOldPass.DefaultText = ""
         txbxOldPass.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxOldPass.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
         txbxOldPass.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txbxOldPass.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txbxOldPass.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxOldPass.Font = New Font("Segoe UI", 9.0F)
+        txbxOldPass.Font = New Font("Segoe UI", 9F)
         txbxOldPass.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxOldPass.Location = New Point(12, 54)
         txbxOldPass.Name = "txbxOldPass"
         txbxOldPass.PasswordChar = ChrW(0)
         txbxOldPass.PlaceholderText = ""
         txbxOldPass.SelectedText = ""
-        txbxOldPass.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        txbxOldPass.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         txbxOldPass.Size = New Size(200, 36)
         txbxOldPass.TabIndex = 1
         ' 
         ' ChangePassword
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(224, 102)
         Controls.Add(txbxOldPass)
         Controls.Add(txbxNewPassword)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "ChangePassword"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Change Password"
+        TopMost = True
         ResumeLayout(False)
     End Sub
 

@@ -46,7 +46,6 @@ Partial Class Sales
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sales))
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         dgvDescr = New Guna.UI2.WinForms.Guna2DataGridView()
         Description = New DataGridViewTextBoxColumn()
@@ -75,7 +74,6 @@ Partial Class Sales
         lblName = New Label()
         txbxName = New Guna.UI2.WinForms.Guna2TextBox()
         btSale = New Guna.UI2.WinForms.Guna2Button()
-        PrintPreviewDialog1 = New PrintPreviewDialog()
         pnlContainer.SuspendLayout()
         CType(dgvDescr, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
@@ -525,16 +523,6 @@ Partial Class Sales
         btSale.TabIndex = 2
         btSale.Text = "Sale"
         ' 
-        ' PrintPreviewDialog1
-        ' 
-        PrintPreviewDialog1.AutoScrollMargin = New Size(0, 0)
-        PrintPreviewDialog1.AutoScrollMinSize = New Size(0, 0)
-        PrintPreviewDialog1.ClientSize = New Size(400, 300)
-        PrintPreviewDialog1.Enabled = True
-        PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), Icon)
-        PrintPreviewDialog1.Name = "PrintPreviewDialog1"
-        PrintPreviewDialog1.Visible = False
-        ' 
         ' Sales
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -577,7 +565,6 @@ Partial Class Sales
     Friend WithEvents clmPrice As DataGridViewTextBoxColumn
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
     Friend WithEvents clmAmount As DataGridViewTextBoxColumn
-    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents dgvDescr As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Description As DataGridViewTextBoxColumn
     Friend WithEvents Value As DataGridViewTextBoxColumn

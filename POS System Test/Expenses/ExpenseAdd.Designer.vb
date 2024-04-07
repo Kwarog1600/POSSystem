@@ -28,32 +28,36 @@ Partial Class ExpenseAdd
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        txbxPurpose = New Guna.UI2.WinForms.Guna2TextBox()
         btAddExpenses = New Guna.UI2.WinForms.Guna2Button()
-        Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Label1 = New Label()
-        Label2 = New Label()
+        txbxAmount = New Guna.UI2.WinForms.Guna2TextBox()
+        lbPurpose = New Label()
+        lbAmount = New Label()
+        lbname = New Label()
+        txbxName = New Guna.UI2.WinForms.Guna2TextBox()
         SuspendLayout()
         ' 
-        ' txbxSearch
+        ' txbxPurpose
         ' 
-        txbxSearch.CustomizableEdges = CustomizableEdges1
-        txbxSearch.DefaultText = ""
-        txbxSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxSearch.Font = New Font("Segoe UI", 9F)
-        txbxSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxSearch.Location = New Point(12, 44)
-        txbxSearch.Name = "txbxSearch"
-        txbxSearch.PasswordChar = ChrW(0)
-        txbxSearch.PlaceholderText = "Purpose"
-        txbxSearch.SelectedText = ""
-        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxSearch.Size = New Size(354, 36)
-        txbxSearch.TabIndex = 8
+        txbxPurpose.CustomizableEdges = CustomizableEdges1
+        txbxPurpose.DefaultText = ""
+        txbxPurpose.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxPurpose.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxPurpose.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPurpose.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPurpose.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPurpose.Font = New Font("Segoe UI", 9F)
+        txbxPurpose.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPurpose.Location = New Point(12, 89)
+        txbxPurpose.Name = "txbxPurpose"
+        txbxPurpose.PasswordChar = ChrW(0)
+        txbxPurpose.PlaceholderText = "Purpose"
+        txbxPurpose.SelectedText = ""
+        txbxPurpose.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxPurpose.Size = New Size(354, 36)
+        txbxPurpose.TabIndex = 8
         ' 
         ' btAddExpenses
         ' 
@@ -67,71 +71,106 @@ Partial Class ExpenseAdd
         btAddExpenses.FillColor = Color.DimGray
         btAddExpenses.Font = New Font("Segoe UI", 9F)
         btAddExpenses.ForeColor = Color.White
-        btAddExpenses.Location = New Point(186, 176)
+        btAddExpenses.Location = New Point(186, 201)
         btAddExpenses.Name = "btAddExpenses"
         btAddExpenses.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btAddExpenses.Size = New Size(180, 45)
         btAddExpenses.TabIndex = 9
         btAddExpenses.Text = "Add Expense"
         ' 
-        ' Guna2TextBox1
+        ' txbxAmount
         ' 
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges5
-        Guna2TextBox1.DefaultText = ""
-        Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox1.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Location = New Point(12, 110)
-        Guna2TextBox1.Name = "Guna2TextBox1"
-        Guna2TextBox1.PasswordChar = ChrW(0)
-        Guna2TextBox1.PlaceholderText = "Amount"
-        Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2TextBox1.Size = New Size(354, 36)
-        Guna2TextBox1.TabIndex = 10
+        txbxAmount.CustomizableEdges = CustomizableEdges5
+        txbxAmount.DefaultText = ""
+        txbxAmount.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxAmount.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxAmount.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxAmount.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxAmount.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxAmount.Font = New Font("Segoe UI", 9F)
+        txbxAmount.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxAmount.Location = New Point(12, 155)
+        txbxAmount.Name = "txbxAmount"
+        txbxAmount.PasswordChar = ChrW(0)
+        txbxAmount.PlaceholderText = "Amount"
+        txbxAmount.SelectedText = ""
+        txbxAmount.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txbxAmount.Size = New Size(354, 36)
+        txbxAmount.TabIndex = 10
         ' 
-        ' Label1
+        ' lbPurpose
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(12, 26)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(50, 15)
-        Label1.TabIndex = 11
-        Label1.Text = "Purpose"
+        lbPurpose.AutoSize = True
+        lbPurpose.Location = New Point(12, 71)
+        lbPurpose.Name = "lbPurpose"
+        lbPurpose.Size = New Size(50, 15)
+        lbPurpose.TabIndex = 11
+        lbPurpose.Text = "Purpose"
         ' 
-        ' Label2
+        ' lbAmount
         ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(12, 92)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(51, 15)
-        Label2.TabIndex = 12
-        Label2.Text = "Amount"
+        lbAmount.AutoSize = True
+        lbAmount.Location = New Point(12, 137)
+        lbAmount.Name = "lbAmount"
+        lbAmount.Size = New Size(51, 15)
+        lbAmount.TabIndex = 12
+        lbAmount.Text = "Amount"
+        ' 
+        ' lbname
+        ' 
+        lbname.AutoSize = True
+        lbname.Location = New Point(12, 14)
+        lbname.Name = "lbname"
+        lbname.Size = New Size(39, 15)
+        lbname.TabIndex = 14
+        lbname.Text = "Name"
+        ' 
+        ' txbxName
+        ' 
+        txbxName.CustomizableEdges = CustomizableEdges7
+        txbxName.DefaultText = ""
+        txbxName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxName.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxName.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxName.Font = New Font("Segoe UI", 9F)
+        txbxName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxName.Location = New Point(12, 32)
+        txbxName.Name = "txbxName"
+        txbxName.PasswordChar = ChrW(0)
+        txbxName.PlaceholderText = "Name"
+        txbxName.SelectedText = ""
+        txbxName.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        txbxName.Size = New Size(354, 36)
+        txbxName.TabIndex = 13
         ' 
         ' ExpenseAdd
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(378, 258)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
-        Controls.Add(Guna2TextBox1)
+        Controls.Add(lbname)
+        Controls.Add(txbxName)
+        Controls.Add(lbAmount)
+        Controls.Add(lbPurpose)
+        Controls.Add(txbxAmount)
         Controls.Add(btAddExpenses)
-        Controls.Add(txbxSearch)
+        Controls.Add(txbxPurpose)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "ExpenseAdd"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "ExpenseAdd"
+        TopMost = True
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxPurpose As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btAddExpenses As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents txbxAmount As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lbPurpose As Label
+    Friend WithEvents lbAmount As Label
+    Friend WithEvents lbname As Label
+    Friend WithEvents txbxName As Guna.UI2.WinForms.Guna2TextBox
 End Class

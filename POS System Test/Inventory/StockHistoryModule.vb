@@ -1,3 +1,0 @@
-﻿Module StockHistoryModule
-
-End Module
