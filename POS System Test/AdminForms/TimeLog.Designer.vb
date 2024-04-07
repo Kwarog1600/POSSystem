@@ -38,17 +38,13 @@ Partial Class TimeLog
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         btAddCategory = New Guna.UI2.WinForms.Guna2Button()
-        dgvStockList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmID = New DataGridViewTextBoxColumn()
-        clmProduct = New DataGridViewTextBoxColumn()
-        clmPrice = New DataGridViewTextBoxColumn()
-        clmQty = New DataGridViewTextBoxColumn()
-        lblStockCategory = New Label()
-        cbxCategory = New ComboBox()
+        dgvTimeLogs = New Guna.UI2.WinForms.Guna2DataGridView()
+        lbUser = New Label()
+        cbxUsers = New ComboBox()
         btStockHistory = New Guna.UI2.WinForms.Guna2Button()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         pnlContainer.SuspendLayout()
-        CType(dgvStockList, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvTimeLogs, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlContainer
@@ -56,9 +52,9 @@ Partial Class TimeLog
         pnlContainer.BorderRadius = 25
         pnlContainer.Controls.Add(txbxSearch)
         pnlContainer.Controls.Add(btAddCategory)
-        pnlContainer.Controls.Add(dgvStockList)
-        pnlContainer.Controls.Add(lblStockCategory)
-        pnlContainer.Controls.Add(cbxCategory)
+        pnlContainer.Controls.Add(dgvTimeLogs)
+        pnlContainer.Controls.Add(lbUser)
+        pnlContainer.Controls.Add(cbxUsers)
         pnlContainer.Controls.Add(btStockHistory)
         pnlContainer.Controls.Add(btAddStock)
         pnlContainer.CustomizableEdges = CustomizableEdges9
@@ -107,15 +103,15 @@ Partial Class TimeLog
         btAddCategory.TabIndex = 6
         btAddCategory.Text = "Add Category"
         ' 
-        ' dgvStockList
+        ' dgvTimeLogs
         ' 
-        dgvStockList.AllowUserToAddRows = False
-        dgvStockList.AllowUserToDeleteRows = False
-        dgvStockList.AllowUserToResizeColumns = False
-        dgvStockList.AllowUserToResizeRows = False
+        dgvTimeLogs.AllowUserToAddRows = False
+        dgvTimeLogs.AllowUserToDeleteRows = False
+        dgvTimeLogs.AllowUserToResizeColumns = False
+        dgvTimeLogs.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = Color.White
-        dgvStockList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        dgvStockList.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
+        dgvTimeLogs.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvTimeLogs.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = SystemColors.ButtonShadow
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
@@ -123,10 +119,9 @@ Partial Class TimeLog
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgvStockList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvStockList.ColumnHeadersHeight = 17
-        dgvStockList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvStockList.Columns.AddRange(New DataGridViewColumn() {clmID, clmProduct, clmPrice, clmQty})
+        dgvTimeLogs.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvTimeLogs.ColumnHeadersHeight = 17
+        dgvTimeLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -134,82 +129,57 @@ Partial Class TimeLog
         DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
-        dgvStockList.DefaultCellStyle = DataGridViewCellStyle3
-        dgvStockList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStockList.Location = New Point(50, 77)
-        dgvStockList.Name = "dgvStockList"
-        dgvStockList.ReadOnly = True
-        dgvStockList.RowHeadersVisible = False
-        dgvStockList.SelectionMode = DataGridViewSelectionMode.CellSelect
-        dgvStockList.Size = New Size(800, 389)
-        dgvStockList.TabIndex = 5
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
-        dgvStockList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
-        dgvStockList.ThemeStyle.BackColor = Color.White
-        dgvStockList.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStockList.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
-        dgvStockList.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
-        dgvStockList.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
-        dgvStockList.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvStockList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvStockList.ThemeStyle.HeaderStyle.Height = 17
-        dgvStockList.ThemeStyle.ReadOnly = True
-        dgvStockList.ThemeStyle.RowsStyle.BackColor = Color.White
-        dgvStockList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        dgvStockList.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
-        dgvStockList.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        dgvStockList.ThemeStyle.RowsStyle.Height = 25
-        dgvStockList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStockList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvTimeLogs.DefaultCellStyle = DataGridViewCellStyle3
+        dgvTimeLogs.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvTimeLogs.Location = New Point(50, 77)
+        dgvTimeLogs.Name = "dgvTimeLogs"
+        dgvTimeLogs.ReadOnly = True
+        dgvTimeLogs.RowHeadersVisible = False
+        dgvTimeLogs.SelectionMode = DataGridViewSelectionMode.CellSelect
+        dgvTimeLogs.Size = New Size(800, 389)
+        dgvTimeLogs.TabIndex = 5
+        dgvTimeLogs.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvTimeLogs.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvTimeLogs.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvTimeLogs.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvTimeLogs.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvTimeLogs.ThemeStyle.BackColor = Color.White
+        dgvTimeLogs.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvTimeLogs.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
+        dgvTimeLogs.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvTimeLogs.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvTimeLogs.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvTimeLogs.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvTimeLogs.ThemeStyle.HeaderStyle.Height = 17
+        dgvTimeLogs.ThemeStyle.ReadOnly = True
+        dgvTimeLogs.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvTimeLogs.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvTimeLogs.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvTimeLogs.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvTimeLogs.ThemeStyle.RowsStyle.Height = 25
+        dgvTimeLogs.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvTimeLogs.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
-        ' clmID
+        ' lbUser
         ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
+        lbUser.AutoSize = True
+        lbUser.BackColor = Color.Transparent
+        lbUser.Location = New Point(50, 16)
+        lbUser.Name = "lbUser"
+        lbUser.Size = New Size(30, 15)
+        lbUser.TabIndex = 4
+        lbUser.Text = "User"
         ' 
-        ' clmProduct
+        ' cbxUsers
         ' 
-        clmProduct.HeaderText = "Product"
-        clmProduct.Name = "clmProduct"
-        clmProduct.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmQty
-        ' 
-        clmQty.HeaderText = "Available"
-        clmQty.Name = "clmQty"
-        clmQty.ReadOnly = True
-        ' 
-        ' lblStockCategory
-        ' 
-        lblStockCategory.AutoSize = True
-        lblStockCategory.BackColor = Color.Transparent
-        lblStockCategory.Location = New Point(50, 16)
-        lblStockCategory.Name = "lblStockCategory"
-        lblStockCategory.Size = New Size(55, 15)
-        lblStockCategory.TabIndex = 4
-        lblStockCategory.Text = "Category"
-        ' 
-        ' cbxCategory
-        ' 
-        cbxCategory.AutoCompleteCustomSource.AddRange(New String() {"All"})
-        cbxCategory.DropDownStyle = ComboBoxStyle.DropDownList
-        cbxCategory.FormattingEnabled = True
-        cbxCategory.Location = New Point(50, 34)
-        cbxCategory.Name = "cbxCategory"
-        cbxCategory.Size = New Size(128, 23)
-        cbxCategory.Sorted = True
-        cbxCategory.TabIndex = 3
-        cbxCategory.TabStop = False
+        cbxUsers.AutoCompleteCustomSource.AddRange(New String() {"All"})
+        cbxUsers.DropDownStyle = ComboBoxStyle.DropDownList
+        cbxUsers.FormattingEnabled = True
+        cbxUsers.Location = New Point(50, 34)
+        cbxUsers.Name = "cbxUsers"
+        cbxUsers.Size = New Size(128, 23)
+        cbxUsers.TabIndex = 3
+        cbxUsers.TabStop = False
         ' 
         ' btStockHistory
         ' 
@@ -261,20 +231,16 @@ Partial Class TimeLog
         Text = "TimeLog"
         pnlContainer.ResumeLayout(False)
         pnlContainer.PerformLayout()
-        CType(dgvStockList, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvTimeLogs, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents pnlContainer As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btAddCategory As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents dgvStockList As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents clmID As DataGridViewTextBoxColumn
-    Friend WithEvents clmProduct As DataGridViewTextBoxColumn
-    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
-    Friend WithEvents clmQty As DataGridViewTextBoxColumn
-    Friend WithEvents lblStockCategory As Label
-    Friend WithEvents cbxCategory As ComboBox
+    Friend WithEvents dgvTimeLogs As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents lbUser As Label
+    Friend WithEvents cbxUsers As ComboBox
     Friend WithEvents btStockHistory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btAddStock As Guna.UI2.WinForms.Guna2Button
 End Class

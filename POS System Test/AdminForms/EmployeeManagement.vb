@@ -38,7 +38,7 @@ Public Class EmployeeManagement
         ChangePassword.Visible = True
     End Sub
 
-    Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellClick
+    Private Sub dgvUserList_SelectionChanged(sender As Object, e As EventArgs) Handles dgvUserList.SelectionChanged
         Dim filePath As String = "Resources/Users.csv"
         If File.Exists(filePath) Then
             Dim lines() As String = File.ReadAllLines(filePath)
@@ -69,7 +69,7 @@ Public Class EmployeeManagement
                 linesToKeep.Add(line)
             End If
         Next
-
+        RefreshTable()
         File.WriteAllLines(filePath, linesToKeep)
     End Sub
 
@@ -89,4 +89,5 @@ Public Class EmployeeManagement
             row.Visible = isVisible
         Next
     End Sub
+
 End Class

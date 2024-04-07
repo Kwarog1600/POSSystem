@@ -24,6 +24,8 @@ Partial Class EmployeeManagement
     Private Sub InitializeComponent()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -47,9 +49,8 @@ Partial Class EmployeeManagement
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         dgvUserList = New Guna.UI2.WinForms.Guna2DataGridView()
         btDelete = New Guna.UI2.WinForms.Guna2Button()
         btAdd = New Guna.UI2.WinForms.Guna2Button()
@@ -67,7 +68,6 @@ Partial Class EmployeeManagement
         lbLastName = New Label()
         txbxSurname = New Guna.UI2.WinForms.Guna2TextBox()
         lbUsers = New Label()
-        txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         pnlContainer.SuspendLayout()
         CType(dgvUserList, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel1.SuspendLayout()
@@ -88,6 +88,26 @@ Partial Class EmployeeManagement
         pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         pnlContainer.Size = New Size(920, 575)
         pnlContainer.TabIndex = 2
+        ' 
+        ' txbxSearch
+        ' 
+        txbxSearch.CustomizableEdges = CustomizableEdges1
+        txbxSearch.DefaultText = ""
+        txbxSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxSearch.Font = New Font("Segoe UI", 9F)
+        txbxSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxSearch.Location = New Point(85, 50)
+        txbxSearch.Name = "txbxSearch"
+        txbxSearch.PasswordChar = ChrW(0)
+        txbxSearch.PlaceholderText = "Search"
+        txbxSearch.SelectedText = ""
+        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txbxSearch.Size = New Size(200, 36)
+        txbxSearch.TabIndex = 17
         ' 
         ' dgvUserList
         ' 
@@ -389,26 +409,6 @@ Partial Class EmployeeManagement
         lbUsers.Size = New Size(41, 15)
         lbUsers.TabIndex = 1
         lbUsers.Text = "Users :"
-        ' 
-        ' txbxSearch
-        ' 
-        txbxSearch.CustomizableEdges = CustomizableEdges1
-        txbxSearch.DefaultText = ""
-        txbxSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxSearch.Font = New Font("Segoe UI", 9F)
-        txbxSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxSearch.Location = New Point(85, 50)
-        txbxSearch.Name = "txbxSearch"
-        txbxSearch.PasswordChar = ChrW(0)
-        txbxSearch.PlaceholderText = "Search"
-        txbxSearch.SelectedText = ""
-        txbxSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxSearch.Size = New Size(200, 36)
-        txbxSearch.TabIndex = 17
         ' 
         ' EmployeeManagement
         ' 

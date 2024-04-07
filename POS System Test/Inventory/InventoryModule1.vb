@@ -68,7 +68,7 @@ Module InventoryModule1
         End With
     End Sub
 
-    Public Sub RefreshTable()
+    Sub RefreshTable()
         With Inventory
             Dim filePath As String = "Resources/Stock Category.csv"
             .dgvStockList.Rows.Clear()

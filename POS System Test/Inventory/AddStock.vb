@@ -132,7 +132,7 @@ Public Class AddStock
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
         ' Initialize a transaction reference number
         Dim transactionRefNumber As String = Guid.NewGuid().ToString()
-
+        Dim totalQty As Integer = 0
         ' Iterate through each row in the DataGridView
         For Each row As DataGridViewRow In dgvAddedList.Rows
             ' Read the selected category from the ComboBox for each row
@@ -156,8 +156,16 @@ Public Class AddStock
                     If values(0) = row.Cells("clmID").Value.ToString() Then
                         ' Add the new quantity to the existing quantity
                         Dim newQuantity As Integer = Integer.Parse(values(3)) + Integer.Parse(row.Cells("clmQuantity").Value.ToString())
+                        totalQty += Integer.Parse(row.Cells("clmQuantity").Value)
                         ' Update the quantity in the line
-                        lines(i) = $"{values(0)},{values(1)},{values(2)},{newQuantity},{categoryName}"
+                        lines(i) = $"{values(0)},{values(1)},{values(2)},{newQuantity}"
+                        If values.Length > 4 Then
+                            For j = 4 To values.Length - 1
+                                If Not String.IsNullOrEmpty(values(i)) Then
+                                    lines(i) += $",{values(j)}"
+                                End If
+                            Next
+                        End If
                         ' Write the updated lines back to the category file
                         File.WriteAllLines(categoryFilePath, lines)
 
@@ -175,12 +183,13 @@ Public Class AddStock
 
                 ' If no match is found, append the data to the CSV file
                 If Not matchFound Then
-                    Dim newData As String = $"{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmPrice").Value},{row.Cells("clmQuantity").Value}"
+                    Dim newData As String = $"{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},,{row.Cells("clmQuantity").Value}"
+                    totalQty += Integer.Parse(row.Cells("clmQuantity").Value)
                     For Each descr In dgvAddDescr.Rows
                         newData += $",{descr.Cells(1).Value}"
                     Next
                     File.AppendAllText(categoryFilePath, newData & Environment.NewLine)
-                    File.AppendAllText("Resources\Stock History.csv", $"{transactionRefNumber},{row.Cells("clmID").Value},{row.Cells("clmProduct").Value},{row.Cells("clmQuantity").Value},{DateTime.Now}" & Environment.NewLine)
+                    File.AppendAllText("Resources\Stock History.csv", $"{transactionRefNumber},{totalQty},{DateTime.Now}" & Environment.NewLine)
                 End If
             Else
                 MessageBox.Show($"Category file '{categoryFilePath}' not found.")
@@ -192,52 +201,7 @@ Public Class AddStock
         MessageBox.Show("Stock saved successfully.")
     End Sub
 
-    Private Sub PrintReceipt(referencenumber As String, dgvAdded As DataGridView, name As String, totalPrice As String, saleDate As DateTime)
-        ' Create an instance of PrintDocument
-        Dim printDoc As New Printing.PrintDocument()
 
-        ' Set the PrintPage event handler to generate the receipt content
-        AddHandler printDoc.PrintPage, Sub(senderPrint, ePrint)
-                                           ' Your logic to draw the receipt content on the print page
-                                           ePrint.Graphics.DrawString($"Reference: {referencenumber}", New Font("Arial", 9), Brushes.Black, 100, 100)
-                                           ePrint.Graphics.DrawString($"Name: {name}", New Font("Arial", 9), Brushes.Black, 100, 120)
-                                           ePrint.Graphics.DrawString($"Sale Date: {saleDate.ToString("MM/dd/yyyy")}", New Font("Arial", 9), Brushes.Black, 100, 140)
-                                           ' Iterate through the rows in dgvAddedList and draw the content in a tabular format
-                                           Dim yPos As Integer = 160  ' Start position for items
-                                           Dim columnWidth As Integer = 100
-                                           For Each row As DataGridViewRow In dgvAdded.Rows
-                                               ' Draw the item details in a tabular format
-                                               Dim xPosition As Integer = 100
-                                               For Each cell As DataGridViewCell In row.Cells
-                                                   If Not cell.ColumnIndex = 0 AndAlso Not cell.ColumnIndex = 2 Then
-                                                       ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
-                                                       xPosition += columnWidth  ' Adjust the width based on column content
-                                                   End If
-                                               Next
-                                               yPos += 20  ' Increase the Y position for the next item
-                                           Next
-                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 475, yPos + 20)
-                                           ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 575, yPos + 20)
-                                           ePrint.Graphics.DrawString($"Sold by: {MainForm.lbUsername.Text}", New Font("Arial", 9), Brushes.Black, 100, yPos + 40)
-                                       End Sub
-
-        ' Calculate the required paper width and height based on the content
-        Dim standardWidth As Integer = 500  ' Standard width for receipts
-        Dim lineHeight As Integer = 50  ' Height of each line of text
-        Dim totalLines As Integer = 5 + dgvAdded.Rows.Count  ' Total lines of text content
-        Dim totalHeight As Integer = 150 + (totalLines * lineHeight)  ' Total height based on the number of lines
-        Dim requiredPaperSize As New PaperSize("Custom", standardWidth, totalHeight)
-
-        ' Set the paper size to the calculated size
-        printDoc.DefaultPageSettings.PaperSize = requiredPaperSize
-        printDoc.DefaultPageSettings.Margins = New Margins(5, 5, 5, 5)
-
-        printDoc.PrinterSettings.PrintToFile = True
-        printDoc.PrinterSettings.PrintFileName = $"receipts/{referencenumber}.pdf"
-        ' Start printing
-        printDoc.Print()
-
-    End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         Dim Category As String = cbxCategory.SelectedItem.ToString
@@ -257,6 +221,21 @@ Public Class AddStock
             End If
         Else
             MessageBox.Show("Category file not found.")
+        End If
+    End Sub
+    Private Sub DeletePress(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Delete Then
+            btRemove_Click(Nothing, Nothing)
+        End If
+    End Sub
+
+    Private Sub btRemove_Click(sender As Object, e As EventArgs) Handles btRemove.Click
+        ' Check if a row is selected in dgvAddedList
+        If dgvAddedList.SelectedRows.Count > 0 Then
+            ' Remove the selected row
+            dgvAddedList.Rows.RemoveAt(dgvAddedList.SelectedRows(0).Index)
+        Else
+            MessageBox.Show("Please first select an item to remove.")
         End If
     End Sub
 End Class

@@ -89,7 +89,7 @@ Module ProgramLoad
         CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,Name,Amount,Source,Purpose")
         CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Amount,Sold By,Date and Time")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
-        CreateCsvFileIfNotExists("Resources/Stock History.csv", "Transaction Reference Number,ID,Model,Quantity,Date and Time")
+        CreateCsvFileIfNotExists("Resources/Stock History.csv", "Transaction Reference Number,Quantity,Date and Time")
         CreateCsvFileIfNotExists("Resources/TimeLog.csv", "Log,Date and Time,Username")
 
     End Sub

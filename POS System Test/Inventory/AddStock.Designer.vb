@@ -40,6 +40,8 @@ Partial Class AddStock
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
         txbxID = New Guna.UI2.WinForms.Guna2TextBox()
         lbProduct = New Label()
@@ -61,6 +63,7 @@ Partial Class AddStock
         dgvAddDescr = New Guna.UI2.WinForms.Guna2DataGridView()
         clmDescription = New DataGridViewTextBoxColumn()
         clmValue = New DataGridViewTextBoxColumn()
+        btRemove = New Guna.UI2.WinForms.Guna2Button()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -159,7 +162,7 @@ Partial Class AddStock
         btAddStock.FillColor = Color.DimGray
         btAddStock.Font = New Font("Segoe UI", 9F)
         btAddStock.ForeColor = Color.White
-        btAddStock.Location = New Point(509, 122)
+        btAddStock.Location = New Point(509, 61)
         btAddStock.Name = "btAddStock"
         btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btAddStock.Size = New Size(120, 50)
@@ -262,7 +265,7 @@ Partial Class AddStock
         btSave.FillColor = Color.DimGray
         btSave.Font = New Font("Segoe UI", 9F)
         btSave.ForeColor = Color.White
-        btSave.Location = New Point(509, 178)
+        btSave.Location = New Point(509, 117)
         btSave.Name = "btSave"
         btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btSave.Size = New Size(120, 50)
@@ -393,11 +396,31 @@ Partial Class AddStock
         clmValue.HeaderText = "Value"
         clmValue.Name = "clmValue"
         ' 
+        ' btRemove
+        ' 
+        btRemove.BackColor = Color.Transparent
+        btRemove.BorderRadius = 25
+        btRemove.CustomizableEdges = CustomizableEdges13
+        btRemove.DisabledState.BorderColor = Color.DarkGray
+        btRemove.DisabledState.CustomBorderColor = Color.DarkGray
+        btRemove.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btRemove.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btRemove.FillColor = Color.DimGray
+        btRemove.Font = New Font("Segoe UI", 9F)
+        btRemove.ForeColor = Color.White
+        btRemove.Location = New Point(510, 181)
+        btRemove.Name = "btRemove"
+        btRemove.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btRemove.Size = New Size(120, 50)
+        btRemove.TabIndex = 27
+        btRemove.Text = "Remove"
+        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(642, 516)
+        Controls.Add(btRemove)
         Controls.Add(dgvAddDescr)
         Controls.Add(lblPrice)
         Controls.Add(txbxPrice)
@@ -442,4 +465,5 @@ Partial Class AddStock
     Friend WithEvents dgvAddDescr As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents clmDescription As DataGridViewTextBoxColumn
     Friend WithEvents clmValue As DataGridViewTextBoxColumn
+    Friend WithEvents btRemove As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -77,7 +77,7 @@ Public Class Sales
         Else
             MessageBox.Show("Please add items to the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
+        InventoryModule1.RefreshTable()
     End Sub
 
     Private Sub txbxID_KeyDown(sender As Object, e As KeyEventArgs) Handles txbxID.KeyDown
@@ -156,20 +156,14 @@ Public Class Sales
                                                ' Draw the item details in a tabular format
                                                Dim xPosition As Integer = 100
                                                For Each cell As DataGridViewCell In row.Cells
-                                                   If Not cell.ColumnIndex = 0 Then
-                                                       If cell.ColumnIndex = 2 Then
-                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
-                                                           xPosition += columnWidth + 75  ' Adjust the width based on column content
-                                                       Else
-                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
-                                                           xPosition += columnWidth  ' Adjust the width based on column content
-                                                       End If
-
+                                                   If cell.ColumnIndex <> 1 And cell.ColumnIndex <> 0 Then ' Exclude the 2nd column (index 1)
+                                                       ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
+                                                       xPosition += columnWidth  ' Adjust the width based on column content
                                                    End If
                                                Next
                                                yPos += 20  ' Increase the Y position for the next item
                                            Next
-                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 475, yPos + 20)
+                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 100, yPos + 20)
                                            ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 575, yPos + 20)
                                            ePrint.Graphics.DrawString($"Sold by: {MainForm.lbUsername.Text}", New Font("Arial", 9), Brushes.Black, 100, yPos + 40)
                                        End Sub

@@ -37,6 +37,16 @@ Public Class AddUser
                 Dim newLine As String = $"{UserID},{Username},{Password},{Access},{FirstName},{LastName}"
                 Dim Path As String = "Resources/Users.csv"
                 File.AppendAllText(Path, newLine & Environment.NewLine)
+
+
+                Dim toSort = File.ReadAllLines(csvFile)
+                Dim sortedList = toSort.
+                Skip(1).
+                Select(Function(line) line.Split(","c)).
+                OrderBy(Function(parts) parts(1)).
+                Select(Function(parts) String.Join(",", parts)).
+                ToList()
+                File.WriteAllLines(csvFile, sortedList)
                 EmployeeManagement.RefreshTable()
             End If
         End If
