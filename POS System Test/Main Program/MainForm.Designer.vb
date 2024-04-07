@@ -22,8 +22,8 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -37,8 +37,8 @@ Partial Class MainForm
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -47,18 +47,16 @@ Partial Class MainForm
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlSelection = New Guna.UI2.WinForms.Guna2GradientPanel()
         pnlLgtSt = New Guna.UI2.WinForms.Guna2Panel()
         btLogOut = New Guna.UI2.WinForms.Guna2Button()
@@ -69,7 +67,6 @@ Partial Class MainForm
         PnlBtnSelection = New Guna.UI2.WinForms.Guna2Panel()
         btExpenses = New Guna.UI2.WinForms.Guna2Button()
         btHistory = New Guna.UI2.WinForms.Guna2Button()
-        btdashboard = New Guna.UI2.WinForms.Guna2Button()
         btInventory = New Guna.UI2.WinForms.Guna2Button()
         btSale = New Guna.UI2.WinForms.Guna2Button()
         pnlRibbon = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -95,10 +92,10 @@ Partial Class MainForm
         pnlSelection.Controls.Add(pnlLgtSt)
         pnlSelection.Controls.Add(pnlAdminContainer)
         pnlSelection.Controls.Add(PnlBtnSelection)
-        pnlSelection.CustomizableEdges = CustomizableEdges25
+        pnlSelection.CustomizableEdges = CustomizableEdges23
         pnlSelection.Location = New Point(0, 0)
         pnlSelection.Name = "pnlSelection"
-        pnlSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        pnlSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         pnlSelection.Size = New Size(200, 744)
         pnlSelection.TabIndex = 1
         ' 
@@ -202,13 +199,12 @@ Partial Class MainForm
         ' 
         PnlBtnSelection.Controls.Add(btExpenses)
         PnlBtnSelection.Controls.Add(btHistory)
-        PnlBtnSelection.Controls.Add(btdashboard)
         PnlBtnSelection.Controls.Add(btInventory)
         PnlBtnSelection.Controls.Add(btSale)
-        PnlBtnSelection.CustomizableEdges = CustomizableEdges23
+        PnlBtnSelection.CustomizableEdges = CustomizableEdges21
         PnlBtnSelection.Location = New Point(4, 160)
         PnlBtnSelection.Name = "PnlBtnSelection"
-        PnlBtnSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        PnlBtnSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         PnlBtnSelection.Size = New Size(190, 275)
         PnlBtnSelection.TabIndex = 0
         ' 
@@ -222,7 +218,7 @@ Partial Class MainForm
         btExpenses.FillColor = Color.Transparent
         btExpenses.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
         btExpenses.ForeColor = Color.Black
-        btExpenses.Location = New Point(-1, 204)
+        btExpenses.Location = New Point(-1, 156)
         btExpenses.Name = "btExpenses"
         btExpenses.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btExpenses.Size = New Size(187, 45)
@@ -240,7 +236,7 @@ Partial Class MainForm
         btHistory.FillColor = Color.Transparent
         btHistory.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
         btHistory.ForeColor = Color.Black
-        btHistory.Location = New Point(-1, 153)
+        btHistory.Location = New Point(-1, 105)
         btHistory.Name = "btHistory"
         btHistory.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         btHistory.Size = New Size(187, 45)
@@ -248,27 +244,9 @@ Partial Class MainForm
         btHistory.Text = "History"
         btHistory.TextAlign = HorizontalAlignment.Left
         ' 
-        ' btdashboard
-        ' 
-        btdashboard.CustomizableEdges = CustomizableEdges17
-        btdashboard.DisabledState.BorderColor = Color.DarkGray
-        btdashboard.DisabledState.CustomBorderColor = Color.DarkGray
-        btdashboard.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btdashboard.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btdashboard.FillColor = Color.Transparent
-        btdashboard.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
-        btdashboard.ForeColor = Color.Black
-        btdashboard.Location = New Point(0, 0)
-        btdashboard.Name = "btdashboard"
-        btdashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        btdashboard.Size = New Size(187, 45)
-        btdashboard.TabIndex = 0
-        btdashboard.Text = "Dashboard"
-        btdashboard.TextAlign = HorizontalAlignment.Left
-        ' 
         ' btInventory
         ' 
-        btInventory.CustomizableEdges = CustomizableEdges19
+        btInventory.CustomizableEdges = CustomizableEdges17
         btInventory.DisabledState.BorderColor = Color.DarkGray
         btInventory.DisabledState.CustomBorderColor = Color.DarkGray
         btInventory.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -276,9 +254,9 @@ Partial Class MainForm
         btInventory.FillColor = Color.Transparent
         btInventory.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
         btInventory.ForeColor = Color.Black
-        btInventory.Location = New Point(0, 51)
+        btInventory.Location = New Point(0, 3)
         btInventory.Name = "btInventory"
-        btInventory.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        btInventory.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         btInventory.Size = New Size(187, 45)
         btInventory.TabIndex = 1
         btInventory.Text = "Inventory"
@@ -286,7 +264,7 @@ Partial Class MainForm
         ' 
         ' btSale
         ' 
-        btSale.CustomizableEdges = CustomizableEdges21
+        btSale.CustomizableEdges = CustomizableEdges19
         btSale.DisabledState.BorderColor = Color.DarkGray
         btSale.DisabledState.CustomBorderColor = Color.DarkGray
         btSale.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -294,9 +272,9 @@ Partial Class MainForm
         btSale.FillColor = Color.Transparent
         btSale.Font = New Font("Microsoft Sans Serif", 22F, FontStyle.Underline)
         btSale.ForeColor = Color.Black
-        btSale.Location = New Point(0, 102)
+        btSale.Location = New Point(0, 54)
         btSale.Name = "btSale"
-        btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         btSale.Size = New Size(187, 45)
         btSale.TabIndex = 2
         btSale.Text = "Sale"
@@ -309,12 +287,12 @@ Partial Class MainForm
         pnlRibbon.Controls.Add(lbUsername)
         pnlRibbon.Controls.Add(lblUser)
         pnlRibbon.Controls.Add(pnlFormCtrl)
-        pnlRibbon.CustomizableEdges = CustomizableEdges33
+        pnlRibbon.CustomizableEdges = CustomizableEdges31
         pnlRibbon.FillColor = Color.White
         pnlRibbon.FillColor2 = Color.Silver
         pnlRibbon.Location = New Point(200, 0)
         pnlRibbon.Name = "pnlRibbon"
-        pnlRibbon.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        pnlRibbon.ShadowDecoration.CustomizableEdges = CustomizableEdges32
         pnlRibbon.Size = New Size(1080, 50)
         pnlRibbon.TabIndex = 2
         ' 
@@ -343,10 +321,10 @@ Partial Class MainForm
         pnlFormCtrl.BackColor = Color.Transparent
         pnlFormCtrl.Controls.Add(btMin)
         pnlFormCtrl.Controls.Add(btLgtClose)
-        pnlFormCtrl.CustomizableEdges = CustomizableEdges31
+        pnlFormCtrl.CustomizableEdges = CustomizableEdges29
         pnlFormCtrl.Location = New Point(520, 4)
         pnlFormCtrl.Name = "pnlFormCtrl"
-        pnlFormCtrl.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        pnlFormCtrl.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         pnlFormCtrl.Size = New Size(80, 40)
         pnlFormCtrl.TabIndex = 3
         ' 
@@ -354,7 +332,7 @@ Partial Class MainForm
         ' 
         btMin.BackColor = Color.Transparent
         btMin.BorderRadius = 20
-        btMin.CustomizableEdges = CustomizableEdges27
+        btMin.CustomizableEdges = CustomizableEdges25
         btMin.DisabledState.BorderColor = Color.DarkGray
         btMin.DisabledState.CustomBorderColor = Color.DarkGray
         btMin.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -365,7 +343,7 @@ Partial Class MainForm
         btMin.ImageAlign = HorizontalAlignment.Right
         btMin.Location = New Point(0, 0)
         btMin.Name = "btMin"
-        btMin.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btMin.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         btMin.Size = New Size(40, 40)
         btMin.TabIndex = 2
         btMin.Text = "−"
@@ -374,7 +352,7 @@ Partial Class MainForm
         ' 
         btLgtClose.BackColor = Color.Transparent
         btLgtClose.BorderRadius = 25
-        btLgtClose.CustomizableEdges = CustomizableEdges29
+        btLgtClose.CustomizableEdges = CustomizableEdges27
         btLgtClose.DisabledState.BorderColor = Color.DarkGray
         btLgtClose.DisabledState.CustomBorderColor = Color.DarkGray
         btLgtClose.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -385,17 +363,17 @@ Partial Class MainForm
         btLgtClose.ImageAlign = HorizontalAlignment.Left
         btLgtClose.Location = New Point(40, 0)
         btLgtClose.Name = "btLgtClose"
-        btLgtClose.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btLgtClose.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         btLgtClose.Size = New Size(40, 40)
         btLgtClose.TabIndex = 2
         btLgtClose.Text = "✖"
         ' 
         ' pnlSwitch
         ' 
-        pnlSwitch.CustomizableEdges = CustomizableEdges35
+        pnlSwitch.CustomizableEdges = CustomizableEdges33
         pnlSwitch.Location = New Point(200, 50)
         pnlSwitch.Name = "pnlSwitch"
-        pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         pnlSwitch.Size = New Size(1080, 670)
         pnlSwitch.TabIndex = 0
         ' 
@@ -439,7 +417,6 @@ Partial Class MainForm
     Friend WithEvents pnlSelection As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents pnlRibbon As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents pnlSwitch As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents btdashboard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btSale As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btInventory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btHistory As Guna.UI2.WinForms.Guna2Button

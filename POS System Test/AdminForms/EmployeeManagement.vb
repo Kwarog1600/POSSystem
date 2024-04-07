@@ -90,4 +90,19 @@ Public Class EmployeeManagement
         Next
     End Sub
 
+    Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
+        Dim filePath As String = "Resources/Users.csv"
+        Dim lines() As String = File.ReadAllLines(filePath)
+        For Each line As String In lines
+            Dim Info As String() = line.Split(","c)
+            If Info(0) = txbxUserID.Text Then
+                Info(4) = txbxFirstName.Text
+                Info(5) = txbxSurname.Text
+                Info(1) = txbxUsername.Text
+                Info(3) = cbxAccess.SelectedItem
+                line = String.Join(",", Info)
+            End If
+        Next
+        File.WriteAllLines(filePath, lines)
+    End Sub
 End Class

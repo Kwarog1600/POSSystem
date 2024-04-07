@@ -70,7 +70,6 @@ Partial Class AddStock
         ' 
         ' txbxProduct
         ' 
-        txbxProduct.BorderRadius = 18
         txbxProduct.CustomizableEdges = CustomizableEdges1
         txbxProduct.DefaultText = ""
         txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -91,7 +90,6 @@ Partial Class AddStock
         ' 
         ' txbxID
         ' 
-        txbxID.BorderRadius = 18
         txbxID.CustomizableEdges = CustomizableEdges3
         txbxID.DefaultText = ""
         txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -153,7 +151,6 @@ Partial Class AddStock
         ' btAddStock
         ' 
         btAddStock.BackColor = Color.Transparent
-        btAddStock.BorderRadius = 25
         btAddStock.CustomizableEdges = CustomizableEdges5
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
@@ -256,7 +253,6 @@ Partial Class AddStock
         ' btSave
         ' 
         btSave.BackColor = Color.Transparent
-        btSave.BorderRadius = 25
         btSave.CustomizableEdges = CustomizableEdges7
         btSave.DisabledState.BorderColor = Color.DarkGray
         btSave.DisabledState.CustomBorderColor = Color.DarkGray
@@ -283,7 +279,6 @@ Partial Class AddStock
         ' 
         ' txbxQty
         ' 
-        txbxQty.BorderRadius = 18
         txbxQty.CustomizableEdges = CustomizableEdges9
         txbxQty.DefaultText = ""
         txbxQty.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -313,7 +308,6 @@ Partial Class AddStock
         ' 
         ' txbxPrice
         ' 
-        txbxPrice.BorderRadius = 18
         txbxPrice.CustomizableEdges = CustomizableEdges11
         txbxPrice.DefaultText = ""
         txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -399,7 +393,6 @@ Partial Class AddStock
         ' btRemove
         ' 
         btRemove.BackColor = Color.Transparent
-        btRemove.BorderRadius = 25
         btRemove.CustomizableEdges = CustomizableEdges13
         btRemove.DisabledState.BorderColor = Color.DarkGray
         btRemove.DisabledState.CustomBorderColor = Color.DarkGray

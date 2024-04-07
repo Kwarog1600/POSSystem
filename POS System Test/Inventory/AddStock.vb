@@ -81,6 +81,14 @@ Public Class AddStock
             MessageBox.Show("Please enter an ID")
             Exit Sub
         Else
+            If dgvAddDescr.Rows.Count > 0 Then
+                For Each row In dgvAddDescr.Rows
+                    If row.Cells(1).Value Is Nothing OrElse String.IsNullOrWhiteSpace(row.Cells(1).Value.ToString()) Then
+                        MessageBox.Show("Descriptions must not be blank.")
+                    End If
+                Next
+            End If
+
             Dim count As Integer = CountIDMatches()
             Dim DescrCol As New List(Of String)
             Dim Descr As New List(Of String)

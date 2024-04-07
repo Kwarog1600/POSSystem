@@ -47,7 +47,7 @@ Public Class LoginForm
                     ProgramLoad.AccessLevel(Int32.Parse(data(3)))
                     MainForm.Show()
                     MainForm.lbUsername.Text = data(1)
-                    MainForm.switchPanel(Dashboard)
+                    MainForm.switchPanel(Sales)
                     txbxPassword.Text = ""
                     txbxUsername.Text = ""
                     Me.Hide()

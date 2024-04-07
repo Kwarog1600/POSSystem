@@ -175,7 +175,6 @@ Partial Class Sales
         ' btVoid
         ' 
         btVoid.BackColor = Color.Transparent
-        btVoid.BorderRadius = 25
         btVoid.CustomizableEdges = CustomizableEdges1
         btVoid.DisabledState.BorderColor = Color.DarkGray
         btVoid.DisabledState.CustomBorderColor = Color.DarkGray
@@ -226,7 +225,6 @@ Partial Class Sales
         ' txbxPrice
         ' 
         txbxPrice.BackColor = Color.Transparent
-        txbxPrice.BorderRadius = 18
         txbxPrice.CustomizableEdges = CustomizableEdges3
         txbxPrice.DefaultText = ""
         txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -258,7 +256,6 @@ Partial Class Sales
         ' txbxQty
         ' 
         txbxQty.BackColor = Color.Transparent
-        txbxQty.BorderRadius = 18
         txbxQty.CustomizableEdges = CustomizableEdges5
         txbxQty.DefaultText = ""
         txbxQty.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -370,7 +367,6 @@ Partial Class Sales
         ' btAddStock
         ' 
         btAddStock.BackColor = Color.Transparent
-        btAddStock.BorderRadius = 25
         btAddStock.CustomizableEdges = CustomizableEdges7
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
@@ -431,7 +427,6 @@ Partial Class Sales
         ' txbxID
         ' 
         txbxID.BackColor = Color.Transparent
-        txbxID.BorderRadius = 18
         txbxID.CustomizableEdges = CustomizableEdges9
         txbxID.DefaultText = ""
         txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -453,7 +448,6 @@ Partial Class Sales
         ' txbxProduct
         ' 
         txbxProduct.BackColor = Color.Transparent
-        txbxProduct.BorderRadius = 18
         txbxProduct.CustomizableEdges = CustomizableEdges11
         txbxProduct.DefaultText = ""
         txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -485,7 +479,6 @@ Partial Class Sales
         ' txbxName
         ' 
         txbxName.BackColor = Color.Transparent
-        txbxName.BorderRadius = 16
         txbxName.CustomizableEdges = CustomizableEdges13
         txbxName.DefaultText = ""
         txbxName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
@@ -507,7 +500,6 @@ Partial Class Sales
         ' btSale
         ' 
         btSale.BackColor = Color.Transparent
-        btSale.BorderRadius = 25
         btSale.CustomizableEdges = CustomizableEdges15
         btSale.DisabledState.BorderColor = Color.DarkGray
         btSale.DisabledState.CustomBorderColor = Color.DarkGray

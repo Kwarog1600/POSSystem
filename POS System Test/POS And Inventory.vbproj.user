@@ -34,16 +34,10 @@
     <Compile Update="Inventory\StockCategoryAdd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Main Program\Dashboard.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Main Program\LoginForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Main Program\MainForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Sales\ReceiptForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Sales\Sales.vb">

@@ -62,7 +62,6 @@ Partial Class ExpenseAdd
         ' btAddExpenses
         ' 
         btAddExpenses.BackColor = Color.Transparent
-        btAddExpenses.BorderRadius = 20
         btAddExpenses.CustomizableEdges = CustomizableEdges3
         btAddExpenses.DisabledState.BorderColor = Color.DarkGray
         btAddExpenses.DisabledState.CustomBorderColor = Color.DarkGray

@@ -44,11 +44,6 @@ Public Class MainForm
 
     End Sub
 
-
-    Private Sub btdashboard_Click(sender As Object, e As EventArgs) Handles btdashboard.Click
-        switchPanel(Dashboard)
-    End Sub
-
     Private Sub btInventory_Click(sender As Object, e As EventArgs) Handles btInventory.Click
         switchPanel(Inventory)
     End Sub
