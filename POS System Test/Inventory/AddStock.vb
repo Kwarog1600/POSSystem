@@ -88,6 +88,7 @@ Public Class AddStock
                 newRow.Cells(col).Value = Descr(DescrCol.IndexOf(col))
             Next
         End If
+
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
@@ -147,6 +148,7 @@ Public Class AddStock
                 MessageBox.Show($"Category file '{categoryFilePath}' not found.")
             End If
         Next
+        AddStockModule.PrintReceipt(transactionRefNumber.ToString, dgvAddedList, DateTime.Now)
         ' Notify the user that the stock has been saved for all items
         RefreshTable()
         MessageBox.Show("Stock saved successfully.")

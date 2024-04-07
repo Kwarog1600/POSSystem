@@ -32,6 +32,7 @@ Public Class StockCategoryAdd
             dgvAddDescr.AllowUserToAddRows = False
         End If
     End Sub
+
 End Class
 
 

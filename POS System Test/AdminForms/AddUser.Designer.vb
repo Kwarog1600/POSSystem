@@ -40,16 +40,17 @@ Partial Class AddUser
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AddUser))
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        lbPassMatchmsg = New Label()
         btSave = New Guna.UI2.WinForms.Guna2Button()
-        Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxConfirm = New Guna.UI2.WinForms.Guna2TextBox()
         Label1 = New Label()
-        Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxPassword = New Guna.UI2.WinForms.Guna2TextBox()
         lbUsername = New Label()
         txbxUsername = New Guna.UI2.WinForms.Guna2TextBox()
         lbFirstName = New Label()
         txbxFirstName = New Guna.UI2.WinForms.Guna2TextBox()
         lbAccess = New Label()
-        Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
+        cbxAccess = New Guna.UI2.WinForms.Guna2ComboBox()
         lbLastName = New Label()
         txbxSurname = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2Panel1.SuspendLayout()
@@ -57,16 +58,17 @@ Partial Class AddUser
         ' 
         ' Guna2Panel1
         ' 
+        Guna2Panel1.Controls.Add(lbPassMatchmsg)
         Guna2Panel1.Controls.Add(btSave)
-        Guna2Panel1.Controls.Add(Guna2TextBox1)
+        Guna2Panel1.Controls.Add(txbxConfirm)
         Guna2Panel1.Controls.Add(Label1)
-        Guna2Panel1.Controls.Add(Guna2TextBox4)
+        Guna2Panel1.Controls.Add(txbxPassword)
         Guna2Panel1.Controls.Add(lbUsername)
         Guna2Panel1.Controls.Add(txbxUsername)
         Guna2Panel1.Controls.Add(lbFirstName)
         Guna2Panel1.Controls.Add(txbxFirstName)
         Guna2Panel1.Controls.Add(lbAccess)
-        Guna2Panel1.Controls.Add(Guna2ComboBox1)
+        Guna2Panel1.Controls.Add(cbxAccess)
         Guna2Panel1.Controls.Add(lbLastName)
         Guna2Panel1.Controls.Add(txbxSurname)
         Guna2Panel1.CustomizableEdges = CustomizableEdges15
@@ -75,6 +77,16 @@ Partial Class AddUser
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         Guna2Panel1.Size = New Size(375, 380)
         Guna2Panel1.TabIndex = 3
+        ' 
+        ' lbPassMatchmsg
+        ' 
+        lbPassMatchmsg.AutoSize = True
+        lbPassMatchmsg.Location = New Point(28, 337)
+        lbPassMatchmsg.Name = "lbPassMatchmsg"
+        lbPassMatchmsg.Size = New Size(28, 15)
+        lbPassMatchmsg.TabIndex = 18
+        lbPassMatchmsg.Text = "Text"
+        lbPassMatchmsg.Visible = False
         ' 
         ' btSave
         ' 
@@ -93,25 +105,25 @@ Partial Class AddUser
         btSave.TabIndex = 17
         btSave.Text = "Save"
         ' 
-        ' Guna2TextBox1
+        ' txbxConfirm
         ' 
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges3
-        Guna2TextBox1.DefaultText = ""
-        Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox1.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Location = New Point(27, 319)
-        Guna2TextBox1.Name = "Guna2TextBox1"
-        Guna2TextBox1.PasswordChar = "•"c
-        Guna2TextBox1.PlaceholderText = "Confirm Password"
-        Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        Guna2TextBox1.Size = New Size(200, 36)
-        Guna2TextBox1.TabIndex = 16
+        txbxConfirm.CustomizableEdges = CustomizableEdges3
+        txbxConfirm.DefaultText = ""
+        txbxConfirm.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxConfirm.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxConfirm.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxConfirm.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxConfirm.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxConfirm.Font = New Font("Segoe UI", 9F)
+        txbxConfirm.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxConfirm.Location = New Point(27, 298)
+        txbxConfirm.Name = "txbxConfirm"
+        txbxConfirm.PasswordChar = "•"c
+        txbxConfirm.PlaceholderText = "Confirm Password"
+        txbxConfirm.SelectedText = ""
+        txbxConfirm.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txbxConfirm.Size = New Size(200, 36)
+        txbxConfirm.TabIndex = 16
         ' 
         ' Label1
         ' 
@@ -122,25 +134,25 @@ Partial Class AddUser
         Label1.TabIndex = 15
         Label1.Text = "Password"
         ' 
-        ' Guna2TextBox4
+        ' txbxPassword
         ' 
-        Guna2TextBox4.CustomizableEdges = CustomizableEdges5
-        Guna2TextBox4.DefaultText = ""
-        Guna2TextBox4.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox4.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox4.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox4.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Font = New Font("Segoe UI", 9F)
-        Guna2TextBox4.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Location = New Point(27, 256)
-        Guna2TextBox4.Name = "Guna2TextBox4"
-        Guna2TextBox4.PasswordChar = "•"c
-        Guna2TextBox4.PlaceholderText = "Password"
-        Guna2TextBox4.SelectedText = ""
-        Guna2TextBox4.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2TextBox4.Size = New Size(200, 36)
-        Guna2TextBox4.TabIndex = 14
+        txbxPassword.CustomizableEdges = CustomizableEdges5
+        txbxPassword.DefaultText = ""
+        txbxPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxPassword.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPassword.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPassword.Font = New Font("Segoe UI", 9F)
+        txbxPassword.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPassword.Location = New Point(27, 256)
+        txbxPassword.Name = "txbxPassword"
+        txbxPassword.PasswordChar = "•"c
+        txbxPassword.PlaceholderText = "Password"
+        txbxPassword.SelectedText = ""
+        txbxPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txbxPassword.Size = New Size(200, 36)
+        txbxPassword.TabIndex = 14
         ' 
         ' lbUsername
         ' 
@@ -209,23 +221,23 @@ Partial Class AddUser
         lbAccess.TabIndex = 8
         lbAccess.Text = "Access Level"
         ' 
-        ' Guna2ComboBox1
+        ' cbxAccess
         ' 
-        Guna2ComboBox1.BackColor = Color.Transparent
-        Guna2ComboBox1.CustomizableEdges = CustomizableEdges11
-        Guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed
-        Guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        Guna2ComboBox1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.Font = New Font("Segoe UI", 10F)
-        Guna2ComboBox1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
-        Guna2ComboBox1.ItemHeight = 30
-        Guna2ComboBox1.Items.AddRange(New Object() {"1", "2", "3"})
-        Guna2ComboBox1.Location = New Point(272, 45)
-        Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Guna2ComboBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        Guna2ComboBox1.Size = New Size(73, 36)
-        Guna2ComboBox1.TabIndex = 3
+        cbxAccess.BackColor = Color.Transparent
+        cbxAccess.CustomizableEdges = CustomizableEdges11
+        cbxAccess.DrawMode = DrawMode.OwnerDrawFixed
+        cbxAccess.DropDownStyle = ComboBoxStyle.DropDownList
+        cbxAccess.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbxAccess.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbxAccess.Font = New Font("Segoe UI", 10F)
+        cbxAccess.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
+        cbxAccess.ItemHeight = 30
+        cbxAccess.Items.AddRange(New Object() {"1", "2", "3"})
+        cbxAccess.Location = New Point(272, 45)
+        cbxAccess.Name = "cbxAccess"
+        cbxAccess.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        cbxAccess.Size = New Size(73, 36)
+        cbxAccess.TabIndex = 3
         ' 
         ' lbLastName
         ' 
@@ -273,15 +285,16 @@ Partial Class AddUser
 
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents Guna2TextBox4 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxPassword As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbUsername As Label
     Friend WithEvents txbxUsername As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbFirstName As Label
     Friend WithEvents txbxFirstName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbAccess As Label
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cbxAccess As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents lbLastName As Label
     Friend WithEvents txbxSurname As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxConfirm As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btSave As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lbPassMatchmsg As Label
 End Class

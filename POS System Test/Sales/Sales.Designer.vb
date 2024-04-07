@@ -24,15 +24,18 @@ Partial Class Sales
     Private Sub InitializeComponent()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -45,6 +48,9 @@ Partial Class Sales
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sales))
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        dgvDescr = New Guna.UI2.WinForms.Guna2DataGridView()
+        Description = New DataGridViewTextBoxColumn()
+        Value = New DataGridViewTextBoxColumn()
         btVoid = New Guna.UI2.WinForms.Guna2Button()
         showTotalPrice = New Label()
         lblTotal = New Label()
@@ -71,12 +77,14 @@ Partial Class Sales
         btSale = New Guna.UI2.WinForms.Guna2Button()
         PrintPreviewDialog1 = New PrintPreviewDialog()
         pnlContainer.SuspendLayout()
+        CType(dgvDescr, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlContainer
         ' 
         pnlContainer.BorderRadius = 25
+        pnlContainer.Controls.Add(dgvDescr)
         pnlContainer.Controls.Add(btVoid)
         pnlContainer.Controls.Add(showTotalPrice)
         pnlContainer.Controls.Add(lblTotal)
@@ -101,6 +109,70 @@ Partial Class Sales
         pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         pnlContainer.Size = New Size(920, 575)
         pnlContainer.TabIndex = 4
+        ' 
+        ' dgvDescr
+        ' 
+        dgvDescr.AllowUserToAddRows = False
+        dgvDescr.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgvDescr.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.ButtonShadow
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvDescr.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvDescr.ColumnHeadersHeight = 17
+        dgvDescr.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvDescr.Columns.AddRange(New DataGridViewColumn() {Description, Value})
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dgvDescr.DefaultCellStyle = DataGridViewCellStyle3
+        dgvDescr.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvDescr.Location = New Point(639, 88)
+        dgvDescr.Name = "dgvDescr"
+        dgvDescr.RowHeadersVisible = False
+        dgvDescr.Size = New Size(207, 163)
+        dgvDescr.TabIndex = 42
+        dgvDescr.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvDescr.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvDescr.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvDescr.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvDescr.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvDescr.ThemeStyle.BackColor = Color.White
+        dgvDescr.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvDescr.ThemeStyle.HeaderStyle.BackColor = SystemColors.ControlDark
+        dgvDescr.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvDescr.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvDescr.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvDescr.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvDescr.ThemeStyle.HeaderStyle.Height = 17
+        dgvDescr.ThemeStyle.ReadOnly = False
+        dgvDescr.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvDescr.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvDescr.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvDescr.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvDescr.ThemeStyle.RowsStyle.Height = 25
+        dgvDescr.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvDescr.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' Description
+        ' 
+        Description.HeaderText = "Description"
+        Description.Name = "Description"
+        Description.ReadOnly = True
+        ' 
+        ' Value
+        ' 
+        Value.HeaderText = "Value"
+        Value.Name = "Value"
         ' 
         ' btVoid
         ' 
@@ -128,9 +200,9 @@ Partial Class Sales
         showTotalPrice.Font = New Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         showTotalPrice.Location = New Point(683, 34)
         showTotalPrice.Name = "showTotalPrice"
-        showTotalPrice.Size = New Size(121, 37)
+        showTotalPrice.Size = New Size(68, 37)
         showTotalPrice.TabIndex = 40
-        showTotalPrice.Text = "Php 0.00"
+        showTotalPrice.Text = "0.00"
         ' 
         ' lblTotal
         ' 
@@ -211,27 +283,27 @@ Partial Class Sales
         ' 
         dgvAddedList.AllowUserToAddRows = False
         dgvAddedList.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = Color.White
-        dgvAddedList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.ButtonShadow
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.BackColor = Color.White
+        dgvAddedList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = SystemColors.ButtonShadow
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.White
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity, clmAmount})
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
-        dgvAddedList.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        dgvAddedList.DefaultCellStyle = DataGridViewCellStyle6
         dgvAddedList.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.Location = New Point(39, 267)
         dgvAddedList.Name = "dgvAddedList"
@@ -309,7 +381,7 @@ Partial Class Sales
         btAddStock.FillColor = Color.DimGray
         btAddStock.Font = New Font("Segoe UI", 9F)
         btAddStock.ForeColor = Color.White
-        btAddStock.Location = New Point(461, 201)
+        btAddStock.Location = New Point(225, 201)
         btAddStock.Name = "btAddStock"
         btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btAddStock.Size = New Size(180, 50)
@@ -446,7 +518,7 @@ Partial Class Sales
         btSale.FillColor = Color.DimGray
         btSale.Font = New Font("Segoe UI", 9F)
         btSale.ForeColor = Color.White
-        btSale.Location = New Point(690, 201)
+        btSale.Location = New Point(410, 201)
         btSale.Name = "btSale"
         btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         btSale.Size = New Size(180, 50)
@@ -475,6 +547,7 @@ Partial Class Sales
         Text = "Sales"
         pnlContainer.ResumeLayout(False)
         pnlContainer.PerformLayout()
+        CType(dgvDescr, ComponentModel.ISupportInitialize).EndInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -505,4 +578,7 @@ Partial Class Sales
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
     Friend WithEvents clmAmount As DataGridViewTextBoxColumn
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents dgvDescr As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Description As DataGridViewTextBoxColumn
+    Friend WithEvents Value As DataGridViewTextBoxColumn
 End Class

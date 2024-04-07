@@ -9,7 +9,7 @@ Module StockCategoryAddModule
             ' Content for the CSV file header
             Dim csvContent As String = "Product ID,Product Name,Price,Quantity" '
 
-            For Each row In .dgvCatList.Rows
+            For Each row In .dgvAddDescr.Rows
                 csvContent += $",{row.Cells(0).Value}"
             Next
 

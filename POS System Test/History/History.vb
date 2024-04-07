@@ -6,18 +6,17 @@ Public Class History
     Private Sub History_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TableRefresh()
     End Sub
-    Public Sub TableRefresh()
+    Private Sub TableRefresh()
         Dim filepath As String = "Resources\Sales History.csv"
-        ' Clear existing rows from the DataGridView
-        dgvSaleHistory.Columns.Add("clm1", "")
-        dgvSaleHistory.Columns.Add("clm2", "")
-        dgvSaleHistory.Columns.Add("clm3", "")
-        dgvSaleHistory.Columns.Add("clm4", "")
         dgvSaleHistory.Rows.Clear()
 
         ' Read the CSV file line by line and add rows to the DataGridView
         Using read As New StreamReader(filepath)
-            read.ReadLine()
+
+            Dim header() As String = read.ReadLine().Split(","c) ' Assuming CSV file uses comma as delimiter
+            For Each column In header
+                dgvSaleHistory.Columns.Add(column, column)
+            Next
             While Not read.EndOfStream
                 Dim line As String = read.ReadLine()
                 Dim values() As String = line.Split(","c) ' Assuming CSV file uses comma as delimiter

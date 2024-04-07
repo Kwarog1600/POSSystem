@@ -34,22 +34,32 @@ Public Class LoginForm
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
         Dim csvFilePath As String = $"Resources\Users.csv"
-        Dim read As New StreamReader(csvFilePath)
-        read.ReadLine()
-        While Not read.EndOfStream
-            Dim line As String = read.ReadLine()
-            Dim data As String() = line.Split(","c)
-            If data(1) = $"{txbxUsername.Text}" And data(2) = $"{HashPassword(txbxPassword.Text)}" Then
-                TimeLog("In", txbxUsername.Text)
-                ProgramLoad.AccessLevel(Int32.Parse(data(3)))
-                MainForm.Show()
-                MainForm.lbUsername.Text = data(1)
-                MainForm.switchPanel(Dashboard)
-                Me.Hide()
-            Else
+
+        Using read As New StreamReader(csvFilePath)
+            read.ReadLine()
+            Dim credentialsCorrect As Boolean = False
+
+            While Not read.EndOfStream
+                Dim line As String = read.ReadLine()
+                Dim data As String() = line.Split(","c)
+                If data(1) = $"{txbxUsername.Text}" And data(2) = $"{HashPassword(txbxPassword.Text)}" Then
+                    TimeLog("In", txbxUsername.Text)
+                    ProgramLoad.AccessLevel(Int32.Parse(data(3)))
+                    MainForm.Show()
+                    MainForm.lbUsername.Text = data(1)
+                    MainForm.switchPanel(Dashboard)
+                    txbxPassword.Text = ""
+                    txbxUsername.Text = ""
+                    Me.Hide()
+                    credentialsCorrect = True
+                    Exit While ' Exit the loop once correct credentials are found
+                End If
+            End While
+
+            If Not credentialsCorrect Then
                 MessageBox.Show("Incorrect username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-        End While
+        End Using
     End Sub
 
     Public Sub TimeLog(InOut As String, Username As String)

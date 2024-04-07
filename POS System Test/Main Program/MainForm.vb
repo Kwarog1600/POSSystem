@@ -1,4 +1,5 @@
-﻿Public Class MainForm
+﻿
+Public Class MainForm
     Public currentBtn As Object
 
     Public Sub switchPanel(ByVal panel As Form)
@@ -71,4 +72,5 @@
     Private Sub btTimeLog_Click(sender As Object, e As EventArgs) Handles btTimeLog.Click
         switchPanel(TimeLog)
     End Sub
+
 End Class
