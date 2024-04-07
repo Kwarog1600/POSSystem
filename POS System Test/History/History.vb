@@ -38,4 +38,26 @@ Public Class History
         End If
     End Sub
 
+    Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
+        Search()
+    End Sub
+
+    Sub Search()
+        Dim searchText As String = txbxSearch.Text.ToLower() ' Convert search text to lowercase for case-insensitive search
+
+        For Each row As DataGridViewRow In dgvSaleHistory.Rows
+            Dim rowVisible As Boolean = False ' Flag to determine if the row should be visible
+            For Each cell As DataGridViewCell In row.Cells
+                If cell.Value IsNot Nothing Then
+                    Dim cellValue As String = cell.Value.ToString().ToLower()
+                    If cellValue.Contains(searchText) Then
+                        rowVisible = True ' If there's a match in any cell, make the row visible
+                        Exit For ' Exit the loop if a match is found in any cell
+                    End If
+                End If
+            Next
+
+            row.Visible = rowVisible ' Set the row visibility based on the match
+        Next
+    End Sub
 End Class
