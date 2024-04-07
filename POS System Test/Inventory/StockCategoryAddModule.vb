@@ -7,11 +7,14 @@ Module StockCategoryAddModule
             Dim csvCatList As String = "Resources\Stock Category.csv"
             Dim csvFileName As String = $"Stock\{ .txbxCategory.Text}.csv"
             ' Content for the CSV file header
-            Dim csvContent As String = "Product ID,Product Name,Price,Quantity" '
+            Dim csvContent As String = "Product ID,Product Name,Price,Quantity"
 
             For Each row In .dgvAddDescr.Rows
-                csvContent += $",{row.Cells(0).Value}"
+                If Not String.IsNullOrEmpty(row.Cells(0).Value?.ToString()) Then
+                    csvContent += $",{row.Cells(0).Value}"
+                End If
             Next
+            csvContent += Environment.NewLine
 
             ' Read the Stock Category.csv file to check if the category already exists
             If File.Exists(csvCatList) Then

@@ -136,34 +136,7 @@ Public Class Sales
     End Function
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim filePath As String = "Resources/Stock Category.csv"
-
-        ' Check if the file exists
-        If File.Exists(filePath) Then
-            ' Read all lines from the CSV file
-            Dim lines As String() = File.ReadAllLines(filePath)
-
-            ' Clear the existing items in the ComboBox
-            cbxCategory.Items.Clear()
-
-            ' Start from the second line (index 1) to skip the header
-            For i As Integer = 1 To lines.Length - 1
-                ' Split the line by comma (assuming it's a CSV file)
-                Dim category As String() = lines(i).Split(","c)
-
-                ' Add the category to the ComboBox
-                cbxCategory.Items.Add(category(0)) ' Assuming category name is in the first column
-            Next
-
-            ' Select the first item by default
-            If cbxCategory.Items.Count > 0 Then
-                cbxCategory.SelectedIndex = 0
-            End If
-        Else
-            MessageBox.Show("Stock Category.csv file not found.")
-        End If
-        Me.AcceptButton = btAddStock
-        Me.CancelButton = btVoid
+        LoadCategories()
     End Sub
 
     Private Sub PrintReceipt(referencenumber As String, dgvAdded As DataGridView, name As String, totalPrice As String, saleDate As DateTime)
@@ -218,7 +191,7 @@ Public Class Sales
         printDoc.Print()
     End Sub
 
-    Public Sub LoadCategories()
+    Private Sub LoadCategories()
         Dim filePath As String = "Resources/Stock Category.csv"
 
         ' Check if the file exists
@@ -228,7 +201,6 @@ Public Class Sales
 
             ' Clear the existing items in the ComboBox
             cbxCategory.Items.Clear()
-            cbxCategory.Items.Add("All")
 
             ' Start from the second line (index 1) to skip the header
             For i As Integer = 1 To lines.Length - 1
@@ -311,7 +283,6 @@ Public Class Sales
                 MessageBox.Show("ID not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
-
     End Sub
 
     Private Sub btVoid_Click(sender As Object, e As EventArgs) Handles btVoid.Click

@@ -13,8 +13,9 @@ Public Class EmployeeManagement
 
         If File.Exists(filePath) Then
             Using reader As New StreamReader(filePath)
-                dgvUserList.Rows.Clear()
+                dgvUserList.Columns.Clear()
                 dgvUserList.Columns.Add("", "")
+                dgvUserList.Rows.Clear()
                 reader.ReadLine()
                 While Not reader.EndOfStream
                     Dim line As String = reader.ReadLine()
@@ -37,8 +38,21 @@ Public Class EmployeeManagement
         ChangePassword.Visible = True
     End Sub
 
-    Private Sub dgvUserList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellContentClick
-
+    Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellClick
+        Dim filePath As String = "Resources/Users.csv"
+        If File.Exists(filePath) Then
+            Dim lines() As String = File.ReadAllLines(filePath)
+            For Each line As String In lines
+                Dim contents As String() = line.Split(","c)
+                If contents(1) = dgvUserList.SelectedCells(0).Value Then
+                    txbxUserID.Text = contents(0)
+                    txbxFirstName.Text = contents(4)
+                    txbxSurname.Text = contents(5)
+                    txbxUsername.Text = contents(1)
+                    cbxAccess.SelectedItem = contents(3)
+                End If
+            Next
+        End If
     End Sub
 
     Private Sub btDelete_Click(sender As Object, e As EventArgs) Handles btDelete.Click

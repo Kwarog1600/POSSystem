@@ -27,68 +27,106 @@ Public Class AddStock
         End If
     End Sub
 
-    Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
+    Private Function CountIDMatches() As Integer
+        Dim count As Integer = 0
         For Each Item As String In cbxCategory.Items
             If File.Exists($"Stock\{Item}.csv") Then
                 Dim lines As String() = File.ReadAllLines($"Stock\{Item}.csv")
                 For Each line As String In lines
                     Dim contents As String() = line.Split(","c)
-                    If contents(0).Trim = txbxID.Text.Trim Then
-                        txbxProduct.Text = contents(1)
-                        txbxPrice.Text = contents(2)
-                        txbxQty.Text = "1"
-                        cbxCategory.Text = Item
-                        Exit Sub
-                    Else
-                        txbxProduct.Text = ""
-                        txbxPrice.Text = ""
-                        txbxQty.Text = "1"
-                        cbxCategory.Text = ""
+                    If contents(0).Trim.StartsWith(txbxID.Text.Trim) Then
+                        count += 1
                     End If
                 Next
             End If
         Next
+        Return count
+    End Function
+
+    Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
+        Dim count As Integer = CountIDMatches()
+        For Each Item As String In cbxCategory.Items
+            Dim read As String() = File.ReadAllLines($"Stock\{Item}.csv")
+            For Each line As String In read
+                Dim contents As String() = line.Split(","c)
+                If contents(0).Trim.StartsWith(txbxID.Text.Trim) Then
+                    cbxCategory.SelectedItem = $"{Item}"
+                    txbxProduct.Text = contents(1)
+                    txbxPrice.Text = contents(2)
+                    txbxQty.Text = "1"
+                    If contents.Length > 4 Then
+                        If count > 1 Then
+                            For Each row As DataGridViewRow In dgvAddDescr.Rows
+                                row.Cells(1).Value = ""
+                            Next
+                        Else
+                            For i As Integer = 4 To contents.Length - 1
+                                dgvAddDescr.Rows(i - 4).Cells(1).Value = contents(i)
+                            Next
+                        End If
+                    End If
+                    Exit Sub
+                Else
+                    cbxCategory.SelectedItem = ""
+                    txbxProduct.Text = ""
+                    txbxPrice.Text = ""
+                    txbxQty.Text = "1"
+                End If
+            Next
+        Next
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-        Dim product As String = txbxProduct.Text
-        Dim price As String = txbxPrice.Text
-        Dim qty As String = txbxQty.Text
-        Dim category As String = cbxCategory.SelectedItem.ToString
-        Dim id As String = txbxID.Text
-        Dim DescrCol As New List(Of String)
-        Dim Descr As New List(Of String)
+        If txbxID.Text.Trim Is Nothing Then
+            MessageBox.Show("Please enter an ID")
+            Exit Sub
+        Else
+            Dim count As Integer = CountIDMatches()
+            Dim DescrCol As New List(Of String)
+            Dim Descr As New List(Of String)
 
-        For Each row In dgvAddDescr.Rows
-            Dim columnName As String = row.Cells(0).Value.ToString()
-            id &= $"-{columnName(0)}{row.Cells(1).Value.ToString()}"
-            DescrCol.Add(row.Cells(0).Value)
-            Descr.Add(row.Cells(1).Value)
-            If Not dgvAddedList.Columns.Contains(columnName) Then
-                dgvAddedList.Columns.Add(columnName, columnName)
+            If count = 1 Then
+                For Each row In dgvAddDescr.Rows
+                    Dim columnName As String = row.Cells(0).Value.ToString
+                    If Not dgvAddedList.Columns.Contains(columnName) Then
+                        DescrCol.Add(columnName)
+                        dgvAddedList.Columns.Add(columnName, columnName)
+                    End If
+                Next
+                For Each Item As String In cbxCategory.Items
+                    Dim read As String() = File.ReadAllLines($"Stock\{Item}.csv")
+                    For Each line As String In read
+                        Dim contents As String() = line.Split(","c)
+                        Dim Id As String = contents(0)
+                        If Id.StartsWith(txbxID.Text.Trim) Then
+                            For Each row In dgvAddedList.Rows
+                                If row.Cells(1).Value.ToString() = Id Then
+                                    row.Cells(4).Value = Convert.ToInt32(row.Cells(4).Value) + Convert.ToInt32(txbxQty.Text)
+                                    Exit Sub
+                                End If
+                            Next
+                            Dim newRow As New DataGridViewRow()
+                            dgvAddedList.Rows.Add(cbxCategory.SelectedItem.ToString, Id, txbxProduct.Text, txbxPrice.Text, txbxQty.Text)
+                            newRow = dgvAddedList.Rows(dgvAddedList.Rows.Count - 1)
+
+                            For Each row In dgvAddDescr.Rows
+                                DescrCol.Add(row.Cells(0).Value.ToString)
+                                Descr.Add(row.Cells(1).Value.ToString)
+                            Next
+                            newRow = dgvAddedList.Rows(dgvAddedList.Rows.Count - 1)
+
+                            For Each col In DescrCol
+                                newRow.Cells(col).Value = Descr(DescrCol.IndexOf(col))
+                            Next
+                        End If
+                    Next
+                Next
+            ElseIf count > 1 Then
+                MessageBox.Show("ID matches multiple items. You may choose one category and put description to find the matching item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("ID not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-        Next
-
-        Dim rowExists As Boolean = False
-
-        For Each row In dgvAddedList.Rows
-            If row.Cells(1).Value.ToString() = id Then
-                row.Cells(4).Value += qty
-                rowExists = True
-                Exit For
-            End If
-        Next
-
-        If Not rowExists Then
-            Dim newRow As New DataGridViewRow()
-            dgvAddedList.Rows.Add(cbxCategory.SelectedItem.ToString, id, product, price, qty)
-            newRow = dgvAddedList.Rows(dgvAddedList.Rows.Count - 1)
-
-            For Each col In DescrCol
-                newRow.Cells(col).Value = Descr(DescrCol.IndexOf(col))
-            Next
         End If
-
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
@@ -171,15 +209,9 @@ Public Class AddStock
                                                ' Draw the item details in a tabular format
                                                Dim xPosition As Integer = 100
                                                For Each cell As DataGridViewCell In row.Cells
-                                                   If Not cell.ColumnIndex = 0 Then
-                                                       If cell.ColumnIndex = 2 Then
-                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
-                                                           xPosition += columnWidth + 75  ' Adjust the width based on column content
-                                                       Else
-                                                           ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
-                                                           xPosition += columnWidth  ' Adjust the width based on column content
-                                                       End If
-
+                                                   If Not cell.ColumnIndex = 0 AndAlso Not cell.ColumnIndex = 2 Then
+                                                       ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
+                                                       xPosition += columnWidth  ' Adjust the width based on column content
                                                    End If
                                                Next
                                                yPos += 20  ' Increase the Y position for the next item

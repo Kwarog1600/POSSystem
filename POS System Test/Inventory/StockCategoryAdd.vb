@@ -2,7 +2,7 @@
 Imports System.Text
 
 Public Class StockCategoryAdd
-    Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btAddCat.Click
+    Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btSave.Click
         AddCat()
     End Sub
 
@@ -33,6 +33,20 @@ Public Class StockCategoryAdd
         End If
     End Sub
 
+    Private Sub dgvCatList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCatList.CellClick
+        Dim cellValue As String = dgvCatList.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+        Dim fileName As String = $"Stock\{cellValue}.csv"
+        Dim headers() As String = File.ReadAllLines(fileName).First().Split(","c)
+
+        If headers.Length > 5 Then
+            cbxAddDescr.Checked = True
+            dgvAddDescr.ReadOnly = False
+            For i = 5 To headers.Length - 1
+                dgvAddDescr.Rows.Add(headers(i), "")
+            Next
+
+        End If
+    End Sub
 End Class
 
 

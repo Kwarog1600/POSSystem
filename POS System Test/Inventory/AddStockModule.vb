@@ -34,8 +34,7 @@ Module AddStockModule
 
         printDoc.PrinterSettings.PrintToFile = True
         printDoc.PrinterSettings.PrintFileName = $"Stock History/{referencenumber}.pdf"
-
-        ' Print the document
+        printDoc.PrinterSettings.PrinterName = "Microsoft Print to PDF"
         printDoc.Print()
     End Sub
 End Module
