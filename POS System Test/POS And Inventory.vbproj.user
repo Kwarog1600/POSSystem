@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_LastSelectedProfileId>C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\My Project\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\My Project\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="AdminForms\AddUser.vb">
+    <Compile Update="Forms\Admin\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminForms\ChangePassword.vb">
+    <Compile Update="Forms\Admin\ChangePassword.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminForms\EmployeeManagement.vb">
+    <Compile Update="Forms\Admin\EmployeeManagement.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminForms\TimeLog.vb">
+    <Compile Update="Forms\Admin\TimeLog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Expenses\ExpenseAdd.vb">
+    <Compile Update="Forms\Expenses\ExpenseAdd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Expenses\Expenses.vb">
+    <Compile Update="Forms\Expenses\Expenses.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="History\History.vb">
+    <Compile Update="Forms\History\History.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Inventory\AddStock.vb">
+    <Compile Update="Forms\Inventory\AddStock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Inventory\Inventory.vb">
+    <Compile Update="Forms\Inventory\Inventory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Inventory\StockCategoryAdd.vb">
+    <Compile Update="Forms\Inventory\StockCategoryAdd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Main Program\LoginForm.vb">
+    <Compile Update="Forms\Main\LoginForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Main Program\MainForm.vb">
+    <Compile Update="Forms\Main\MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Sales\Sales.vb">
+    <Compile Update="Forms\Sales\Sales.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Inventory\StockHistory.vb">
+    <Compile Update="Forms\Inventory\StockHistory.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -29,11 +29,9 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Inventory.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.StockCategoryAdd.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.StockHistory.resources
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Dashboard.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.LoginForm.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.MainForm.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Resources.resources
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.ReceiptForm.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Sales.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS And Inventory.vbproj.GenerateResource.cache
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS And Inventory.GeneratedMSBuildEditorConfig.editorconfig
@@ -101,3 +99,6 @@ C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\R
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Release\net8.0-windows\POS And Inventory.pdb
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Release\net8.0-windows\POS And Inventory.genruntimeconfig.cache
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Release\net8.0-windows\ref\POS And Inventory.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.TimeLog.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.ExpenseAdd.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Expenses.resources

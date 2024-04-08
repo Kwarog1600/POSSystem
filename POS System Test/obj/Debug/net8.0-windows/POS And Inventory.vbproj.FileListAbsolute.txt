@@ -12,7 +12,6 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Inventory.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.StockCategoryAdd.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.StockHistory.resources
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Dashboard.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.LoginForm.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.MainForm.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Resources.resources
@@ -93,7 +92,6 @@ C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS And Inventory.genruntimeconfig.cache
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\ref\POS And Inventory.dll
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources
-C:\Users\HP EliteDesk\Source\Repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptForm.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\bin\Debug\net8.0-windows\Guna.Charts.WinForms.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\Guna.Charts.WinForms.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.EmployeeManagement.resources

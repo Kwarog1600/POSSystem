@@ -1,0 +1,7 @@
+C:\Users\HP EliteDesk\Desktop\POS And Inventory.pdb
+C:\Users\HP EliteDesk\Desktop\D3DCompiler_47_cor3.dll
+C:\Users\HP EliteDesk\Desktop\PenImc_cor3.dll
+C:\Users\HP EliteDesk\Desktop\PresentationNative_cor3.dll
+C:\Users\HP EliteDesk\Desktop\vcruntime140_cor3.dll
+C:\Users\HP EliteDesk\Desktop\wpfgfx_cor3.dll
+C:\Users\HP EliteDesk\Desktop\POS And Inventory.exe

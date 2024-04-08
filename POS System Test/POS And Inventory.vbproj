@@ -64,4 +64,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Modules\Admin\" />
+    <Folder Include="Modules\Expenses\" />
+    <Folder Include="Modules\History\" />
+    <Folder Include="Modules\Sales\" />
+    <Folder Include="My Project\NewFolder\" />
+  </ItemGroup>
+
 </Project>
