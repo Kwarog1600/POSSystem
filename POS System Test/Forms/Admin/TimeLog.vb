@@ -7,6 +7,5 @@ Public Class TimeLog
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxUsers.SelectedIndexChanged
 
-
     End Sub
 End Class

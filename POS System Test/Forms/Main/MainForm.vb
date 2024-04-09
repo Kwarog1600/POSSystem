@@ -55,8 +55,4 @@ Public Class MainForm
     Private Sub btTimeLog_Click(sender As Object, e As EventArgs) Handles btTimeLog.Click
         switchPanel(TimeLog)
     End Sub
-
-    Private Sub pnlSelection_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelection.Paint
-
-    End Sub
 End Class

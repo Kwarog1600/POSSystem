@@ -17,7 +17,8 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-
+        Me.Hide()
+        MainForm.Show()
     End Sub
 
 

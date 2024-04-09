@@ -12,11 +12,11 @@ Public Class Inventory
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
-        RefreshTable()
+
     End Sub
 
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadCategories()
+
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
