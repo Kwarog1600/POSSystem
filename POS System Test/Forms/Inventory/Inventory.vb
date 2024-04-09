@@ -20,26 +20,13 @@ Public Class Inventory
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
-        StockHistory.StockHistory_Load()
+
     End Sub
 
 
 
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
-        Search()
-    End Sub
 
-    Public Sub Search()
-        Dim searchText As String = txbxSearch.Text.ToLower() ' Convert search text to lowercase for case-insensitive search
-        For Each row As DataGridViewRow In dgvStockList.Rows
-            ' Check if the text in the second column matches the search text
-            Dim cellValue As String = row.Cells(1).Value.ToString().ToLower() ' Assuming the second column index is 1
-            If cellValue.Contains(searchText) Then
-                row.Visible = True ' If there's a match, make the row visible
-            Else
-                row.Visible = False ' If there's no match, hide the row
-            End If
-        Next
     End Sub
 
 End Class

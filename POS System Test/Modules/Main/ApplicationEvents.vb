@@ -24,6 +24,8 @@ Namespace My
     ' End Sub
 
     Partial Friend Class MyApplication
+        Private Sub AppLoad(sender As Object, e As EventArgs) Handles Me.Startup
 
+        End Sub
     End Class
 End Namespace
