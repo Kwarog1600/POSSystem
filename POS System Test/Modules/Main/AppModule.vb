@@ -4,10 +4,28 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Module AppModule
+    Dim contents As List(Of String)
 
-    Public Sub MainLoad()
+    Public Function ReadCsv(filePath As String) As List(Of String)
+        Using reader As New StreamReader(filePath)
+            reader.ReadLine()
+            While Not reader.EndOfStream
+                contents.Add(reader.ReadLine())
+            End While
+        End Using
+        Return contents
+    End Function
 
-    End Sub
+    Public Function CountMatch(content As String, index As Integer, filepath As String) As Integer
+        Dim match As Integer = 0
+        For Each line As String In ReadCsv(filepath)
+            Dim items = line.Split(",")
+            If items(index) = content Then
+                match += 1
+            End If
+        Next
+        Return match
+    End Function
 
     Public Sub RefreshTable(ByRef table As DataGridView)
         table.Rows.Clear()
@@ -18,7 +36,7 @@ Module AppModule
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
 
         ' Create a SHA256 hash
-        Using sha256 As SHA256 = sha256.Create()
+        Using sha256 As SHA256 = SHA256.Create()
             Dim hashedBytes As Byte() = sha256.ComputeHash(bytes)
 
             ' Convert hashed bytes to a string
@@ -90,6 +108,19 @@ Module AppModule
         printDoc.PrinterSettings.PrintFileName = $"receipts/{referencenumber}.pdf"
         ' Start printing
         printDoc.Print()
+    End Sub
+
+    Public Sub AccessLevel(level As Integer)
+        If level = 1 Then
+            Inventory.btAddCategory.Visible = False
+            Inventory.btStockHistory.Visible = False
+            MainForm.pnlAdminContainer.Visible = False
+            MainForm.btExpenses.Visible = False
+        ElseIf level = 2 Then
+            MainForm.pnlAdminContainer.Visible = False
+        ElseIf level = 3 Then
+            MainForm.pnlAdminContainer.Visible = True
+        End If
     End Sub
 
 End Module

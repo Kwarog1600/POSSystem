@@ -3,36 +3,41 @@ Imports Microsoft.VisualBasic.FileIO
 Imports System.IO
 
 Module ProgramLoad
-    Public ProgramWidth As Integer = Screen.PrimaryScreen.WorkingArea.Width
-    Public ProgramHeight As Integer = Screen.PrimaryScreen.WorkingArea.Height
 
-    Public Sub LoadAll()
-
-        Main()
-
-
-
+    Public Sub SetAllSizes(width As Integer, height As Integer)
+        With MainForm
+            .pnlSelection.Size = New Size(200, height)
+            .pnlRibbon.Size = New Size(width - 200, 50)
+            .pnlSwitch.Size = New Size(width - 200, height - 50)
+            .pnlFormCtrl.Location = New Point(width - 290, 5)
+        End With
+        With EmployeeManagement
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+        With Expenses
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+        With Inventory
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+        With Sales
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+        With History
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+        With TimeLog
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
     End Sub
 
 
-    Sub Main()
-        CreateDir()
-        ' Create CSV files for each list if they do not exist
-
-    End Sub
-
-    Public Sub AccessLevel(level As Integer)
-        If level = 1 Then
-            Inventory.btAddCategory.Visible = False
-            Inventory.btStockHistory.Visible = False
-            MainForm.pnlAdminContainer.Visible = False
-            MainForm.btExpenses.Visible = False
-        ElseIf level = 2 Then
-            MainForm.pnlAdminContainer.Visible = False
-        ElseIf level = 3 Then
-            MainForm.pnlAdminContainer.Visible = True
-        End If
-    End Sub
 
 End Module
 

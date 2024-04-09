@@ -7,7 +7,6 @@ Public Class LoginForm
 
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ProgramLoad.LoadAll()
         Me.AcceptButton = btLogin
     End Sub
 
