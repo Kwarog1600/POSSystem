@@ -12,7 +12,7 @@ Module CreateFiles
         End If
     End Sub
 
-    Public Sub CreateDir()
+    Public Sub CreateStarting()
         Directory.CreateDirectory("Stock")
         Directory.CreateDirectory("Receipts")
         Directory.CreateDirectory("Resources")

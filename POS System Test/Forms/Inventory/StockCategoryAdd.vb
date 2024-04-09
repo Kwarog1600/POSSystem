@@ -3,11 +3,18 @@ Imports System.Text
 
 Public Class StockCategoryAdd
     Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btSave.Click
-
+        AddCategory("Resources/Stock Category.csv", txbxCategory.Text, dgvAddDescr)
+        dgvCatList.Rows.Clear()
+        dgvCatList.Columns.Clear()
+        RefreshTable("Resources/Stock Category.csv", dgvCatList)
     End Sub
 
     Private Sub StockCategoryAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        contents = ReadCsv("Resources/Stock Category.csv")
+        dgvCatList.Columns.Add("", "")
+        For i = 1 To contents.Count - 1
+            dgvCatList.Rows.Add(contents(i))
+        Next
     End Sub
 
 
@@ -34,6 +41,10 @@ Public Class StockCategoryAdd
     End Sub
 
     Private Sub dgvCatList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCatList.CellClick
+
+    End Sub
+
+    Private Sub dgvAddDescr_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAddDescr.CellContentClick
 
     End Sub
 End Class

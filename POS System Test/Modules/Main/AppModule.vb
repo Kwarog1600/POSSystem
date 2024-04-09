@@ -4,16 +4,22 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Module AppModule
-    Dim contents As List(Of String)
+    'Variables
+    Public filepath As String
+    Public line As String
+    Public headers() As String
+    Public contents As List(Of String)
+    Dim csvcontents As List(Of String)
 
     Public Function ReadCsv(filePath As String) As List(Of String)
+
         Using reader As New StreamReader(filePath)
-            reader.ReadLine()
+            csvcontents = New List(Of String)
             While Not reader.EndOfStream
-                contents.Add(reader.ReadLine())
+                csvcontents.Add(reader.ReadLine)
             End While
         End Using
-        Return contents
+        Return csvcontents
     End Function
 
     Public Function CountMatch(content As String, index As Integer, filepath As String) As Integer
@@ -27,10 +33,52 @@ Module AppModule
         Return match
     End Function
 
-    Public Sub RefreshTable(ByRef table As DataGridView)
-        table.Rows.Clear()
-        table.Columns.Clear()
+    Public Sub RefreshTable(filePath As String, ByRef table As DataGridView)
+        contents = ReadCsv(filePath)
+        Dim headers As String() = contents(0).Split(",")
+        For Each header As String In headers
+            table.Columns.Add(header, header)
+        Next
+        For i As Integer = 1 To contents.Count - 1
+            Dim line = contents(i)
+            Dim items() = line.Split(",")
+            Dim j As Integer = 0
+            table.Rows.Add()
+            For Each item As String In items
+                table.Rows(table.Rows.Count - 1).Cells(headers(j)).Value = item
+                j += 1
+            Next
+        Next
     End Sub
+
+    Public Sub AddCategory(filepath As String, category As String, table As DataGridView)
+        Dim Stockheader As String = "Product ID,Product Name,Price,Quantity"
+        contents = ReadCsv(filepath)
+        If contents.Contains(category) Then
+            MessageBox.Show("Category already exists")
+        Else
+            contents.Add(category)
+            Dim sortedContents = contents.Skip(1).OrderBy(Function(x) x).ToList()
+            sortedContents.Insert(0, contents(0))
+            contents = sortedContents
+            File.WriteAllLines(filepath, contents)
+            For Each item In table.Rows
+                If item IsNot Nothing Then
+                    Stockheader += $",{item.Cells(0).Value}"
+                End If
+            Next
+            Stockheader += Environment.NewLine
+            CreateNewCsv($"Stock\{category}.csv", Stockheader)
+            contents.Clear()
+        End If
+    End Sub
+
+    Public Sub CreateNewCsv(filepath As String, headers As String)
+        Dim headerList As New List(Of String)
+        headerList.Add(headers)
+        File.WriteAllLines(filepath, headerList)
+    End Sub
+
     Public Function HashPassword(password As String) As String
         ' Convert the password to bytes
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)

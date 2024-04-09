@@ -4,12 +4,12 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ExplorerBar
 Imports Mysqlx.XDevAPI.Common
 
 Public Class AddStock
-    Dim categoryFilePath As String = "Resources/Stock Category.csv"
-    Dim categoryNames As New List(Of String)
-
 
     Private Sub AddStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        contents = ReadCsv("Resources/Stock Category.csv")
+        For i = 1 To contents.Count - 1
+            cbxCategory.Items.Add(contents(i))
+        Next
     End Sub
 
     Private Sub LoadCategories()
@@ -27,8 +27,6 @@ Public Class AddStock
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
 
     End Sub
-
-
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
 

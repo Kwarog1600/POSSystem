@@ -29,13 +29,13 @@ Namespace My
         Dim screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
 
         Private Sub AppLoad(sender As Object, e As EventArgs) Handles Me.Startup
+            CreateStarting()
             With LoginForm
                 .Size = New Size(screenWidth, screenHeight)
                 .pnlMain.Size = New Size(screenWidth, screenHeight)
                 .pnlContainer.Location = New Point((screenWidth - .pnlContainer.Size.Width) / 2, (screenHeight - .pnlContainer.Size.Height) / 2)
                 .btClose.Location = New Point(screenWidth - 50, 0)
             End With
-
             SetAllSizes(screenWidth, screenHeight)
         End Sub
     End Class
