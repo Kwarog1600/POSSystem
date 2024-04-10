@@ -12,7 +12,6 @@ Module AppModule
     Dim csvcontents As List(Of String)
 
     Public Function ReadCsv(filePath As String) As List(Of String)
-
         Using reader As New StreamReader(filePath)
             csvcontents = New List(Of String)
             While Not reader.EndOfStream
@@ -79,6 +78,19 @@ Module AppModule
         File.WriteAllLines(filepath, headerList)
     End Sub
 
+    Public Sub UpdateCsv(filepath As String, content() As String, refheader() As String)
+        contents = ReadCsv(filepath)
+        Dim headers As String() = contents(0).Split(","c)
+        Dim match = False
+        For i As Integer = 1 To contents.Count - 1
+            Dim line() As String = contents(i).Split(","c)
+            If line(0) = content(0) Then
+                match = True
+
+            End If
+        Next
+    End Sub
+
     Public Function HashPassword(password As String) As String
         ' Convert the password to bytes
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
@@ -95,6 +107,18 @@ Module AppModule
             Return builder.ToString()
         End Using
     End Function
+
+    Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
+        For Each header As String In headers
+            If Not table.Columns.Contains(header) Then
+                table.Columns.Add(header, header)
+            End If
+        Next
+        table.Rows.Add()
+        For Each cellcontent As String In item
+            table.Rows(table.Rows.Count - 1).Cells(headers(item.IndexOf(cellcontent))).Value = cellcontent
+        Next
+    End Sub
 
     Public Sub switchPanel(ByVal panel As Form)
         With MainForm.pnlSwitch

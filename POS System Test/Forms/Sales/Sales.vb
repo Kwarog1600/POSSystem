@@ -19,42 +19,30 @@ Public Class Sales
 
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        contents = ReadCsv("Resources/Stock Category.csv")
+        For i = 1 To contents.Count - 1
+            cbxCategory.Items.Add(contents(i))
+        Next
     End Sub
-
-
-
-    Private Sub LoadCategories()
-        Dim filePath As String = "Resources/Stock Category.csv"
-
-        ' Check if the file exists
-        If File.Exists(filePath) Then
-            ' Read all lines from the CSV file
-            Dim lines As String() = File.ReadAllLines(filePath)
-
-            ' Clear the existing items in the ComboBox
-            cbxCategory.Items.Clear()
-
-            ' Start from the second line (index 1) to skip the header
-            For i As Integer = 1 To lines.Length - 1
-                ' Split the line by comma (assuming it's a CSV file)
-                Dim category As String() = lines(i).Split(","c)
-
-                ' Add the category to the ComboBox
-                cbxCategory.Items.Add(category(0)) ' Assuming category name is in the first column
-            Next
-
-            ' Select the first item by default
-            If cbxCategory.Items.Count > 0 Then
-                cbxCategory.SelectedIndex = 0
-            End If
-        Else
-            MessageBox.Show("Stock Category.csv file not found.")
-        End If
-    End Sub
-
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-
+        Dim headers As New List(Of String)
+        For Each col In dgvAddedList.Columns
+            headers.Add(col.Name)
+        Next
+        Dim contents As New List(Of String)
+        With contents
+            .Add(cbxCategory.SelectedItem)
+            .Add(txbxID.Text)
+            .Add(txbxProduct.Text)
+            .Add(txbxPrice.Text)
+            .Add(txbxQty.Text)
+            .Add(Convert.ToString(Convert.ToDouble(txbxPrice.Text) * Convert.ToDouble(txbxQty.Text)))
+            For Each add In dgvDescr.Rows
+                .Add(add.Cells(1).Value)
+                headers.Add(add.cells(0).Value)
+            Next
+        End With
+        AddtoTable(dgvAddedList, contents, headers)
     End Sub
 
     Private Sub btVoid_Click(sender As Object, e As EventArgs) Handles btVoid.Click

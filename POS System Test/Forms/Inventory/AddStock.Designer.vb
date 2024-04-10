@@ -50,11 +50,6 @@ Partial Class AddStock
         cbxCategory = New ComboBox()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmCategory = New DataGridViewTextBoxColumn()
-        clmID = New DataGridViewTextBoxColumn()
-        clmProduct = New DataGridViewTextBoxColumn()
-        clmPrice = New DataGridViewTextBoxColumn()
-        clmQuantity = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
@@ -64,6 +59,11 @@ Partial Class AddStock
         clmDescription = New DataGridViewTextBoxColumn()
         clmValue = New DataGridViewTextBoxColumn()
         btRemove = New Guna.UI2.WinForms.Guna2Button()
+        clmCategory = New DataGridViewTextBoxColumn()
+        clmID = New DataGridViewTextBoxColumn()
+        clmProduct = New DataGridViewTextBoxColumn()
+        clmPrice = New DataGridViewTextBoxColumn()
+        clmQuantity = New DataGridViewTextBoxColumn()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -219,36 +219,6 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.RowsStyle.Height = 25
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmProduct
-        ' 
-        clmProduct.HeaderText = "Product"
-        clmProduct.Name = "clmProduct"
-        clmProduct.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmQuantity
-        ' 
-        clmQuantity.HeaderText = "Quantity"
-        clmQuantity.Name = "clmQuantity"
-        clmQuantity.ReadOnly = True
         ' 
         ' btSave
         ' 
@@ -408,6 +378,36 @@ Partial Class AddStock
         btRemove.TabIndex = 27
         btRemove.Text = "Remove"
         ' 
+        ' clmCategory
+        ' 
+        clmCategory.HeaderText = "Category"
+        clmCategory.Name = "clmCategory"
+        clmCategory.ReadOnly = True
+        ' 
+        ' clmID
+        ' 
+        clmID.HeaderText = "ID"
+        clmID.Name = "clmID"
+        clmID.ReadOnly = True
+        ' 
+        ' clmProduct
+        ' 
+        clmProduct.HeaderText = "Product"
+        clmProduct.Name = "clmProduct"
+        clmProduct.ReadOnly = True
+        ' 
+        ' clmPrice
+        ' 
+        clmPrice.HeaderText = "Price"
+        clmPrice.Name = "clmPrice"
+        clmPrice.ReadOnly = True
+        ' 
+        ' clmQuantity
+        ' 
+        clmQuantity.HeaderText = "Quantity"
+        clmQuantity.Name = "clmQuantity"
+        clmQuantity.ReadOnly = True
+        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -450,13 +450,13 @@ Partial Class AddStock
     Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblPrice As Label
     Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents dgvAddDescr As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents clmDescription As DataGridViewTextBoxColumn
+    Friend WithEvents clmValue As DataGridViewTextBoxColumn
+    Friend WithEvents btRemove As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents clmCategory As DataGridViewTextBoxColumn
     Friend WithEvents clmID As DataGridViewTextBoxColumn
     Friend WithEvents clmProduct As DataGridViewTextBoxColumn
     Friend WithEvents clmPrice As DataGridViewTextBoxColumn
     Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
-    Friend WithEvents dgvAddDescr As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents clmDescription As DataGridViewTextBoxColumn
-    Friend WithEvents clmValue As DataGridViewTextBoxColumn
-    Friend WithEvents btRemove As Guna.UI2.WinForms.Guna2Button
 End Class

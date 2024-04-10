@@ -16,11 +16,21 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-        Me.Hide()
-        MainForm.Show()
+        contents = ReadCsv("Resources/Users.csv")
+        Dim match As Boolean = False
+        For Each userinfo In contents
+            Dim user = userinfo.Split(","c)
+            If user(1) = txbxUsername.Text AndAlso user(2) = HashPassword(txbxPassword.Text) Then
+                match = True
+            End If
+        Next
+        If match Then
+            Me.Hide()
+            MainForm.Show()
+        Else
+            MessageBox.Show("Incorrect username or password")
+        End If
     End Sub
-
-
 
     Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
 

@@ -11,12 +11,14 @@ Public Class Inventory
         StockCategoryAdd.Visible = True
     End Sub
 
-    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
-
-    End Sub
 
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        cbxCategory.Items.Add("All")
+        contents = ReadCsv("Resources/Stock Category.csv")
+        For i = 1 To contents.Count - 1
+            cbxCategory.Items.Add(contents(i))
+        Next
+        cbxCategory.SelectedIndex = 0
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click

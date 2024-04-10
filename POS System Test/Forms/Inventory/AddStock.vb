@@ -21,11 +21,30 @@ Public Class AddStock
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-
+        Dim headers As New List(Of String)
+        For Each col In dgvAddedList.Columns
+            headers.Add(col.Name)
+        Next
+        Dim contents As New List(Of String)
+        With contents
+            .Add(cbxCategory.SelectedItem)
+            .Add(txbxID.Text)
+            .Add(txbxProduct.Text)
+            .Add(txbxPrice.Text)
+            .Add(txbxQty.Text)
+            For Each add In dgvAddDescr.Rows
+                .Add(add.Cells(1).Value)
+                headers.Add(add.cells(0).Value)
+            Next
+        End With
+        AddtoTable(dgvAddedList, contents, headers)
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
+        For Each row In dgvAddedList.Rows
+            Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
 
+        Next
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
