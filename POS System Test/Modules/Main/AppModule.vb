@@ -82,8 +82,8 @@ Module AppModule
             sortedContents.Insert(0, contents(0))
             contents = sortedContents
             File.WriteAllLines(filepath, contents)
-            For Each item In table.Rows
-                If item IsNot Nothing Then
+            For Each item As DataGridViewRow In table.Rows
+                If item.Cells(0).Value IsNot Nothing Then
                     Stockheader += $",{item.Cells(0).Value}"
                 End If
             Next
