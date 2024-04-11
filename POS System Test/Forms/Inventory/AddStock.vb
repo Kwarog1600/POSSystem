@@ -11,12 +11,11 @@ Public Class AddStock
         For i = 1 To contents.Count - 1
             cbxCategory.Items.Add(contents(i))
         Next
-        dgvAddedList.Columns.Clear()
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
 
-        If txbxID.Text Or txbxPrice.Text Or txbxProduct.Text Or txbxQty.Text IsNot Nothing Then
+        If txbxID.Text IsNot Nothing Or txbxPrice.Text IsNot Nothing Or txbxProduct.Text IsNot Nothing Or txbxQty.Text IsNot Nothing Then
             Dim headers As New List(Of String)
             For Each col As DataGridViewColumn In dgvAddedList.Columns
                 headers.Add(col.Name)
@@ -57,8 +56,7 @@ Public Class AddStock
             Else
                 AddtoTable(dgvAddedList, contents, headers)
             End If
-            dgvAddedList.Columns.Clear()
-            dgvAddedList.Rows.Clear()
+
         Else
             MessageBox.Show("Please fill all the fields")
         End If
@@ -70,13 +68,17 @@ Public Class AddStock
         For i As Integer = 1 To dgvAddedList.Columns.Count - 1
             headers.Add(dgvAddedList.Columns(i).HeaderText)
         Next
-        For Each row In dgvAddedList.Rows
+        For Each row As DataGridViewRow In dgvAddedList.Rows
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
                 content.Add(row.Cells(i).Value)
             Next
             AddStockSub(filename, content, headers)
+        Next
+        dgvAddedList.Rows.Clear()
+        For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
+            dgvAddedList.Columns.RemoveAt(i)
         Next
     End Sub
 

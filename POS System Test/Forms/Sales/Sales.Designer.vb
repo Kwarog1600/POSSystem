@@ -22,22 +22,20 @@ Partial Class Sales
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -46,6 +44,10 @@ Partial Class Sales
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         dgvDescr = New Guna.UI2.WinForms.Guna2DataGridView()
         Description = New DataGridViewTextBoxColumn()
@@ -74,6 +76,7 @@ Partial Class Sales
         lblName = New Label()
         txbxName = New Guna.UI2.WinForms.Guna2TextBox()
         btSale = New Guna.UI2.WinForms.Guna2Button()
+        btnSearch = New Guna.UI2.WinForms.Guna2Button()
         pnlContainer.SuspendLayout()
         CType(dgvDescr, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +85,7 @@ Partial Class Sales
         ' pnlContainer
         ' 
         pnlContainer.BorderRadius = 25
+        pnlContainer.Controls.Add(btnSearch)
         pnlContainer.Controls.Add(dgvDescr)
         pnlContainer.Controls.Add(btVoid)
         pnlContainer.Controls.Add(showTotalPrice)
@@ -101,10 +105,10 @@ Partial Class Sales
         pnlContainer.Controls.Add(lblName)
         pnlContainer.Controls.Add(txbxName)
         pnlContainer.Controls.Add(btSale)
-        pnlContainer.CustomizableEdges = CustomizableEdges17
+        pnlContainer.CustomizableEdges = CustomizableEdges19
         pnlContainer.Location = New Point(28, 33)
         pnlContainer.Name = "pnlContainer"
-        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         pnlContainer.Size = New Size(920, 575)
         pnlContainer.TabIndex = 4
         ' 
@@ -175,7 +179,7 @@ Partial Class Sales
         ' btVoid
         ' 
         btVoid.BackColor = Color.Transparent
-        btVoid.CustomizableEdges = CustomizableEdges1
+        btVoid.CustomizableEdges = CustomizableEdges3
         btVoid.DisabledState.BorderColor = Color.DarkGray
         btVoid.DisabledState.CustomBorderColor = Color.DarkGray
         btVoid.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -185,7 +189,7 @@ Partial Class Sales
         btVoid.ForeColor = Color.White
         btVoid.Location = New Point(39, 201)
         btVoid.Name = "btVoid"
-        btVoid.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btVoid.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btVoid.Size = New Size(180, 50)
         btVoid.TabIndex = 41
         btVoid.Text = "Void"
@@ -225,7 +229,7 @@ Partial Class Sales
         ' txbxPrice
         ' 
         txbxPrice.BackColor = Color.Transparent
-        txbxPrice.CustomizableEdges = CustomizableEdges3
+        txbxPrice.CustomizableEdges = CustomizableEdges5
         txbxPrice.DefaultText = ""
         txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxPrice.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -239,7 +243,7 @@ Partial Class Sales
         txbxPrice.PasswordChar = ChrW(0)
         txbxPrice.PlaceholderText = ""
         txbxPrice.SelectedText = ""
-        txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         txbxPrice.Size = New Size(148, 36)
         txbxPrice.TabIndex = 37
         ' 
@@ -256,7 +260,7 @@ Partial Class Sales
         ' txbxQty
         ' 
         txbxQty.BackColor = Color.Transparent
-        txbxQty.CustomizableEdges = CustomizableEdges5
+        txbxQty.CustomizableEdges = CustomizableEdges7
         txbxQty.DefaultText = ""
         txbxQty.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxQty.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -270,7 +274,7 @@ Partial Class Sales
         txbxQty.PasswordChar = ChrW(0)
         txbxQty.PlaceholderText = ""
         txbxQty.SelectedText = ""
-        txbxQty.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txbxQty.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         txbxQty.Size = New Size(242, 36)
         txbxQty.TabIndex = 35
         ' 
@@ -367,7 +371,7 @@ Partial Class Sales
         ' btAddStock
         ' 
         btAddStock.BackColor = Color.Transparent
-        btAddStock.CustomizableEdges = CustomizableEdges7
+        btAddStock.CustomizableEdges = CustomizableEdges9
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
         btAddStock.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -377,7 +381,7 @@ Partial Class Sales
         btAddStock.ForeColor = Color.White
         btAddStock.Location = New Point(225, 201)
         btAddStock.Name = "btAddStock"
-        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         btAddStock.Size = New Size(180, 50)
         btAddStock.TabIndex = 32
         btAddStock.Text = " Add"
@@ -427,7 +431,7 @@ Partial Class Sales
         ' txbxID
         ' 
         txbxID.BackColor = Color.Transparent
-        txbxID.CustomizableEdges = CustomizableEdges9
+        txbxID.CustomizableEdges = CustomizableEdges11
         txbxID.DefaultText = ""
         txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxID.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -441,14 +445,14 @@ Partial Class Sales
         txbxID.PasswordChar = ChrW(0)
         txbxID.PlaceholderText = ""
         txbxID.SelectedText = ""
-        txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         txbxID.Size = New Size(242, 36)
         txbxID.TabIndex = 0
         ' 
         ' txbxProduct
         ' 
         txbxProduct.BackColor = Color.Transparent
-        txbxProduct.CustomizableEdges = CustomizableEdges11
+        txbxProduct.CustomizableEdges = CustomizableEdges13
         txbxProduct.DefaultText = ""
         txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxProduct.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -462,8 +466,8 @@ Partial Class Sales
         txbxProduct.PasswordChar = ChrW(0)
         txbxProduct.PlaceholderText = ""
         txbxProduct.SelectedText = ""
-        txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        txbxProduct.Size = New Size(242, 36)
+        txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        txbxProduct.Size = New Size(162, 36)
         txbxProduct.TabIndex = 26
         ' 
         ' lblName
@@ -479,7 +483,7 @@ Partial Class Sales
         ' txbxName
         ' 
         txbxName.BackColor = Color.Transparent
-        txbxName.CustomizableEdges = CustomizableEdges13
+        txbxName.CustomizableEdges = CustomizableEdges15
         txbxName.DefaultText = ""
         txbxName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txbxName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -493,14 +497,14 @@ Partial Class Sales
         txbxName.PasswordChar = ChrW(0)
         txbxName.PlaceholderText = "Name"
         txbxName.SelectedText = ""
-        txbxName.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        txbxName.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         txbxName.Size = New Size(180, 36)
         txbxName.TabIndex = 7
         ' 
         ' btSale
         ' 
         btSale.BackColor = Color.Transparent
-        btSale.CustomizableEdges = CustomizableEdges15
+        btSale.CustomizableEdges = CustomizableEdges17
         btSale.DisabledState.BorderColor = Color.DarkGray
         btSale.DisabledState.CustomBorderColor = Color.DarkGray
         btSale.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -510,10 +514,28 @@ Partial Class Sales
         btSale.ForeColor = Color.White
         btSale.Location = New Point(410, 201)
         btSale.Name = "btSale"
-        btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btSale.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         btSale.Size = New Size(180, 50)
         btSale.TabIndex = 2
         btSale.Text = "Sale"
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.BackColor = Color.Transparent
+        btnSearch.CustomizableEdges = CustomizableEdges1
+        btnSearch.DisabledState.BorderColor = Color.DarkGray
+        btnSearch.DisabledState.CustomBorderColor = Color.DarkGray
+        btnSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnSearch.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnSearch.FillColor = Color.DimGray
+        btnSearch.Font = New Font("Segoe UI", 9F)
+        btnSearch.ForeColor = Color.White
+        btnSearch.Location = New Point(268, 88)
+        btnSearch.Name = "btnSearch"
+        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btnSearch.Size = New Size(74, 36)
+        btnSearch.TabIndex = 43
+        btnSearch.Text = "Search"
         ' 
         ' Sales
         ' 
@@ -560,4 +582,5 @@ Partial Class Sales
     Friend WithEvents dgvDescr As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Description As DataGridViewTextBoxColumn
     Friend WithEvents Value As DataGridViewTextBoxColumn
+    Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
 End Class

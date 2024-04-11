@@ -133,10 +133,7 @@ Module AppModule
                     NewLine(index) = addcontent(i)
                 End If
             Next
-            Dim newStock As String = ""
-            For Each item In NewLine
-                newStock = String.Join(",", NewLine)
-            Next
+            Dim newStock As String = String.Join(",", NewLine)
             File.AppendAllText(filepath, newStock & Environment.NewLine)
         End If
     End Sub
