@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Text
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports Mysqlx.Notice.Warning.Types
 
 Public Class LoginForm
 
@@ -21,6 +22,7 @@ Public Class LoginForm
         For Each userinfo In contents
             Dim user = userinfo.Split(","c)
             If user(1) = txbxUsername.Text AndAlso user(2) = HashPassword(txbxPassword.Text) Then
+                AccessLevel(user(3))
                 match = True
             End If
         Next

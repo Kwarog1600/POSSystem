@@ -25,8 +25,8 @@ Namespace My
 
     Partial Friend Class MyApplication
 
-        Dim screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
-        Dim screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
+        Dim screenWidth As Integer = Screen.PrimaryScreen.WorkingArea.Width
+        Dim screenHeight As Integer = Screen.PrimaryScreen.WorkingArea.Height
 
         Private Sub AppLoad(sender As Object, e As EventArgs) Handles Me.Startup
             CreateStarting()

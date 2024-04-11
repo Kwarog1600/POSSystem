@@ -78,16 +78,28 @@ Module AppModule
         File.WriteAllLines(filepath, headerList)
     End Sub
 
-    Public Sub UpdateCsv(filepath As String, content() As String, refheader() As String)
+    Public Sub UpdateQty(filepath As String, content As List(Of String), refheader As List(Of String))
         contents = ReadCsv(filepath)
-        Dim headers As String() = contents(0).Split(","c)
-        Dim match = False
-        For i As Integer = 1 To contents.Count - 1
+        Dim headers() As String = contents(0).Split(","c)
+        For i As Integer = 0 To contents.Count - 1
             Dim line() As String = contents(i).Split(","c)
             If line(0) = content(0) Then
-                match = True
-
+                line(3) = content(3)
+                contents(i) = String.Join(",", line)
             End If
+        Next
+        File.WriteAllLines(filepath, contents)
+    End Sub
+
+    Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
+        For Each header As String In headers
+            If Not table.Columns.Contains(header) Then
+                table.Columns.Add(header, header)
+            End If
+        Next
+        table.Rows.Add()
+        For Each cellcontent As String In item
+            table.Rows(table.Rows.Count - 1).Cells(headers(item.IndexOf(cellcontent))).Value = cellcontent
         Next
     End Sub
 
@@ -108,17 +120,6 @@ Module AppModule
         End Using
     End Function
 
-    Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
-        For Each header As String In headers
-            If Not table.Columns.Contains(header) Then
-                table.Columns.Add(header, header)
-            End If
-        Next
-        table.Rows.Add()
-        For Each cellcontent As String In item
-            table.Rows(table.Rows.Count - 1).Cells(headers(item.IndexOf(cellcontent))).Value = cellcontent
-        Next
-    End Sub
 
     Public Sub switchPanel(ByVal panel As Form)
         With MainForm.pnlSwitch

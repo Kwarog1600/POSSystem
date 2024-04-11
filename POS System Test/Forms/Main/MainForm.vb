@@ -5,12 +5,7 @@ Public Class MainForm
 
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
-        Dim screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
-        Me.ClientSize = New Size(screenWidth, screenHeight)
-        pnlSelection.Size = New Size(200, screenHeight)
-        pnlRibbon.Size = New Size(screenWidth - 200, 50)
-        pnlSwitch.Size = New Size(screenWidth - 200, screenHeight - 50)
+
     End Sub
 
     Private Sub btMin_Click(sender As Object, e As EventArgs) Handles btMin.Click
@@ -54,5 +49,9 @@ Public Class MainForm
 
     Private Sub btTimeLog_Click(sender As Object, e As EventArgs) Handles btTimeLog.Click
         switchPanel(TimeLog)
+    End Sub
+
+    Private Sub pnlSwitch_Paint(sender As Object, e As PaintEventArgs) Handles pnlSwitch.Paint
+
     End Sub
 End Class
