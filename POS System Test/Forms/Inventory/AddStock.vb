@@ -49,7 +49,7 @@ Public Class AddStock
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
-                content.Add(row.cells(i))
+                content.Add(row.Cells(i).Value)
             Next
             AddStockSub(filename, content, headers)
         Next

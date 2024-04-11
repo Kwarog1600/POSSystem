@@ -86,29 +86,38 @@ Module AppModule
             If line(0) = content(0) Then
                 line(3) = content(3)
                 contents(i) = String.Join(",", line)
+                Exit For
             End If
         Next
         File.WriteAllLines(filepath, contents)
     End Sub
 
-    Public Sub AddStockSub(filepath As String, content As List(Of String), refheader As List(Of String))
+    Public Sub AddStockSub(filepath As String, addcontent As List(Of String), refheader As List(Of String))
         contents = ReadCsv(filepath)
         Dim headers() As String = contents(0).Split(","c)
         Dim match As Boolean = False
         For i As Integer = 0 To contents.Count - 1
             Dim item() As String = contents(i).Split(","c)
-            If content(0) = contents(0) Then
+            If addcontent(0) = contents(0) Then
                 match = True
-                UpdateQty(filepath, content, refheader)
+                UpdateQty(filepath, addcontent, refheader)
             End If
         Next
 
-        If Not match Then
-            Dim NewLine() As String
-            For i As Integer = 0 To content.Count - 1
-                NewLine(i) = content(headers.IndexOf(refheader(i))
+        If Not match Then Thena
+            Dim NewLine(headers.Length) As String
+            For i As Integer = 0 To refheader.Count - 1
+                If addcontent(i) IsNot Nothing Then
+                    NewLine(Array.IndexOf(headers.ToArray, refheader(i))) = addcontent(i)
+                End If
             Next
+            Dim newStock As String = ""
+            For Each item In NewLine
+                newStock = String.Join("'", NewLine)
+            Next
+            File.AppendAllText(filepath, newStock & Environment.NewLine)
         End If
+
     End Sub
 
     Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
