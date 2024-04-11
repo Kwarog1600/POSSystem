@@ -91,6 +91,26 @@ Module AppModule
         File.WriteAllLines(filepath, contents)
     End Sub
 
+    Public Sub AddStockSub(filepath As String, content As List(Of String), refheader As List(Of String))
+        contents = ReadCsv(filepath)
+        Dim headers() As String = contents(0).Split(","c)
+        Dim match As Boolean = False
+        For i As Integer = 0 To contents.Count - 1
+            Dim item() As String = contents(i).Split(","c)
+            If content(0) = contents(0) Then
+                match = True
+                UpdateQty(filepath, content, refheader)
+            End If
+        Next
+
+        If Not match Then
+            Dim NewLine() As String
+            For i As Integer = 0 To content.Count - 1
+                NewLine(i) = content(headers.IndexOf(refheader(i))
+            Next
+        End If
+    End Sub
+
     Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
         For Each header As String In headers
             If Not table.Columns.Contains(header) Then

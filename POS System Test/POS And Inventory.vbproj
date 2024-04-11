@@ -17,8 +17,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Modules\Admin\**" />
+    <Compile Remove="Modules\Expenses\**" />
+    <Compile Remove="Modules\History\**" />
+    <Compile Remove="Modules\Sales\**" />
     <Compile Remove="Program Data\**" />
+    <EmbeddedResource Remove="Modules\Admin\**" />
+    <EmbeddedResource Remove="Modules\Expenses\**" />
+    <EmbeddedResource Remove="Modules\History\**" />
+    <EmbeddedResource Remove="Modules\Sales\**" />
     <EmbeddedResource Remove="Program Data\**" />
+    <None Remove="Modules\Admin\**" />
+    <None Remove="Modules\Expenses\**" />
+    <None Remove="Modules\History\**" />
+    <None Remove="Modules\Sales\**" />
     <None Remove="Program Data\**" />
   </ItemGroup>
 
@@ -65,10 +77,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modules\Admin\" />
-    <Folder Include="Modules\Expenses\" />
-    <Folder Include="Modules\History\" />
-    <Folder Include="Modules\Sales\" />
     <Folder Include="My Project\NewFolder\" />
   </ItemGroup>
 

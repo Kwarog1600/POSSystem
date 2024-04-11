@@ -41,9 +41,17 @@ Public Class AddStock
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
+        Dim headers As New List(Of String)
+        For Each col In dgvAddedList.Columns
+            headers.Add(col.Name)
+        Next
         For Each row In dgvAddedList.Rows
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
-
+            Dim content As New List(Of String)
+            For i As Integer = 1 To dgvAddedList.Columns.Count - 1
+                content.Add(row.cells(i))
+            Next
+            AddStockSub(filename, content, headers)
         Next
     End Sub
 
