@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Text.RegularExpressions
 
 Module AppModule
     'Variables
@@ -21,15 +22,35 @@ Module AppModule
         Return csvcontents
     End Function
 
-    Public Function CountMatch(content As String, index As Integer, filepath As String) As Integer
+    Public Function CountMatch(content As String, index As Integer) As Integer
         Dim match As Integer = 0
-        For Each line As String In ReadCsv(filepath)
-            Dim items = line.Split(",")
-            If items(index) = content Then
-                match += 1
-            End If
+        For Each item In ReadCsv("Resources/Stock Category.csv").Skip(1)
+            Dim filepath As String = "Stock/" & item & ".csv"
+            For Each line As String In ReadCsv(filepath)
+                Dim items = line.Split(",")
+                If items(index) = content Then
+                    match += 1
+                End If
+            Next
         Next
         Return match
+    End Function
+
+    Public Function SearchID(content As String, index As Integer) As String()
+        If CountMatch(content, 0) = 1 Then
+            For Each item In ReadCsv("Resources/Stock Category.csv").Skip(1)
+                Dim filepath As String = "Stock/" & item & ".csv"
+                For Each line As String In ReadCsv(filepath)
+                    Dim items = line.Split(",")
+                    If items(index) = content Then
+                        items.ToList.Insert(0, item)
+                        Return items
+                    Else
+                        Return Nothing
+                    End If
+                Next
+            Next
+        End If
     End Function
 
     Public Sub RefreshTable(filePath As String, ByRef table As DataGridView)
@@ -51,7 +72,7 @@ Module AppModule
     End Sub
 
     Public Sub AddCategory(filepath As String, category As String, table As DataGridView)
-        Dim Stockheader As String = "Product ID,Product Name,Price,Quantity"
+        Dim Stockheader As String = "ID,Product,Price,Quantity"
         contents = ReadCsv(filepath)
         If contents.Contains(category) Then
             MessageBox.Show("Category already exists")
@@ -104,20 +125,20 @@ Module AppModule
             End If
         Next
 
-        If Not match Then Thena
-            Dim NewLine(headers.Length) As String
+        If Not match Then
+            Dim NewLine(headers.Count) As String
             For i As Integer = 0 To refheader.Count - 1
                 If addcontent(i) IsNot Nothing Then
-                    NewLine(Array.IndexOf(headers.ToArray, refheader(i))) = addcontent(i)
+                    Dim index As Integer = Array.IndexOf(headers, refheader(i))
+                    NewLine(index) = addcontent(i)
                 End If
             Next
             Dim newStock As String = ""
             For Each item In NewLine
-                newStock = String.Join("'", NewLine)
+                newStock = String.Join(",", NewLine)
             Next
             File.AppendAllText(filepath, newStock & Environment.NewLine)
         End If
-
     End Sub
 
     Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
