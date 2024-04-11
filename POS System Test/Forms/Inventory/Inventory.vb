@@ -31,6 +31,17 @@ Public Class Inventory
 
     End Sub
 
+    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+        If cbxCategory.SelectedItem = "All" Then
+            For Each item In ReadCsv("Resources/Stock Category.csv")
+                For Each row In ReadCsv($"Resources/{item}.csv")
+                    Dim headers() As String = row.Split(",")
+                Next
+            Next
+        Else
+
+        End If
+    End Sub
 End Class
 
 
