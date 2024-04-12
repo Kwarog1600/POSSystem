@@ -6,7 +6,23 @@ Imports Microsoft.VisualBasic.FileIO
 
 Public Class Sales
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
-
+        Dim headers As New List(Of String)
+        For i As Integer = 1 To dgvAddedList.Columns.Count - 1
+            headers.Add(dgvAddedList.Columns(i).HeaderText)
+        Next
+        For Each row As DataGridViewRow In dgvAddedList.Rows
+            Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
+            Dim content As New List(Of String)
+            For i As Integer = 1 To dgvAddedList.Columns.Count - 1
+                content.Add(row.Cells(i).Value)
+            Next
+            UpdateQty(filename, content, headers, True)
+        Next
+        dgvAddedList.Rows.Clear()
+        For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
+            dgvAddedList.Columns.RemoveAt(i)
+        Next
+        Inventory.cbxCategory.SelectedIndex = 0
     End Sub
 
     Private Sub txbxID_KeyDown(sender As Object, e As KeyEventArgs) Handles txbxID.KeyDown
@@ -84,6 +100,7 @@ Public Class Sales
         Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
         For Each row As DataGridViewRow In dgvDescr.Rows
             id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
+
         Next
         txbxID.Text = id
     End Sub

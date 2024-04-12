@@ -89,13 +89,17 @@ Module AppModule
         File.WriteAllLines(filepath, headerList)
     End Sub
 
-    Public Sub UpdateQty(filepath As String, content As List(Of String), refheader As List(Of String))
+    Public Sub UpdateQty(filepath As String, content As List(Of String), refheader As List(Of String), Optional subtract As Boolean = False)
         contents = ReadCsv(filepath)
         Dim headers() As String = contents(0).Split(","c)
         For i As Integer = 0 To contents.Count - 1
             Dim line() As String = contents(i).Split(","c)
             If line(0) = content(0) Then
-                line(3) = (Integer.Parse(line(3)) + Integer.Parse(content(3))).ToString()
+                If subtract Then
+                    line(3) = (Integer.Parse(line(3)) - Integer.Parse(content(3))).ToString() ' Subtract quantity
+                Else
+                    line(3) = (Integer.Parse(line(3)) + Integer.Parse(content(3))).ToString() ' Add quantity
+                End If
                 contents(i) = String.Join(",", line)
                 Exit For
             End If

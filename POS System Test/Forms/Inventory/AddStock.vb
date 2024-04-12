@@ -40,13 +40,18 @@ Public Class AddStock
                 Next
             End With
             If Not dgvAddedList.Rows.Count = 0 Then
+                Dim itemExists As Boolean = False
                 For Each row As DataGridViewRow In dgvAddedList.Rows
-                    If Not row.Cells(1).Value = contents(1) Then
-                        AddtoTable(dgvAddedList, contents, headers)
-                    Else
-                        row.Cells(4).Value = Int(row.Cells(4).Value) + Int(contents(4))
+                    If row.Cells(1).Value = contents(1).ToString Then
+                        row.Cells(4).Value = Convert.ToInt32(row.Cells(4).Value) + Convert.ToInt32(contents(4))
+                        itemExists = True
+                        Exit For ' Exit the loop since the item is found
                     End If
                 Next
+
+                If Not itemExists Then
+                    AddtoTable(dgvAddedList, contents, headers)
+                End If
             Else
                 AddtoTable(dgvAddedList, contents, headers)
             End If
@@ -66,6 +71,7 @@ Public Class AddStock
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
                 content.Add(row.Cells(i).Value)
             Next
+            content(3) = content(3)
             AddStockSub(filename, content, headers)
         Next
         dgvAddedList.Rows.Clear()
