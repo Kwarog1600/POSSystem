@@ -117,7 +117,6 @@ Public Class AddStock
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
-
     End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
