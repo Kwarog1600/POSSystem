@@ -25,10 +25,6 @@ Public Class Sales
         Inventory.cbxCategory.SelectedIndex = 0
     End Sub
 
-    Private Sub txbxID_KeyDown(sender As Object, e As KeyEventArgs) Handles txbxID.KeyDown
-
-    End Sub
-
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
         If CountMatch(txbxID.Text, 0) = 1 Then
             For Each cat In cbxCategory.Items
