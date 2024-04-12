@@ -14,32 +14,76 @@ Public Class Inventory
 
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbxCategory.Items.Add("All")
-        contents = ReadCsv("Resources/Stock Category.csv")
-        For i = 1 To contents.Count - 1
-            cbxCategory.Items.Add(contents(i))
-        Next
-        cbxCategory.SelectedIndex = 0
+        RefreshCat(cbxCategory)
+        cbxCategory.SelectedItem = "All"
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
 
     End Sub
 
-
-
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
+        Dim searchText As String = txbxSearch.Text.ToLower()
 
+        For Each row As DataGridViewRow In dgvStockList.Rows
+            Dim found As Boolean = False
+
+            For Each cell As DataGridViewCell In row.Cells
+                If cell.Value IsNot Nothing AndAlso cell.Value.ToString().ToLower().Contains(searchText) Then
+                    found = True
+                    Exit For
+                End If
+            Next
+
+            row.Visible = found
+        Next
     End Sub
 
+
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+        dgvStockList.Rows.Clear()
         If cbxCategory.SelectedItem = "All" Then
-            For Each item In ReadCsv("Resources/Stock Category.csv")
-                For Each row In ReadCsv($"Resources/{item}.csv")
-                    Dim headers() As String = row.Split(",")
-                Next
+            For Each cat In cbxCategory.Items
+                If Not cat = "All" Then
+                    Dim contents = ReadCsv($"Stock\{cat}.csv")
+                    Dim tbheader() As String = contents(0).Split(","c)
+
+                    For Each head As String In tbheader
+                        If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                            dgvStockList.Columns.Add($"clm{head}", head)
+                        End If
+                    Next
+                    For i As Integer = 1 To contents.Count - 1
+                        Dim item() As String = contents(i).Split(","c)
+                        Dim newRowIdx = dgvStockList.Rows.Add()
+                        For j As Integer = 0 To item.Length - 1
+                            If j < tbheader.Length Then
+                                Dim columnName As String = $"clm{tbheader(j)}"
+                                dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
+                            End If
+                        Next
+                    Next
+                End If
             Next
         Else
-
+            Dim cat As String = cbxCategory.SelectedItem
+            Dim contents = ReadCsv($"Stock\{cat}.csv")
+            Dim tbheader() As String = contents(0).Split(","c)
+            For Each head As String In tbheader
+                    If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                        dgvStockList.Columns.Add($"clm{head}", head)
+                    End If
+                Next
+            For i As Integer = 1 To contents.Count - 1
+                Dim item() As String = contents(i).Split(","c)
+                Dim newRowIdx = dgvStockList.Rows.Add()
+                For j As Integer = 0 To item.Length - 1
+                    If j < tbheader.Length Then
+                        Dim columnName As String = $"clm{tbheader(j)}"
+                        dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
+                    End If
+                Next
+            Next
         End If
     End Sub
 End Class

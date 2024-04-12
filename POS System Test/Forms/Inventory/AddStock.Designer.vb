@@ -86,7 +86,7 @@ Partial Class AddStock
         txbxProduct.SelectedText = ""
         txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txbxProduct.Size = New Size(242, 36)
-        txbxProduct.TabIndex = 1
+        txbxProduct.TabIndex = 0
         ' 
         ' txbxID
         ' 
@@ -106,7 +106,7 @@ Partial Class AddStock
         txbxID.SelectedText = ""
         txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         txbxID.Size = New Size(242, 36)
-        txbxID.TabIndex = 0
+        txbxID.TabIndex = 1
         ' 
         ' lbProduct
         ' 

@@ -7,6 +7,10 @@ Public Class StockCategoryAdd
         dgvCatList.Rows.Clear()
         dgvCatList.Columns.Clear()
         RefreshTable("Resources/Stock Category.csv", dgvCatList)
+
+        RefreshCat(Inventory.cbxCategory)
+        RefreshCat(Sales.cbxCategory)
+        RefreshCat(AddStock.cbxCategory)
     End Sub
 
     Private Sub StockCategoryAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load

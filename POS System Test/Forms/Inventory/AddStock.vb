@@ -14,29 +14,23 @@ Public Class AddStock
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-
-        If txbxID.Text IsNot Nothing Or txbxPrice.Text IsNot Nothing Or txbxProduct.Text IsNot Nothing Or txbxQty.Text IsNot Nothing Then
+        If txbxID.Text <> "" AndAlso txbxPrice.Text <> "" AndAlso txbxProduct.Text <> "" AndAlso txbxQty.Text <> "" Then
             Dim headers As New List(Of String)
             For Each col As DataGridViewColumn In dgvAddedList.Columns
                 headers.Add(col.Name)
             Next
 
             For Each row As DataGridViewRow In dgvAddDescr.Rows
-                If row.Cells(1).Value Is Nothing Then
+                If row.Cells(1).Value = "" Then
                     MessageBox.Show("Please fill all fields")
                     Exit Sub
                 End If
             Next
 
-            Dim id As String = ""
-            For Each row As DataGridViewRow In dgvAddDescr.Rows
-                id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
-            Next
-
             Dim contents As New List(Of String)
             With contents
                 .Add(cbxCategory.SelectedItem)
-                .Add(txbxID.Text & id)
+                .Add(txbxID.Text)
                 .Add(txbxProduct.Text)
                 .Add(txbxPrice.Text)
                 .Add(txbxQty.Text)
@@ -56,11 +50,9 @@ Public Class AddStock
             Else
                 AddtoTable(dgvAddedList, contents, headers)
             End If
-
         Else
             MessageBox.Show("Please fill all the fields")
         End If
-
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
@@ -80,6 +72,7 @@ Public Class AddStock
         For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
             dgvAddedList.Columns.RemoveAt(i)
         Next
+        Inventory.cbxCategory.SelectedIndex = 0
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
@@ -95,14 +88,51 @@ Public Class AddStock
     End Sub
 
     Private Sub btRemove_Click(sender As Object, e As EventArgs) Handles btRemove.Click
-
+        For Each selectedRow As DataGridViewRow In dgvAddedList.SelectedRows
+            dgvAddedList.Rows.Remove(selectedRow)
+        Next
     End Sub
 
     Private Sub txbxProduct_TextChanged(sender As Object, e As EventArgs) Handles txbxProduct.TextChanged
         Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
-
-
-
+        For Each row As DataGridViewRow In dgvAddDescr.Rows
+            id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
+        Next
         txbxID.Text = id
+    End Sub
+
+    Private Sub dgvAddDescr_ValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAddDescr.CellValueChanged
+        Try
+            Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+            For Each row As DataGridViewRow In dgvAddDescr.Rows
+                id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
+            Next
+            txbxID.Text = id
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
+        If CountMatch(txbxID.Text, 0) = 1 Then
+            For Each cat In cbxCategory.Items
+                contents = ReadCsv($"Stock\{cat}.csv")
+                For i As Integer = 1 To contents.Count - 1
+                    Dim ref() As String = contents(i).Split(","c)
+                    If ref(0).StartsWith(txbxID.Text) Then
+                        txbxProduct.Text = ref(1)
+                        txbxPrice.Text = ref(2)
+                        txbxQty.Text = "1"
+                        cbxCategory.SelectedItem = cat
+                        If ref.Length > 5 Then
+                            For j As Integer = 0 To dgvAddDescr.Rows.Count - 1
+                                dgvAddDescr.Rows(j).Cells(1).Value = ref(j + 4)
+                            Next
+                        End If
+                    End If
+                Next
+            Next
+        End If
     End Sub
 End Class

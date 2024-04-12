@@ -22,13 +22,20 @@ Module AppModule
         Return csvcontents
     End Function
 
+    Public Sub RefreshCat(ByRef cbx As ComboBox)
+        contents = ReadCsv("Resources/Stock Category.csv")
+        For i = 1 To contents.Count - 1
+            cbx.Items.Add(contents(i))
+        Next
+    End Sub
+
     Public Function CountMatch(content As String, index As Integer) As Integer
         Dim match As Integer = 0
         For Each item In ReadCsv("Resources/Stock Category.csv").Skip(1)
             Dim filepath As String = "Stock/" & item & ".csv"
             For Each line As String In ReadCsv(filepath)
                 Dim items = line.Split(",")
-                If items(index) = content Then
+                If items(index).StartsWith(content) Then
                     match += 1
                 End If
             Next
@@ -36,22 +43,6 @@ Module AppModule
         Return match
     End Function
 
-    Public Function SearchID(content As String, index As Integer) As String()
-        If CountMatch(content, 0) = 1 Then
-            For Each item In ReadCsv("Resources/Stock Category.csv").Skip(1)
-                Dim filepath As String = "Stock/" & item & ".csv"
-                For Each line As String In ReadCsv(filepath)
-                    Dim items = line.Split(",")
-                    If items(index) = content Then
-                        items.ToList.Insert(0, item)
-                        Return items
-                    Else
-                        Return Nothing
-                    End If
-                Next
-            Next
-        End If
-    End Function
 
     Public Sub RefreshTable(filePath As String, ByRef table As DataGridView)
         contents = ReadCsv(filePath)
@@ -87,7 +78,6 @@ Module AppModule
                     Stockheader += $",{item.Cells(0).Value}"
                 End If
             Next
-            Stockheader += Environment.NewLine
             CreateNewCsv($"Stock\{category}.csv", Stockheader)
             contents.Clear()
         End If
@@ -105,7 +95,7 @@ Module AppModule
         For i As Integer = 0 To contents.Count - 1
             Dim line() As String = contents(i).Split(","c)
             If line(0) = content(0) Then
-                line(3) = content(3)
+                line(3) = (Integer.Parse(line(3)) + Integer.Parse(content(3))).ToString()
                 contents(i) = String.Join(",", line)
                 Exit For
             End If
@@ -119,14 +109,14 @@ Module AppModule
         Dim match As Boolean = False
         For i As Integer = 0 To contents.Count - 1
             Dim item() As String = contents(i).Split(","c)
-            If addcontent(0) = contents(0) Then
+            If addcontent(0) = item(0) Then
                 match = True
-                UpdateQty(filepath, addcontent, refheader)
+                Exit For ' Exit loop if match is found
             End If
         Next
 
         If Not match Then
-            Dim NewLine(headers.Count) As String
+            Dim NewLine(headers.Length - 1) As String ' Correct array size
             For i As Integer = 0 To refheader.Count - 1
                 If addcontent(i) IsNot Nothing Then
                     Dim index As Integer = Array.IndexOf(headers, refheader(i))
@@ -135,6 +125,8 @@ Module AppModule
             Next
             Dim newStock As String = String.Join(",", NewLine)
             File.AppendAllText(filepath, newStock & Environment.NewLine)
+        Else
+            UpdateQty(filepath, addcontent, refheader)
         End If
     End Sub
 
@@ -182,52 +174,6 @@ Module AppModule
         Using Write As New StreamWriter(csvFilePath, True)
             Write.WriteLine($"Logged {InOut},{DateTime.Now},{Username}")
         End Using
-    End Sub
-
-    Public Sub PrintReceipt(referencenumber As String, dgvAdded As DataGridView, name As String, totalPrice As String, saleDate As DateTime)
-        ' Create an instance of PrintDocument
-        Dim printDoc As New Printing.PrintDocument()
-
-        ' Set the PrintPage event handler to generate the receipt content
-        AddHandler printDoc.PrintPage, Sub(senderPrint, ePrint)
-                                           ' Your logic to draw the receipt content on the print page
-                                           ePrint.Graphics.DrawString($"Reference: {referencenumber}", New Font("Arial", 9), Brushes.Black, 100, 100)
-                                           ePrint.Graphics.DrawString($"Name: {name}", New Font("Arial", 9), Brushes.Black, 100, 120)
-                                           ePrint.Graphics.DrawString($"Sale Date: {saleDate.ToString("MM/dd/yyyy")}", New Font("Arial", 9), Brushes.Black, 100, 140)
-                                           ' Iterate through the rows in dgvAddedList and draw the content in a tabular format
-                                           Dim yPos As Integer = 160  ' Start position for items
-                                           Dim columnWidth As Integer = 100
-                                           For Each row As DataGridViewRow In dgvAdded.Rows
-                                               ' Draw the item details in a tabular format
-                                               Dim xPosition As Integer = 100
-                                               For Each cell As DataGridViewCell In row.Cells
-                                                   If cell.ColumnIndex <> 1 And cell.ColumnIndex <> 0 Then ' Exclude the 2nd column (index 1)
-                                                       ePrint.Graphics.DrawString($"{cell.Value}", New Font("Arial", 9), Brushes.Black, xPosition, yPos)
-                                                       xPosition += columnWidth  ' Adjust the width based on column content
-                                                   End If
-                                               Next
-                                               yPos += 20  ' Increase the Y position for the next item
-                                           Next
-                                           ePrint.Graphics.DrawString("Total Price:", New Font("Arial", 9), Brushes.Black, 100, yPos + 20)
-                                           ePrint.Graphics.DrawString($"{totalPrice}", New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 575, yPos + 20)
-                                           ePrint.Graphics.DrawString($"Sold by: {MainForm.lbUsername.Text}", New Font("Arial", 9), Brushes.Black, 100, yPos + 40)
-                                       End Sub
-
-        ' Calculate the required paper width and height based on the content
-        Dim standardWidth As Integer = 500  ' Standard width for receipts
-        Dim lineHeight As Integer = 50  ' Height of each line of text
-        Dim totalLines As Integer = 5 + dgvAdded.Rows.Count  ' Total lines of text content
-        Dim totalHeight As Integer = 150 + (totalLines * lineHeight)  ' Total height based on the number of lines
-        Dim requiredPaperSize As New PaperSize("Custom", standardWidth, totalHeight)
-
-        ' Set the paper size to the calculated size
-        printDoc.DefaultPageSettings.PaperSize = requiredPaperSize
-        printDoc.DefaultPageSettings.Margins = New Margins(5, 5, 5, 5)
-
-        printDoc.PrinterSettings.PrintToFile = True
-        printDoc.PrinterSettings.PrintFileName = $"receipts/{referencenumber}.pdf"
-        ' Start printing
-        printDoc.Print()
     End Sub
 
     Public Sub AccessLevel(level As Integer)
