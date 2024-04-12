@@ -40,8 +40,5 @@ Module ProgramLoad
             .pnlContainer.Location = New Point(50, 50)
         End With
     End Sub
-
-
-
 End Module
 
