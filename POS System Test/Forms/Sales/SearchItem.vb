@@ -4,8 +4,6 @@
         RefreshCat(cbxCategory)
         cbxCategory.SelectedItem = "All"
     End Sub
-
-
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
         Dim searchText As String = txbxSearch.Text.ToLower()
         For Each row As DataGridViewRow In dgvStockList.Rows
