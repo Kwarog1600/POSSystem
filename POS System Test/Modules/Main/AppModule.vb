@@ -34,17 +34,20 @@ Module AppModule
 
     Public Function CountMatch(content As String, index As Integer) As Integer
         Dim match As Integer = 0
-        For Each item In ReadCsv("Resources/Stock Category.csv")
+        Dim lines = ReadCsv("Resources/Stock Category.csv")
+
+        ' Skip the header by starting the loop from the second line
+        For i As Integer = 1 To lines.Count - 1
+            Dim item = lines(i)
             Dim filepath As String = "Stock/" & item & ".csv"
-            If item.Count > 1 Then
-                For Each line As String In ReadCsv(filepath)
-                    Dim items = line.Split(",")
-                    If items(index).StartsWith(content) Then
-                        match += 1
-                    End If
-                Next
-            End If
+            For Each line As String In ReadCsv(filepath)
+                Dim items = line.Split(",")
+                If items(index).StartsWith(content) Then
+                    match += 1
+                End If
+            Next
         Next
+
         Return match
     End Function
 
