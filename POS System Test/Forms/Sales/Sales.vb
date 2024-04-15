@@ -17,7 +17,9 @@ Public Class Sales
             Dim filename = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i = 1 To dgvAddedList.Columns.Count - 1
-                content.Add(row.Cells(i).Value)
+                If i <> 5 Then
+                    content.Add(row.Cells(i).Value)
+                End If
             Next
             UpdateQty(filename, content, headers, True)
         Next
@@ -30,20 +32,22 @@ Public Class Sales
     End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
-        If CountMatch(txbxID.Text, 0) = 1 Then
+        If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
                 contents = ReadCsv($"Stock\{cat}.csv")
                 For i As Integer = 1 To contents.Count - 1
                     Dim ref() As String = contents(i).Split(","c)
                     If ref(0).StartsWith(txbxID.Text) Then
-                        txbxProduct.Text = ref(1)
-                        txbxPrice.Text = ref(2)
-                        txbxQty.Text = "1"
-                        cbxCategory.SelectedItem = cat
-                        If ref.Length > 4 Then
-                            For j As Integer = 0 To dgvDescr.Rows.Count - 1
-                                dgvDescr.Rows(j).Cells(1).Value = ref(j + 4)
-                            Next
+                        If ref(0) = txbxID.Text Then
+                            txbxProduct.Text = ref(1)
+                            txbxPrice.Text = ref(2)
+                            txbxQty.Text = "1"
+                            cbxCategory.SelectedItem = cat
+                            If ref.Length > 4 Then
+                                For j As Integer = 0 To dgvDescr.Rows.Count - 1
+                                    dgvDescr.Rows(j).Cells(1).Value = ref(j + 4)
+                                Next
+                            End If
                         End If
                     End If
                 Next
@@ -67,19 +71,22 @@ Public Class Sales
             .Add(txbxProduct.Text)
             .Add(txbxPrice.Text)
             .Add(txbxQty.Text)
-            .Add(txbxPrice.Text * txbxQty.Text)
             .Add(Convert.ToString(Convert.ToDouble(txbxPrice.Text) * Convert.ToDouble(txbxQty.Text)))
             For Each add In dgvDescr.Rows
                 .Add(add.Cells(1).Value)
                 headers.Add(add.cells(0).Value)
             Next
+
         End With
         Dim total As Integer = 0
+        AddtoTable(dgvAddedList, contents, headers)
+        For Each row As DataGridViewRow In dgvAddedList.Rows
+            row.Cells(5).Value = Convert.ToString(Convert.ToDouble(row.Cells(3).Value) * Convert.ToDouble(row.Cells(4).Value))
+        Next
         For Each row As DataGridViewRow In dgvAddedList.Rows
             total += row.Cells(5).Value
         Next
         showTotalPrice.Text = total
-        AddtoTable(dgvAddedList, contents, headers)
     End Sub
 
     Private Sub btVoid_Click(sender As Object, e As EventArgs) Handles btVoid.Click
