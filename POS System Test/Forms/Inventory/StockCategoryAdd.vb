@@ -8,7 +8,7 @@ Public Class StockCategoryAdd
         dgvCatList.Columns.Clear()
         RefreshTable("Resources/Stock Category.csv", dgvCatList)
         Inventory.cbxCategory.Items.Clear()
-        Sales.cbxCategory.Items.Add("All")
+        Inventory.cbxCategory.Items.Add("All")
         RefreshCat(Inventory.cbxCategory)
         RefreshCat(Sales.cbxCategory)
         RefreshCat(AddStock.cbxCategory)
