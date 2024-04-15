@@ -20,7 +20,7 @@ Module CreateFiles
 
         CreateCsvFileIfNotExists($"Resources/Users.csv", "User ID,Username,Password,Access Level, First Name, Last Name" & vbLf & $"U000,admin,{HashPassword("admin")},3,admin,admin")
         CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
-        CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Amount,Sold By,Date and Time")
+        CreateCsvFileIfNotExists("Resources/Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Sold By")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
         CreateCsvFileIfNotExists("Resources/Stock History.csv", "Date,Transaction Reference,Quantity,by User")
         CreateCsvFileIfNotExists("Resources/TimeLog.csv", "Log,Date and Time,Username")

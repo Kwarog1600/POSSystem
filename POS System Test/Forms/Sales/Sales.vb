@@ -8,8 +8,8 @@ Public Class Sales
 
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Dim headers As New List(Of String)
-        Dim TotalAmount As Integer = 0
-        Dim StockAdded As New List(Of String)
+        Dim TotalAmount As Integer
+        Dim items As New List(Of String)
         For i = 1 To dgvAddedList.Columns.Count - 1
             headers.Add(dgvAddedList.Columns(i).HeaderText)
         Next
@@ -21,14 +21,29 @@ Public Class Sales
                     content.Add(row.Cells(i).Value)
                 End If
             Next
+            items.Add(String.Join(",", content) & "," & row.Cells(5).Value)
             UpdateQty(filename, content, headers, True)
         Next
+        SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
         dgvAddedList.Rows.Clear()
 
-        For i = dgvAddedList.Columns.Count - 1 To 5 Step -1
-            dgvAddedList.Columns.RemoveAt(i)
+        If dgvAddedList.Columns.Count > 6 Then
+            For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
+                dgvAddedList.Columns.RemoveAt(i)
+            Next i
+        End If
+    End Sub
+
+    Sub SalesLogging(logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String))
+        Dim logpath As String = "Resources\Sales History.csv"
+        Dim logrec As String = $"Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
+        Dim stocklist As String = ""
+        For Each item As String In items
+            stocklist += item & Environment.NewLine
         Next
-        Inventory.cbxCategory.SelectedIndex = 0
+        Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
+        File.AppendAllText(logpath, line & Environment.NewLine)
+        CreateNewCsv(logrec, $"{"Date,Reference,Customer Name, Total Amount,Sold By" & Environment.NewLine & logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},customerName,{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
@@ -57,6 +72,7 @@ Public Class Sales
 
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbxCategory.Items.Clear()
         RefreshCat(cbxCategory)
     End Sub
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
@@ -105,10 +121,6 @@ Public Class Sales
         End If
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub txbxProduct_TextChanged(sender As Object, e As EventArgs) Handles txbxProduct.TextChanged
         Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
         For Each row As DataGridViewRow In dgvDescr.Rows
@@ -136,15 +148,4 @@ Public Class Sales
         SearchItem.txbxSearch.Text = txbxProduct.Text
     End Sub
 
-    Sub SalesLogging(logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String))
-        Dim logpath As String = "Resources\Stock History.csv"
-        Dim logrec As String = $"Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
-        Dim stocklist As String = ""
-        For Each item As String In items
-            stocklist += item & Environment.NewLine
-        Next
-        Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
-        File.AppendAllText(logpath, line & Environment.NewLine)
-        CreateNewCsv(logrec, $"{"Date,Reference,Customer Name,Amount,Sold By" & Environment.NewLine & logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},customerName,{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
-    End Sub
 End Class

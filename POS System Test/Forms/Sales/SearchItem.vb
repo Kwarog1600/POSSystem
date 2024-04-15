@@ -11,13 +11,16 @@
 
         For Each row As DataGridViewRow In dgvStockList.Rows
             Dim found As Boolean = False
+            Dim cellValue As String = If(row.Cells(3).Value IsNot Nothing, row.Cells(3).Value.ToString(), "")
 
-            For Each cell As DataGridViewCell In row.Cells
-                If cell.Value IsNot Nothing AndAlso cell.Value.ToString().ToLower().Contains(searchText) Then
-                    found = True
-                    Exit For
-                End If
-            Next
+            If Not String.IsNullOrEmpty(cellValue) AndAlso Convert.ToDouble(cellValue) >= 1 Then
+                For Each cell As DataGridViewCell In row.Cells
+                    If cell.Value IsNot Nothing AndAlso cell.Value.ToString().ToLower().Contains(searchText) Then
+                        found = True
+                        Exit For
+                    End If
+                Next
+            End If
 
             row.Visible = found
         Next
@@ -68,6 +71,11 @@
                 Next
             Next
         End If
+        For Each row In dgvStockList.Rows
+            If row.Cells(3).Value < 1 Then
+                row.Visible = False
+            End If
+        Next
     End Sub
 
     Private Sub dgvStockList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
