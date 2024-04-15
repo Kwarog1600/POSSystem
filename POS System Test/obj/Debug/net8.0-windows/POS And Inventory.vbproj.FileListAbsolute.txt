@@ -148,3 +148,6 @@ C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.TimeLog.resources
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ExpenseAdd.resources
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Expenses.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\BouncyCastle.Crypto.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\itextsharp.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.SearchItem.resources

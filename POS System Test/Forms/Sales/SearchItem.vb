@@ -1,26 +1,10 @@
-﻿Imports System.ComponentModel
-Imports System.IO
-Imports Microsoft.VisualBasic.FileIO
-
-Public Class Inventory
-    Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-        AddStock.Visible = True
-    End Sub
-
-    Private Sub btAddCategory_Click(sender As Object, e As EventArgs) Handles btAddCategory.Click
-        StockCategoryAdd.Visible = True
-    End Sub
-
-
-    Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+﻿Public Class SearchItem
+    Private Sub Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbxCategory.Items.Add("All")
         RefreshCat(cbxCategory)
         cbxCategory.SelectedItem = "All"
     End Sub
 
-    Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
-        StockHistory.Show()
-    End Sub
 
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
         Dim searchText As String = txbxSearch.Text.ToLower()
@@ -38,7 +22,6 @@ Public Class Inventory
             row.Visible = found
         Next
     End Sub
-
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         dgvStockList.Rows.Clear()
@@ -70,10 +53,10 @@ Public Class Inventory
             Dim contents = ReadCsv($"Stock\{cat}.csv")
             Dim tbheader() As String = contents(0).Split(","c)
             For Each head As String In tbheader
-                    If Not dgvStockList.Columns.Contains($"clm{head}") Then
-                        dgvStockList.Columns.Add($"clm{head}", head)
-                    End If
-                Next
+                If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                    dgvStockList.Columns.Add($"clm{head}", head)
+                End If
+            Next
             For i As Integer = 1 To contents.Count - 1
                 Dim item() As String = contents(i).Split(","c)
                 Dim newRowIdx = dgvStockList.Rows.Add()
@@ -86,7 +69,8 @@ Public Class Inventory
             Next
         End If
     End Sub
+
+    Private Sub dgvStockList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
+        Sales.txbxID.Text = dgvStockList.SelectedRows(0).Cells(0).Value.ToString()
+    End Sub
 End Class
-
-
-

@@ -5,21 +5,25 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Microsoft.VisualBasic.FileIO
 
 Public Class Sales
+
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Dim headers As New List(Of String)
-        For i As Integer = 1 To dgvAddedList.Columns.Count - 1
+        Dim TotalAmount As Integer = 0
+        Dim StockAdded As New List(Of String)
+        For i = 1 To dgvAddedList.Columns.Count - 1
             headers.Add(dgvAddedList.Columns(i).HeaderText)
         Next
         For Each row As DataGridViewRow In dgvAddedList.Rows
-            Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
+            Dim filename = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
-            For i As Integer = 1 To dgvAddedList.Columns.Count - 1
+            For i = 1 To dgvAddedList.Columns.Count - 1
                 content.Add(row.Cells(i).Value)
             Next
             UpdateQty(filename, content, headers, True)
         Next
         dgvAddedList.Rows.Clear()
-        For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
+
+        For i = dgvAddedList.Columns.Count - 1 To 5 Step -1
             dgvAddedList.Columns.RemoveAt(i)
         Next
         Inventory.cbxCategory.SelectedIndex = 0
@@ -36,7 +40,7 @@ Public Class Sales
                         txbxPrice.Text = ref(2)
                         txbxQty.Text = "1"
                         cbxCategory.SelectedItem = cat
-                        If ref.Length > 5 Then
+                        If ref.Length > 4 Then
                             For j As Integer = 0 To dgvDescr.Rows.Count - 1
                                 dgvDescr.Rows(j).Cells(1).Value = ref(j + 4)
                             Next
@@ -63,12 +67,18 @@ Public Class Sales
             .Add(txbxProduct.Text)
             .Add(txbxPrice.Text)
             .Add(txbxQty.Text)
+            .Add(txbxPrice.Text * txbxQty.Text)
             .Add(Convert.ToString(Convert.ToDouble(txbxPrice.Text) * Convert.ToDouble(txbxQty.Text)))
             For Each add In dgvDescr.Rows
                 .Add(add.Cells(1).Value)
                 headers.Add(add.cells(0).Value)
             Next
         End With
+        Dim total As Integer = 0
+        For Each row As DataGridViewRow In dgvAddedList.Rows
+            total += row.Cells(5).Value
+        Next
+        showTotalPrice.Text = total
         AddtoTable(dgvAddedList, contents, headers)
     End Sub
 
@@ -112,5 +122,22 @@ Public Class Sales
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
 
+    End Sub
+
+    Private Sub btSeach_Click(sender As Object, e As EventArgs) Handles btSeach.Click
+        SearchItem.Show()
+        SearchItem.txbxSearch.Text = txbxProduct.Text
+    End Sub
+
+    Sub SalesLogging(logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String))
+        Dim logpath As String = "Resources\Stock History.csv"
+        Dim logrec As String = $"Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
+        Dim stocklist As String = ""
+        For Each item As String In items
+            stocklist += item & Environment.NewLine
+        Next
+        Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
+        File.AppendAllText(logpath, line & Environment.NewLine)
+        CreateNewCsv(logrec, $"{"Date,Reference,Customer Name,Amount,Sold By" & Environment.NewLine & logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},customerName,{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
 End Class

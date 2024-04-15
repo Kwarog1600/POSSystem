@@ -22,7 +22,7 @@ Module CreateFiles
         CreateCsvFileIfNotExists("Resources/Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
         CreateCsvFileIfNotExists("Resources/Sales History.csv", "Transaction Reference Number,Customer Name,Amount,Sold By,Date and Time")
         CreateCsvFileIfNotExists("Resources/Stock Category.csv", "CategoryName")
-        CreateCsvFileIfNotExists("Resources/Stock History.csv", "Transaction Reference Number,Quantity,Date and Time")
+        CreateCsvFileIfNotExists("Resources/Stock History.csv", "Date,Transaction Reference,Quantity,by User")
         CreateCsvFileIfNotExists("Resources/TimeLog.csv", "Log,Date and Time,Username")
     End Sub
 End Module

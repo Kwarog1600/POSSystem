@@ -210,7 +210,7 @@ Partial Class LoginForm
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "LoginForm"
         StartPosition = FormStartPosition.Manual
-        Text = "Form1"
+        Text = "Login"
         pnlMain.ResumeLayout(False)
         pnlContainer.ResumeLayout(False)
         pnlContainer.PerformLayout()

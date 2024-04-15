@@ -104,3 +104,4 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Expenses.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Release\net8.0-windows\BouncyCastle.Crypto.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Release\net8.0-windows\itextsharp.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.SearchItem.resources

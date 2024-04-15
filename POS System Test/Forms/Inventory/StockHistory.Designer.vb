@@ -55,7 +55,7 @@ Partial Class StockHistory
         dgvHistory.Location = New Point(12, 12)
         dgvHistory.Name = "dgvHistory"
         dgvHistory.RowHeadersVisible = False
-        dgvHistory.Size = New Size(890, 290)
+        dgvHistory.Size = New Size(890, 306)
         dgvHistory.TabIndex = 0
         dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -83,8 +83,9 @@ Partial Class StockHistory
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(914, 317)
+        ClientSize = New Size(914, 330)
         Controls.Add(dgvHistory)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "StockHistory"
         Text = "StockHistory"
         CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()

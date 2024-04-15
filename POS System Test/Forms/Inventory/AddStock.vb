@@ -62,6 +62,8 @@ Public Class AddStock
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
         Dim headers As New List(Of String)
+        Dim stockCount As Integer = 0
+        Dim StockAdded As New List(Of String)
         For i As Integer = 1 To dgvAddedList.Columns.Count - 1
             headers.Add(dgvAddedList.Columns(i).HeaderText)
         Next
@@ -69,11 +71,15 @@ Public Class AddStock
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
-                content.Add(row.Cells(i).Value)
+                If Not row.Cells(i).Value = "" Then
+                    content.Add(row.Cells(i).Value)
+                End If
             Next
-            content(3) = content(3)
             AddStockSub(filename, content, headers)
+            stockCount += row.Cells(4).Value
+            StockAdded.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Select(Function(cell) cell.Value.ToString()).ToArray()))
         Next
+        StockLogging(DateOnly.FromDateTime(DateTime.Now), stockCount, MainForm.lbUsername.Text, StockAdded)
         dgvAddedList.Rows.Clear()
         For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
             dgvAddedList.Columns.RemoveAt(i)
@@ -139,5 +145,17 @@ Public Class AddStock
                 Next
             Next
         End If
+    End Sub
+
+    Sub StockLogging(logDate As DateOnly, info As String, inputuser As String, items As List(Of String))
+        Dim logpath As String = "Resources\Stock History.csv"
+        Dim logrec As String = $"Stock History\SAR-{ReadCsv(logpath).Count - 1}.csv"
+        Dim stocklist As String = ""
+        For Each item As String In items
+            stocklist += item & Environment.NewLine
+        Next
+        Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
+        File.AppendAllText(logpath, line & Environment.NewLine)
+        CreateNewCsv(logrec, $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
 End Class
