@@ -1,5 +1,5 @@
 ﻿Public Class SearchItem
-    Private Sub Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SearchItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbxCategory.Items.Add("All")
         RefreshCat(cbxCategory)
         cbxCategory.SelectedItem = "All"
@@ -8,11 +8,9 @@
 
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
         Dim searchText As String = txbxSearch.Text.ToLower()
-
         For Each row As DataGridViewRow In dgvStockList.Rows
             Dim found As Boolean = False
             Dim cellValue As String = If(row.Cells(3).Value IsNot Nothing, row.Cells(3).Value.ToString(), "")
-
             If Not String.IsNullOrEmpty(cellValue) AndAlso Convert.ToDouble(cellValue) >= 1 Then
                 For Each cell As DataGridViewCell In row.Cells
                     If cell.Value IsNot Nothing AndAlso cell.Value.ToString().ToLower().Contains(searchText) Then
@@ -21,7 +19,6 @@
                     End If
                 Next
             End If
-
             row.Visible = found
         Next
     End Sub
@@ -76,9 +73,5 @@
                 row.Visible = False
             End If
         Next
-    End Sub
-
-    Private Sub dgvStockList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
-        Sales.txbxID.Text = dgvStockList.SelectedRows(0).Cells(0).Value.ToString()
     End Sub
 End Class

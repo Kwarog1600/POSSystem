@@ -71,7 +71,7 @@ Public Class AddStock
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
-                If Not row.Cells(i).Value = "" Then
+                If Not row.Cells(i).Value.ToString() = "" Then
                     content.Add(row.Cells(i).Value)
                 End If
             Next
@@ -157,5 +157,9 @@ Public Class AddStock
         Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
         File.AppendAllText(logpath, line & Environment.NewLine)
         CreateNewCsv(logrec, $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
+    End Sub
+
+    Private Sub dgvAddDescr_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAddDescr.CellContentClick
+
     End Sub
 End Class

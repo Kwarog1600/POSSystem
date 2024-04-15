@@ -24,21 +24,26 @@ Module AppModule
 
     Public Sub RefreshCat(ByRef cbx As ComboBox)
         contents = ReadCsv("Resources/Stock Category.csv")
-        For i = 1 To contents.Count - 1
-            cbx.Items.Add(contents(i))
-        Next
+        If contents.Count > 1 Then
+            For i = 1 To contents.Count - 1
+                cbx.Items.Add(contents(i))
+            Next
+        End If
+
     End Sub
 
     Public Function CountMatch(content As String, index As Integer) As Integer
         Dim match As Integer = 0
-        For Each item In ReadCsv("Resources/Stock Category.csv").Skip(1)
+        For Each item In ReadCsv("Resources/Stock Category.csv")
             Dim filepath As String = "Stock/" & item & ".csv"
-            For Each line As String In ReadCsv(filepath)
-                Dim items = line.Split(",")
-                If items(index).StartsWith(content) Then
-                    match += 1
-                End If
-            Next
+            If item.Count > 1 Then
+                For Each line As String In ReadCsv(filepath)
+                    Dim items = line.Split(",")
+                    If items(index).StartsWith(content) Then
+                        match += 1
+                    End If
+                Next
+            End If
         Next
         Return match
     End Function
