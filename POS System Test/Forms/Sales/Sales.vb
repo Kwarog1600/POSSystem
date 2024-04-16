@@ -58,11 +58,11 @@ Public Class Sales
                             txbxProduct.Text = data(1)
                             txbxPrice.Text = data(2)
                             txbxQty.Text = data(3)
-                            Dim rowIndex As Integer = 0
-                            For i As Integer = 4 To data.Length - 1
-                                dgvDescr.Rows(rowIndex).Cells(1).Value = data(i)
-                                rowIndex += 1
+
+                            For i As Integer = 0 To dgvDescr.Rows.Count - 1
+                                dgvDescr.Rows(i).Cells(1).Value = data(i + 4)
                             Next
+
                         End If
                     Next
                 End If
