@@ -77,7 +77,7 @@ Public Class AddStock
             Next
             AddStockSub(filename, content, headers)
             stockCount += row.Cells(4).Value
-            StockAdded.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Select(Function(cell) cell.Value.ToString()).ToArray()))
+            StockAdded.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()))
         Next
         StockLogging(DateOnly.FromDateTime(DateTime.Now), stockCount, MainForm.lbUsername.Text, StockAdded)
         dgvAddedList.Rows.Clear()
@@ -158,8 +158,9 @@ Public Class AddStock
         Next
         Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
         File.AppendAllText(logpath, line & Environment.NewLine)
-        CreateNewCsv(logrec, $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
+        CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SAR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Total,{info & " Items" & Environment.NewLine} By User,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
+
 
     Private Sub dgvAddDescr_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAddDescr.CellContentClick
 

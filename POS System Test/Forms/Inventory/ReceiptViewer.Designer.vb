@@ -58,7 +58,7 @@ Partial Class ReceiptViewer
         dgvHistory.Name = "dgvHistory"
         dgvHistory.ReadOnly = True
         dgvHistory.RowHeadersVisible = False
-        dgvHistory.Size = New Size(890, 306)
+        dgvHistory.Size = New Size(511, 469)
         dgvHistory.TabIndex = 0
         dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -86,7 +86,7 @@ Partial Class ReceiptViewer
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(914, 330)
+        ClientSize = New Size(535, 493)
         Controls.Add(dgvHistory)
         FormBorderStyle = FormBorderStyle.SizableToolWindow
         Name = "ReceiptViewer"

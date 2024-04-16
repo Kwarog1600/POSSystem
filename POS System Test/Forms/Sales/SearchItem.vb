@@ -72,4 +72,8 @@
             End If
         Next
     End Sub
+
+    Private Sub dgvStockList_CellDoubleCClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
+        Sales.txbxID.Text = dgvStockList.Rows(e.RowIndex).Cells(0).Value.ToString()
+    End Sub
 End Class

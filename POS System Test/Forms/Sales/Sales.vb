@@ -21,7 +21,7 @@ Public Class Sales
                     content.Add(row.Cells(i).Value)
                 End If
             Next
-            items.Add(String.Join(",", content) & "," & row.Cells(5).Value)
+            items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
             UpdateQty(filename, content, headers, True)
         Next
         SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
@@ -50,22 +50,24 @@ Public Class Sales
         If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
                 contents = ReadCsv($"Stock\{cat}.csv")
-                For i As Integer = 1 To contents.Count - 1
-                    Dim ref() As String = contents(i).Split(","c)
-                    If ref(0).StartsWith(txbxID.Text) Then
-                        If ref(0) = txbxID.Text Then
-                            txbxProduct.Text = ref(1)
-                            txbxPrice.Text = ref(2)
-                            txbxQty.Text = "1"
-                            cbxCategory.SelectedItem = cat
-                            If ref.Length > 4 Then
-                                For j As Integer = 0 To dgvDescr.Rows.Count - 1
-                                    dgvDescr.Rows(j).Cells(1).Value = ref(j + 4)
-                                Next
+                If contents.Count > 1 Then ' Check if contents has more than one line
+                    For i As Integer = 1 To contents.Count - 1
+                        Dim ref() As String = contents(i).Split(","c)
+                        If ref(0).StartsWith(txbxID.Text) Then
+                            If ref(0) = txbxID.Text Then
+                                txbxProduct.Text = ref(1)
+                                txbxPrice.Text = ref(2)
+                                txbxQty.Text = "1"
+                                cbxCategory.SelectedItem = cat
+                                If ref.Length > 4 Then
+                                    For j As Integer = 0 To dgvDescr.Rows.Count - 1
+                                        dgvDescr.Rows(j).Cells(1).Value = ref(j + 4)
+                                    Next
+                                End If
                             End If
                         End If
-                    End If
-                Next
+                    Next
+                End If
             Next
         End If
     End Sub

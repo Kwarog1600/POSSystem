@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "POS And Inventory": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
