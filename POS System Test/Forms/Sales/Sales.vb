@@ -50,21 +50,19 @@ Public Class Sales
         If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
                 contents = ReadCsv($"Stock\{cat}.csv")
-                If contents.Count > 1 Then ' Check if contents has more than one line
-                    For i As Integer = 1 To contents.Count - 1
-                        Dim ref() As String = contents(i).Split(","c)
-                        If ref(0).StartsWith(txbxID.Text) Then
-                            If ref(0) = txbxID.Text Then
-                                txbxProduct.Text = ref(1)
-                                txbxPrice.Text = ref(2)
-                                txbxQty.Text = "1"
-                                cbxCategory.SelectedItem = cat
-                                If ref.Length > 4 Then
-                                    For j As Integer = 0 To dgvDescr.Rows.Count - 1
-                                        dgvDescr.Rows(j).Cells(1).Value = ref(j + 4)
-                                    Next
-                                End If
-                            End If
+                If contents.Count > 2 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
+                    For Each line In contents
+                        Dim data = line.Split(",")
+                        If data(0) = txbxID.Text Then
+                            cbxCategory.SelectedItem = cat
+                            txbxProduct.Text = data(1)
+                            txbxPrice.Text = data(2)
+                            txbxQty.Text = data(3)
+                            Dim rowIndex As Integer = 0
+                            For i As Integer = 4 To data.Length - 1
+                                dgvDescr.Rows(rowIndex).Cells(1).Value = data(i)
+                                rowIndex += 1
+                            Next
                         End If
                     Next
                 End If
