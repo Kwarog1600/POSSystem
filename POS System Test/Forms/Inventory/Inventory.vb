@@ -19,6 +19,7 @@ Public Class Inventory
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
+        RefreshTable("Resources/Stock History.csv", StockHistory.dgvHistory)
         StockHistory.Show()
     End Sub
 
