@@ -150,3 +150,4 @@ C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.
 C:\Users\cutie\source\repos\Kwarog1600\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.Expenses.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.SearchItem.resources
 C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.SearchItem.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\POS_System_Test.ReceiptViewer.resources
