@@ -19,6 +19,7 @@ Public Class Inventory
     End Sub
 
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
+        RefreshTable("Resources/Stock History.csv", StockHistory.dgvHistory)
         StockHistory.Show()
     End Sub
 
@@ -70,10 +71,10 @@ Public Class Inventory
             Dim contents = ReadCsv($"Stock\{cat}.csv")
             Dim tbheader() As String = contents(0).Split(","c)
             For Each head As String In tbheader
-                    If Not dgvStockList.Columns.Contains($"clm{head}") Then
-                        dgvStockList.Columns.Add($"clm{head}", head)
-                    End If
-                Next
+                If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                    dgvStockList.Columns.Add($"clm{head}", head)
+                End If
+            Next
             For i As Integer = 1 To contents.Count - 1
                 Dim item() As String = contents(i).Split(","c)
                 Dim newRowIdx = dgvStockList.Rows.Add()

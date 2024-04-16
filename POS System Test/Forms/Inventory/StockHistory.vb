@@ -7,7 +7,4 @@ Public Class StockHistory
         System.Diagnostics.Process.Start(filepath)
     End Sub
 
-    Private Sub StockHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        RefreshTable("Resources/Sales History.csv", dgvHistory)
-    End Sub
 End Class
