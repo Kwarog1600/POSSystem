@@ -28,8 +28,9 @@ Public Class LoginForm
         Next
         If match Then
             startCash = InputBox("Enter the start cash:", "Start Cash")
-            Me.Hide()
+            MainForm.lbUsername.Text = txbxUsername.Text
             MainForm.Show()
+            Me.Hide()
         Else
             MessageBox.Show("Incorrect username or password")
         End If

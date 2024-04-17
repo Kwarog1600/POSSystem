@@ -15,6 +15,10 @@ Module ProgramLoad
             .pnlAdminContainer.Location = New Point(0, ((height - 275) / 2) + 300)
             .pnlLgtSt.Location = New Point(0, height - 60)
         End With
+        With Dashboard
+            .Size = New Size(width - 200, height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
         With EmployeeManagement
             .Size = New Size(width - 200, height - 50)
             .pnlContainer.Location = New Point(50, 50)
