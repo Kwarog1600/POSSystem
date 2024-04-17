@@ -142,7 +142,7 @@ Public Class AddStock
                             cbxCategory.SelectedItem = cat
                             txbxProduct.Text = data(1)
                             txbxPrice.Text = data(2)
-                            txbxQty.Text = data(3)
+                            txbxQty.Text = 1
 
                             For i As Integer = 0 To dgvAddDescr.Rows.Count - 1
                                 dgvAddDescr.Rows(i).Cells(1).Value = data(i + 4)
