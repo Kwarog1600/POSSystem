@@ -131,23 +131,25 @@ Public Class AddStock
     End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
-        If CountMatch(txbxID.Text, 0) = 1 Then
+        If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
                 contents = ReadCsv($"Stock\{cat}.csv")
-                For i As Integer = 1 To contents.Count - 1
-                    Dim ref() As String = contents(i).Split(","c)
-                    If ref(0).StartsWith(txbxID.Text) Then
-                        txbxProduct.Text = ref(1)
-                        txbxPrice.Text = ref(2)
-                        txbxQty.Text = "1"
-                        cbxCategory.SelectedItem = cat
-                        If ref.Length > 5 Then
-                            For j As Integer = 0 To dgvAddDescr.Rows.Count - 1
-                                dgvAddDescr.Rows(j).Cells(1).Value = ref(j + 4)
+                If contents.Count > 2 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
+                    For Each line In contents
+                        Dim data = line.Split(",")
+                        If data(0) = txbxID.Text Then
+                            cbxCategory.SelectedItem = cat
+                            txbxProduct.Text = data(1)
+                            txbxPrice.Text = data(2)
+                            txbxQty.Text = data(3)
+
+                            For i As Integer = 0 To dgvAddDescr.Rows.Count - 1
+                                dgvAddDescr.Rows(i).Cells(1).Value = data(i + 4)
                             Next
+
                         End If
-                    End If
-                Next
+                    Next
+                End If
             Next
         End If
     End Sub
