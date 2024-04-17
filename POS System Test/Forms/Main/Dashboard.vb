@@ -10,7 +10,7 @@
             Dim file = ReadCsv($"Stock/{line}.csv").Skip(1)
             For Each item In file
                 Dim splititem = item.Split(","c)
-                ttlcount = +Int32.Parse(splititem(3))
+                ttlcount += Int32.Parse(splititem(3))
             Next
         Next
         Return ttlcount
