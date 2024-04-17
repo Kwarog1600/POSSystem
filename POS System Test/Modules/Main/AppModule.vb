@@ -12,6 +12,10 @@ Module AppModule
     Public contents As List(Of String)
     Dim csvcontents As List(Of String)
 
+    Public Sub ItemHash()
+
+    End Sub
+
     Public Function ReadCsv(filePath As String) As List(Of String)
         Using reader As New StreamReader(filePath)
             csvcontents = New List(Of String)
@@ -200,5 +204,13 @@ Module AppModule
             MainForm.pnlAdminContainer.Visible = True
         End If
     End Sub
+
+    Public Function idHash(inputString As String) As String
+        Dim sha256 As SHA256 = SHA256.Create()
+        Dim hashBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputString))
+        Dim hexString As String = BitConverter.ToString(hashBytes).Replace("-", "").ToLower()
+        Dim numericHash As Long = Convert.ToInt64(hexString.Substring(0, 12), 16)
+        Return numericHash.ToString("D12")
+    End Function
 
 End Module

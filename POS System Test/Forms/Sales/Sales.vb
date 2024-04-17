@@ -122,28 +122,27 @@ Public Class Sales
     End Sub
 
     Private Sub txbxProduct_TextChanged(sender As Object, e As EventArgs) Handles txbxProduct.TextChanged
-        Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+        Dim id As String = cbxCategory.SelectedItem & txbxProduct.Text
         For Each row As DataGridViewRow In dgvDescr.Rows
             If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
-                id += "-" & New String(row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()) & New String(row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+                id += "-" & row.Cells(0).Value.ToString() & row.Cells(1).Value.ToString()
             End If
         Next
-        txbxID.Text = id
+        txbxID.Text = $"{idHash(id)}"
     End Sub
 
     Private Sub dgvDescr_ValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDescr.CellValueChanged
         Try
-            Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+            Dim id As String = cbxCategory.SelectedItem & txbxProduct.Text
             For Each row As DataGridViewRow In dgvDescr.Rows
                 If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
-                    id += "-" & New String(row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()) & New String(row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+                    id += "-" & row.Cells(0).Value.ToString() & row.Cells(1).Value.ToString()
                 End If
             Next
-            txbxID.Text = id
+            txbxID.Text = $"{idHash(id)}"
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
-
     End Sub
 
     Private Sub btSeach_Click(sender As Object, e As EventArgs) Handles btSeach.Click
