@@ -31,6 +31,7 @@ Public Class LoginForm
             MainForm.lbUsername.Text = txbxUsername.Text
             MainForm.Show()
             Me.Hide()
+            LogReg("In", txbxUsername.Text, startCash)
         Else
             MessageBox.Show("Incorrect username or password")
         End If

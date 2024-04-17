@@ -44,7 +44,7 @@ Public Class Sales
             stocklist += item & Environment.NewLine
         Next
         Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
-        File.AppendAllText(logpath, line & Environment.NewLine)
+        File.AppendAllText(logpath, line)
         CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Name,{customerName & Environment.NewLine}Total,{info & Environment.NewLine}Sold By,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
 

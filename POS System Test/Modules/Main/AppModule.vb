@@ -181,10 +181,10 @@ Module AppModule
         End With
     End Sub
 
-    Public Sub LogReg(InOut As String, Username As String)
+    Public Sub LogReg(InOut As String, Username As String, Cash As String)
         Dim csvFilePath As String = $"Resources\TimeLog.csv"
         Using Write As New StreamWriter(csvFilePath, True)
-            Write.WriteLine($"Logged {InOut},{DateTime.Now},{Username}")
+            Write.WriteLine($"Logged {InOut},{DateTime.Now},{Username},{Cash}")
         End Using
     End Sub
 

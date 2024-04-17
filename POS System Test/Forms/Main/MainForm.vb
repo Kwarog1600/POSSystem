@@ -11,13 +11,13 @@ Public Class MainForm
     End Sub
 
     Private Sub btCLose_Click(sender As Object, e As EventArgs) Handles btLgtClose.Click
-        LogReg("Out", lbUsername.Text)
+        LogReg("Out", lbUsername.Text, Dashboard.CurrentCash.Text)
         Application.Exit()
     End Sub
 
     Private Sub btLogOut_Click(sender As Object, e As EventArgs) Handles btLogOut.Click
         LoginForm.Show()
-        LogReg("Out", lbUsername.Text)
+        LogReg("Out", lbUsername.Text, Dashboard.CurrentCash.Text)
         Me.Hide()
     End Sub
 
