@@ -45,6 +45,7 @@ Partial Class ReceiptViewer
         dgvHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvHistory.ColumnHeadersHeight = 17
         dgvHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvHistory.ColumnHeadersVisible = False
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)

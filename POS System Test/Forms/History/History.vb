@@ -9,7 +9,8 @@ Public Class History
 
     Private Sub dgvSaleHistory_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellContentDoubleClick
         Dim filepath As String = $"Receipts/{dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value}.csv"
-        System.Diagnostics.Process.Start(filepath)
+        ReceiptViewer.ShowReceipt(filepath)
+        ReceiptViewer.Show()
     End Sub
 
 End Class

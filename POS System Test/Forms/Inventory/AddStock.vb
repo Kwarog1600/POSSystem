@@ -67,6 +67,7 @@ Public Class AddStock
         For i As Integer = 1 To dgvAddedList.Columns.Count - 1
             headers.Add(dgvAddedList.Columns(i).HeaderText)
         Next
+        StockAdded.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
         For Each row As DataGridViewRow In dgvAddedList.Rows
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
@@ -119,7 +120,9 @@ Public Class AddStock
         Try
             Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
             For Each row As DataGridViewRow In dgvAddDescr.Rows
-                id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
+                If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
+                    id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c, i) Char.IsUpper(c) Or Char.IsDigit(c) Or (i > 0 AndAlso i < 3)).ToArray()
+                End If
             Next
             txbxID.Text = id
         Catch ex As Exception
@@ -157,12 +160,7 @@ Public Class AddStock
             stocklist += item & Environment.NewLine
         Next
         Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
-        File.AppendAllText(logpath, line & Environment.NewLine)
+        File.AppendAllText(logpath, line)
         CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SAR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Total,{info & " Items" & Environment.NewLine} By User,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
-    End Sub
-
-
-    Private Sub dgvAddDescr_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAddDescr.CellContentClick
-
     End Sub
 End Class

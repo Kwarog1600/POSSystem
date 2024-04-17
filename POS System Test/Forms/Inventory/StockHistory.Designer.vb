@@ -35,6 +35,8 @@ Partial Class StockHistory
         dgvHistory.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvHistory.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells
+        dgvHistory.CellBorderStyle = DataGridViewCellBorderStyle.Single
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
@@ -44,7 +46,6 @@ Partial Class StockHistory
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvHistory.ColumnHeadersHeight = 17
-        dgvHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -71,7 +72,7 @@ Partial Class StockHistory
         dgvHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvHistory.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         dgvHistory.ThemeStyle.HeaderStyle.Height = 17
         dgvHistory.ThemeStyle.ReadOnly = True
         dgvHistory.ThemeStyle.RowsStyle.BackColor = Color.White

@@ -13,6 +13,7 @@ Public Class Sales
         For i = 1 To dgvAddedList.Columns.Count - 1
             headers.Add(dgvAddedList.Columns(i).HeaderText)
         Next
+        items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
         For Each row As DataGridViewRow In dgvAddedList.Rows
             Dim filename = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
@@ -41,9 +42,9 @@ Public Class Sales
         For Each item As String In items
             stocklist += item & Environment.NewLine
         Next
-        Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
+        Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
         File.AppendAllText(logpath, line & Environment.NewLine)
-        CreateNewCsv(logrec, $"{"Date,Reference,Customer Name, Total Amount,Sold By" & Environment.NewLine & logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},customerName,{info},{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
+        CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Name,{customerName & Environment.NewLine}Total,{info & Environment.NewLine}Sold By,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
@@ -57,7 +58,7 @@ Public Class Sales
                             cbxCategory.SelectedItem = cat
                             txbxProduct.Text = data(1)
                             txbxPrice.Text = data(2)
-                            txbxQty.Text = data(3)
+                            txbxQty.Text = 1
                             Dim rowIndex As Integer = 0
                             For i As Integer = 4 To data.Length - 1
                                 dgvDescr.Rows(rowIndex).Cells(1).Value = data(i)

@@ -1,8 +1,10 @@
-﻿Imports System.IO
+﻿Imports System.Drawing.Printing
+Imports System.IO
 Imports Mysqlx.XDevAPI.Relational
 
 Public Class ReceiptViewer
     Sub ShowReceipt(filepath As String)
+        dgvHistory.Rows.Clear()
         contents = ReadCsv(filepath)
         For Each line As String In contents
             Dim lineContents() As String = line.Split(","c)
@@ -15,7 +17,8 @@ Public Class ReceiptViewer
         Next
     End Sub
 
-    Private Sub ReceiptViewer_Load(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
+    Private Sub ReceiptViewer_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
         dgvHistory.Size = New Size(Me.Width, Me.Height)
     End Sub
+
 End Class
