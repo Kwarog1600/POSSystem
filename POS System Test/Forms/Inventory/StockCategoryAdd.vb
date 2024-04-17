@@ -9,6 +9,8 @@ Public Class StockCategoryAdd
         RefreshTable("Resources/Stock Category.csv", dgvCatList)
         Inventory.cbxCategory.Items.Clear()
         Inventory.cbxCategory.Items.Add("All")
+        Sales.cbxCategory.Items.Clear()
+        AddStock.cbxCategory.Items.Clear()
         RefreshCat(Inventory.cbxCategory)
         RefreshCat(Sales.cbxCategory)
         RefreshCat(AddStock.cbxCategory)
@@ -25,7 +27,23 @@ Public Class StockCategoryAdd
 
 
     Private Sub btRemove_Click(sender As Object, e As EventArgs) Handles btRemove.Click
-
+        contents = ReadCsv("Resources/Stock Category.csv")
+        For Each cat In contents
+            If cat = dgvCatList.SelectedRows(0).Cells(0).Value Then
+                contents.Remove(cat)
+                File.WriteAllLines("Resources/Stock Category.csv", contents)
+                File.Delete($"Stock\{cat}.csv")
+                Exit Sub
+            End If
+        Next
+        RefreshTable("Resources/Stock Category.csv", dgvCatList)
+        Inventory.cbxCategory.Items.Clear()
+        Inventory.cbxCategory.Items.Add("All")
+        Sales.cbxCategory.Items.Clear()
+        AddStock.cbxCategory.Items.Clear()
+        RefreshCat(Inventory.cbxCategory)
+        RefreshCat(Sales.cbxCategory)
+        RefreshCat(AddStock.cbxCategory)
     End Sub
 
     Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles cbxAddDescr.CheckedChanged

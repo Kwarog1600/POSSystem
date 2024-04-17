@@ -5,7 +5,7 @@ Imports Mysqlx.Notice.Warning.Types
 
 Public Class LoginForm
 
-
+    Public startCash As String
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = btLogin
@@ -27,6 +27,7 @@ Public Class LoginForm
             End If
         Next
         If match Then
+            startCash = InputBox("Enter the start cash:", "Start Cash")
             Me.Hide()
             MainForm.Show()
         Else
@@ -34,7 +35,4 @@ Public Class LoginForm
         End If
     End Sub
 
-    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
-
-    End Sub
 End Class

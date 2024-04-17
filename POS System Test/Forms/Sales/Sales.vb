@@ -27,7 +27,8 @@ Public Class Sales
         Next
         SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
         dgvAddedList.Rows.Clear()
-
+        Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
+        Dashboard.TotalSold.Text = (Convert.ToDouble(Dashboard.TotalSold.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
         If dgvAddedList.Columns.Count > 6 Then
             For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
                 dgvAddedList.Columns.RemoveAt(i)
@@ -51,7 +52,7 @@ Public Class Sales
         If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
                 contents = ReadCsv($"Stock\{cat}.csv")
-                If contents.Count > 2 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
+                If contents.Count > 1 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
                     For Each line In contents
                         Dim data = line.Split(",")
                         If data(0) = txbxID.Text Then
@@ -63,7 +64,6 @@ Public Class Sales
                             For i As Integer = 0 To dgvDescr.Rows.Count - 1
                                 dgvDescr.Rows(i).Cells(1).Value = data(i + 4)
                             Next
-
                         End If
                     Next
                 End If
@@ -125,8 +125,9 @@ Public Class Sales
     Private Sub txbxProduct_TextChanged(sender As Object, e As EventArgs) Handles txbxProduct.TextChanged
         Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
         For Each row As DataGridViewRow In dgvDescr.Rows
-            id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
-
+            If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
+                id += "-" & New String(row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()) & New String(row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+            End If
         Next
         txbxID.Text = id
     End Sub
@@ -135,7 +136,9 @@ Public Class Sales
         Try
             Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
             For Each row As DataGridViewRow In dgvDescr.Rows
-                id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
+                If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
+                    id += "-" & New String(row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()) & New String(row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
+                End If
             Next
             txbxID.Text = id
         Catch ex As Exception

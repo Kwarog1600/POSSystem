@@ -2,10 +2,8 @@
 Public Class MainForm
     Public currentBtn As Object
 
-
-
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        switchPanel(Dashboard)
     End Sub
 
     Private Sub btMin_Click(sender As Object, e As EventArgs) Handles btMin.Click
@@ -21,10 +19,6 @@ Public Class MainForm
         LoginForm.Show()
         LogReg("Out", lbUsername.Text)
         Me.Hide()
-    End Sub
-
-    Private Sub btSettings_Click(sender As Object, e As EventArgs) Handles btSettings.Click
-
     End Sub
 
     Private Sub btInventory_Click(sender As Object, e As EventArgs) Handles btInventory.Click
@@ -51,7 +45,7 @@ Public Class MainForm
         switchPanel(TimeLog)
     End Sub
 
-    Private Sub pnlSwitch_Paint(sender As Object, e As PaintEventArgs) Handles pnlSwitch.Paint
-
+    Private Sub btDashboard_Click(sender As Object, e As EventArgs) Handles btDashboard.Click
+        switchPanel(Dashboard)
     End Sub
 End Class

@@ -81,6 +81,7 @@ Public Class AddStock
             StockAdded.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()))
         Next
         StockLogging(DateOnly.FromDateTime(DateTime.Now), stockCount, MainForm.lbUsername.Text, StockAdded)
+        Dashboard.ttlStockCount.Text = Dashboard.CountStock()
         dgvAddedList.Rows.Clear()
         For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
             dgvAddedList.Columns.RemoveAt(i)
@@ -110,7 +111,7 @@ Public Class AddStock
         Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
         For Each row As DataGridViewRow In dgvAddDescr.Rows
             If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
-                id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()
+                id += "-" & New String(row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()) & New String(row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
             End If
         Next
         txbxID.Text = id
@@ -121,7 +122,7 @@ Public Class AddStock
             Dim id As String = New String(txbxProduct.Text.Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
             For Each row As DataGridViewRow In dgvAddDescr.Rows
                 If Not String.IsNullOrEmpty(row.Cells(1).Value.ToString()) Then
-                    id += "-" & row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray() & row.Cells(1).Value.ToString().Where(Function(c, i) Char.IsUpper(c) Or Char.IsDigit(c) Or (i > 0 AndAlso i < 3)).ToArray()
+                    id += "-" & New String(row.Cells(0).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray()) & New String(row.Cells(1).Value.ToString().Where(Function(c) Char.IsUpper(c) Or Char.IsDigit(c)).ToArray())
                 End If
             Next
             txbxID.Text = id
@@ -134,7 +135,7 @@ Public Class AddStock
         If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
                 contents = ReadCsv($"Stock\{cat}.csv")
-                If contents.Count > 2 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
+                If contents.Count > 1 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
                     For Each line In contents
                         Dim data = line.Split(",")
                         If data(0) = txbxID.Text Then
