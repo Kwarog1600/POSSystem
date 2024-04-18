@@ -107,6 +107,7 @@ Partial Class StockCategoryAdd
         dgvCatList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvCatList.ColumnHeadersHeight = 4
         dgvCatList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvCatList.ColumnHeadersVisible = False
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -185,7 +186,7 @@ Partial Class StockCategoryAdd
         DataGridViewCellStyle4.BackColor = Color.White
         dgvAddDescr.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle5.BackColor = SystemColors.ButtonShadow
         DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle5.ForeColor = Color.White
         DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight

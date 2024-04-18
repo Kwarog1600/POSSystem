@@ -127,6 +127,7 @@ Partial Class EmployeeManagement
         dgvUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvUserList.ColumnHeadersHeight = 4
         dgvUserList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvUserList.ColumnHeadersVisible = False
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)

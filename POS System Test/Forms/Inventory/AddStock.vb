@@ -20,13 +20,6 @@ Public Class AddStock
                 headers.Add(col.Name)
             Next
 
-            For Each row As DataGridViewRow In dgvAddDescr.Rows
-                If row.Cells(1).Value = "" Then
-                    MessageBox.Show("Please fill all fields")
-                    Exit Sub
-                End If
-            Next
-
             Dim contents As New List(Of String)
             With contents
                 .Add(cbxCategory.SelectedItem)
@@ -72,9 +65,7 @@ Public Class AddStock
             Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
-                If Not row.Cells(i).Value.ToString() = "" Then
-                    content.Add(row.Cells(i).Value)
-                End If
+                content.Add(row.Cells(i).Value)
             Next
             AddStockSub(filename, content, headers)
             stockCount += row.Cells(4).Value

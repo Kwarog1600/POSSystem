@@ -36,7 +36,6 @@ Partial Class StockHistory
         DataGridViewCellStyle1.BackColor = Color.White
         dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         dgvHistory.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells
-        dgvHistory.CellBorderStyle = DataGridViewCellBorderStyle.Single
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
@@ -68,7 +67,7 @@ Partial Class StockHistory
         dgvHistory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
         dgvHistory.ThemeStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvHistory.ThemeStyle.HeaderStyle.BackColor = SystemColors.ButtonShadow
         dgvHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvHistory.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White
