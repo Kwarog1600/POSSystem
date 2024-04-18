@@ -136,7 +136,9 @@ Module AppModule
             For i As Integer = 0 To refheader.Count - 1
                 If addcontent(i) IsNot Nothing Then
                     Dim index As Integer = Array.IndexOf(headers, refheader(i))
-                    NewLine(index) = addcontent(i)
+                    If index <> -1 Then
+                        NewLine(index) = addcontent(i)
+                    End If
                 End If
             Next
             Dim newStock As String = String.Join(",", NewLine)
