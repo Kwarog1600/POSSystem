@@ -69,5 +69,6 @@ Public Class EmployeeManagement
             End If
             contents(i) = String.Join(",", userinfo)
         Next
+        File.WriteAllLines("Resources/Users.csv", contents)
     End Sub
 End Class
