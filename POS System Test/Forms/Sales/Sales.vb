@@ -10,29 +10,33 @@ Public Class Sales
         Dim headers As New List(Of String)
         Dim TotalAmount As Integer
         Dim items As New List(Of String)
-        For i = 1 To dgvAddedList.Columns.Count - 1
-            headers.Add(dgvAddedList.Columns(i).HeaderText)
-        Next
-        items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
-        For Each row As DataGridViewRow In dgvAddedList.Rows
-            Dim filename = $"Stock\{row.Cells(0).Value}.csv"
-            Dim content As New List(Of String)
+        If Not (txbxID.Text = "" Or txbxName.Text = "" Or txbxPrice.Text = "" Or txbxQty.Text = "") Then
             For i = 1 To dgvAddedList.Columns.Count - 1
-                If i <> 5 Then
-                    content.Add(row.Cells(i).Value)
-                End If
+                headers.Add(dgvAddedList.Columns(i).HeaderText)
             Next
-            items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
-            UpdateQty(filename, content, headers, True)
-        Next
-        SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
-        dgvAddedList.Rows.Clear()
-        Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
-        Dashboard.TotalSold.Text = (Convert.ToDouble(Dashboard.TotalSold.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
-        If dgvAddedList.Columns.Count > 6 Then
-            For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
-                dgvAddedList.Columns.RemoveAt(i)
-            Next i
+            items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
+            For Each row As DataGridViewRow In dgvAddedList.Rows
+                Dim filename = $"Stock\{row.Cells(0).Value}.csv"
+                Dim content As New List(Of String)
+                For i = 1 To dgvAddedList.Columns.Count - 1
+                    If i <> 5 Then
+                        content.Add(row.Cells(i).Value)
+                    End If
+                Next
+                items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
+                UpdateQty(filename, content, headers, True)
+            Next
+            SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
+            dgvAddedList.Rows.Clear()
+            Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
+            Dashboard.TotalSold.Text = (Convert.ToDouble(Dashboard.TotalSold.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
+            If dgvAddedList.Columns.Count > 6 Then
+                For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
+                    dgvAddedList.Columns.RemoveAt(i)
+                Next i
+            End If
+        Else
+            MessageBox.Show("Please fill in all the required fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 

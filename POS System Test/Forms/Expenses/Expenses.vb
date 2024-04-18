@@ -4,6 +4,6 @@
     End Sub
 
     Private Sub Expenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        LoadList()
     End Sub
 End Class

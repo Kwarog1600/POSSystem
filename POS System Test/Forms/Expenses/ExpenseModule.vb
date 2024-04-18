@@ -19,10 +19,9 @@ Module ExpenseModule
         Else
             MessageBox.Show("File not found")
         End If
-
     End Sub
 
-    Public Sub AddExpense(name As String, Purpose As String, Amount As String, currentDate As DateTime)
+    Public Sub AddExpense(name As String, Purpose As String, Amount As String, currentDate As DateOnly)
         Dim filepath As String = "Resources/Expenses.csv"
         If File.Exists(filepath) Then
             Using write As New StreamWriter(filepath, True)
@@ -30,6 +29,7 @@ Module ExpenseModule
             End Using
         End If
         LoadList()
+        Dashboard.TotalExpenses.Text = Convert.ToString(Convert.ToInt32(Dashboard.TotalExpenses.Text) + Convert.ToInt32(Amount))
     End Sub
 
 End Module
