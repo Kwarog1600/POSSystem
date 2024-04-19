@@ -9,35 +9,35 @@ Public Class Sales
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Try
             Dim headers As New List(Of String)
-            Dim TotalAmount As Integer
+            Dim TotalAmount As Integer = 0
             Dim items As New List(Of String)
-            If Not (txbxID.Text = "" Or txbxName.Text = "" Or txbxPrice.Text = "" Or txbxQty.Text = "") Then
-                For i = 1 To dgvAddedList.Columns.Count - 1
+            For i = 1 To dgvAddedList.Columns.Count - 1
                     headers.Add(dgvAddedList.Columns(i).HeaderText)
                 Next
                 items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
-                For Each row As DataGridViewRow In dgvAddedList.Rows
-                    Dim filename = $"Stock\{row.Cells(0).Value}.csv"
-                    Dim content As New List(Of String)
-                    For i = 1 To dgvAddedList.Columns.Count - 1
-                        If i <> 5 Then
-                            content.Add(row.Cells(i).Value)
-                        End If
-                    Next
-                    items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
-                    UpdateQty(filename, content, headers, True)
+            For Each row As DataGridViewRow In dgvAddedList.Rows
+                Dim filename = $"Stock\{row.Cells(0).Value}.csv"
+                Dim content As New List(Of String)
+                For i = 1 To dgvAddedList.Columns.Count - 1
+                    If i <> 5 Then
+                        content.Add(row.Cells(i).Value)
+                    End If
+
                 Next
-                SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
-                dgvAddedList.Rows.Clear()
+                TotalAmount = TotalAmount + Convert.ToInt32(row.Cells(5).Value)
+                items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
+                UpdateQty(filename, content, headers, True)
+            Next
+            Dim Less As Integer = InputBox("Less:", "Discount Prompt")
+            TotalAmount -= Less
+            SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
+            dgvAddedList.Rows.Clear()
                 Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
                 Dashboard.TotalSold.Text = (Convert.ToDouble(Dashboard.TotalSold.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
-                If dgvAddedList.Columns.Count > 6 Then
-                    For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
-                        dgvAddedList.Columns.RemoveAt(i)
-                    Next i
-                End If
-            Else
-                MessageBox.Show("Please fill in all the required fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If dgvAddedList.Columns.Count > 6 Then
+                For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
+                    dgvAddedList.Columns.RemoveAt(i)
+                Next i
             End If
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
@@ -52,7 +52,7 @@ Public Class Sales
             For Each item As String In items
                 stocklist += item & Environment.NewLine
             Next
-            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{info},{inputuser}" & Environment.NewLine
+            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{customerName},{info},{inputuser}" & Environment.NewLine
             File.AppendAllText(logpath, line)
             CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Name,{customerName & Environment.NewLine}Total,{info & Environment.NewLine}Sold By,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
         Catch ex As Exception
