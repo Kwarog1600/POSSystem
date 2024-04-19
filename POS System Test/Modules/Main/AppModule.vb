@@ -154,10 +154,20 @@ Module AppModule
                 table.Columns.Add(header, header)
             End If
         Next
-        table.Rows.Add()
-        For Each cellcontent As String In item
-            table.Rows(table.Rows.Count - 1).Cells(headers(item.IndexOf(cellcontent))).Value = cellcontent
+        Dim found As Boolean = False
+        For Each row As DataGridViewRow In table.Rows
+            If row.Cells(1).Value.ToString() = item(1) Then
+                found = True
+                row.Cells(4).Value = Convert.ToInt32(row.Cells(4).Value) + Convert.ToInt32(item(4))
+                Exit For
+            End If
         Next
+        If Not found Then
+            table.Rows.Add()
+            For Each cellcontent As String In item
+                table.Rows(table.Rows.Count - 1).Cells(headers(item.IndexOf(cellcontent))).Value = cellcontent
+            Next
+        End If
     End Sub
 
     Public Function HashPassword(password As String) As String

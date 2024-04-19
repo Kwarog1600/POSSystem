@@ -96,6 +96,7 @@ Public Class Sales
         cbxCategory.Items.Clear()
         RefreshCat(cbxCategory)
     End Sub
+
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
         Try
             Dim headers As New List(Of String)
@@ -193,4 +194,7 @@ Public Class Sales
         SearchItem.txbxSearch.Text = txbxProduct.Text
     End Sub
 
+    Private Sub showTotalPrice_Click(sender As Object, e As EventArgs) Handles showTotalPrice.Click
+
+    End Sub
 End Class
