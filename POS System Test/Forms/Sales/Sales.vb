@@ -11,6 +11,21 @@ Public Class Sales
             Dim headers As New List(Of String)
             Dim TotalAmount As Integer = 0
             Dim items As New List(Of String)
+            Dim less As Integer
+            If dgvAddedList.RowCount = 0 Then
+                MessageBox.Show("Please add items.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+            Dim isValidInput As Boolean = False
+            Do Until isValidInput
+                Dim input As String = InputBox("Less?", "Discount Prompt")
+                If IsNumeric(input) Then
+                    less = CInt(input)
+                    isValidInput = True
+                Else
+                    MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Loop
             For i = 1 To dgvAddedList.Columns.Count - 1
                     headers.Add(dgvAddedList.Columns(i).HeaderText)
                 Next
@@ -28,7 +43,6 @@ Public Class Sales
                 items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
                 UpdateQty(filename, content, headers, True)
             Next
-            Dim Less As Integer = InputBox("Less:", "Discount Prompt")
             TotalAmount -= Less
             SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
             dgvAddedList.Rows.Clear()

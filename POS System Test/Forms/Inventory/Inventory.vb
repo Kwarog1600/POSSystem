@@ -41,8 +41,10 @@ Public Class Inventory
     End Sub
 
 
-    Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+    Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         dgvStockList.Rows.Clear()
+        dgvStockList.Columns.Clear()
+        dgvStockList.Columns.Add($"clmcategory", "category")
         If cbxCategory.SelectedItem = "All" Then
             For Each cat In cbxCategory.Items
                 If Not cat = "All" Then
@@ -57,9 +59,11 @@ Public Class Inventory
                     For i As Integer = 1 To contents.Count - 1
                         Dim item() As String = contents(i).Split(","c)
                         Dim newRowIdx = dgvStockList.Rows.Add()
+                        dgvStockList.Rows(newRowIdx).Cells("clmcategory").Value = cat
                         For j As Integer = 0 To item.Length - 1
                             If j < tbheader.Length Then
                                 Dim columnName As String = $"clm{tbheader(j)}"
+
                                 dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
                             End If
                         Next
@@ -87,7 +91,21 @@ Public Class Inventory
             Next
         End If
     End Sub
-End Class
 
+    Private Sub dgvStockList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
+        With PriceChange
+            .txbxCategory.Text = dgvStockList.Rows(e.RowIndex).Cells("clmCategory").Value
+            .txbxID.Text = dgvStockList.Rows(e.RowIndex).Cells("clmID").Value
+            .txbxProduct.Text = dgvStockList.Rows(e.RowIndex).Cells("clmProduct").Value
+            .txbxPrice.Text = dgvStockList.Rows(e.RowIndex).Cells("clmPrice").Value
+            If dgvStockList.Rows(e.RowIndex).Cells.Count > 5 Then
+                For i As Integer = 5 To dgvStockList.Rows(e.RowIndex).Cells.Count - 1
+                    .dgvAddDescr.Rows.Add(dgvStockList.Columns(i).HeaderText, dgvStockList.Rows(e.RowIndex).Cells(i).Value)
+                Next
+            End If
+            .Show()
+        End With
+    End Sub
+End Class
 
 

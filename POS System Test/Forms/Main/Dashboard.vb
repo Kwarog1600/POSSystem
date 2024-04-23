@@ -20,7 +20,7 @@ Public Class Dashboard
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ttlStockCount.Text = CountStock()
-        CurrentCash.Text = $"{Double.Parse(LoginForm.startCash) + Double.Parse(ttlSold) - Double.Parse(ttlExpenses)}"
+        CurrentCash.Text = $"{Double.Parse(LoginForm.startCash)}"
         TotalExpenses.Text = DailyExpenses()
         lbMonthlyExpense.Text = MonthlyExpenses()
         TotalSold.Text = ttlDailySale()
@@ -38,7 +38,7 @@ Public Class Dashboard
         Return ttlSale
     End Function
 
-    Private Function MonthlyExpenses() As Integer
+    Public Function MonthlyExpenses() As Integer
         contents = ReadCsv("Resources/Expenses.csv")
         Dim mExp As Integer = 0
         For i As Integer = 1 To contents.Count - 1
@@ -50,7 +50,7 @@ Public Class Dashboard
         Return mExp
     End Function
 
-    Private Function DailyExpenses() As Integer
+    Public Function DailyExpenses() As Integer
         contents = ReadCsv("Resources/Expenses.csv")
         Dim dExp As Integer = 0
         Dim currentDate = DateTime.Now

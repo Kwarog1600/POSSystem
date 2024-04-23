@@ -243,7 +243,6 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\hostfxr.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\hostpolicy.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\mscordaccore.dll
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\mscordaccore_x86_x86_8.0.324.11423.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\mscordbi.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\mscorrc.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\msquic.dll
@@ -504,3 +503,5 @@ C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-wi
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\win-x86\POS And Inventory.pdb
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\win-x86\POS And Inventory.genruntimeconfig.cache
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\win-x86\ref\POS And Inventory.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Debug\net8.0-windows\win-x86\mscordaccore_x86_x86_8.0.424.16909.dll
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Debug\net8.0-windows\win-x86\POS_System_Test.PriceChange.resources

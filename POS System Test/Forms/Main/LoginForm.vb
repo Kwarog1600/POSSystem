@@ -5,7 +5,7 @@ Imports Mysqlx.Notice.Warning.Types
 
 Public Class LoginForm
 
-    Public startCash As String
+    Public startCash As Integer
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = btLogin
@@ -27,7 +27,16 @@ Public Class LoginForm
             End If
         Next
         If match Then
-            startCash = InputBox("Enter the start cash:", "Start Cash")
+            Dim isValidInput As Boolean = False
+            Do Until isValidInput
+                Dim input As String = InputBox("Enter the start cash:", "Start Cash")
+                If IsNumeric(input) Then
+                    startCash = CInt(input)
+                    isValidInput = True
+                Else
+                    MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Loop
             MainForm.lbUsername.Text = txbxUsername.Text
             MainForm.Show()
             Me.Hide()

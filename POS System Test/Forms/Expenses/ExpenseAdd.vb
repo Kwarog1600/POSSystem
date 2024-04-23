@@ -4,7 +4,8 @@
         Dim name As String = txbxName.Text
         Dim Purpose As String = txbxPurpose.Text
         AddExpense(name, Purpose, Expense, DateOnly.FromDateTime(DateTime.Now))
-
+        Dashboard.lbMonthlyExpense.Text = Dashboard.MonthlyExpenses()
+        Dashboard.TotalExpenses.Text = Dashboard.DailyExpenses()
         Me.Hide()
     End Sub
 End Class

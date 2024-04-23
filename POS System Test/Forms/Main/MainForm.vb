@@ -48,4 +48,5 @@ Public Class MainForm
     Private Sub btDashboard_Click(sender As Object, e As EventArgs) Handles btDashboard.Click
         switchPanel(Dashboard)
     End Sub
+
 End Class

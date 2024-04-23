@@ -22,18 +22,18 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Guna2CustomGradientPanel5 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         lbMonthlyExpense = New Label()
@@ -46,7 +46,6 @@ Partial Class Dashboard
         Label4 = New Label()
         Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         CurrentCash = New Label()
-        Label2 = New Label()
         lbCash = New Label()
         Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         ttlStockCount = New Label()
@@ -67,10 +66,10 @@ Partial Class Dashboard
         pnlContainer.Controls.Add(Guna2CustomGradientPanel3)
         pnlContainer.Controls.Add(Guna2CustomGradientPanel2)
         pnlContainer.Controls.Add(Guna2CustomGradientPanel1)
-        pnlContainer.CustomizableEdges = CustomizableEdges23
+        pnlContainer.CustomizableEdges = CustomizableEdges11
         pnlContainer.Location = New Point(36, 45)
         pnlContainer.Name = "pnlContainer"
-        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        pnlContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         pnlContainer.Size = New Size(920, 575)
         pnlContainer.TabIndex = 4
         ' 
@@ -80,12 +79,12 @@ Partial Class Dashboard
         Guna2CustomGradientPanel5.BorderRadius = 25
         Guna2CustomGradientPanel5.Controls.Add(lbMonthlyExpense)
         Guna2CustomGradientPanel5.Controls.Add(Label3)
-        Guna2CustomGradientPanel5.CustomizableEdges = CustomizableEdges13
+        Guna2CustomGradientPanel5.CustomizableEdges = CustomizableEdges1
         Guna2CustomGradientPanel5.FillColor = Color.LightGray
         Guna2CustomGradientPanel5.FillColor3 = Color.LightGray
         Guna2CustomGradientPanel5.Location = New Point(491, 308)
         Guna2CustomGradientPanel5.Name = "Guna2CustomGradientPanel5"
-        Guna2CustomGradientPanel5.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        Guna2CustomGradientPanel5.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Guna2CustomGradientPanel5.Size = New Size(250, 250)
         Guna2CustomGradientPanel5.TabIndex = 12
         ' 
@@ -95,9 +94,9 @@ Partial Class Dashboard
         lbMonthlyExpense.Font = New Font("Segoe UI", 25F)
         lbMonthlyExpense.Location = New Point(95, 100)
         lbMonthlyExpense.Name = "lbMonthlyExpense"
-        lbMonthlyExpense.Size = New Size(74, 46)
+        lbMonthlyExpense.Size = New Size(38, 46)
         lbMonthlyExpense.TabIndex = 9
-        lbMonthlyExpense.Text = "000"
+        lbMonthlyExpense.Text = "0"
         lbMonthlyExpense.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Label3
@@ -115,12 +114,12 @@ Partial Class Dashboard
         Guna2CustomGradientPanel4.BorderRadius = 25
         Guna2CustomGradientPanel4.Controls.Add(TotalSold)
         Guna2CustomGradientPanel4.Controls.Add(Label6)
-        Guna2CustomGradientPanel4.CustomizableEdges = CustomizableEdges15
+        Guna2CustomGradientPanel4.CustomizableEdges = CustomizableEdges3
         Guna2CustomGradientPanel4.FillColor = Color.LightGray
         Guna2CustomGradientPanel4.FillColor3 = Color.LightGray
         Guna2CustomGradientPanel4.Location = New Point(185, 308)
         Guna2CustomGradientPanel4.Name = "Guna2CustomGradientPanel4"
-        Guna2CustomGradientPanel4.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        Guna2CustomGradientPanel4.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2CustomGradientPanel4.Size = New Size(250, 250)
         Guna2CustomGradientPanel4.TabIndex = 12
         ' 
@@ -130,9 +129,9 @@ Partial Class Dashboard
         TotalSold.Font = New Font("Segoe UI", 25F)
         TotalSold.Location = New Point(95, 100)
         TotalSold.Name = "TotalSold"
-        TotalSold.Size = New Size(74, 46)
+        TotalSold.Size = New Size(38, 46)
         TotalSold.TabIndex = 9
-        TotalSold.Text = "000"
+        TotalSold.Text = "0"
         TotalSold.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Label6
@@ -150,12 +149,12 @@ Partial Class Dashboard
         Guna2CustomGradientPanel3.BorderRadius = 25
         Guna2CustomGradientPanel3.Controls.Add(TotalExpenses)
         Guna2CustomGradientPanel3.Controls.Add(Label4)
-        Guna2CustomGradientPanel3.CustomizableEdges = CustomizableEdges17
+        Guna2CustomGradientPanel3.CustomizableEdges = CustomizableEdges5
         Guna2CustomGradientPanel3.FillColor = Color.LightGray
         Guna2CustomGradientPanel3.FillColor3 = Color.LightGray
         Guna2CustomGradientPanel3.Location = New Point(620, 52)
         Guna2CustomGradientPanel3.Name = "Guna2CustomGradientPanel3"
-        Guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        Guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         Guna2CustomGradientPanel3.Size = New Size(250, 250)
         Guna2CustomGradientPanel3.TabIndex = 11
         ' 
@@ -165,9 +164,9 @@ Partial Class Dashboard
         TotalExpenses.Font = New Font("Segoe UI", 25F)
         TotalExpenses.Location = New Point(95, 100)
         TotalExpenses.Name = "TotalExpenses"
-        TotalExpenses.Size = New Size(74, 46)
+        TotalExpenses.Size = New Size(38, 46)
         TotalExpenses.TabIndex = 9
-        TotalExpenses.Text = "000"
+        TotalExpenses.Text = "0"
         TotalExpenses.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Label4
@@ -184,14 +183,13 @@ Partial Class Dashboard
         Guna2CustomGradientPanel2.BackColor = Color.Transparent
         Guna2CustomGradientPanel2.BorderRadius = 25
         Guna2CustomGradientPanel2.Controls.Add(CurrentCash)
-        Guna2CustomGradientPanel2.Controls.Add(Label2)
         Guna2CustomGradientPanel2.Controls.Add(lbCash)
-        Guna2CustomGradientPanel2.CustomizableEdges = CustomizableEdges19
+        Guna2CustomGradientPanel2.CustomizableEdges = CustomizableEdges7
         Guna2CustomGradientPanel2.FillColor = Color.LightGray
         Guna2CustomGradientPanel2.FillColor3 = Color.LightGray
         Guna2CustomGradientPanel2.Location = New Point(339, 52)
         Guna2CustomGradientPanel2.Name = "Guna2CustomGradientPanel2"
-        Guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        Guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         Guna2CustomGradientPanel2.Size = New Size(250, 250)
         Guna2CustomGradientPanel2.TabIndex = 10
         ' 
@@ -201,20 +199,10 @@ Partial Class Dashboard
         CurrentCash.Font = New Font("Segoe UI", 25F)
         CurrentCash.Location = New Point(95, 100)
         CurrentCash.Name = "CurrentCash"
-        CurrentCash.Size = New Size(74, 46)
+        CurrentCash.Size = New Size(38, 46)
         CurrentCash.TabIndex = 10
-        CurrentCash.Text = "000"
+        CurrentCash.Text = "0"
         CurrentCash.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 25F)
-        Label2.Location = New Point(91, 100)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(74, 46)
-        Label2.TabIndex = 9
-        Label2.Text = "000"
         ' 
         ' lbCash
         ' 
@@ -231,12 +219,12 @@ Partial Class Dashboard
         Guna2CustomGradientPanel1.BorderRadius = 25
         Guna2CustomGradientPanel1.Controls.Add(ttlStockCount)
         Guna2CustomGradientPanel1.Controls.Add(lbAvailable)
-        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges21
+        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges9
         Guna2CustomGradientPanel1.FillColor = Color.LightGray
         Guna2CustomGradientPanel1.FillColor3 = Color.LightGray
         Guna2CustomGradientPanel1.Location = New Point(55, 52)
         Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2CustomGradientPanel1.Size = New Size(250, 250)
         Guna2CustomGradientPanel1.TabIndex = 5
         ' 
@@ -246,9 +234,9 @@ Partial Class Dashboard
         ttlStockCount.Font = New Font("Segoe UI", 25F)
         ttlStockCount.Location = New Point(95, 100)
         ttlStockCount.Name = "ttlStockCount"
-        ttlStockCount.Size = New Size(74, 46)
+        ttlStockCount.Size = New Size(38, 46)
         ttlStockCount.TabIndex = 9
-        ttlStockCount.Text = "000"
+        ttlStockCount.Text = "0"
         ttlStockCount.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' lbAvailable
@@ -295,7 +283,6 @@ Partial Class Dashboard
     Friend WithEvents TotalExpenses As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Guna2CustomGradientPanel2 As Guna.UI2.WinForms.Guna2CustomGradientPanel
-    Friend WithEvents Label2 As Label
     Friend WithEvents lbCash As Label
     Friend WithEvents CurrentCash As Label
     Friend WithEvents Guna2CustomGradientPanel5 As Guna.UI2.WinForms.Guna2CustomGradientPanel

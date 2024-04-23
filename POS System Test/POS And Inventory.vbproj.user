@@ -31,6 +31,9 @@
     <Compile Update="Forms\Inventory\Inventory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Inventory\PriceChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Inventory\ReceiptViewer.vb">
       <SubType>Form</SubType>
     </Compile>

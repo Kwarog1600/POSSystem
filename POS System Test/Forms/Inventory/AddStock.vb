@@ -156,4 +156,8 @@ Public Class AddStock
         File.AppendAllText(logpath, line)
         CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SAR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Total,{info & " Items" & Environment.NewLine} By User,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
     End Sub
+
+    Private Sub btSeach_Click(sender As Object, e As EventArgs) Handles btSeach.Click
+        SearchItem.Show()
+    End Sub
 End Class

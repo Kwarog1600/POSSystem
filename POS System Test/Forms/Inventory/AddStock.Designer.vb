@@ -24,26 +24,26 @@ Partial Class AddStock
     Private Sub InitializeComponent()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
-        txbxID = New Guna.UI2.WinForms.Guna2TextBox()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         lbProduct = New Label()
         lbID = New Label()
         lbCat = New Label()
@@ -57,56 +57,19 @@ Partial Class AddStock
         Quantity = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
-        txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         lblPrice = New Label()
-        txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
         dgvAddDescr = New Guna.UI2.WinForms.Guna2DataGridView()
         clmDescription = New DataGridViewTextBoxColumn()
         clmValue = New DataGridViewTextBoxColumn()
         btRemove = New Guna.UI2.WinForms.Guna2Button()
+        btSeach = New Guna.UI2.WinForms.Guna2Button()
+        txbxPrice = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxID = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' txbxProduct
-        ' 
-        txbxProduct.CustomizableEdges = CustomizableEdges1
-        txbxProduct.DefaultText = ""
-        txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxProduct.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxProduct.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxProduct.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxProduct.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxProduct.Font = New Font("Segoe UI", 9F)
-        txbxProduct.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxProduct.Location = New Point(73, 75)
-        txbxProduct.Name = "txbxProduct"
-        txbxProduct.PasswordChar = ChrW(0)
-        txbxProduct.PlaceholderText = ""
-        txbxProduct.SelectedText = ""
-        txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txbxProduct.Size = New Size(242, 36)
-        txbxProduct.TabIndex = 0
-        ' 
-        ' txbxID
-        ' 
-        txbxID.CustomizableEdges = CustomizableEdges3
-        txbxID.DefaultText = ""
-        txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxID.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxID.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxID.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxID.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxID.Font = New Font("Segoe UI", 9F)
-        txbxID.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxID.Location = New Point(73, 21)
-        txbxID.Name = "txbxID"
-        txbxID.PasswordChar = ChrW(0)
-        txbxID.PlaceholderText = ""
-        txbxID.SelectedText = ""
-        txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        txbxID.Size = New Size(242, 36)
-        txbxID.TabIndex = 1
         ' 
         ' lbProduct
         ' 
@@ -151,7 +114,7 @@ Partial Class AddStock
         ' btAddStock
         ' 
         btAddStock.BackColor = Color.Transparent
-        btAddStock.CustomizableEdges = CustomizableEdges5
+        btAddStock.CustomizableEdges = CustomizableEdges1
         btAddStock.DisabledState.BorderColor = Color.DarkGray
         btAddStock.DisabledState.CustomBorderColor = Color.DarkGray
         btAddStock.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -161,7 +124,7 @@ Partial Class AddStock
         btAddStock.ForeColor = Color.White
         btAddStock.Location = New Point(509, 61)
         btAddStock.Name = "btAddStock"
-        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btAddStock.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btAddStock.Size = New Size(120, 50)
         btAddStock.TabIndex = 18
         btAddStock.Text = "Add Stock"
@@ -253,7 +216,7 @@ Partial Class AddStock
         ' btSave
         ' 
         btSave.BackColor = Color.Transparent
-        btSave.CustomizableEdges = CustomizableEdges7
+        btSave.CustomizableEdges = CustomizableEdges3
         btSave.DisabledState.BorderColor = Color.DarkGray
         btSave.DisabledState.CustomBorderColor = Color.DarkGray
         btSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -263,7 +226,7 @@ Partial Class AddStock
         btSave.ForeColor = Color.White
         btSave.Location = New Point(509, 117)
         btSave.Name = "btSave"
-        btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btSave.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btSave.Size = New Size(120, 50)
         btSave.TabIndex = 21
         btSave.Text = "Save"
@@ -277,26 +240,6 @@ Partial Class AddStock
         lblQuantity.TabIndex = 23
         lblQuantity.Text = "Quantity"
         ' 
-        ' txbxQty
-        ' 
-        txbxQty.CustomizableEdges = CustomizableEdges9
-        txbxQty.DefaultText = ""
-        txbxQty.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxQty.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxQty.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxQty.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxQty.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxQty.Font = New Font("Segoe UI", 9F)
-        txbxQty.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxQty.Location = New Point(73, 136)
-        txbxQty.Name = "txbxQty"
-        txbxQty.PasswordChar = ChrW(0)
-        txbxQty.PlaceholderText = ""
-        txbxQty.SelectedText = ""
-        txbxQty.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        txbxQty.Size = New Size(242, 36)
-        txbxQty.TabIndex = 2
-        ' 
         ' lblPrice
         ' 
         lblPrice.AutoSize = True
@@ -305,26 +248,6 @@ Partial Class AddStock
         lblPrice.Size = New Size(33, 15)
         lblPrice.TabIndex = 25
         lblPrice.Text = "Price"
-        ' 
-        ' txbxPrice
-        ' 
-        txbxPrice.CustomizableEdges = CustomizableEdges11
-        txbxPrice.DefaultText = ""
-        txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txbxPrice.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txbxPrice.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxPrice.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txbxPrice.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxPrice.Font = New Font("Segoe UI", 9F)
-        txbxPrice.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxPrice.Location = New Point(73, 195)
-        txbxPrice.Name = "txbxPrice"
-        txbxPrice.PasswordChar = ChrW(0)
-        txbxPrice.PlaceholderText = ""
-        txbxPrice.SelectedText = ""
-        txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        txbxPrice.Size = New Size(247, 36)
-        txbxPrice.TabIndex = 3
         ' 
         ' dgvAddDescr
         ' 
@@ -393,7 +316,7 @@ Partial Class AddStock
         ' btRemove
         ' 
         btRemove.BackColor = Color.Transparent
-        btRemove.CustomizableEdges = CustomizableEdges13
+        btRemove.CustomizableEdges = CustomizableEdges5
         btRemove.DisabledState.BorderColor = Color.DarkGray
         btRemove.DisabledState.CustomBorderColor = Color.DarkGray
         btRemove.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -403,16 +326,115 @@ Partial Class AddStock
         btRemove.ForeColor = Color.White
         btRemove.Location = New Point(510, 181)
         btRemove.Name = "btRemove"
-        btRemove.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btRemove.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btRemove.Size = New Size(120, 50)
         btRemove.TabIndex = 27
         btRemove.Text = "Remove"
+        ' 
+        ' btSeach
+        ' 
+        btSeach.BackColor = Color.Transparent
+        btSeach.CustomizableEdges = CustomizableEdges7
+        btSeach.DisabledState.BorderColor = Color.DarkGray
+        btSeach.DisabledState.CustomBorderColor = Color.DarkGray
+        btSeach.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btSeach.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btSeach.FillColor = Color.DimGray
+        btSeach.Font = New Font("Segoe UI", 9F)
+        btSeach.ForeColor = Color.White
+        btSeach.Location = New Point(238, 75)
+        btSeach.Name = "btSeach"
+        btSeach.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btSeach.Size = New Size(77, 36)
+        btSeach.TabIndex = 44
+        btSeach.Text = "Search"
+        ' 
+        ' txbxPrice
+        ' 
+        txbxPrice.CustomizableEdges = CustomizableEdges9
+        txbxPrice.DefaultText = ""
+        txbxPrice.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxPrice.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxPrice.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPrice.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxPrice.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPrice.Font = New Font("Segoe UI", 9F)
+        txbxPrice.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxPrice.Location = New Point(73, 195)
+        txbxPrice.Name = "txbxPrice"
+        txbxPrice.PasswordChar = ChrW(0)
+        txbxPrice.PlaceholderText = ""
+        txbxPrice.SelectedText = ""
+        txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        txbxPrice.Size = New Size(247, 36)
+        txbxPrice.TabIndex = 3
+        ' 
+        ' txbxID
+        ' 
+        txbxID.CustomizableEdges = CustomizableEdges11
+        txbxID.DefaultText = ""
+        txbxID.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxID.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxID.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxID.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxID.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxID.Font = New Font("Segoe UI", 9F)
+        txbxID.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxID.Location = New Point(73, 21)
+        txbxID.Name = "txbxID"
+        txbxID.PasswordChar = ChrW(0)
+        txbxID.PlaceholderText = ""
+        txbxID.SelectedText = ""
+        txbxID.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        txbxID.Size = New Size(242, 36)
+        txbxID.TabIndex = 1
+        ' 
+        ' txbxProduct
+        ' 
+        txbxProduct.CustomizableEdges = CustomizableEdges13
+        txbxProduct.DefaultText = ""
+        txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxProduct.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxProduct.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxProduct.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxProduct.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxProduct.Font = New Font("Segoe UI", 9F)
+        txbxProduct.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxProduct.Location = New Point(73, 75)
+        txbxProduct.Name = "txbxProduct"
+        txbxProduct.PasswordChar = ChrW(0)
+        txbxProduct.PlaceholderText = ""
+        txbxProduct.SelectedText = ""
+        txbxProduct.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        txbxProduct.Size = New Size(159, 36)
+        txbxProduct.TabIndex = 0
+        ' 
+        ' txbxQty
+        ' 
+        txbxQty.CustomizableEdges = CustomizableEdges15
+        txbxQty.DefaultText = ""
+        txbxQty.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxQty.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxQty.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxQty.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxQty.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxQty.Font = New Font("Segoe UI", 9F)
+        txbxQty.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxQty.Location = New Point(73, 136)
+        txbxQty.Name = "txbxQty"
+        txbxQty.PasswordChar = ChrW(0)
+        txbxQty.PlaceholderText = ""
+        txbxQty.SelectedText = ""
+        txbxQty.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        txbxQty.Size = New Size(242, 36)
+        txbxQty.TabIndex = 2
         ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(642, 516)
+        Controls.Add(btSeach)
         Controls.Add(btRemove)
         Controls.Add(dgvAddDescr)
         Controls.Add(lblPrice)
@@ -437,8 +459,6 @@ Partial Class AddStock
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents txbxProduct As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txbxID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lbProduct As Label
     Friend WithEvents lbID As Label
     Private WithEvents lbCat As Label
@@ -447,9 +467,7 @@ Partial Class AddStock
     Friend WithEvents dgvAddedList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblQuantity As Label
-    Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblPrice As Label
-    Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dgvAddDescr As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents clmDescription As DataGridViewTextBoxColumn
     Friend WithEvents clmValue As DataGridViewTextBoxColumn
@@ -459,4 +477,9 @@ Partial Class AddStock
     Friend WithEvents Product As DataGridViewTextBoxColumn
     Friend WithEvents Price As DataGridViewTextBoxColumn
     Friend WithEvents Quantity As DataGridViewTextBoxColumn
+    Friend WithEvents btSeach As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxID As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxProduct As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
 End Class
