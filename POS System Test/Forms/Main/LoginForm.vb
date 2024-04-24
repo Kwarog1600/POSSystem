@@ -35,6 +35,7 @@ Public Class LoginForm
                     isValidInput = True
                 Else
                     MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
                 End If
             Loop
             MainForm.lbUsername.Text = txbxUsername.Text

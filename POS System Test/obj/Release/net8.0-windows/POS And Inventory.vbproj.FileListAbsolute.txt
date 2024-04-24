@@ -102,6 +102,7 @@ C:\Users\cacca\OneDrive\Desktop\Centralized POS System\POS\POS System Test\obj\R
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.TimeLog.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.ExpenseAdd.resources
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Expenses.resources
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Release\net8.0-windows\BouncyCastle.Crypto.dll
-C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\bin\Release\net8.0-windows\itextsharp.dll
 C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.SearchItem.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.PriceChange.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.ReceiptViewer.resources
+C:\Users\HP EliteDesk\source\repos\POSSystem\POS System Test\obj\Release\net8.0-windows\POS_System_Test.Dashboard.resources

@@ -58,12 +58,6 @@
               "target": "Package",
               "version": "[2.0.4.6, )"
             },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.4, )",
-              "autoReferenced": true
-            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.3.0, )"
