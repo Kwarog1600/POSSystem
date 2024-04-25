@@ -147,7 +147,6 @@ Partial Class MainForm
         btSettings.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btSettings.Size = New Size(18, 18)
         btSettings.TabIndex = 6
-        btSettings.Visible = False
         ' 
         ' pnlAdminContainer
         ' 

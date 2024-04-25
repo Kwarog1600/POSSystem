@@ -7,9 +7,9 @@ Public Class Dashboard
     Public ttlSold As String = 0
 
     Function CountStock() As Integer
-        Dim cat = ReadCsv("Resources/Stock Category.csv").Skip(1)
+        Dim cat = ReadCsv($"{srcFolder}/Resources/Stock Category.csv").Skip(1)
         For Each line In cat
-            Dim file = ReadCsv($"Stock/{line}.csv").Skip(1)
+            Dim file = ReadCsv($"{srcFolder}/Stock/{line}.csv").Skip(1)
             For Each item In file
                 Dim splititem = item.Split(","c)
                 ttlcount += Int32.Parse(splititem(3))
@@ -28,7 +28,7 @@ Public Class Dashboard
 
     Private Function ttlDailySale() As Double
         Dim ttlSale As Double = 0
-        contents = ReadCsv("Resources/Sales History.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Sales History.csv")
         For i As Integer = 1 To contents.Count - 1
             Dim saleinfo = contents(i).Split(","c)
             If DateTime.Now = DateTime.ParseExact(saleinfo(0), "M/d/yyyy", CultureInfo.InvariantCulture) Then
@@ -39,7 +39,7 @@ Public Class Dashboard
     End Function
 
     Public Function MonthlyExpenses() As Integer
-        contents = ReadCsv("Resources/Expenses.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Expenses.csv")
         Dim mExp As Integer = 0
         For i As Integer = 1 To contents.Count - 1
             Dim expenseinfo = contents(i).Split(","c)
@@ -51,7 +51,7 @@ Public Class Dashboard
     End Function
 
     Public Function DailyExpenses() As Integer
-        contents = ReadCsv("Resources/Expenses.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Expenses.csv")
         Dim dExp As Integer = 0
         Dim currentDate = DateTime.Now
         For i As Integer = 1 To contents.Count - 1

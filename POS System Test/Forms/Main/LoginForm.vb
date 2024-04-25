@@ -17,7 +17,7 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-        contents = ReadCsv("Resources/Users.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
         Dim match As Boolean = False
         For Each userinfo In contents
             Dim user = userinfo.Split(","c)
@@ -47,4 +47,7 @@ Public Class LoginForm
         End If
     End Sub
 
+    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
 End Class

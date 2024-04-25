@@ -6,7 +6,7 @@ Public Class EmployeeManagement
     Sub EmployeeManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvUserList.Columns.Clear()
         dgvUserList.Columns.Add("", "")
-        contents = ReadCsv("Resources/Users.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
         For i As Integer = 1 To contents.Count - 1
             Dim userinfo() As String = contents(i).Split(","c)
             dgvUserList.Rows.Add(userinfo(1))
@@ -22,7 +22,7 @@ Public Class EmployeeManagement
     End Sub
 
     Private Sub dgvUserList_SelectionChanged(sender As Object, e As EventArgs) Handles dgvUserList.SelectionChanged
-        contents = ReadCsv("Resources/Users.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
         For i As Integer = 1 To contents.Count - 1
             Dim userinfo() As String = contents(i).Split(","c)
             If userinfo(1) = dgvUserList.SelectedRows(0).Cells(0).Value Then
@@ -37,14 +37,14 @@ Public Class EmployeeManagement
 
     Private Sub btDelete_Click(sender As Object, e As EventArgs) Handles btDelete.Click
         MessageBox.Show("Are you sure you want to delete this user?", "Delete User", MessageBoxButtons.YesNo)
-        contents = ReadCsv("Resources/Users.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
         For i As Integer = 1 To contents.Count - 1
             Dim userinfo() As String = contents(i).Split(","c)
             If userinfo(1) = dgvUserList.SelectedRows(0).Cells(0).Value Then
                 contents.Remove(contents(i))
             End If
         Next
-        File.WriteAllLines("Resources/Users.csv", contents)
+        File.WriteAllLines($"{srcFolder}/Resources/Users.csv", contents)
     End Sub
 
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
@@ -58,7 +58,7 @@ Public Class EmployeeManagement
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
-        contents = ReadCsv("Resources/Users.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
         For i As Integer = 1 To contents.Count - 1
             Dim userinfo() As String = contents(i).Split(","c)
             If userinfo(0) = txbxUserID.Text Then
@@ -69,6 +69,6 @@ Public Class EmployeeManagement
             End If
             contents(i) = String.Join(",", userinfo)
         Next
-        File.WriteAllLines("Resources/Users.csv", contents)
+        File.WriteAllLines($"{srcFolder}/Resources/Users.csv", contents)
     End Sub
 End Class

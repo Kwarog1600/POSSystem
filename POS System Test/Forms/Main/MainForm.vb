@@ -49,4 +49,11 @@ Public Class MainForm
         switchPanel(Dashboard)
     End Sub
 
+    Private Sub btSettings_Click(sender As Object, e As EventArgs) Handles btSettings.Click
+        Settings.Show()
+    End Sub
+
+    Private Sub pnlSelection_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelection.Paint
+
+    End Sub
 End Class

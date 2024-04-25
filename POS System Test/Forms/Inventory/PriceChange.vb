@@ -2,7 +2,7 @@
 Public Class PriceChange
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
-        contents = ReadCsv($"Stock\{txbxCategory.Text}.csv")
+        contents = ReadCsv($"{srcFolder}/Stock\{txbxCategory.Text}.csv")
         Dim pId As String = txbxID.Text
         For i As Integer = 1 To contents.Count - 1
             Dim line() As String = contents(i).Split(","c)

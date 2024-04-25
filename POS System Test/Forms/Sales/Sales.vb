@@ -60,8 +60,8 @@ Public Class Sales
 
     Sub SalesLogging(logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String))
         Try
-            Dim logpath As String = "Resources\Sales History.csv"
-            Dim logrec As String = $"Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
+            Dim logpath As String = $"{srcFolder}/Resources\Sales History.csv"
+            Dim logrec As String = $"{srcFolder}/Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
             Dim stocklist As String = ""
             For Each item As String In items
                 stocklist += item & Environment.NewLine
@@ -80,7 +80,7 @@ Public Class Sales
             If CountMatch(txbxID.Text, 0) >= 1 Then
                 For Each cat In cbxCategory.Items
                     Try
-                        contents = ReadCsv($"Stock\{cat}.csv")
+                        contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
                         If contents.Count > 1 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
                             For Each line In contents
                                 Dim data = line.Split(",")
@@ -159,7 +159,7 @@ Public Class Sales
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         Try
-            Dim headers() As String = File.ReadAllLines($"Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
+            Dim headers() As String = File.ReadAllLines($"{srcFolder}/Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
             If headers.Length > 4 Then
                 dgvDescr.Rows.Clear()
                 For i As Integer = 4 To headers.Length - 1

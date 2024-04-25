@@ -4,6 +4,7 @@
         RefreshCat(cbxCategory)
         cbxCategory.SelectedItem = "All"
     End Sub
+
     Private Sub txbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txbxSearch.TextChanged
         Dim searchText As String = txbxSearch.Text.ToLower()
         For Each row As DataGridViewRow In dgvStockList.Rows
@@ -26,7 +27,7 @@
         If cbxCategory.SelectedItem = "All" Then
             For Each cat In cbxCategory.Items
                 If Not cat = "All" Then
-                    Dim contents = ReadCsv($"Stock\{cat}.csv")
+                    Dim contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
                     Dim tbheader() As String = contents(0).Split(","c)
 
                     For Each head As String In tbheader
@@ -48,7 +49,7 @@
             Next
         Else
             Dim cat As String = cbxCategory.SelectedItem
-            Dim contents = ReadCsv($"Stock\{cat}.csv")
+            Dim contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
             Dim tbheader() As String = contents(0).Split(","c)
             For Each head As String In tbheader
                 If Not dgvStockList.Columns.Contains($"clm{head}") Then

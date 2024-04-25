@@ -3,7 +3,7 @@
 Module ExpenseModule
 
     Public Sub LoadList()
-        Dim filepath As String = "Resources/Expenses.csv"
+        Dim filepath As String = $"{srcFolder}/Resources/Expenses.csv"
         If File.Exists(filepath) Then
             Using read As New StreamReader(filepath)
                 Dim header As String = read.ReadLine()
@@ -22,7 +22,7 @@ Module ExpenseModule
     End Sub
 
     Public Sub AddExpense(name As String, Purpose As String, Amount As String, currentDate As DateOnly)
-        Dim filepath As String = "Resources/Expenses.csv"
+        Dim filepath As String = $"{srcFolder}/Resources/Expenses.csv"
         If File.Exists(filepath) Then
             Using write As New StreamWriter(filepath, True)
                 write.WriteLine($"{currentDate},{name},{Purpose},{Amount}, {MainForm.lbUsername.Text}")

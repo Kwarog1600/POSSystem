@@ -3,10 +3,10 @@ Imports System.Text
 
 Public Class StockCategoryAdd
     Private Sub btAddCat_Click(sender As Object, e As EventArgs) Handles btSave.Click
-        AddCategory("Resources/Stock Category.csv", txbxCategory.Text, dgvAddDescr)
+        AddCategory($"{srcFolder}/Resources/Stock Category.csv", txbxCategory.Text, dgvAddDescr)
         dgvCatList.Rows.Clear()
         dgvCatList.Columns.Clear()
-        RefreshTable("Resources/Stock Category.csv", dgvCatList)
+        RefreshTable($"{srcFolder}/Resources/Stock Category.csv", dgvCatList)
         Inventory.cbxCategory.Items.Clear()
         Inventory.cbxCategory.Items.Add("All")
         Sales.cbxCategory.Items.Clear()
@@ -17,7 +17,7 @@ Public Class StockCategoryAdd
     End Sub
 
     Private Sub StockCategoryAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        contents = ReadCsv("Resources/Stock Category.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
         dgvCatList.Columns.Add("", "")
         For i = 1 To contents.Count - 1
             dgvCatList.Rows.Add(contents(i))
@@ -27,16 +27,16 @@ Public Class StockCategoryAdd
 
 
     Private Sub btRemove_Click(sender As Object, e As EventArgs) Handles btRemove.Click
-        contents = ReadCsv("Resources/Stock Category.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
         For Each cat In contents
             If cat = dgvCatList.SelectedRows(0).Cells(0).Value Then
                 contents.Remove(cat)
-                File.WriteAllLines("Resources/Stock Category.csv", contents)
-                File.Delete($"Stock\{cat}.csv")
+                File.WriteAllLines($"{srcFolder}/Resources/Stock Category.csv", contents)
+                File.Delete($"{srcFolder}/Stock\{cat}.csv")
                 Exit Sub
             End If
         Next
-        RefreshTable("Resources/Stock Category.csv", dgvCatList)
+        RefreshTable($"{srcFolder}/Resources/Stock Category.csv", dgvCatList)
         Inventory.cbxCategory.Items.Clear()
         Inventory.cbxCategory.Items.Add("All")
         Sales.cbxCategory.Items.Clear()

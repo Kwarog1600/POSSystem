@@ -7,7 +7,7 @@ Imports Mysqlx.XDevAPI.Common
 Public Class AddStock
 
     Private Sub AddStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        contents = ReadCsv("Resources/Stock Category.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
         For i = 1 To contents.Count - 1
             cbxCategory.Items.Add(contents(i))
         Next
@@ -62,7 +62,7 @@ Public Class AddStock
         Next
         StockAdded.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
         For Each row As DataGridViewRow In dgvAddedList.Rows
-            Dim filename As String = $"Stock\{row.Cells(0).Value}.csv"
+            Dim filename As String = $"{srcFolder}/Stock\{row.Cells(0).Value}.csv"
             Dim content As New List(Of String)
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
                 content.Add(row.Cells(i).Value)
@@ -81,7 +81,7 @@ Public Class AddStock
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
-        Dim headers() As String = File.ReadAllLines($"Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
+        Dim headers() As String = File.ReadAllLines($"{srcFolder}/Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
         If headers.Length > 4 Then
             dgvAddDescr.Rows.Clear()
             For i As Integer = 4 To headers.Length - 1
@@ -125,7 +125,7 @@ Public Class AddStock
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
         If CountMatch(txbxID.Text, 0) >= 1 Then
             For Each cat In cbxCategory.Items
-                contents = ReadCsv($"Stock\{cat}.csv")
+                contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
                 If contents.Count > 1 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
                     For Each line In contents
                         Dim data = line.Split(",")
@@ -146,8 +146,8 @@ Public Class AddStock
     End Sub
 
     Sub StockLogging(logDate As DateOnly, info As String, inputuser As String, items As List(Of String))
-        Dim logpath As String = "Resources\Stock History.csv"
-        Dim logrec As String = $"Stock History\SAR-{ReadCsv(logpath).Count - 1}.csv"
+        Dim logpath As String = $"{srcFolder}/Resources\Stock History.csv"
+        Dim logrec As String = $"{srcFolder}/Stock History\SAR-{ReadCsv(logpath).Count - 1}.csv"
         Dim stocklist As String = ""
         For Each item As String In items
             stocklist += item & Environment.NewLine

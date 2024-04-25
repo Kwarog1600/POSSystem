@@ -27,7 +27,7 @@ Module AppModule
     End Function
 
     Public Sub RefreshCat(ByRef cbx As ComboBox)
-        contents = ReadCsv("Resources/Stock Category.csv")
+        contents = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
         If contents.Count > 1 Then
             For i = 1 To contents.Count - 1
                 cbx.Items.Add(contents(i))
@@ -38,12 +38,12 @@ Module AppModule
 
     Public Function CountMatch(content As String, index As Integer) As Integer
         Dim match As Integer = 0
-        Dim lines = ReadCsv("Resources/Stock Category.csv")
+        Dim lines = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
 
         ' Skip the header by starting the loop from the second line
         For i As Integer = 1 To lines.Count - 1
             Dim item = lines(i)
-            Dim filepath As String = "Stock/" & item & ".csv"
+            Dim filepath As String = $"{srcFolder}/Stock/" & item & ".csv"
             For Each line As String In ReadCsv(filepath)
                 Dim items = line.Split(",")
                 If items(index).StartsWith(content) Then
@@ -90,7 +90,7 @@ Module AppModule
                     Stockheader += $",{item.Cells(0).Value}"
                 End If
             Next
-            CreateNewCsv($"Stock\{category}.csv", Stockheader)
+            CreateNewCsv($"{srcFolder}/Stock\{category}.csv", Stockheader)
             contents.Clear()
         End If
     End Sub
@@ -198,7 +198,7 @@ Module AppModule
     End Sub
 
     Public Sub LogReg(InOut As String, Username As String, Cash As String)
-        Dim csvFilePath As String = $"Resources\TimeLog.csv"
+        Dim csvFilePath As String = $"{srcFolder}/Resources\TimeLog.csv"
         Using Write As New StreamWriter(csvFilePath, True)
             Write.WriteLine($"Logged {InOut},{DateTime.Now},{Username},{Cash}")
         End Using

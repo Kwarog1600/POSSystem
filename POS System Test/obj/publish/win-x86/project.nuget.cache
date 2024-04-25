@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8wqhpIt4RYiy283ghlB2RxiU1TiqvKvS/zGthV9hfx6S/lhAfN5HfO52zWpu27qMijH4dMHn/qps6/2Mmfhp9A==",
+  "dgSpecHash": "B8w/BcSfMlgRxxOedkE/R3eDku5ArYvTGA6aT4j6CPcVSJIOqWgE/c074TaFiuol7QpJKFbxcD9hUiLNsW8Yfw==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
   "expectedPackageFiles": [
@@ -46,10 +46,7 @@
     "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\HP EliteDesk\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\zstdsharp.port\\0.7.1\\zstdsharp.port.0.7.1.nupkg.sha512",
-    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.4\\microsoft.netcore.app.runtime.win-x86.8.0.4.nupkg.sha512",
-    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\8.0.4\\microsoft.windowsdesktop.app.runtime.win-x86.8.0.4.nupkg.sha512",
-    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.4\\microsoft.aspnetcore.app.runtime.win-x86.8.0.4.nupkg.sha512"
+    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\zstdsharp.port\\0.7.1\\zstdsharp.port.0.7.1.nupkg.sha512"
   ],
   "logs": []
 }

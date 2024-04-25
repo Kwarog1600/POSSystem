@@ -14,19 +14,18 @@ Module CreateFiles
     End Sub
 
     Public Sub CreateStarting()
-        srcFolder = Application.StartupPath & "src"
-        Directory.CreateDirectory(srcFolder)
         CreateFileIfNotExists("conf.ini", "[SourceLocation]" & vbLf & $"csvsrc={srcFolder}")
         srcFolder = ReadIni("conf.ini", "SourceLocation", "csvsrc")
+        Directory.CreateDirectory(srcFolder)
         Directory.CreateDirectory($"{srcFolder}\Stock")
         Directory.CreateDirectory($"{srcFolder}\Receipts")
         Directory.CreateDirectory($"{srcFolder}\Resources")
         Directory.CreateDirectory($"{srcFolder}\Stock History")
         CreateFileIfNotExists($"{srcFolder}\Resources/Users.csv", "User ID,Username,Password,Access Level, First Name, Last Name" & vbLf & $"U000,admin,{HashPassword("admin")},3,admin,admin")
-        CreateFileIfNotExists($"{srcFolder}Resources\Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
-        CreateFileIfNotExists($"{srcFolder}Resources\Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Sold By")
-        CreateFileIfNotExists($"{srcFolder}Resources\Stock Category.csv", "CategoryName")
-        CreateFileIfNotExists($"{srcFolder}Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User")
-        CreateFileIfNotExists($"{srcFolder}Resources\TimeLog.csv", "Log,Date and Time,Username, Start/End Cash")
+        CreateFileIfNotExists($"{srcFolder}\Resources\Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
+        CreateFileIfNotExists($"{srcFolder}\Resources\Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Sold By")
+        CreateFileIfNotExists($"{srcFolder}\Resources\Stock Category.csv", "CategoryName")
+        CreateFileIfNotExists($"{srcFolder}\Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User")
+        CreateFileIfNotExists($"{srcFolder}\Resources\TimeLog.csv", "Log,Date and Time,Username, Start/End Cash")
     End Sub
 End Module

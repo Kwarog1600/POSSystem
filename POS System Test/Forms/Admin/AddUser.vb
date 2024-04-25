@@ -8,7 +8,7 @@ Public Class AddUser
             Dim fname As String = txbxFirstName.Text
             Dim surname As String = txbxSurname.Text
 
-            contents = ReadCsv("Resources/Users.csv")
+            contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
             For i As Integer = 1 To contents.Count - 1
                 Dim userinfo() As String = contents(i).Split(","c)
                 If userinfo(1) = user Then
@@ -19,7 +19,7 @@ Public Class AddUser
             Next
             Dim userID As String = $"U{contents.Count - 1:000}"
             contents.Add(userID & "," & user & "," & pass & "," & access & "," & fname & "," & surname)
-            File.WriteAllLines("Resources/Users.csv", contents)
+            File.WriteAllLines($"{srcFolder}/Resources/Users.csv", contents)
             EmployeeManagement.dgvUserList.Rows.Clear()
             EmployeeManagement.EmployeeManagement_Load(sender, e)
         End If
