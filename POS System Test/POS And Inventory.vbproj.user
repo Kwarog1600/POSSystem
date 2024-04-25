@@ -49,6 +49,9 @@
     <Compile Update="Forms\Main\MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Main\Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Sales\Sales.vb">
       <SubType>Form</SubType>
     </Compile>
