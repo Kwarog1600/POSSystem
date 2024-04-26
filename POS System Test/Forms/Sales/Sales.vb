@@ -107,6 +107,10 @@ Public Class Sales
 
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        With Me
+            .Size = New Size(Screen.PrimaryScreen.WorkingArea.Width - 200, Screen.PrimaryScreen.WorkingArea.Height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
         cbxCategory.Items.Clear()
         RefreshCat(cbxCategory)
     End Sub
@@ -205,10 +209,8 @@ Public Class Sales
 
     Private Sub btSeach_Click(sender As Object, e As EventArgs) Handles btSeach.Click
         SearchItem.Show()
+        SearchItem.openedfrom = "Sales"
         SearchItem.txbxSearch.Text = txbxProduct.Text
     End Sub
 
-    Private Sub showTotalPrice_Click(sender As Object, e As EventArgs) Handles showTotalPrice.Click
-
-    End Sub
 End Class

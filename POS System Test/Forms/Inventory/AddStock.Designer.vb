@@ -44,17 +44,14 @@ Partial Class AddStock
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         lbProduct = New Label()
         lbID = New Label()
         lbCat = New Label()
         cbxCategory = New ComboBox()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        Category = New DataGridViewTextBoxColumn()
-        ID = New DataGridViewTextBoxColumn()
-        Product = New DataGridViewTextBoxColumn()
-        Price = New DataGridViewTextBoxColumn()
-        Quantity = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         lblPrice = New Label()
@@ -67,6 +64,14 @@ Partial Class AddStock
         txbxID = New Guna.UI2.WinForms.Guna2TextBox()
         txbxProduct = New Guna.UI2.WinForms.Guna2TextBox()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
+        lbCost = New Label()
+        txbxCost = New Guna.UI2.WinForms.Guna2TextBox()
+        Category = New DataGridViewTextBoxColumn()
+        ID = New DataGridViewTextBoxColumn()
+        Product = New DataGridViewTextBoxColumn()
+        Price = New DataGridViewTextBoxColumn()
+        Quantity = New DataGridViewTextBoxColumn()
+        ItemCost = New DataGridViewTextBoxColumn()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -145,7 +150,7 @@ Partial Class AddStock
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {Category, ID, Product, Price, Quantity})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {Category, ID, Product, Price, Quantity, ItemCost})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -182,36 +187,6 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.RowsStyle.Height = 25
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' Category
-        ' 
-        Category.HeaderText = "Category"
-        Category.Name = "Category"
-        Category.ReadOnly = True
-        ' 
-        ' ID
-        ' 
-        ID.HeaderText = "ID"
-        ID.Name = "ID"
-        ID.ReadOnly = True
-        ' 
-        ' Product
-        ' 
-        Product.HeaderText = "Product"
-        Product.Name = "Product"
-        Product.ReadOnly = True
-        ' 
-        ' Price
-        ' 
-        Price.HeaderText = "Price"
-        Price.Name = "Price"
-        Price.ReadOnly = True
-        ' 
-        ' Quantity
-        ' 
-        Quantity.HeaderText = "Quantity"
-        Quantity.Name = "Quantity"
-        Quantity.ReadOnly = True
         ' 
         ' btSave
         ' 
@@ -275,10 +250,10 @@ Partial Class AddStock
         DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
         dgvAddDescr.DefaultCellStyle = DataGridViewCellStyle6
         dgvAddDescr.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvAddDescr.Location = New Point(326, 60)
+        dgvAddDescr.Location = New Point(326, 61)
         dgvAddDescr.Name = "dgvAddDescr"
         dgvAddDescr.RowHeadersVisible = False
-        dgvAddDescr.Size = New Size(177, 171)
+        dgvAddDescr.Size = New Size(177, 170)
         dgvAddDescr.TabIndex = 26
         dgvAddDescr.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvAddDescr.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -366,7 +341,7 @@ Partial Class AddStock
         txbxPrice.PlaceholderText = ""
         txbxPrice.SelectedText = ""
         txbxPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        txbxPrice.Size = New Size(247, 36)
+        txbxPrice.Size = New Size(84, 36)
         txbxPrice.TabIndex = 3
         ' 
         ' txbxID
@@ -429,11 +404,79 @@ Partial Class AddStock
         txbxQty.Size = New Size(242, 36)
         txbxQty.TabIndex = 2
         ' 
+        ' lbCost
+        ' 
+        lbCost.AutoSize = True
+        lbCost.Location = New Point(163, 195)
+        lbCost.Name = "lbCost"
+        lbCost.Size = New Size(58, 15)
+        lbCost.TabIndex = 46
+        lbCost.Text = "Item Cost"
+        ' 
+        ' txbxCost
+        ' 
+        txbxCost.CustomizableEdges = CustomizableEdges17
+        txbxCost.DefaultText = ""
+        txbxCost.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxCost.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxCost.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxCost.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxCost.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxCost.Font = New Font("Segoe UI", 9F)
+        txbxCost.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxCost.Location = New Point(227, 195)
+        txbxCost.Name = "txbxCost"
+        txbxCost.PasswordChar = ChrW(0)
+        txbxCost.PlaceholderText = ""
+        txbxCost.SelectedText = ""
+        txbxCost.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        txbxCost.Size = New Size(88, 36)
+        txbxCost.TabIndex = 45
+        ' 
+        ' Category
+        ' 
+        Category.HeaderText = "Category"
+        Category.Name = "Category"
+        Category.ReadOnly = True
+        ' 
+        ' ID
+        ' 
+        ID.HeaderText = "ID"
+        ID.Name = "ID"
+        ID.ReadOnly = True
+        ' 
+        ' Product
+        ' 
+        Product.HeaderText = "Product"
+        Product.Name = "Product"
+        Product.ReadOnly = True
+        ' 
+        ' Price
+        ' 
+        Price.HeaderText = "Price"
+        Price.Name = "Price"
+        Price.ReadOnly = True
+        ' 
+        ' Quantity
+        ' 
+        Quantity.HeaderText = "Quantity"
+        Quantity.Name = "Quantity"
+        Quantity.ReadOnly = True
+        ' 
+        ' ItemCost
+        ' 
+        ItemCost.HeaderText = "Cost"
+        ItemCost.Name = "ItemCost"
+        ItemCost.ReadOnly = True
+        ItemCost.Visible = False
+        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(642, 516)
+        Controls.Add(lbCost)
+        Controls.Add(txbxCost)
         Controls.Add(btSeach)
         Controls.Add(btRemove)
         Controls.Add(dgvAddDescr)
@@ -472,14 +515,17 @@ Partial Class AddStock
     Friend WithEvents clmDescription As DataGridViewTextBoxColumn
     Friend WithEvents clmValue As DataGridViewTextBoxColumn
     Friend WithEvents btRemove As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Category As DataGridViewTextBoxColumn
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents Product As DataGridViewTextBoxColumn
-    Friend WithEvents Price As DataGridViewTextBoxColumn
-    Friend WithEvents Quantity As DataGridViewTextBoxColumn
     Friend WithEvents btSeach As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txbxPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txbxID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txbxProduct As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txbxQty As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lbCost As Label
+    Friend WithEvents txbxCost As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Category As DataGridViewTextBoxColumn
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Product As DataGridViewTextBoxColumn
+    Friend WithEvents Price As DataGridViewTextBoxColumn
+    Friend WithEvents Quantity As DataGridViewTextBoxColumn
+    Friend WithEvents ItemCost As DataGridViewTextBoxColumn
 End Class

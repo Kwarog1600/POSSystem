@@ -1,4 +1,6 @@
 ﻿Public Class SearchItem
+    Public openedfrom As String = ""
+
     Private Sub SearchItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbxCategory.Items.Add("All")
         RefreshCat(cbxCategory)
@@ -75,6 +77,14 @@
     End Sub
 
     Private Sub dgvStockList_CellDoubleCClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
-        Sales.txbxID.Text = dgvStockList.Rows(e.RowIndex).Cells(0).Value.ToString()
+        If openedfrom = "Sales" Then
+            InputPID(Sales.txbxID, e)
+        ElseIf openedfrom = "AddStock" Then
+            InputPID(AddStock.txbxID, e)
+        End If
+    End Sub
+
+    Public Sub InputPID(ByRef tx As Guna.UI2.WinForms.Guna2TextBox, e As DataGridViewCellEventArgs)
+        tx.Text = dgvStockList.Rows(e.RowIndex).Cells(0).Value.ToString()
     End Sub
 End Class

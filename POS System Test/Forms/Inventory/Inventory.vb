@@ -13,6 +13,11 @@ Public Class Inventory
 
 
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        With Me
+            .Size = New Size(Screen.PrimaryScreen.WorkingArea.Width - 200, Screen.PrimaryScreen.WorkingArea.Height - 50)
+            .pnlContainer.Location = New Point(50, 50)
+        End With
+
         cbxCategory.Items.Add("All")
         RefreshCat(cbxCategory)
         cbxCategory.SelectedItem = "All"
@@ -44,7 +49,7 @@ Public Class Inventory
     Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
         dgvStockList.Rows.Clear()
         dgvStockList.Columns.Clear()
-        dgvStockList.Columns.Add($"clmcategory", "category")
+        dgvStockList.Columns.Add($"clmCategory", "Category")
         If cbxCategory.SelectedItem = "All" Then
             For Each cat In cbxCategory.Items
                 If Not cat = "All" Then
@@ -52,19 +57,22 @@ Public Class Inventory
                     Dim tbheader() As String = contents(0).Split(","c)
 
                     For Each head As String In tbheader
-                        If Not dgvStockList.Columns.Contains($"clm{head}") Then
-                            dgvStockList.Columns.Add($"clm{head}", head)
+                        If Not Array.IndexOf(tbheader, head) = 4 Then
+                            If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                                dgvStockList.Columns.Add($"clm{head}", head)
+                            End If
                         End If
                     Next
                     For i As Integer = 1 To contents.Count - 1
                         Dim item() As String = contents(i).Split(","c)
-                        Dim newRowIdx = dgvStockList.Rows.Add()
-                        dgvStockList.Rows(newRowIdx).Cells("clmcategory").Value = cat
+                            Dim newRowIdx = dgvStockList.Rows.Add()
+                            dgvStockList.Rows(newRowIdx).Cells("clmcategory").Value = cat
                         For j As Integer = 0 To item.Length - 1
-                            If j < tbheader.Length Then
-                                Dim columnName As String = $"clm{tbheader(j)}"
-
-                                dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
+                            If Not j = 4 Then
+                                If j < tbheader.Length Then
+                                    Dim columnName As String = $"clm{tbheader(j)}"
+                                    dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
+                                End If
                             End If
                         Next
                     Next
@@ -75,17 +83,22 @@ Public Class Inventory
             Dim contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
             Dim tbheader() As String = contents(0).Split(","c)
             For Each head As String In tbheader
-                If Not dgvStockList.Columns.Contains($"clm{head}") Then
-                    dgvStockList.Columns.Add($"clm{head}", head)
+                If Not Array.IndexOf(tbheader, head) = 4 Then
+                    If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                        dgvStockList.Columns.Add($"clm{head}", head)
+                    End If
                 End If
             Next
             For i As Integer = 1 To contents.Count - 1
                 Dim item() As String = contents(i).Split(","c)
                 Dim newRowIdx = dgvStockList.Rows.Add()
+                dgvStockList.Rows(newRowIdx).Cells("clmcategory").Value = cat
                 For j As Integer = 0 To item.Length - 1
-                    If j < tbheader.Length Then
-                        Dim columnName As String = $"clm{tbheader(j)}"
-                        dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
+                    If Not j = 4 Then
+                        If j < tbheader.Length Then
+                            Dim columnName As String = $"clm{tbheader(j)}"
+                            dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
+                        End If
                     End If
                 Next
             Next

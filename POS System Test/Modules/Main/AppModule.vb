@@ -75,7 +75,7 @@ Module AppModule
     End Sub
 
     Public Sub AddCategory(filepath As String, category As String, table As DataGridView)
-        Dim Stockheader As String = "ID,Product,Price,Quantity"
+        Dim Stockheader As String = "ID,Product,Price,Quantity,Cost"
         contents = ReadCsv(filepath)
         If contents.Contains(category) Then
             MessageBox.Show("Category already exists")
@@ -190,8 +190,21 @@ Module AppModule
 
     Public Sub switchPanel(ByVal panel As Form)
         With MainForm.pnlSwitch
-            .Controls.Clear()
+            If .Controls.Count > 0 AndAlso TypeOf .Controls(0) Is Form AndAlso DirectCast(.Controls(0), Form).Name = panel.Name Then
+                Return
+            End If
+
+            For Each ctrl As Control In .Controls
+                If TypeOf ctrl Is Form Then
+                    Dim currentPanel As Form = DirectCast(ctrl, Form)
+                    .Controls.Remove(currentPanel)
+                    currentPanel.Dispose()
+                    Exit For
+                End If
+            Next
+
             panel.TopLevel = False
+            .Controls.Clear()
             .Controls.Add(panel)
             panel.Show()
         End With
@@ -222,7 +235,7 @@ Module AppModule
         Dim hashBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputString))
         Dim hexString As String = BitConverter.ToString(hashBytes).Replace("-", "").ToLower()
         Dim numericHash As Long = Convert.ToInt64(hexString.Substring(0, 12), 16)
-        Return numericHash.ToString("D12")
+        Return "P" & numericHash.ToString("D12")
     End Function
 
 End Module

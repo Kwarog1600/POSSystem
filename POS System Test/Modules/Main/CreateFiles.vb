@@ -5,7 +5,7 @@ Module CreateFiles
     Public Sub CreateFileIfNotExists(fileName As String, header As String)
         Dim filePath As String = fileName
 
-        ' Check if the CSV file exists, if not, create it and write the header
+        'Check if the CSV file exists, if not, create it and write the header
         If Not File.Exists(filePath) Then
             Using writer As New StreamWriter(filePath)
                 writer.WriteLine(header)
@@ -25,7 +25,7 @@ Module CreateFiles
         CreateFileIfNotExists($"{srcFolder}\Resources\Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
         CreateFileIfNotExists($"{srcFolder}\Resources\Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Sold By")
         CreateFileIfNotExists($"{srcFolder}\Resources\Stock Category.csv", "CategoryName")
-        CreateFileIfNotExists($"{srcFolder}\Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User")
+        CreateFileIfNotExists($"{srcFolder}\Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User,,Cost")
         CreateFileIfNotExists($"{srcFolder}\Resources\TimeLog.csv", "Log,Date and Time,Username, Start/End Cash")
     End Sub
 End Module

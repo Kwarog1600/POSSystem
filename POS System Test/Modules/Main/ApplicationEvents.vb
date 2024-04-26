@@ -25,8 +25,8 @@ Namespace My
 
     Partial Friend Class MyApplication
 
-        Dim screenWidth As Integer = Screen.PrimaryScreen.WorkingArea.Width
-        Dim screenHeight As Integer = Screen.PrimaryScreen.WorkingArea.Height
+        Public screenWidth As Integer = Screen.PrimaryScreen.WorkingArea.Width
+        Public screenHeight As Integer = Screen.PrimaryScreen.WorkingArea.Height
 
         Private Sub AppLoad(sender As Object, e As EventArgs) Handles Me.Startup
             CreateStarting()
@@ -36,7 +36,6 @@ Namespace My
                 .pnlContainer.Location = New Point((screenWidth - .pnlContainer.Size.Width) / 2, (screenHeight - .pnlContainer.Size.Height) / 2)
                 .btClose.Location = New Point(screenWidth - 50, 0)
             End With
-            SetAllSizes(screenWidth, screenHeight)
         End Sub
     End Class
 End Namespace
