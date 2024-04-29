@@ -19,7 +19,6 @@ Public Class AddStock
             For Each col As DataGridViewColumn In dgvAddedList.Columns
                 headers.Add(col.Name)
             Next
-
             Dim contents As New List(Of String)
             With contents
                 .Add(cbxCategory.SelectedItem)
@@ -63,7 +62,7 @@ Public Class AddStock
             For i As Integer = 1 To dgvAddedList.Columns.Count - 1
                 headers.Add(dgvAddedList.Columns(i).HeaderText)
             Next
-            StockAdded.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
+            StockAdded.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(1).Select(Function(col) col.HeaderText).ToArray()))
             For Each row As DataGridViewRow In dgvAddedList.Rows
                 Dim filename As String = $"{srcFolder}/Stock\{row.Cells(0).Value}.csv"
                 Dim content As New List(Of String)
@@ -77,7 +76,7 @@ Public Class AddStock
             StockLogging(DateOnly.FromDateTime(DateTime.Now), stockCount, MainForm.lbUsername.Text, StockAdded, BatchCost)
             Dashboard.ttlStockCount.Text = Dashboard.CountStock()
             dgvAddedList.Rows.Clear()
-            For i As Integer = dgvAddedList.Columns.Count - 1 To 5 Step -1
+            For i As Integer = dgvAddedList.Columns.Count - 1 To 6 Step -1
                 dgvAddedList.Columns.RemoveAt(i)
             Next
             Inventory.cbxCategory.SelectedIndex = 0
@@ -143,7 +142,7 @@ Public Class AddStock
                             txbxQty.Text = 1
                             txbxCost.Text = data(4)
                             For i As Integer = 0 To dgvAddDescr.Rows.Count - 1
-                                dgvAddDescr.Rows(i).Cells(1).Value = data(i + 4)
+                                dgvAddDescr.Rows(i).Cells(1).Value = data(i + 5)
                             Next
 
                         End If

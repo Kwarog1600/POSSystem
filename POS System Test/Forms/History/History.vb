@@ -17,4 +17,7 @@ Public Class History
         ReceiptViewer.Show()
     End Sub
 
+    Private Sub dgvSaleHistory_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellContentClick
+
+    End Sub
 End Class

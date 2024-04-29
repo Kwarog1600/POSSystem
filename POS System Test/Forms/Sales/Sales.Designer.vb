@@ -61,12 +61,6 @@ Partial Class Sales
         lblQuantity = New Label()
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
-        clmCategory = New DataGridViewTextBoxColumn()
-        clmID = New DataGridViewTextBoxColumn()
-        clmProduct = New DataGridViewTextBoxColumn()
-        clmPrice = New DataGridViewTextBoxColumn()
-        clmQuantity = New DataGridViewTextBoxColumn()
-        clmAmount = New DataGridViewTextBoxColumn()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         cbxCategory = New ComboBox()
         lbCat = New Label()
@@ -77,6 +71,13 @@ Partial Class Sales
         lblName = New Label()
         txbxName = New Guna.UI2.WinForms.Guna2TextBox()
         btSale = New Guna.UI2.WinForms.Guna2Button()
+        Category = New DataGridViewTextBoxColumn()
+        ID = New DataGridViewTextBoxColumn()
+        Product = New DataGridViewTextBoxColumn()
+        Price = New DataGridViewTextBoxColumn()
+        Quantity = New DataGridViewTextBoxColumn()
+        Amount = New DataGridViewTextBoxColumn()
+        Cost = New DataGridViewTextBoxColumn()
         pnlContainer.SuspendLayout()
         CType(dgvDescr, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
@@ -312,7 +313,7 @@ Partial Class Sales
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {clmCategory, clmID, clmProduct, clmPrice, clmQuantity, clmAmount})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {Category, ID, Product, Price, Quantity, Amount, Cost})
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
         DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
@@ -349,42 +350,6 @@ Partial Class Sales
         dgvAddedList.ThemeStyle.RowsStyle.Height = 25
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' clmCategory
-        ' 
-        clmCategory.HeaderText = "Category"
-        clmCategory.Name = "clmCategory"
-        clmCategory.ReadOnly = True
-        ' 
-        ' clmID
-        ' 
-        clmID.HeaderText = "ID"
-        clmID.Name = "clmID"
-        clmID.ReadOnly = True
-        ' 
-        ' clmProduct
-        ' 
-        clmProduct.HeaderText = "Product"
-        clmProduct.Name = "clmProduct"
-        clmProduct.ReadOnly = True
-        ' 
-        ' clmPrice
-        ' 
-        clmPrice.HeaderText = "Price"
-        clmPrice.Name = "clmPrice"
-        clmPrice.ReadOnly = True
-        ' 
-        ' clmQuantity
-        ' 
-        clmQuantity.HeaderText = "Quantity"
-        clmQuantity.Name = "clmQuantity"
-        clmQuantity.ReadOnly = True
-        ' 
-        ' clmAmount
-        ' 
-        clmAmount.HeaderText = "Amount"
-        clmAmount.Name = "clmAmount"
-        clmAmount.ReadOnly = True
         ' 
         ' btAddStock
         ' 
@@ -537,6 +502,49 @@ Partial Class Sales
         btSale.TabIndex = 2
         btSale.Text = "Sale"
         ' 
+        ' Category
+        ' 
+        Category.HeaderText = "Category"
+        Category.Name = "Category"
+        Category.ReadOnly = True
+        ' 
+        ' ID
+        ' 
+        ID.HeaderText = "ID"
+        ID.Name = "ID"
+        ID.ReadOnly = True
+        ' 
+        ' Product
+        ' 
+        Product.HeaderText = "Product"
+        Product.Name = "Product"
+        Product.ReadOnly = True
+        ' 
+        ' Price
+        ' 
+        Price.HeaderText = "Price"
+        Price.Name = "Price"
+        Price.ReadOnly = True
+        ' 
+        ' Quantity
+        ' 
+        Quantity.HeaderText = "Quantity"
+        Quantity.Name = "Quantity"
+        Quantity.ReadOnly = True
+        ' 
+        ' Amount
+        ' 
+        Amount.HeaderText = "Amount"
+        Amount.Name = "Amount"
+        Amount.ReadOnly = True
+        ' 
+        ' Cost
+        ' 
+        Cost.HeaderText = "Cost"
+        Cost.Name = "Cost"
+        Cost.ReadOnly = True
+        Cost.Visible = False
+        ' 
         ' Sales
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -573,14 +581,15 @@ Partial Class Sales
     Friend WithEvents lblTotal As Label
     Friend WithEvents showTotalPrice As Label
     Friend WithEvents btVoid As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents clmCategory As DataGridViewTextBoxColumn
-    Friend WithEvents clmID As DataGridViewTextBoxColumn
-    Friend WithEvents clmProduct As DataGridViewTextBoxColumn
-    Friend WithEvents clmPrice As DataGridViewTextBoxColumn
-    Friend WithEvents clmQuantity As DataGridViewTextBoxColumn
-    Friend WithEvents clmAmount As DataGridViewTextBoxColumn
     Friend WithEvents dgvDescr As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Description As DataGridViewTextBoxColumn
     Friend WithEvents Value As DataGridViewTextBoxColumn
     Friend WithEvents btSeach As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Category As DataGridViewTextBoxColumn
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Product As DataGridViewTextBoxColumn
+    Friend WithEvents Price As DataGridViewTextBoxColumn
+    Friend WithEvents Quantity As DataGridViewTextBoxColumn
+    Friend WithEvents Amount As DataGridViewTextBoxColumn
+    Friend WithEvents Cost As DataGridViewTextBoxColumn
 End Class

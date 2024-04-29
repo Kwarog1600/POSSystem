@@ -29,6 +29,56 @@ Public Class Dashboard
         TotalExpenses.Text = DailyExpenses()
         lbMonthlyExpense.Text = MonthlyExpenses()
         TotalSold.Text = ttlDailySale()
+        Dim p7 As Double = 0.0, p15 As Double = 0.0, p30 As Double = 0.0, Ar As Double = 0.0
+
+        For Each log In ReadCsv($"{srcFolder}/Resources/Sales History.csv").Skip(1)
+            Dim loginf() As String = log.Split(","c)
+            Dim saleDate As DateTime
+            If loginf(6) = "Cash" Then
+                If DateTime.TryParseExact(loginf(0), "M/d/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, saleDate) Then
+                    If DateTime.Now.AddDays(-30) <= saleDate AndAlso saleDate <= DateTime.Now Then
+                        p30 += Double.Parse(loginf(4))
+                    End If
+
+                    If DateTime.Now.AddDays(-15) <= saleDate AndAlso saleDate <= DateTime.Now Then
+                        p15 += Double.Parse(loginf(4))
+                    End If
+
+                    If DateTime.Now.AddDays(-7) <= saleDate AndAlso saleDate <= DateTime.Now Then
+                        p7 += Double.Parse(loginf(4))
+                    End If
+                Else
+                    MessageBox.Show("Invalid date format in CSV: " & loginf(0), "Date Parsing Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            ElseIf loginf(6) = "Accounts Recievable" Then
+                If Double.Parse(loginf(3)) - Double.Parse(loginf(7)) > 0 Then
+                    Ar += Double.Parse(loginf(3)) - Double.Parse(loginf(7))
+                Else
+                    If DateTime.TryParseExact(loginf(0), "M/d/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, saleDate) Then
+                        If DateTime.Now.AddDays(-30) <= saleDate AndAlso saleDate <= DateTime.Now Then
+                            p30 += Double.Parse(loginf(4))
+                        End If
+
+                        If DateTime.Now.AddDays(-15) <= saleDate AndAlso saleDate <= DateTime.Now Then
+                            p15 += Double.Parse(loginf(4))
+                        End If
+
+                        If DateTime.Now.AddDays(-7) <= saleDate AndAlso saleDate <= DateTime.Now Then
+                            p7 += Double.Parse(loginf(4))
+                        End If
+                    Else
+                        MessageBox.Show("Invalid date format in CSV: " & loginf(0), "Date Parsing Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End If
+
+            End If
+        Next
+        lb7.Text = p7.ToString("0.00")
+        lb15.Text = p15.ToString("0.00")
+        lb30.Text = p30.ToString("0.00")
+        lbAR.Text = Ar.ToString("0.00")
+
+
     End Sub
 
     Private Function ttlDailySale() As Double

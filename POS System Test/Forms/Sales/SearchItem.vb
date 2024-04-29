@@ -69,19 +69,20 @@
                 Next
             Next
         End If
-        For Each row In dgvStockList.Rows
-            If row.Cells(3).Value < 1 Then
-                row.Visible = False
-            End If
-        Next
     End Sub
 
     Private Sub dgvStockList_CellDoubleCClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
+
         If openedfrom = "Sales" Then
-            InputPID(Sales.txbxID, e)
+            If dgvStockList.Rows(e.RowIndex).Cells(3).Value < 1 Then
+                MessageBox.Show("No Stock Available")
+            Else
+                InputPID(Sales.txbxID, e)
+            End If
         ElseIf openedfrom = "AddStock" Then
             InputPID(AddStock.txbxID, e)
         End If
+
     End Sub
 
     Public Sub InputPID(ByRef tx As Guna.UI2.WinForms.Guna2TextBox, e As DataGridViewCellEventArgs)

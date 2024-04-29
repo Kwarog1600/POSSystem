@@ -33,7 +33,8 @@ Namespace My
             With LoginForm
                 .Size = New Size(screenWidth, screenHeight)
                 .pnlMain.Size = New Size(screenWidth, screenHeight)
-                .pnlContainer.Location = New Point((screenWidth - .pnlContainer.Size.Width) / 2, (screenHeight - .pnlContainer.Size.Height) / 2)
+                .Logo.Location = New Point((screenWidth - (.Logo.Size.Width + .pnlContainer.Size.Width)) / 3, (screenHeight - .Logo.Size.Height) / 2)
+                .pnlContainer.Location = New Point((screenWidth - .pnlContainer.Size.Width) * (2 / 3), (screenHeight - .pnlContainer.Size.Height) / 2)
                 .btClose.Location = New Point(screenWidth - 50, 0)
             End With
         End Sub

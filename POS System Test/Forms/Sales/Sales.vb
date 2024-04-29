@@ -6,6 +6,8 @@ Imports Microsoft.VisualBasic.FileIO
 
 Public Class Sales
 
+    Dim pCost As String
+
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Try
             Dim headers As New List(Of String)
@@ -24,63 +26,77 @@ Public Class Sales
                     isValidInput = True
                 Else
                     MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
                 End If
             Loop
             For i = 1 To dgvAddedList.Columns.Count - 1
-                    headers.Add(dgvAddedList.Columns(i).HeaderText)
-                Next
-                items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(2).Select(Function(col) col.HeaderText).ToArray()))
+                headers.Add(dgvAddedList.Columns(i).HeaderText)
+            Next
+            items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(1).Select(Function(col) col.HeaderText).ToArray()))
             For Each row As DataGridViewRow In dgvAddedList.Rows
-                Dim filename = $"Stock\{row.Cells(0).Value}.csv"
+                Dim filename = $"{srcFolder}\Stock\{row.Cells(0).Value}.csv"
                 Dim content As New List(Of String)
                 For i = 1 To dgvAddedList.Columns.Count - 1
                     If i <> 5 Then
                         content.Add(row.Cells(i).Value)
                     End If
-
                 Next
                 TotalAmount = TotalAmount + Convert.ToInt32(row.Cells(5).Value)
-                items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(2).Select(Function(cell) cell.Value.ToString()).ToArray()) & "," & row.Cells(5).Value)
-                UpdateQty(filename, content, headers, True)
             Next
-            TotalAmount -= Less
-            SalesLogging(DateOnly.FromDateTime(DateTime.Now), TotalAmount, MainForm.lbUsername.Text, txbxName.Text, items)
-            dgvAddedList.Rows.Clear()
-                Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
-                Dashboard.TotalSold.Text = (Convert.ToDouble(Dashboard.TotalSold.Text) + Convert.ToDouble(showTotalPrice.Text)).ToString()
-            If dgvAddedList.Columns.Count > 6 Then
-                For i = dgvAddedList.Columns.Count - 1 To 6 Step -1
-                    dgvAddedList.Columns.RemoveAt(i)
-                Next i
-            End If
+            Dim prft As Double = 0
+            For Each row As DataGridViewRow In dgvAddedList.Rows
+                prft += ProfitCalc(row.Cells(1).Value.ToString(), row.Cells(4).Value.ToString(), row.Cells(3).Value.ToString())
+            Next
+            prft -= less
+            TotalAmount -= less
+            With Sale_Confirmation
+                .txbxRef.Text = $"SR-{ReadCsv($"{srcFolder}\Resources\Sales History.csv").Count - 1}"
+                .txbxAmount.Text = TotalAmount
+                .logDate = DateOnly.FromDateTime(DateTime.Now)
+                .info = TotalAmount
+                .inputuser = MainForm.lbUsername.Text
+                .customerName = txbxName.Text
+                .items = items
+                .profit = prft
+                .Show()
+            End With
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
     End Sub
 
-    Sub SalesLogging(logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String))
-        Try
-            Dim logpath As String = $"{srcFolder}/Resources\Sales History.csv"
-            Dim logrec As String = $"{srcFolder}/Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
-            Dim stocklist As String = ""
-            For Each item As String In items
-                stocklist += item & Environment.NewLine
+    Function ProfitCalc(id As String, itemcost As String, price As String) As Double
+        Dim stocklogs As List(Of String) = ReadCsv($"{srcFolder}\Resources\Stock History.csv")
+        Dim profit As Double = 0
+        For Each log As String In stocklogs.Skip(1)
+            Dim loginf() As String = log.Split(",")
+            Dim logfile As String = $"{srcFolder}\Stock History\{loginf(1)}.csv"
+            Dim stocklist As List(Of String) = ReadCsv(logfile)
+            For Each stock As String In stocklist
+                Dim stockinf() As String = stock.Split(",")
+                If stockinf(0) = id Then
+                    If stockinf(stockinf.Length - 1) < stockinf(3) Then
+                        Dim totalCost As Double = Double.Parse(stockinf(4)) + (Double.Parse(loginf(4)) / Double.Parse(loginf(2)))
+                        profit = Double.Parse(price) - totalCost
+                        stockinf(stockinf.Length - 1) += 1
+                        stock = String.Join(",", stockinf)
+                        File.WriteAllLines(logfile, stocklist)
+                        Return profit.ToString("0.00")
+                    End If
+                End If
             Next
-            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{customerName},{info},{inputuser}" & Environment.NewLine
-            File.AppendAllText(logpath, line)
-            CreateNewCsv(logrec, $"Date,{logDate.ToString() & Environment.NewLine}Reference,SR-{ReadCsv(logpath).Count - 1 & Environment.NewLine}Name,{customerName & Environment.NewLine}Total,{info & Environment.NewLine}Sold By,{inputuser}" & Environment.NewLine & Environment.NewLine & stocklist)
-        Catch ex As Exception
-            ' Handle the exception here
-            Console.WriteLine("An error occurred: " & ex.Message)
-        End Try
-    End Sub
+        Next
+        Return profit
+    End Function
+
+
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
         Try
             If CountMatch(txbxID.Text, 0) >= 1 Then
                 For Each cat In cbxCategory.Items
                     Try
-                        contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
+                        contents = ReadCsv($"{srcFolder}\Stock\{cat}.csv")
                         If contents.Count > 1 AndAlso Not String.IsNullOrWhiteSpace(contents(1)) Then
                             For Each line In contents
                                 Dim data = line.Split(",")
@@ -89,8 +105,9 @@ Public Class Sales
                                     txbxProduct.Text = data(1)
                                     txbxPrice.Text = data(2)
                                     txbxQty.Text = 1
+                                    pCost = data(4)
                                     For i As Integer = 0 To dgvDescr.Rows.Count - 1
-                                        dgvDescr.Rows(i).Cells(1).Value = data(i + 4)
+                                        dgvDescr.Rows(i).Cells(1).Value = data(i + 5)
                                     Next
                                 End If
                             Next
@@ -129,6 +146,7 @@ Public Class Sales
                 .Add(txbxPrice.Text)
                 .Add(txbxQty.Text)
                 .Add(Convert.ToString(Convert.ToDouble(txbxPrice.Text) * Convert.ToDouble(txbxQty.Text)))
+                .Add(pCost)
                 For Each add In dgvDescr.Rows
                     .Add(add.Cells(1).Value)
                     headers.Add(add.cells(0).Value)
@@ -137,7 +155,7 @@ Public Class Sales
             Dim total As Integer = 0
             AddtoTable(dgvAddedList, contents, headers)
             For Each row As DataGridViewRow In dgvAddedList.Rows
-                row.Cells(5).Value = Convert.ToString(Convert.ToDouble(row.Cells(3).Value) * Convert.ToDouble(row.Cells(4).Value))
+                row.Cells(5).Value = Convert.ToString(Double.Parse(row.Cells(3).Value) * Double.Parse(row.Cells(4).Value))
             Next
             For Each row As DataGridViewRow In dgvAddedList.Rows
                 total += row.Cells(5).Value
@@ -162,11 +180,12 @@ Public Class Sales
     End Sub
 
     Private Sub cbxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategory.SelectedIndexChanged
+        dgvDescr.Rows.Clear()
         Try
             Dim headers() As String = File.ReadAllLines($"{srcFolder}/Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
-            If headers.Length > 4 Then
+            If headers.Length > 5 Then
                 dgvDescr.Rows.Clear()
-                For i As Integer = 4 To headers.Length - 1
+                For i As Integer = 5 To headers.Length - 1
                     With dgvDescr
                         .Rows.Add(headers(i), "")
                     End With

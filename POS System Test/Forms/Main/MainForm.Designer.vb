@@ -24,11 +24,11 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -60,6 +60,7 @@ Partial Class MainForm
         Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlSelection = New Guna.UI2.WinForms.Guna2GradientPanel()
+        PictureBox1 = New PictureBox()
         pnlLgtSt = New Guna.UI2.WinForms.Guna2Panel()
         btLogOut = New Guna.UI2.WinForms.Guna2Button()
         btSettings = New Guna.UI2.WinForms.Guna2Button()
@@ -80,6 +81,7 @@ Partial Class MainForm
         btLgtClose = New Guna.UI2.WinForms.Guna2Button()
         pnlSwitch = New Guna.UI2.WinForms.Guna2GradientPanel()
         pnlSelection.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlLgtSt.SuspendLayout()
         pnlAdminContainer.SuspendLayout()
         PnlBtnSelection.SuspendLayout()
@@ -91,6 +93,7 @@ Partial Class MainForm
         ' 
         pnlSelection.BorderColor = Color.Silver
         pnlSelection.BorderThickness = 2
+        pnlSelection.Controls.Add(PictureBox1)
         pnlSelection.Controls.Add(pnlLgtSt)
         pnlSelection.Controls.Add(pnlAdminContainer)
         pnlSelection.Controls.Add(PnlBtnSelection)
@@ -100,6 +103,17 @@ Partial Class MainForm
         pnlSelection.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         pnlSelection.Size = New Size(200, 744)
         pnlSelection.TabIndex = 1
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Transparent
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(0, 50)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(200, 200)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 9
+        PictureBox1.TabStop = False
         ' 
         ' pnlLgtSt
         ' 
@@ -411,6 +425,7 @@ Partial Class MainForm
         StartPosition = FormStartPosition.Manual
         Text = "Main Form"
         pnlSelection.ResumeLayout(False)
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlLgtSt.ResumeLayout(False)
         pnlAdminContainer.ResumeLayout(False)
         PnlBtnSelection.ResumeLayout(False)
@@ -440,4 +455,5 @@ Partial Class MainForm
     Friend WithEvents lbUsername As Label
     Friend WithEvents btTimeLog As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btDashboard As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
