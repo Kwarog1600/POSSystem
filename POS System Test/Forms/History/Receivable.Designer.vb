@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Sale_Confirmation
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Receivable
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Sale_Confirmation
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -37,8 +37,6 @@ Partial Class Sale_Confirmation
         txbxAmtPd = New Guna.UI2.WinForms.Guna2TextBox()
         Label5 = New Label()
         btConfirm = New Guna.UI2.WinForms.Guna2Button()
-        cbxMethod = New ComboBox()
-        Label6 = New Label()
         SuspendLayout()
         ' 
         ' txbxAmount
@@ -67,9 +65,9 @@ Partial Class Sale_Confirmation
         Label2.AutoSize = True
         Label2.Location = New Point(221, 18)
         Label2.Name = "Label2"
-        Label2.Size = New Size(51, 15)
+        Label2.Size = New Size(48, 15)
         Label2.TabIndex = 2
-        Label2.Text = "Amount"
+        Label2.Text = "Balance"
         ' 
         ' txbxRef
         ' 
@@ -112,7 +110,7 @@ Partial Class Sale_Confirmation
         txbxAmtPd.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxAmtPd.Font = New Font("Segoe UI", 9F)
         txbxAmtPd.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txbxAmtPd.Location = New Point(221, 103)
+        txbxAmtPd.Location = New Point(15, 111)
         txbxAmtPd.Name = "txbxAmtPd"
         txbxAmtPd.PasswordChar = ChrW(0)
         txbxAmtPd.PlaceholderText = ""
@@ -124,7 +122,7 @@ Partial Class Sale_Confirmation
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(221, 85)
+        Label5.Location = New Point(15, 93)
         Label5.Name = "Label5"
         Label5.Size = New Size(77, 15)
         Label5.TabIndex = 8
@@ -141,42 +139,18 @@ Partial Class Sale_Confirmation
         btConfirm.FillColor = Color.DimGray
         btConfirm.Font = New Font("Segoe UI", 9F)
         btConfirm.ForeColor = Color.White
-        btConfirm.Location = New Point(344, 144)
+        btConfirm.Location = New Point(221, 111)
         btConfirm.Name = "btConfirm"
         btConfirm.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btConfirm.Size = New Size(77, 36)
         btConfirm.TabIndex = 44
         btConfirm.Text = "Confirm"
         ' 
-        ' cbxMethod
-        ' 
-        cbxMethod.AutoCompleteCustomSource.AddRange(New String() {"All"})
-        cbxMethod.DropDownStyle = ComboBoxStyle.DropDownList
-        cbxMethod.FormattingEnabled = True
-        cbxMethod.Items.AddRange(New Object() {"Accounts Recievable", "Cash"})
-        cbxMethod.Location = New Point(15, 103)
-        cbxMethod.Name = "cbxMethod"
-        cbxMethod.Size = New Size(156, 23)
-        cbxMethod.Sorted = True
-        cbxMethod.TabIndex = 45
-        cbxMethod.TabStop = False
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Location = New Point(15, 85)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(99, 15)
-        Label6.TabIndex = 46
-        Label6.Text = "Payment Method"
-        ' 
-        ' Sale_Confirmation
+        ' Receivable
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(433, 192)
-        Controls.Add(Label6)
-        Controls.Add(cbxMethod)
+        ClientSize = New Size(433, 159)
         Controls.Add(btConfirm)
         Controls.Add(txbxAmtPd)
         Controls.Add(Label5)
@@ -185,7 +159,7 @@ Partial Class Sale_Confirmation
         Controls.Add(txbxAmount)
         Controls.Add(Label2)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
-        Name = "Sale_Confirmation"
+        Name = "Receivable"
         Text = "Sale"
         TopMost = True
         ResumeLayout(False)
@@ -198,6 +172,4 @@ Partial Class Sale_Confirmation
     Friend WithEvents txbxAmtPd As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents btConfirm As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents cbxMethod As ComboBox
-    Friend WithEvents Label6 As Label
 End Class

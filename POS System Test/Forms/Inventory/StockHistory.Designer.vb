@@ -91,6 +91,7 @@ Partial Class StockHistory
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "StockHistory"
         Text = "StockHistory"
+        TopMost = True
         CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub

@@ -22,6 +22,9 @@
     <Compile Update="Forms\Expenses\Expenses.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\History\Receivable.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\History\History.vb">
       <SubType>Form</SubType>
     </Compile>

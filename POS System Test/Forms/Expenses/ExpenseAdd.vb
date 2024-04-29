@@ -6,6 +6,9 @@
         AddExpense(name, Purpose, Expense, DateOnly.FromDateTime(DateTime.Now))
         Dashboard.lbMonthlyExpense.Text = Dashboard.MonthlyExpenses()
         Dashboard.TotalExpenses.Text = Dashboard.DailyExpenses()
+        If cbxDeduct.Checked Then
+            Current -= Expense
+        End If
         Me.Hide()
     End Sub
 End Class

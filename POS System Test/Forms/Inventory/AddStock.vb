@@ -11,6 +11,7 @@ Public Class AddStock
         For i = 1 To contents.Count - 1
             cbxCategory.Items.Add(contents(i))
         Next
+        txbxID.Text = ""
     End Sub
 
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
@@ -144,7 +145,7 @@ Public Class AddStock
                             For i As Integer = 0 To dgvAddDescr.Rows.Count - 1
                                 dgvAddDescr.Rows(i).Cells(1).Value = data(i + 5)
                             Next
-
+                            Exit Sub
                         End If
                     Next
                 End If

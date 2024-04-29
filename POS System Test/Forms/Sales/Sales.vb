@@ -10,56 +10,60 @@ Public Class Sales
 
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Try
-            Dim headers As New List(Of String)
-            Dim TotalAmount As Integer = 0
-            Dim items As New List(Of String)
-            Dim less As Integer
-            If dgvAddedList.RowCount = 0 Then
-                MessageBox.Show("Please add items.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Exit Sub
-            End If
-            Dim isValidInput As Boolean = False
-            Do Until isValidInput
-                Dim input As String = InputBox("Less?", "Discount Prompt")
-                If IsNumeric(input) Then
-                    less = CInt(input)
-                    isValidInput = True
-                Else
-                    MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            If Not txbxName.Text = "" Then
+                Dim headers As New List(Of String)
+                Dim TotalAmount As Integer = 0
+                Dim items As New List(Of String)
+                Dim less As Integer
+                If dgvAddedList.RowCount = 0 Then
+                    MessageBox.Show("Please add items.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
                 End If
-            Loop
-            For i = 1 To dgvAddedList.Columns.Count - 1
-                headers.Add(dgvAddedList.Columns(i).HeaderText)
-            Next
-            items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(1).Select(Function(col) col.HeaderText).ToArray()))
-            For Each row As DataGridViewRow In dgvAddedList.Rows
-                Dim filename = $"{srcFolder}\Stock\{row.Cells(0).Value}.csv"
-                Dim content As New List(Of String)
-                For i = 1 To dgvAddedList.Columns.Count - 1
-                    If i <> 5 Then
-                        content.Add(row.Cells(i).Value)
+                Dim isValidInput As Boolean = False
+                Do Until isValidInput
+                    Dim input As String = InputBox("Less?", "Discount Prompt")
+                    If IsNumeric(input) Then
+                        less = CInt(input)
+                        isValidInput = True
+                    Else
+                        MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
                     End If
+                Loop
+                For i = 1 To dgvAddedList.Columns.Count - 1
+                    headers.Add(dgvAddedList.Columns(i).HeaderText)
                 Next
-                TotalAmount = TotalAmount + Convert.ToInt32(row.Cells(5).Value)
-            Next
-            Dim prft As Double = 0
-            For Each row As DataGridViewRow In dgvAddedList.Rows
-                prft += ProfitCalc(row.Cells(1).Value.ToString(), row.Cells(4).Value.ToString(), row.Cells(3).Value.ToString())
-            Next
-            prft -= less
-            TotalAmount -= less
-            With Sale_Confirmation
-                .txbxRef.Text = $"SR-{ReadCsv($"{srcFolder}\Resources\Sales History.csv").Count - 1}"
-                .txbxAmount.Text = TotalAmount
-                .logDate = DateOnly.FromDateTime(DateTime.Now)
-                .info = TotalAmount
-                .inputuser = MainForm.lbUsername.Text
-                .customerName = txbxName.Text
-                .items = items
-                .profit = prft
-                .Show()
-            End With
+                items.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(1).Select(Function(col) col.HeaderText).ToArray()))
+                For Each row As DataGridViewRow In dgvAddedList.Rows
+                    Dim filename = $"{srcFolder}\Stock\{row.Cells(0).Value}.csv"
+                    Dim content As New List(Of String)
+                    For i = 1 To dgvAddedList.Columns.Count - 1
+                        If i <> 5 Then
+                            content.Add(row.Cells(i).Value)
+                        End If
+                    Next
+                    TotalAmount = TotalAmount + Convert.ToInt32(row.Cells(5).Value)
+                Next
+                Dim prft As Double = 0
+                For Each row As DataGridViewRow In dgvAddedList.Rows
+                    prft += ProfitCalc(row.Cells(1).Value.ToString(), row.Cells(4).Value.ToString(), row.Cells(3).Value.ToString())
+                Next
+                prft -= less
+                TotalAmount -= less
+                With Sale_Confirmation
+                    .txbxRef.Text = $"SR-{ReadCsv($"{srcFolder}\Resources\Sales History.csv").Count - 1}"
+                    .txbxAmount.Text = TotalAmount
+                    .logDate = DateOnly.FromDateTime(DateTime.Now)
+                    .info = TotalAmount
+                    .inputuser = MainForm.lbUsername.Text
+                    .customerName = txbxName.Text
+                    .items = items
+                    .profit = prft
+                    .Show()
+                End With
+            Else
+                MessageBox.Show("Must Enter Customer Name")
+            End If
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
@@ -78,8 +82,10 @@ Public Class Sales
                     If stockinf(stockinf.Length - 1) < stockinf(3) Then
                         Dim totalCost As Double = Double.Parse(stockinf(4)) + (Double.Parse(loginf(4)) / Double.Parse(loginf(2)))
                         profit = Double.Parse(price) - totalCost
-                        stockinf(stockinf.Length - 1) += 1
+                        Dim index = stocklist.IndexOf(stock)
+                        stockinf(stockinf.Length - 1) = Integer.Parse(stockinf(stockinf.Length - 1)) + 1
                         stock = String.Join(",", stockinf)
+                        stocklist(index) = stock
                         File.WriteAllLines(logfile, stocklist)
                         Return profit.ToString("0.00")
                     End If

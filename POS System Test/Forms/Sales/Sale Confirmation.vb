@@ -9,7 +9,6 @@ Public Class Sale_Confirmation
             For i = 1 To .dgvAddedList.Columns.Count - 1
                 headers.Add(.dgvAddedList.Columns(i).HeaderText)
             Next
-            items.Add(String.Join(",", .dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(1).Select(Function(col) col.HeaderText).ToArray()))
             For Each row As DataGridViewRow In .dgvAddedList.Rows
                 Dim filename = $"{srcFolder}\Stock\{row.Cells(0).Value}.csv"
                 Dim content As New List(Of String)
@@ -32,26 +31,25 @@ Public Class Sale_Confirmation
                 MessageBox.Show("Insufficient Amount")
             Else
                 SalesLogging()
-                MessageBox.Show("Transaction Successful", $"Change :{info - txbxAmtPd.Text}")
+                MessageBox.Show($"Change : Php{txbxAmtPd.Text - info}", "Transaction Successful")
+                Current = Double.Parse(info)
             End If
         ElseIf cbxMethod.SelectedItem = "Accounts Recievable" Then
             SalesLogging()
+            Current = Double.Parse(txbxAmtPd.Text)
             MessageBox.Show("Transaction Successful")
         End If
-
         With Sales
             .dgvAddedList.Rows.Clear()
             Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(.showTotalPrice.Text)).ToString()
-            Dashboard.TotalSold.Text = (Convert.ToDouble(Dashboard.TotalSold.Text) + Convert.ToDouble(.showTotalPrice.Text)).ToString()
             If .dgvAddedList.Columns.Count > 6 Then
                 For i = .dgvAddedList.Columns.Count - 1 To 7 Step -1
                     .dgvAddedList.Columns.RemoveAt(i)
                 Next i
             End If
         End With
+        Me.Hide()
     End Sub
-
-
 
     Sub SalesLogging()
         Try

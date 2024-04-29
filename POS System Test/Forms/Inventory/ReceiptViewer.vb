@@ -15,6 +15,7 @@ Public Class ReceiptViewer
             Next
             dgvHistory.Rows.Add(lineContents)
         Next
+        Me.Show()
     End Sub
 
     Private Sub ReceiptViewer_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged

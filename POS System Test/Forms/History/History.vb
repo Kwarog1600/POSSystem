@@ -11,13 +11,16 @@ Public Class History
         RefreshTable($"{srcFolder}/Resources/Sales History.csv", dgvSaleHistory)
     End Sub
 
-    Private Sub dgvSaleHistory_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellContentDoubleClick
+    Private Sub dgvSaleHistory_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellDoubleClick
         Dim filepath As String = $"{srcFolder}/Receipts/{dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value}.csv"
         ReceiptViewer.ShowReceipt(filepath)
-        ReceiptViewer.Show()
+        If dgvSaleHistory.Rows(e.RowIndex).Cells(6).Value = "Accounts Recievable" Then
+            With Receivable
+                .txbxRef.Text = dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value
+                .txbxAmount.Text = Double.Parse(dgvSaleHistory.Rows(e.RowIndex).Cells(3).Value) - Double.Parse(dgvSaleHistory.Rows(e.RowIndex).Cells(7).Value)
+                .Show()
+            End With
+        End If
     End Sub
 
-    Private Sub dgvSaleHistory_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellContentClick
-
-    End Sub
 End Class

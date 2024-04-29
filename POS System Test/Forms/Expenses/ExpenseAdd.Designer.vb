@@ -37,6 +37,7 @@ Partial Class ExpenseAdd
         lbAmount = New Label()
         lbname = New Label()
         txbxName = New Guna.UI2.WinForms.Guna2TextBox()
+        cbxDeduct = New CheckBox()
         SuspendLayout()
         ' 
         ' txbxPurpose
@@ -144,11 +145,24 @@ Partial Class ExpenseAdd
         txbxName.Size = New Size(354, 36)
         txbxName.TabIndex = 13
         ' 
+        ' cbxDeduct
+        ' 
+        cbxDeduct.AutoSize = True
+        cbxDeduct.Checked = True
+        cbxDeduct.CheckState = CheckState.Checked
+        cbxDeduct.Location = New Point(12, 201)
+        cbxDeduct.Name = "cbxDeduct"
+        cbxDeduct.Size = New Size(124, 19)
+        cbxDeduct.TabIndex = 15
+        cbxDeduct.Text = "Deduct From Cash"
+        cbxDeduct.UseVisualStyleBackColor = True
+        ' 
         ' ExpenseAdd
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(378, 258)
+        Controls.Add(cbxDeduct)
         Controls.Add(lbname)
         Controls.Add(txbxName)
         Controls.Add(lbAmount)
@@ -172,4 +186,5 @@ Partial Class ExpenseAdd
     Friend WithEvents lbAmount As Label
     Friend WithEvents lbname As Label
     Friend WithEvents txbxName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents cbxDeduct As CheckBox
 End Class

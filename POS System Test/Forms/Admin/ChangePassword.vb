@@ -14,6 +14,7 @@ Public Class ChangePassword
             Next
         End If
         File.WriteAllLines("Resources/Users.csv", contents)
+        Me.Hide()
     End Sub
 
 End Class

@@ -230,6 +230,7 @@ Partial Class PriceChange
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "PriceChange"
         Text = "Price Change"
+        TopMost = True
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
