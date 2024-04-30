@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("R3Hub Techologies Inc."),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Release"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74bc3fc09e7dbcfbbd2743e681bc38a7b753cd4a"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6996e01f9d21d0e8d1e794760bd0bf4a9b81d6b9"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("POS And Inventory"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("POS And Inventory"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

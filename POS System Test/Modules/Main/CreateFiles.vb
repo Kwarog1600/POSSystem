@@ -15,8 +15,8 @@ Module CreateFiles
 
     Public Sub CreateStarting()
         Try
-            CreateFileIfNotExists("conf.ini", "[SourceLocation]" & vbLf & $"csvsrc={srcFolder}")
-            srcFolder = ReadIni("conf.ini", "SourceLocation", "csvsrc")
+            CreateFileIfNotExists("SystemConf.ini", "[SourceLocation]" & vbLf & $"csvsrc={srcFolder}")
+            srcFolder = ReadIni("SystemConf.ini", "SourceLocation", "csvsrc")
             Directory.CreateDirectory(srcFolder)
             Directory.CreateDirectory($"{srcFolder}\Stock")
             Directory.CreateDirectory($"{srcFolder}\Receipts")

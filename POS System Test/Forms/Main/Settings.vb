@@ -3,8 +3,8 @@
 Public Class Settings
     Dim PreviousPath As String
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PreviousPath = ReadIni("conf.ini", "SourceLocation", "csvsrc")
-        txbxProduct.Text = ReadIni("conf.ini", "SourceLocation", "csvsrc")
+        PreviousPath = ReadIni("SystemConf.ini", "SourceLocation", "csvsrc")
+        txbxProduct.Text = ReadIni("SystemConf.ini", "SourceLocation", "csvsrc")
     End Sub
 
     Private Sub btSeach_Click(sender As Object, e As EventArgs) Handles btSeach.Click
@@ -14,7 +14,7 @@ Public Class Settings
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
         Try
-            Dim conf As String = "conf.ini"
+            Dim conf As String = "SystemConf.ini"
             WriteIni(conf, "SourceLocation", "csvsrc", txbxProduct.Text)
             Dim Folders() As String = Directory.GetDirectories(PreviousPath)
 
