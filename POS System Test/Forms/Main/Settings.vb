@@ -13,21 +13,25 @@ Public Class Settings
     End Sub
 
     Private Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
-        Dim conf As String = "conf.ini"
-        WriteIni(conf, "SourceLocation", "csvsrc", txbxProduct.Text)
-        Dim Folders() As String = Directory.GetDirectories(PreviousPath)
+        Try
+            Dim conf As String = "conf.ini"
+            WriteIni(conf, "SourceLocation", "csvsrc", txbxProduct.Text)
+            Dim Folders() As String = Directory.GetDirectories(PreviousPath)
 
-        For Each folder In Folders
-            Dim folderName As String = Path.GetFileName(folder)
-            Dim destinationFolder As String = Path.Combine(txbxProduct.Text, folderName)
-            Directory.CreateDirectory(destinationFolder)
-            Dim files() As String = Directory.GetFiles(folder)
-            For Each csv In files
-                Dim fileName As String = Path.GetFileName(csv)
-                Dim sourceFile As String = Path.Combine(folder, fileName)
-                Dim destinationFile As String = Path.Combine(destinationFolder, fileName)
-                File.Move(sourceFile, destinationFile)
+            For Each folder In Folders
+                Dim folderName As String = Path.GetFileName(folder)
+                Dim destinationFolder As String = Path.Combine(txbxProduct.Text, folderName)
+                Directory.CreateDirectory(destinationFolder)
+                Dim files() As String = Directory.GetFiles(folder)
+                For Each csv In files
+                    Dim fileName As String = Path.GetFileName(csv)
+                    Dim sourceFile As String = Path.Combine(folder, fileName)
+                    Dim destinationFile As String = Path.Combine(destinationFolder, fileName)
+                    File.Move(sourceFile, destinationFile)
+                Next
             Next
-        Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
 End Class

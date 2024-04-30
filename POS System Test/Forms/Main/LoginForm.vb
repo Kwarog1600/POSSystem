@@ -15,37 +15,38 @@ Public Class LoginForm
     End Sub
 
     Private Sub btLogin_Click(sender As Object, e As EventArgs) Handles btLogin.Click
-        contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
-        Dim match As Boolean = False
-        For Each userinfo In contents
-            Dim user = userinfo.Split(","c)
-            If user(1) = txbxUsername.Text AndAlso user(2) = HashPassword(txbxPassword.Text) Then
-                AccessLevel(user(3))
-                match = True
-            End If
-        Next
-        If match Then
-            Dim isValidInput As Boolean = False
-            Do Until isValidInput
-                Dim input As String = InputBox("Enter the start cash:", "Start Cash")
-                If IsNumeric(input) Then
-                    Current = CInt(input)
-                    isValidInput = True
-                Else
-                    MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Exit Sub
+        Try
+            contents = ReadCsv($"{srcFolder}/Resources/Users.csv")
+            Dim match As Boolean = False
+            For Each userinfo In contents
+                Dim user = userinfo.Split(","c)
+                If user(1) = txbxUsername.Text AndAlso user(2) = HashPassword(txbxPassword.Text) Then
+                    AccessLevel(user(3))
+                    match = True
                 End If
-            Loop
-            MainForm.lbUsername.Text = txbxUsername.Text
-            MainForm.Show()
-            Me.Hide()
-            LogReg("In", txbxUsername.Text, Current)
-        Else
-            MessageBox.Show("Incorrect username or password")
-        End If
+            Next
+            If match Then
+                Dim isValidInput As Boolean = False
+                Do Until isValidInput
+                    Dim input As String = InputBox("Enter the start cash:", "Start Cash")
+                    If IsNumeric(input) Then
+                        Current = CInt(input)
+                        isValidInput = True
+                    Else
+                        MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
+                Loop
+                MainForm.lbUsername.Text = txbxUsername.Text
+                MainForm.Show()
+                Me.Hide()
+                LogReg("In", txbxUsername.Text, Current)
+            Else
+                MessageBox.Show("Incorrect username or password")
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
 
-    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
-
-    End Sub
 End Class

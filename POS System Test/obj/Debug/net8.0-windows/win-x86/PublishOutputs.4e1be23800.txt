@@ -1,0 +1,16 @@
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\POS And Inventory.exe
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\POS And Inventory.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\POS And Inventory.deps.json
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\POS And Inventory.runtimeconfig.json
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\POS And Inventory.pdb
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\BouncyCastle.Cryptography.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\Google.Protobuf.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\Guna.Charts.WinForms.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\Guna.UI2.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\K4os.Compression.LZ4.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\K4os.Compression.LZ4.Streams.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\K4os.Hash.xxHash.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\MySql.Data.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\System.IO.Pipelines.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\System.Management.dll
+C:\Users\HP EliteDesk\Desktop\Pos System\New folder\ZstdSharp.dll

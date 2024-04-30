@@ -70,29 +70,33 @@ Public Class Sales
     End Sub
 
     Function ProfitCalc(id As String, itemcost As String, price As String) As Double
-        Dim stocklogs As List(Of String) = ReadCsv($"{srcFolder}\Resources\Stock History.csv")
-        Dim profit As Double = 0
-        For Each log As String In stocklogs.Skip(1)
-            Dim loginf() As String = log.Split(",")
-            Dim logfile As String = $"{srcFolder}\Stock History\{loginf(1)}.csv"
-            Dim stocklist As List(Of String) = ReadCsv(logfile)
-            For Each stock As String In stocklist
-                Dim stockinf() As String = stock.Split(",")
-                If stockinf(0) = id Then
-                    If stockinf(stockinf.Length - 1) < stockinf(3) Then
-                        Dim totalCost As Double = Double.Parse(stockinf(4)) + (Double.Parse(loginf(4)) / Double.Parse(loginf(2)))
-                        profit = Double.Parse(price) - totalCost
-                        Dim index = stocklist.IndexOf(stock)
-                        stockinf(stockinf.Length - 1) = Integer.Parse(stockinf(stockinf.Length - 1)) + 1
-                        stock = String.Join(",", stockinf)
-                        stocklist(index) = stock
-                        File.WriteAllLines(logfile, stocklist)
-                        Return profit.ToString("0.00")
+        Try
+            Dim stocklogs As List(Of String) = ReadCsv($"{srcFolder}\Resources\Stock History.csv")
+            Dim profit As Double = 0
+            For Each log As String In stocklogs.Skip(1)
+                Dim loginf() As String = log.Split(",")
+                Dim logfile As String = $"{srcFolder}\Stock History\{loginf(1)}.csv"
+                Dim stocklist As List(Of String) = ReadCsv(logfile)
+                For Each stock As String In stocklist
+                    Dim stockinf() As String = stock.Split(",")
+                    If stockinf(0) = id Then
+                        If stockinf(stockinf.Length - 1) < stockinf(3) Then
+                            Dim totalCost As Double = Double.Parse(stockinf(4)) + (Double.Parse(loginf(4)) / Double.Parse(loginf(2)))
+                            profit = Double.Parse(price) - totalCost
+                            Dim index = stocklist.IndexOf(stock)
+                            stockinf(stockinf.Length - 1) = Integer.Parse(stockinf(stockinf.Length - 1)) + 1
+                            stock = String.Join(",", stockinf)
+                            stocklist(index) = stock
+                            File.WriteAllLines(logfile, stocklist)
+                            Return profit.ToString("0.00")
+                        End If
                     End If
-                End If
+                Next
             Next
-        Next
-        Return profit
+            Return profit
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Function
 
 

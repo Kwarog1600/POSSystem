@@ -29,14 +29,19 @@ Namespace My
         Public screenHeight As Integer = Screen.PrimaryScreen.WorkingArea.Height
 
         Private Sub AppLoad(sender As Object, e As EventArgs) Handles Me.Startup
-            CreateStarting()
-            With LoginForm
-                .Size = New Size(screenWidth, screenHeight)
-                .pnlMain.Size = New Size(screenWidth, screenHeight)
-                .Logo.Location = New Point((screenWidth - (.Logo.Size.Width + .pnlContainer.Size.Width)) / 3, (screenHeight - .Logo.Size.Height) / 2)
-                .pnlContainer.Location = New Point((screenWidth - .pnlContainer.Size.Width) * (2 / 3), (screenHeight - .pnlContainer.Size.Height) / 2)
-                .btClose.Location = New Point(screenWidth - 50, 0)
-            End With
+            Try
+                CreateStarting()
+                With LoginForm
+                    .Size = New Size(screenWidth, screenHeight)
+                    .pnlMain.Size = New Size(screenWidth, screenHeight)
+                    .Logo.Location = New Point((screenWidth - (.Logo.Size.Width + .pnlContainer.Size.Width)) / 3, (screenHeight - .Logo.Size.Height) / 2)
+                    .pnlContainer.Location = New Point((screenWidth - .pnlContainer.Size.Width) * (2 / 3), (screenHeight - .pnlContainer.Size.Height) / 2)
+                    .btClose.Location = New Point(screenWidth - 50, 0)
+                    .Show()
+                End With
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+            End Try
         End Sub
     End Class
 End Namespace
