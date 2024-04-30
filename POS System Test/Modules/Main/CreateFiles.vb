@@ -26,7 +26,7 @@ Module CreateFiles
             CreateFileIfNotExists($"{srcFolder}\Resources\Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
             CreateFileIfNotExists($"{srcFolder}\Resources\Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Profit,Sold By,Method, Paid")
             CreateFileIfNotExists($"{srcFolder}\Resources\Stock Category.csv", "CategoryName")
-            CreateFileIfNotExists($"{srcFolder}\Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User,Amount Paid")
+            CreateFileIfNotExists($"{srcFolder}\Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User,Batch Shipping Cost")
             CreateFileIfNotExists($"{srcFolder}\Resources\TimeLog.csv", "Log,Date and Time,Username, Start/End Cash")
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)

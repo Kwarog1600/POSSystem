@@ -177,7 +177,6 @@ Module AppModule
 
     Public Sub AddtoTable(ByRef table As DataGridView, item As List(Of String), headers As List(Of String))
         Try
-            MessageBox.Show(String.Join("'", headers))
             For Each header As String In headers
                 If Not table.Columns.Contains(header) Then
                     table.Columns.Add(header, header)

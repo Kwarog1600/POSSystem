@@ -33,16 +33,16 @@ Public Class Sale_Confirmation
                 Else
                     SalesLogging()
                     MessageBox.Show($"Change : Php{txbxAmtPd.Text - info}", "Transaction Successful")
-                    Current = Double.Parse(info)
+                    Current += Double.Parse(info)
                 End If
             ElseIf cbxMethod.SelectedItem = "Accounts Recievable" Then
                 SalesLogging()
-                Current = Double.Parse(txbxAmtPd.Text)
+                Current += Double.Parse(txbxAmtPd.Text)
                 MessageBox.Show("Transaction Successful")
             End If
             With Sales
                 .dgvAddedList.Rows.Clear()
-                Dashboard.CurrentCash.Text = (Convert.ToDouble(Dashboard.CurrentCash.Text) + Convert.ToDouble(.showTotalPrice.Text)).ToString()
+                Current += Convert.ToDouble(.showTotalPrice.Text)
                 If .dgvAddedList.Columns.Count > 6 Then
                     For i = .dgvAddedList.Columns.Count - 1 To 7 Step -1
                         .dgvAddedList.Columns.RemoveAt(i)

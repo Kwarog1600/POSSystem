@@ -81,4 +81,11 @@
     <Folder Include="My Project\NewFolder\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
 </Project>

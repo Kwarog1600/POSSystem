@@ -9,9 +9,11 @@ Public Class AddStock
     Private Sub AddStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             contents = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
-        For i = 1 To contents.Count - 1
-            cbxCategory.Items.Add(contents(i))
-        Next
+            For i = 1 To contents.Count - 1
+                If Not cbxCategory.Items.Contains(contents(i)) Then
+                    cbxCategory.Items.Add(contents(i))
+                End If
+            Next
             txbxID.Text = ""
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
