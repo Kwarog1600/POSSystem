@@ -244,6 +244,7 @@ Module AppModule
                 .Controls.Add(panel)
                 panel.Show()
             End With
+            AccessLevel(LoginForm.Acc)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
         End Try
@@ -264,8 +265,11 @@ Module AppModule
         If level = 1 Then
             Inventory.btAddCategory.Visible = False
             Inventory.btStockHistory.Visible = False
+            Inventory.btAddStock.Visible = False
             MainForm.pnlAdminContainer.Visible = False
             MainForm.btExpenses.Visible = False
+            Dashboard.pnlttlSold.Visible = False
+            Dashboard.pnlProfit.Visible = False
         ElseIf level = 2 Then
             MainForm.pnlAdminContainer.Visible = False
         ElseIf level = 3 Then

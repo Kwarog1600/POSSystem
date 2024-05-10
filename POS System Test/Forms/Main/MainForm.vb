@@ -64,11 +64,4 @@ Public Class MainForm
         Settings.Show()
     End Sub
 
-    Private Sub pnlSwitch_Paint(sender As Object, e As PaintEventArgs) Handles pnlSwitch.Paint
-
-    End Sub
-
-    Private Sub pnlSelection_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelection.Paint
-
-    End Sub
 End Class

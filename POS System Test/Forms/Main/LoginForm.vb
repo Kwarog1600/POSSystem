@@ -5,6 +5,8 @@ Imports Mysqlx.Notice.Warning.Types
 
 Public Class LoginForm
 
+    Public Acc As Int16
+
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = btLogin
     End Sub
@@ -21,7 +23,8 @@ Public Class LoginForm
             For Each userinfo In contents
                 Dim user = userinfo.Split(","c)
                 If user(1) = txbxUsername.Text AndAlso user(2) = HashPassword(txbxPassword.Text) Then
-                    AccessLevel(user(3))
+                    Acc = Integer.Parse(user(3))
+                    AccessLevel(Acc)
                     match = True
                 End If
             Next

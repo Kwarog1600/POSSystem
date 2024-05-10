@@ -10,6 +10,9 @@ Public Class History
                 .pnlContainer.Location = New Point(50, 50)
             End With
             RefreshTable($"{srcFolder}/Resources/Sales History.csv", dgvSaleHistory)
+            If LoginForm.Acc = 1 Then
+                dgvSaleHistory.Columns("Profit").Visible = False
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
         End Try

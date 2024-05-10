@@ -4,7 +4,7 @@
     Private Sub SearchItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             cbxCategory.Items.Add("All")
-        RefreshCat(cbxCategory)
+            RefreshCat(cbxCategory)
             cbxCategory.SelectedItem = "All"
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
@@ -40,7 +40,6 @@
                     If Not cat = "All" Then
                         Dim contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
                         Dim tbheader() As String = contents(0).Split(","c)
-
                         For Each head As String In tbheader
                             If Not dgvStockList.Columns.Contains($"clm{head}") Then
                                 dgvStockList.Columns.Add($"clm{head}", head)
@@ -56,6 +55,9 @@
                                 End If
                             Next
                         Next
+                        If dgvStockList.Columns.Contains("clmCost") Then
+                            dgvStockList.Columns("clmCost").Visible = False
+                        End If
                     End If
                 Next
             Else

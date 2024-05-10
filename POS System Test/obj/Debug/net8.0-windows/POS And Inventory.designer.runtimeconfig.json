@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\HP EliteDesk\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\HP EliteDesk\\.nuget\\packages",
+      "C:\\Users\\cacca\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\cacca\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
