@@ -70,9 +70,9 @@ Public Class Sales
     End Sub
 
     Function ProfitCalc(id As String, itemcost As String, price As String) As Double
+        Dim profit As Double = 0
         Try
             Dim stocklogs As List(Of String) = ReadCsv($"{srcFolder}\Resources\Stock History.csv")
-            Dim profit As Double = 0
             For Each log As String In stocklogs.Skip(1)
                 Dim loginf() As String = log.Split(",")
                 Dim logfile As String = $"{srcFolder}\Stock History\{loginf(1)}.csv"
@@ -96,6 +96,7 @@ Public Class Sales
             Return profit
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+            Return profit
         End Try
     End Function
 

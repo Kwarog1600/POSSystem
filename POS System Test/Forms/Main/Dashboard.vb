@@ -19,6 +19,7 @@ Public Class Dashboard
             Return ttlcount
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+            Return ttlcount
         End Try
     End Function
 
@@ -57,7 +58,7 @@ Public Class Dashboard
                     Else
                         MessageBox.Show("Invalid date format in CSV: " & loginf(0), "Date Parsing Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
-                ElseIf loginf(6) = "Accounts Recievable" Then
+                ElseIf Not loginf(6) = "Cash" Then
                     If Double.Parse(loginf(3)) - Double.Parse(loginf(7)) > 0 Then
                         Ar += Double.Parse(loginf(3)) - Double.Parse(loginf(7))
                         Bp += Double.Parse(loginf(7))
@@ -101,8 +102,8 @@ Public Class Dashboard
     End Sub
 
     Private Function ttlDailySale() As Double
+        Dim ttlSale As Double = 0
         Try
-            Dim ttlSale As Double = 0
             contents = ReadCsv($"{srcFolder}/Resources/Sales History.csv")
             For i As Integer = 1 To contents.Count - 1
                 Dim saleinfo = contents(i).Split(","c)
@@ -113,13 +114,14 @@ Public Class Dashboard
             Return ttlSale
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+            Return ttlSale
         End Try
     End Function
 
     Public Function MonthlyExpenses() As Integer
+        Dim mExp As Integer = 0
         Try
             contents = ReadCsv($"{srcFolder}/Resources/Expenses.csv")
-            Dim mExp As Integer = 0
             For i As Integer = 1 To contents.Count - 1
                 Dim expenseinfo = contents(i).Split(","c)
                 If DateTime.Now.Month = DateTime.ParseExact(expenseinfo(0), "M/d/yyyy", CultureInfo.InvariantCulture).Month Then
@@ -129,14 +131,16 @@ Public Class Dashboard
             Return mExp
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+            Return mExp
         End Try
     End Function
 
     Public Function DailyExpenses() As Integer
+        Dim dExp As Integer = 0
+        Dim currentDate = DateTime.Now
         Try
             contents = ReadCsv($"{srcFolder}/Resources/Expenses.csv")
-            Dim dExp As Integer = 0
-            Dim currentDate = DateTime.Now
+
             For i As Integer = 1 To contents.Count - 1
                 Dim expenseinfo = contents(i).Split(","c)
                 Dim expenseDate = DateTime.ParseExact(expenseinfo(0), "M/d/yyyy", CultureInfo.InvariantCulture)
@@ -148,6 +152,7 @@ Public Class Dashboard
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
         End Try
+        Return dExp
     End Function
 
 End Class

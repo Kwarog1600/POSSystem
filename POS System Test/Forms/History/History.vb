@@ -20,15 +20,17 @@ Public Class History
 
     Private Sub dgvSaleHistory_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaleHistory.CellDoubleClick
         Try
-            Dim filepath As String = $"{srcFolder}/Receipts/{dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value}.csv"
+            Dim filepath = $"{srcFolder}/Receipts/{dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value}.csv"
             ReceiptViewer.ShowReceipt(filepath)
-            If dgvSaleHistory.Rows(e.RowIndex).Index >= 0 Or dgvSaleHistory.Rows(e.RowIndex).Index <= dgvSaleHistory.Rows().Count - 1 Then
-                If dgvSaleHistory.Rows(e.RowIndex).Cells(6).Value = "Accounts Recievable" Then
-                    With Receivable
-                        .txbxRef.Text = dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value
-                        .txbxAmount.Text = Double.Parse(dgvSaleHistory.Rows(e.RowIndex).Cells(3).Value) - Double.Parse(dgvSaleHistory.Rows(e.RowIndex).Cells(7).Value)
-                        .Show()
-                    End With
+            If dgvSaleHistory.Rows(e.RowIndex).Index >= 0 Or dgvSaleHistory.Rows(e.RowIndex).Index <= dgvSaleHistory.Rows.Count - 1 Then
+                If Not dgvSaleHistory.Rows(e.RowIndex).Cells(6).Value = "Cash" Then
+                    If dgvSaleHistory.Rows(e.RowIndex).Cells(7).Value < dgvSaleHistory.Rows(e.RowIndex).Cells(3).Value Then
+                        With Receivable
+                            .txbxRef.Text = dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value
+                            .txbxAmount.Text = Double.Parse(dgvSaleHistory.Rows(e.RowIndex).Cells(3).Value) - Double.Parse(dgvSaleHistory.Rows(e.RowIndex).Cells(7).Value)
+                            .Show()
+                        End With
+                    End If
                 End If
             End If
         Catch ex As Exception

@@ -24,7 +24,7 @@ Module CreateFiles
             Directory.CreateDirectory($"{srcFolder}\Stock History")
             CreateFileIfNotExists($"{srcFolder}\Resources/Users.csv", "User ID,Username,Password,Access Level, First Name, Last Name" & vbLf & $"U000,admin,{HashPassword("admin")},3,admin,admin")
             CreateFileIfNotExists($"{srcFolder}\Resources\Expenses.csv", "Date and Time,name,Purpose,Amount, Added by")
-            CreateFileIfNotExists($"{srcFolder}\Resources\Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Profit,Sold By,Method, Paid")
+            CreateFileIfNotExists($"{srcFolder}\Resources\Sales History.csv", "Date,Transaction Reference,Customer Name,Total Amount,Profit,Sold By,Method,Paid,Due")
             CreateFileIfNotExists($"{srcFolder}\Resources\Stock Category.csv", "CategoryName")
             CreateFileIfNotExists($"{srcFolder}\Resources\Stock History.csv", "Date,Transaction Reference,Quantity,by User,Batch Shipping Cost")
             CreateFileIfNotExists($"{srcFolder}\Resources\TimeLog.csv", "Log,Date and Time,Username, Start/End Cash")

@@ -30,6 +30,8 @@ Partial Class Sale_Confirmation
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txbxAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Label2 = New Label()
         txbxRef = New Guna.UI2.WinForms.Guna2TextBox()
@@ -39,6 +41,7 @@ Partial Class Sale_Confirmation
         btConfirm = New Guna.UI2.WinForms.Guna2Button()
         cbxMethod = New ComboBox()
         Label6 = New Label()
+        txbxContactNumber = New Guna.UI2.WinForms.Guna2TextBox()
         SuspendLayout()
         ' 
         ' txbxAmount
@@ -153,7 +156,7 @@ Partial Class Sale_Confirmation
         cbxMethod.AutoCompleteCustomSource.AddRange(New String() {"All"})
         cbxMethod.DropDownStyle = ComboBoxStyle.DropDownList
         cbxMethod.FormattingEnabled = True
-        cbxMethod.Items.AddRange(New Object() {"Accounts Recievable", "Cash"})
+        cbxMethod.Items.AddRange(New Object() {"Accounts Recievable(15 days)", "Accounts Recievable(30 days)", "Cash"})
         cbxMethod.Location = New Point(15, 103)
         cbxMethod.Name = "cbxMethod"
         cbxMethod.Size = New Size(156, 23)
@@ -170,11 +173,33 @@ Partial Class Sale_Confirmation
         Label6.TabIndex = 46
         Label6.Text = "Payment Method"
         ' 
+        ' txbxContactNumber
+        ' 
+        txbxContactNumber.CustomizableEdges = CustomizableEdges9
+        txbxContactNumber.DefaultText = ""
+        txbxContactNumber.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxContactNumber.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxContactNumber.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxContactNumber.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxContactNumber.Enabled = False
+        txbxContactNumber.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxContactNumber.Font = New Font("Segoe UI", 9F)
+        txbxContactNumber.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxContactNumber.Location = New Point(15, 132)
+        txbxContactNumber.Name = "txbxContactNumber"
+        txbxContactNumber.PasswordChar = ChrW(0)
+        txbxContactNumber.PlaceholderText = "Contact Number"
+        txbxContactNumber.SelectedText = ""
+        txbxContactNumber.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        txbxContactNumber.Size = New Size(200, 36)
+        txbxContactNumber.TabIndex = 47
+        ' 
         ' Sale_Confirmation
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(433, 192)
+        Controls.Add(txbxContactNumber)
         Controls.Add(Label6)
         Controls.Add(cbxMethod)
         Controls.Add(btConfirm)
@@ -200,4 +225,5 @@ Partial Class Sale_Confirmation
     Friend WithEvents btConfirm As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cbxMethod As ComboBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents txbxContactNumber As Guna.UI2.WinForms.Guna2TextBox
 End Class

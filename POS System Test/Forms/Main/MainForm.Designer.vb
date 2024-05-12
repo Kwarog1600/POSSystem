@@ -59,6 +59,8 @@ Partial Class MainForm
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlSelection = New Guna.UI2.WinForms.Guna2GradientPanel()
         PictureBox1 = New PictureBox()
         pnlLgtSt = New Guna.UI2.WinForms.Guna2Panel()
@@ -80,6 +82,8 @@ Partial Class MainForm
         btMin = New Guna.UI2.WinForms.Guna2Button()
         btLgtClose = New Guna.UI2.WinForms.Guna2Button()
         pnlSwitch = New Guna.UI2.WinForms.Guna2GradientPanel()
+        pnlNotification = New Guna.UI2.WinForms.Guna2GradientPanel()
+        lblTitle = New Label()
         pnlSelection.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlLgtSt.SuspendLayout()
@@ -87,6 +91,7 @@ Partial Class MainForm
         PnlBtnSelection.SuspendLayout()
         pnlRibbon.SuspendLayout()
         pnlFormCtrl.SuspendLayout()
+        pnlNotification.SuspendLayout()
         SuspendLayout()
         ' 
         ' pnlSelection
@@ -408,14 +413,35 @@ Partial Class MainForm
         pnlSwitch.Location = New Point(200, 50)
         pnlSwitch.Name = "pnlSwitch"
         pnlSwitch.ShadowDecoration.CustomizableEdges = CustomizableEdges36
-        pnlSwitch.Size = New Size(1080, 670)
+        pnlSwitch.Size = New Size(874, 670)
         pnlSwitch.TabIndex = 0
+        ' 
+        ' pnlNotification
+        ' 
+        pnlNotification.Controls.Add(lblTitle)
+        pnlNotification.CustomizableEdges = CustomizableEdges37
+        pnlNotification.Location = New Point(1080, 50)
+        pnlNotification.Name = "pnlNotification"
+        pnlNotification.ShadowDecoration.CustomizableEdges = CustomizableEdges38
+        pnlNotification.Size = New Size(200, 670)
+        pnlNotification.TabIndex = 3
+        ' 
+        ' lblTitle
+        ' 
+        lblTitle.AutoSize = True
+        lblTitle.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblTitle.Location = New Point(3, 3)
+        lblTitle.Name = "lblTitle"
+        lblTitle.Size = New Size(131, 30)
+        lblTitle.TabIndex = 0
+        lblTitle.Text = "Notifications"
         ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1280, 720)
+        Controls.Add(pnlNotification)
         Controls.Add(pnlSwitch)
         Controls.Add(pnlRibbon)
         Controls.Add(pnlSelection)
@@ -432,6 +458,8 @@ Partial Class MainForm
         pnlRibbon.ResumeLayout(False)
         pnlRibbon.PerformLayout()
         pnlFormCtrl.ResumeLayout(False)
+        pnlNotification.ResumeLayout(False)
+        pnlNotification.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -456,4 +484,6 @@ Partial Class MainForm
     Friend WithEvents btTimeLog As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btDashboard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pnlNotification As Guna.UI2.WinForms.Guna2GradientPanel
+    Friend WithEvents lblTitle As Label
 End Class

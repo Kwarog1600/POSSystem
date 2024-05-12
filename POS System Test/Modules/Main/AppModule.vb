@@ -13,17 +13,13 @@ Module AppModule
     Dim csvcontents As List(Of String)
 
     Public Function ReadCsv(filePath As String) As List(Of String)
-        Try
-            Using reader As New StreamReader(filePath)
-                csvcontents = New List(Of String)
-                While Not reader.EndOfStream
-                    csvcontents.Add(reader.ReadLine)
-                End While
-            End Using
-            Return csvcontents
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
-        End Try
+        Using reader As New StreamReader(filePath)
+            csvcontents = New List(Of String)
+            While Not reader.EndOfStream
+                csvcontents.Add(reader.ReadLine)
+            End While
+        End Using
+        Return csvcontents
     End Function
 
     Public Sub RefreshCat(ByRef cbx As ComboBox)
@@ -40,8 +36,9 @@ Module AppModule
     End Sub
 
     Public Function CountMatch(content As String, index As Integer) As Integer
+        Dim match As Integer = 0
         Try
-            Dim match As Integer = 0
+
             Dim lines = ReadCsv($"{srcFolder}/Resources/Stock Category.csv")
 
             ' Skip the header by starting the loop from the second line
@@ -51,14 +48,15 @@ Module AppModule
                 For Each line As String In ReadCsv(filepath)
                     Dim items = line.Split(",")
                     If items(index).StartsWith(content) Then
-                        match += 1
+                        Match += 1
                     End If
                 Next
             Next
 
-            Return match
+            Return Match
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+            Return match
         End Try
     End Function
 
@@ -202,24 +200,15 @@ Module AppModule
     End Sub
 
     Public Function HashPassword(password As String) As String
-        Try
-            ' Convert the password to bytes
-            Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
-
-            ' Create a SHA256 hash
-            Using sha256 As SHA256 = SHA256.Create()
-                Dim hashedBytes As Byte() = sha256.ComputeHash(bytes)
-
-                ' Convert hashed bytes to a string
-                Dim builder As StringBuilder = New StringBuilder()
-                For Each b As Byte In hashedBytes
-                    builder.Append(b.ToString("x2"))
-                Next
-                Return builder.ToString()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
-        End Try
+        Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
+        Using sha256 As SHA256 = SHA256.Create()
+            Dim hashedBytes As Byte() = sha256.ComputeHash(bytes)
+            Dim builder As StringBuilder = New StringBuilder()
+            For Each b As Byte In hashedBytes
+                builder.Append(b.ToString("x2"))
+            Next
+            Return builder.ToString()
+        End Using
     End Function
 
 
@@ -278,15 +267,11 @@ Module AppModule
     End Sub
 
     Public Function idHash(inputString As String) As String
-        Try
-            Dim sha256 As SHA256 = SHA256.Create()
-            Dim hashBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputString))
-            Dim hexString As String = BitConverter.ToString(hashBytes).Replace("-", "").ToLower()
-            Dim numericHash As Long = Convert.ToInt64(hexString.Substring(0, 12), 16)
-            Return "P" & numericHash.ToString("D12")
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
-        End Try
+        Dim sha256 As SHA256 = SHA256.Create()
+        Dim hashBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputString))
+        Dim hexString As String = BitConverter.ToString(hashBytes).Replace("-", "").ToLower()
+        Dim numericHash As Long = Convert.ToInt64(hexString.Substring(0, 12), 16)
+        Return "P" & numericHash.ToString("D12")
     End Function
 
 End Module

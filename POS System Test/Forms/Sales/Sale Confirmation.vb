@@ -31,14 +31,28 @@ Public Class Sale_Confirmation
                 ElseIf txbxAmtPd.Text < info Then
                     MessageBox.Show("Insufficient Amount")
                 Else
-                    SalesLogging()
+                    SalesLogging("")
                     MessageBox.Show($"Change : Php{txbxAmtPd.Text - info}", "Transaction Successful")
                     Current += Double.Parse(info)
                 End If
-            ElseIf cbxMethod.SelectedItem = "Accounts Recievable" Then
-                SalesLogging()
-                Current += Double.Parse(txbxAmtPd.Text)
-                MessageBox.Show("Transaction Successful")
+            ElseIf cbxMethod.SelectedItem = "Accounts Recievable(15 days)" Then
+                If Not txbxContactNumber.Text = "" Then
+                    Dim Due As DateTime = DateTime.Now.AddDays(15)
+                    SalesLogging(Due.ToString("MM/dd/yyyy"))
+                    Current += Double.Parse(txbxAmtPd.Text)
+                    MessageBox.Show("Transaction Successful")
+                Else
+                    MessageBox.Show("Contact Number must be provided")
+                End If
+            ElseIf cbxMethod.SelectedItem = "Accounts Recievable(30 days)" Then
+                If Not txbxContactNumber.Text = "" Then
+                    Dim Due As DateTime = DateTime.Now.AddDays(30)
+                    SalesLogging(Due.ToString("MM/dd/yyyy"))
+                    Current += Double.Parse(txbxAmtPd.Text)
+                    MessageBox.Show("Transaction Successful")
+                Else
+                    MessageBox.Show("Contact Number must be provided")
+                End If
             End If
             With Sales
                 .dgvAddedList.Rows.Clear()
@@ -55,7 +69,7 @@ Public Class Sale_Confirmation
         End Try
     End Sub
 
-    Sub SalesLogging()
+    Sub SalesLogging(Due As String)
         Try
             Dim logpath As String = $"{srcFolder}\Resources\Sales History.csv"
             Dim logrec As String = $"{srcFolder}\Receipts\SR-{ReadCsv(logpath).Count - 1}.csv"
@@ -63,7 +77,7 @@ Public Class Sale_Confirmation
             For Each item As String In items
                 stocklist += item & Environment.NewLine
             Next
-            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{customerName},{info},{profit},{inputuser},{cbxMethod.SelectedItem},{txbxAmtPd.Text}" & Environment.NewLine
+            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{txbxContactNumber.Text}-{customerName},{info},{profit},{inputuser},{cbxMethod.SelectedItem},{txbxAmtPd.Text},{Due}" & Environment.NewLine
             File.AppendAllText(logpath, line)
             CreateNewCsv(logrec, stocklist)
         Catch ex As Exception
@@ -71,4 +85,13 @@ Public Class Sale_Confirmation
         End Try
     End Sub
 
+    Private Sub cbxMethod_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxMethod.SelectedIndexChanged
+        If Not cbxMethod.SelectedItem = "Cash" Then
+            txbxContactNumber.Visible = True
+            txbxContactNumber.Enabled = True
+        Else
+            txbxContactNumber.Visible = False
+            txbxContactNumber.Enabled = False
+        End If
+    End Sub
 End Class
