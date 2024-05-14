@@ -28,12 +28,12 @@ Public Class Sale_Confirmation
                 If txbxAmtPd.Text = "" Then
                     MessageBox.Show("Enter amount paid")
                     Exit Sub
-                ElseIf Double.Parse(txbxAmtPd.Text) < Double.Parse(info) Then
+                ElseIf Double.Parse(txbxAmtPd.Text) < Double.Parse(txbxAmount.Text) Then
                     MessageBox.Show("Insufficient Amount")
                     Exit Sub
                 Else
                     SalesLogging("")
-                    MessageBox.Show($"Change : Php{txbxAmtPd.Text - info}", "Transaction Successful")
+                    MessageBox.Show($"Change : Php{txbxAmtPd.Text - txbxAmount.Text}", "Transaction Successful")
                     Current += Double.Parse(info)
                 End If
             ElseIf cbxMethod.SelectedItem = "Accounts Recievable(15 days)" Then
@@ -82,9 +82,9 @@ Public Class Sale_Confirmation
             For Each item As String In items
                 stocklist += item & Environment.NewLine
             Next
-            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{txbxContactNumber.Text}-{customerName},{info},{profit},{inputuser},{cbxMethod.SelectedItem},{txbxAmtPd.Text},{Due}" & Environment.NewLine
+            Dim line As String = $"{logDate.ToString()},SR-{ReadCsv(logpath).Count - 1},{txbxContactNumber.Text}-{customerName},{txbxAmount.Text},{profit},{inputuser},{cbxMethod.SelectedItem},{txbxAmtPd.Text},{Due}" & Environment.NewLine
             File.AppendAllText(logpath, line)
-            CreateNewCsv(logrec, stocklist)
+            CreateNewCsv(logrec, stocklist & Environment.NewLine & Environment.NewLine & $"Less,{txbxDiscount.Text}")
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
@@ -115,4 +115,5 @@ Public Class Sale_Confirmation
         txbxAmount.Text = (Double.Parse(Sales.TotalAmount) - dc).ToString("0.00")
         profit = (Double.Parse(profit) - dc).ToString("0.00")
     End Sub
+
 End Class
