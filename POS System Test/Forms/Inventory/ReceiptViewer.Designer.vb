@@ -91,7 +91,7 @@ Partial Class ReceiptViewer
         Controls.Add(dgvHistory)
         FormBorderStyle = FormBorderStyle.SizableToolWindow
         Name = "ReceiptViewer"
-        Text = "StockHistory"
+        Text = "View"
         TopMost = True
         CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

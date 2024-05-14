@@ -22,14 +22,15 @@ Public Class Sale_Confirmation
                     UpdateQty(filename, content, headers, True)
                 Next
             End With
-
             If cbxMethod.SelectedItem = "" Then
                 MessageBox.Show("Select Payment Method")
             ElseIf cbxMethod.SelectedItem = "Cash" Then
                 If txbxAmtPd.Text = "" Then
                     MessageBox.Show("Enter amount paid")
-                ElseIf txbxAmtPd.Text < info Then
+                    Exit Sub
+                ElseIf Double.Parse(txbxAmtPd.Text) < Double.Parse(info) Then
                     MessageBox.Show("Insufficient Amount")
+                    Exit Sub
                 Else
                     SalesLogging("")
                     MessageBox.Show($"Change : Php{txbxAmtPd.Text - info}", "Transaction Successful")
@@ -43,6 +44,7 @@ Public Class Sale_Confirmation
                     MessageBox.Show("Transaction Successful")
                 Else
                     MessageBox.Show("Contact Number must be provided")
+                    Exit Sub
                 End If
             ElseIf cbxMethod.SelectedItem = "Accounts Recievable(30 days)" Then
                 If Not txbxContactNumber.Text = "" Then
@@ -52,8 +54,10 @@ Public Class Sale_Confirmation
                     MessageBox.Show("Transaction Successful")
                 Else
                     MessageBox.Show("Contact Number must be provided")
+                    Exit Sub
                 End If
             End If
+            Sales.WriteCsv(Sales.logfile, Sales.stocklist)
             With Sales
                 .dgvAddedList.Rows.Clear()
                 Current += Convert.ToDouble(.showTotalPrice.Text)
@@ -63,6 +67,7 @@ Public Class Sale_Confirmation
                     Next i
                 End If
             End With
+            txbxDiscount.Clear()
             Me.Hide()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
@@ -93,5 +98,21 @@ Public Class Sale_Confirmation
             txbxContactNumber.Visible = False
             txbxContactNumber.Enabled = False
         End If
+    End Sub
+
+    Private Sub txbxDiscount_TextChanged(sender As Object, e As EventArgs) Handles txbxDiscount.TextChanged
+        Dim dc As Double
+        If txbxDiscount.Text = "" Then
+            dc = 0
+        Else
+            If IsNumeric(txbxDiscount.Text) Then
+                dc = Double.Parse(txbxDiscount.Text)
+            Else
+                MessageBox.Show("Entry is Invalid", "Error")
+                Exit Sub
+            End If
+        End If
+        txbxAmount.Text = (Double.Parse(Sales.TotalAmount) - dc).ToString("0.00")
+        profit = (Double.Parse(profit) - dc).ToString("0.00")
     End Sub
 End Class

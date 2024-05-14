@@ -32,6 +32,8 @@ Partial Class Sale_Confirmation
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txbxAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Label2 = New Label()
         txbxRef = New Guna.UI2.WinForms.Guna2TextBox()
@@ -42,6 +44,8 @@ Partial Class Sale_Confirmation
         cbxMethod = New ComboBox()
         Label6 = New Label()
         txbxContactNumber = New Guna.UI2.WinForms.Guna2TextBox()
+        txbxDiscount = New Guna.UI2.WinForms.Guna2TextBox()
+        lbLess = New Label()
         SuspendLayout()
         ' 
         ' txbxAmount
@@ -144,7 +148,7 @@ Partial Class Sale_Confirmation
         btConfirm.FillColor = Color.DimGray
         btConfirm.Font = New Font("Segoe UI", 9F)
         btConfirm.ForeColor = Color.White
-        btConfirm.Location = New Point(344, 144)
+        btConfirm.Location = New Point(344, 215)
         btConfirm.Name = "btConfirm"
         btConfirm.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btConfirm.Size = New Size(77, 36)
@@ -194,11 +198,42 @@ Partial Class Sale_Confirmation
         txbxContactNumber.Size = New Size(200, 36)
         txbxContactNumber.TabIndex = 47
         ' 
+        ' txbxDiscount
+        ' 
+        txbxDiscount.CustomizableEdges = CustomizableEdges11
+        txbxDiscount.DefaultText = ""
+        txbxDiscount.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxDiscount.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxDiscount.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxDiscount.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxDiscount.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxDiscount.Font = New Font("Segoe UI", 9F)
+        txbxDiscount.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txbxDiscount.Location = New Point(221, 173)
+        txbxDiscount.Name = "txbxDiscount"
+        txbxDiscount.PasswordChar = ChrW(0)
+        txbxDiscount.PlaceholderText = ""
+        txbxDiscount.SelectedText = ""
+        txbxDiscount.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        txbxDiscount.Size = New Size(200, 36)
+        txbxDiscount.TabIndex = 49
+        ' 
+        ' lbLess
+        ' 
+        lbLess.AutoSize = True
+        lbLess.Location = New Point(221, 155)
+        lbLess.Name = "lbLess"
+        lbLess.Size = New Size(54, 15)
+        lbLess.TabIndex = 48
+        lbLess.Text = "Discount"
+        ' 
         ' Sale_Confirmation
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(433, 192)
+        ClientSize = New Size(433, 263)
+        Controls.Add(txbxDiscount)
+        Controls.Add(lbLess)
         Controls.Add(txbxContactNumber)
         Controls.Add(Label6)
         Controls.Add(cbxMethod)
@@ -226,4 +261,6 @@ Partial Class Sale_Confirmation
     Friend WithEvents cbxMethod As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txbxContactNumber As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txbxDiscount As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lbLess As Label
 End Class

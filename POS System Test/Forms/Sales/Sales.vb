@@ -7,29 +7,21 @@ Imports Microsoft.VisualBasic.FileIO
 Public Class Sales
 
     Dim pCost As String
+    Public stocklogs As List(Of String)
+    Public logfile As String
+    Public stocklist As List(Of String)
+    Public TotalAmount As Integer = 0
 
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Try
             If Not txbxName.Text = "" Then
                 Dim headers As New List(Of String)
-                Dim TotalAmount As Integer = 0
+                TotalAmount = 0
                 Dim items As New List(Of String)
-                Dim less As Integer
                 If dgvAddedList.RowCount = 0 Then
                     MessageBox.Show("Please add items.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
                 End If
-                Dim isValidInput As Boolean = False
-                Do Until isValidInput
-                    Dim input As String = InputBox("Less?", "Discount Prompt")
-                    If IsNumeric(input) Then
-                        less = CInt(input)
-                        isValidInput = True
-                    Else
-                        MessageBox.Show("Please enter a numeric value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Exit Sub
-                    End If
-                Loop
                 For i = 1 To dgvAddedList.Columns.Count - 1
                     headers.Add(dgvAddedList.Columns(i).HeaderText)
                 Next
@@ -48,13 +40,11 @@ Public Class Sales
                 For Each row As DataGridViewRow In dgvAddedList.Rows
                     prft += ProfitCalc(row.Cells(1).Value.ToString(), row.Cells(4).Value.ToString(), row.Cells(3).Value.ToString())
                 Next
-                prft -= less
-                TotalAmount -= less
                 With Sale_Confirmation
+                    .info = TotalAmount.ToString("0.00")
                     .txbxRef.Text = $"SR-{ReadCsv($"{srcFolder}\Resources\Sales History.csv").Count - 1}"
                     .txbxAmount.Text = TotalAmount
                     .logDate = DateOnly.FromDateTime(DateTime.Now)
-                    .info = TotalAmount
                     .inputuser = MainForm.lbUsername.Text
                     .customerName = txbxName.Text
                     .items = items
@@ -69,38 +59,68 @@ Public Class Sales
         End Try
     End Sub
 
+    ' Function to calculate profit based on given ID, item cost, and price
     Function ProfitCalc(id As String, itemcost As String, price As String) As Double
         Dim profit As Double = 0
         Try
-            Dim stocklogs As List(Of String) = ReadCsv($"{srcFolder}\Resources\Stock History.csv")
+            ' Read the main stock history CSV file into a list of strings
+            stocklogs = ReadCsv($"{srcFolder}\Resources\Stock History.csv")
+
+            ' Skip the first line (header) and iterate through each log entry
             For Each log As String In stocklogs.Skip(1)
                 Dim loginf() As String = log.Split(",")
-                Dim logfile As String = $"{srcFolder}\Stock History\{loginf(1)}.csv"
-                Dim stocklist As List(Of String) = ReadCsv(logfile)
+
+                ' Construct the path to the specific stock history CSV file
+                logfile = $"{srcFolder}\Stock History\{loginf(1)}.csv"
+
+                ' Read the specific stock history CSV file into a list of strings
+                stocklist = ReadCsv(logfile)
+
+                ' Iterate through each stock entry in the specific stock file
                 For Each stock As String In stocklist
                     Dim stockinf() As String = stock.Split(",")
+
+                    ' Check if the stock ID matches the provided ID
                     If stockinf(0) = id Then
-                        If stockinf(stockinf.Length - 1) < stockinf(3) Then
+                        ' Check if the current stock quantity is less than the threshold
+                        If Integer.Parse(stockinf(stockinf.Length - 1)) < Integer.Parse(stockinf(3)) Then
+                            ' Calculate the total cost by adding the base cost and the additional cost
                             Dim totalCost As Double = Double.Parse(stockinf(4)) + (Double.Parse(loginf(4)) / Double.Parse(loginf(2)))
+
+                            ' Calculate profit by subtracting total cost from the price
                             profit = Double.Parse(price) - totalCost
+
+                            ' Update the stock quantity
                             Dim index = stocklist.IndexOf(stock)
                             stockinf(stockinf.Length - 1) = Integer.Parse(stockinf(stockinf.Length - 1)) + 1
                             stock = String.Join(",", stockinf)
                             stocklist(index) = stock
-                            File.WriteAllLines(logfile, stocklist)
+                            ' Return the calculated profit formatted to two decimal places
                             Return profit.ToString("0.00")
                         End If
                     End If
                 Next
             Next
+
+            ' Return profit (0 if no matching ID found or no update needed)
             Return profit
         Catch ex As Exception
+            ' Show an error message if an exception occurs
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
             Return profit
         End Try
     End Function
 
-
+    ' Subroutine to write a list of strings to a CSV file
+    Sub WriteCsv(filePath As String, data As List(Of String))
+        Try
+            ' Write the list of strings to the specified file path
+            File.WriteAllLines(filePath, data)
+        Catch ex As Exception
+            ' Show an error message if an exception occurs
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
+    End Sub
 
     Private Sub txbxID_TextChanged(sender As Object, e As EventArgs) Handles txbxID.TextChanged
         Try
