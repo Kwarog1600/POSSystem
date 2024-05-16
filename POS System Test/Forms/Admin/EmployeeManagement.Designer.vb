@@ -52,6 +52,7 @@ Partial Class EmployeeManagement
         pnlContainer = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         txbxSearch = New Guna.UI2.WinForms.Guna2TextBox()
         dgvUserList = New Guna.UI2.WinForms.Guna2DataGridView()
+        users = New DataGridViewTextBoxColumn()
         btDelete = New Guna.UI2.WinForms.Guna2Button()
         btAdd = New Guna.UI2.WinForms.Guna2Button()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -128,6 +129,7 @@ Partial Class EmployeeManagement
         dgvUserList.ColumnHeadersHeight = 4
         dgvUserList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvUserList.ColumnHeadersVisible = False
+        dgvUserList.Columns.AddRange(New DataGridViewColumn() {users})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -164,6 +166,12 @@ Partial Class EmployeeManagement
         dgvUserList.ThemeStyle.RowsStyle.Height = 25
         dgvUserList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvUserList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' users
+        ' 
+        users.HeaderText = "users"
+        users.Name = "users"
+        users.ReadOnly = True
         ' 
         ' btDelete
         ' 
@@ -449,4 +457,5 @@ Partial Class EmployeeManagement
     Friend WithEvents dgvUserList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btChangePass As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txbxSearch As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents users As DataGridViewTextBoxColumn
 End Class
