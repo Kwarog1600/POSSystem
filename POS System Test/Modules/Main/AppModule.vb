@@ -12,6 +12,8 @@ Module AppModule
     Public contents As List(Of String)
     Dim csvcontents As List(Of String)
 
+    Public Cash As String
+
     Public Function ReadCsv(filePath As String) As List(Of String)
         Using reader As New StreamReader(filePath)
             csvcontents = New List(Of String)
@@ -243,7 +245,7 @@ Module AppModule
         Try
             Dim csvFilePath As String = $"{srcFolder}/Resources\TimeLog.csv"
             Using Write As New StreamWriter(csvFilePath, True)
-                Write.WriteLine($"Logged {InOut},{DateTime.Now},{Username},{Cash}")
+                Write.WriteLine($"Logged {InOut},{DateTime.Now.ToString("MM/dd/yyyy")},{Username},{Current}")
             End Using
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
