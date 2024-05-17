@@ -1970,23 +1970,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP EliteDesk\\.nuget\\packages\\": {},
+    "C:\\Users\\cacca\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
+      "projectUniqueName": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
       "projectName": "POSINVENTORY",
-      "projectPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\POS And Inventory.vbproj",
-      "packagesPath": "C:\\Users\\HP EliteDesk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP EliteDesk\\source\\repos\\POSSystem\\POS System Test\\obj\\",
+      "projectPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
+      "packagesPath": "C:\\Users\\cacca\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HP EliteDesk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cacca\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2051,7 +2051,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

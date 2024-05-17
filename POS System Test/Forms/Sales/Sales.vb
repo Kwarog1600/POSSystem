@@ -10,7 +10,7 @@ Public Class Sales
     Public stocklogs As List(Of String)
     Public logfile As String
     Public stocklist As List(Of String)
-    Public TotalAmount As Integer = 0
+    Public TotalAmount As Double = 0
     Private itemCost As New List(Of Double)()
 
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
@@ -33,7 +33,7 @@ Public Class Sales
                     For i = 1 To dgvAddedList.Columns.Count - 1
                         content.Add(row.Cells(i).Value)
                     Next
-                    TotalAmount = TotalAmount + Convert.ToInt32(row.Cells(5).Value)
+                    TotalAmount = TotalAmount + Convert.ToDouble(row.Cells(5).Value)
                 Next
                 Dim prft As Double = 0
                 With Sale_Confirmation

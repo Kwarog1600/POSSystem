@@ -66,7 +66,6 @@ Public Class Sale_Confirmation
             Sales.WriteCsv(Sales.logfile, Sales.stocklist)
             With Sales
                 .dgvAddedList.Rows.Clear()
-                Current += Convert.ToDouble(.showTotalPrice.Text)
                 If .dgvAddedList.Columns.Count > 6 Then
                     For i = .dgvAddedList.Columns.Count - 1 To 7 Step -1
                         .dgvAddedList.Columns.RemoveAt(i)
