@@ -85,7 +85,7 @@ Module AppModule
 
     Public Sub AddCategory(filepath As String, category As String, table As DataGridView)
         Try
-            Dim Stockheader As String = "ID,Product,Price,Quantity,Cost"
+            Dim Stockheader As String = "ID,Product,Price,Quantity"
             contents = ReadCsv(filepath)
             If contents.Contains(category) Then
                 MessageBox.Show("Category already exists")

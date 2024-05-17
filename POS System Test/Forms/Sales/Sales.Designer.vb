@@ -77,7 +77,6 @@ Partial Class Sales
         Price = New DataGridViewTextBoxColumn()
         Quantity = New DataGridViewTextBoxColumn()
         Amount = New DataGridViewTextBoxColumn()
-        Cost = New DataGridViewTextBoxColumn()
         pnlContainer.SuspendLayout()
         CType(dgvDescr, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
@@ -313,7 +312,7 @@ Partial Class Sales
         dgvAddedList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvAddedList.ColumnHeadersHeight = 17
         dgvAddedList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {Category, ID, Product, Price, Quantity, Amount, Cost})
+        dgvAddedList.Columns.AddRange(New DataGridViewColumn() {Category, ID, Product, Price, Quantity, Amount})
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
         DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
@@ -538,13 +537,6 @@ Partial Class Sales
         Amount.Name = "Amount"
         Amount.ReadOnly = True
         ' 
-        ' Cost
-        ' 
-        Cost.HeaderText = "Cost"
-        Cost.Name = "Cost"
-        Cost.ReadOnly = True
-        Cost.Visible = False
-        ' 
         ' Sales
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -591,5 +583,4 @@ Partial Class Sales
     Friend WithEvents Price As DataGridViewTextBoxColumn
     Friend WithEvents Quantity As DataGridViewTextBoxColumn
     Friend WithEvents Amount As DataGridViewTextBoxColumn
-    Friend WithEvents Cost As DataGridViewTextBoxColumn
 End Class

@@ -6,11 +6,12 @@ Imports Microsoft.VisualBasic.FileIO
 
 Public Class Sales
 
-    Dim pCost As String
+
     Public stocklogs As List(Of String)
     Public logfile As String
     Public stocklist As List(Of String)
     Public TotalAmount As Integer = 0
+    Private itemCost As New List(Of Double)()
 
     Private Sub btSale_Click(sender As Object, e As EventArgs) Handles btSale.Click
         Try
@@ -30,17 +31,16 @@ Public Class Sales
                     Dim filename = $"{srcFolder}\Stock\{row.Cells(0).Value}.csv"
                     Dim content As New List(Of String)
                     For i = 1 To dgvAddedList.Columns.Count - 1
-                        If i <> 5 Then
-                            content.Add(row.Cells(i).Value)
-                        End If
+                        content.Add(row.Cells(i).Value)
                     Next
                     TotalAmount = TotalAmount + Convert.ToInt32(row.Cells(5).Value)
                 Next
                 Dim prft As Double = 0
-                For Each row As DataGridViewRow In dgvAddedList.Rows
-                    prft += ProfitCalc(row.Cells(1).Value.ToString(), row.Cells(4).Value.ToString(), row.Cells(3).Value.ToString())
-                Next
                 With Sale_Confirmation
+                    For Each row As DataGridViewRow In dgvAddedList.Rows
+                        prft += ProfitCalc(row.Cells(1).Value.ToString(), row.Cells(3).Value.ToString())
+                    Next
+                    .itemCosts = itemCost
                     .info = TotalAmount.ToString("0.00")
                     .txbxRef.Text = $"SR-{ReadCsv($"{srcFolder}\Resources\Sales History.csv").Count - 1}"
                     .txbxAmount.Text = TotalAmount
@@ -60,7 +60,7 @@ Public Class Sales
     End Sub
 
     ' Function to calculate profit based on given ID, item cost, and price
-    Function ProfitCalc(id As String, itemcost As String, price As String) As Double
+    Function ProfitCalc(id As String, price As String) As Double
         Dim profit As Double = 0
         Try
             ' Read the main stock history CSV file into a list of strings
@@ -87,6 +87,7 @@ Public Class Sales
                             ' Calculate the total cost by adding the base cost and the additional cost
                             Dim totalCost As Double = Double.Parse(stockinf(4)) + (Double.Parse(loginf(4)) / Double.Parse(loginf(2)))
 
+                            itemCost.Add(totalCost)
                             ' Calculate profit by subtracting total cost from the price
                             profit = Double.Parse(price) - totalCost
 
@@ -136,9 +137,8 @@ Public Class Sales
                                     txbxProduct.Text = data(1)
                                     txbxPrice.Text = data(2)
                                     txbxQty.Text = 1
-                                    pCost = data(4)
                                     For i As Integer = 0 To dgvDescr.Rows.Count - 1
-                                        dgvDescr.Rows(i).Cells(1).Value = data(i + 5)
+                                        dgvDescr.Rows(i).Cells(1).Value = data(i + 4)
                                     Next
                                 End If
                             Next
@@ -177,7 +177,6 @@ Public Class Sales
                 .Add(txbxPrice.Text)
                 .Add(txbxQty.Text)
                 .Add(Convert.ToString(Convert.ToDouble(txbxPrice.Text) * Convert.ToDouble(txbxQty.Text)))
-                .Add(pCost)
                 For Each add In dgvDescr.Rows
                     .Add(add.Cells(1).Value)
                     headers.Add(add.cells(0).Value)
@@ -216,7 +215,7 @@ Public Class Sales
             Dim headers() As String = File.ReadAllLines($"{srcFolder}/Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
             If headers.Length > 5 Then
                 dgvDescr.Rows.Clear()
-                For i As Integer = 5 To headers.Length - 1
+                For i As Integer = 4 To headers.Length - 1
                     With dgvDescr
                         .Rows.Add(headers(i), "")
                     End With

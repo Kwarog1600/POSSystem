@@ -1,0 +1,7 @@
+C:\Users\cacca\OneDrive\Desktop\POS And Inventory.pdb
+C:\Users\cacca\OneDrive\Desktop\D3DCompiler_47_cor3.dll
+C:\Users\cacca\OneDrive\Desktop\PenImc_cor3.dll
+C:\Users\cacca\OneDrive\Desktop\PresentationNative_cor3.dll
+C:\Users\cacca\OneDrive\Desktop\vcruntime140_cor3.dll
+C:\Users\cacca\OneDrive\Desktop\wpfgfx_cor3.dll
+C:\Users\cacca\OneDrive\Desktop\POS And Inventory.exe

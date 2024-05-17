@@ -72,14 +72,18 @@ Public Class AddStock
             Dim BatchCost As String = InputBox("Enter the Total Amount of Additional Batch Cost(Shipping, Labor, etc.):", "Additional Costs")
             If IsNumeric(BatchCost) Then
                 For i As Integer = 1 To dgvAddedList.Columns.Count - 1
-                    headers.Add(dgvAddedList.Columns(i).HeaderText)
+                    If Not dgvAddedList.Columns(i).HeaderText = "Cost" Then
+                        headers.Add(dgvAddedList.Columns(i).HeaderText)
+                    End If
                 Next
                 StockAdded.Add(String.Join(",", dgvAddedList.Columns.Cast(Of DataGridViewColumn)().Skip(1).Select(Function(col) col.HeaderText).ToArray()))
                 For Each row As DataGridViewRow In dgvAddedList.Rows
                     Dim filename As String = $"{srcFolder}/Stock\{row.Cells(0).Value}.csv"
                     Dim content As New List(Of String)
                     For i As Integer = 1 To dgvAddedList.Columns.Count - 1
-                        content.Add(row.Cells(i).Value)
+                        If Not dgvAddedList.Columns(i).HeaderText = "Cost" Then
+                            content.Add(row.Cells(i).Value)
+                        End If
                     Next
                     AddStockSub(filename, content, headers)
                     stockCount += row.Cells(4).Value
@@ -106,7 +110,7 @@ Public Class AddStock
             Dim headers() As String = File.ReadAllLines($"{srcFolder}/Stock/{cbxCategory.SelectedItem}.csv").First().Split(",")
             If headers.Length > 5 Then
                 dgvAddDescr.Rows.Clear()
-                For i As Integer = 5 To headers.Length - 1
+                For i As Integer = 4 To headers.Length - 1
                     With dgvAddDescr
                         .Rows.Add(headers(i), "")
                     End With
@@ -168,9 +172,9 @@ Public Class AddStock
                                 txbxProduct.Text = data(1)
                                 txbxPrice.Text = data(2)
                                 txbxQty.Text = 1
-                                txbxCost.Text = data(4)
+                                txbxCost.Text = ""
                                 For i As Integer = 0 To dgvAddDescr.Rows.Count - 1
-                                    dgvAddDescr.Rows(i).Cells(1).Value = data(i + 5)
+                                    dgvAddDescr.Rows(i).Cells(1).Value = data(i + 4)
                                 Next
                                 Exit Sub
                             End If

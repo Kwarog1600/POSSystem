@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class Sale_Confirmation
-    Public logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String), profit As Double
+    Public logDate As DateOnly, info As String, inputuser As String, customerName As String, items As List(Of String), profit As Double, itemCosts As New List(Of Double)
     Dim headers As New List(Of String)
 
     Private Sub btConfirm_Click(sender As Object, e As EventArgs) Handles btConfirm.Click
@@ -14,11 +14,17 @@ Public Class Sale_Confirmation
                     Dim filename = $"{srcFolder}\Stock\{row.Cells(0).Value}.csv"
                     Dim content As New List(Of String)
                     For i = 1 To .dgvAddedList.Columns.Count - 1
-                        If i <> 5 Then
-                            content.Add(row.Cells(i).Value)
-                        End If
+                        content.Add(row.Cells(i).Value)
                     Next
                     items.Add(String.Join(",", row.Cells.Cast(Of DataGridViewCell)().Skip(1).Select(Function(cell) cell.Value.ToString()).ToArray()))
+                    Dim head() As String = items(0).Split(",")
+                    head(4) &= ",Cost"
+                    items(0) = String.Join(",", head)
+                    For Each item As String In items.Skip(1)
+                        Dim itemInfo() As String = item.Split(","c)
+                        itemInfo(4) &= $",{itemCosts((items.IndexOf(item) - 1))}"
+                        items(items.IndexOf(item)) = String.Join(",", itemInfo)
+                    Next
                     UpdateQty(filename, content, headers, True)
                 Next
             End With

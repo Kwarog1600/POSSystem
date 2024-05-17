@@ -4,11 +4,11 @@ Imports Microsoft.VisualBasic.FileIO
 
 Public Class Inventory
     Private Sub btAddStock_Click(sender As Object, e As EventArgs) Handles btAddStock.Click
-        AddStock.Visible = True
+        AddStock.Show()
     End Sub
 
     Private Sub btAddCategory_Click(sender As Object, e As EventArgs) Handles btAddCategory.Click
-        StockCategoryAdd.Visible = True
+        StockCategoryAdd.Show()
     End Sub
 
 
@@ -70,22 +70,18 @@ Public Class Inventory
                         Dim tbheader() As String = contents(0).Split(","c)
 
                         For Each head As String In tbheader
-                            If Not Array.IndexOf(tbheader, head) = 4 Then
-                                If Not dgvStockList.Columns.Contains($"clm{head}") Then
-                                    dgvStockList.Columns.Add($"clm{head}", head)
-                                End If
+                            If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                                dgvStockList.Columns.Add($"clm{head}", head)
                             End If
                         Next
                         For i As Integer = 1 To contents.Count - 1
                             Dim item() As String = contents(i).Split(","c)
                             Dim newRowIdx = dgvStockList.Rows.Add()
-                            dgvStockList.Rows(newRowIdx).Cells("clmcategory").Value = cat
+                            dgvStockList.Rows(newRowIdx).Cells("clmCategory").Value = cat
                             For j As Integer = 0 To item.Length - 1
-                                If Not j = 4 Then
-                                    If j < tbheader.Length Then
-                                        Dim columnName As String = $"clm{tbheader(j)}"
-                                        dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
-                                    End If
+                                If j < tbheader.Length Then
+                                    Dim columnName As String = $"clm{tbheader(j)}"
+                                    dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
                                 End If
                             Next
                         Next
@@ -96,22 +92,18 @@ Public Class Inventory
                 Dim contents = ReadCsv($"{srcFolder}/Stock\{cat}.csv")
                 Dim tbheader() As String = contents(0).Split(","c)
                 For Each head As String In tbheader
-                    If Not Array.IndexOf(tbheader, head) = 4 Then
-                        If Not dgvStockList.Columns.Contains($"clm{head}") Then
-                            dgvStockList.Columns.Add($"clm{head}", head)
-                        End If
+                    If Not dgvStockList.Columns.Contains($"clm{head}") Then
+                        dgvStockList.Columns.Add($"clm{head}", head)
                     End If
                 Next
                 For i As Integer = 1 To contents.Count - 1
                     Dim item() As String = contents(i).Split(","c)
                     Dim newRowIdx = dgvStockList.Rows.Add()
-                    dgvStockList.Rows(newRowIdx).Cells("clmcategory").Value = cat
+                    dgvStockList.Rows(newRowIdx).Cells("clmCategory").Value = cat
                     For j As Integer = 0 To item.Length - 1
-                        If Not j = 4 Then
-                            If j < tbheader.Length Then
-                                Dim columnName As String = $"clm{tbheader(j)}"
-                                dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
-                            End If
+                        If j < tbheader.Length Then
+                            Dim columnName As String = $"clm{tbheader(j)}"
+                            dgvStockList.Rows(newRowIdx).Cells(columnName).Value = item(j)
                         End If
                     Next
                 Next
@@ -120,6 +112,7 @@ Public Class Inventory
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
         End Try
     End Sub
+
 
     Private Sub dgvStockList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStockList.CellDoubleClick
         Try
