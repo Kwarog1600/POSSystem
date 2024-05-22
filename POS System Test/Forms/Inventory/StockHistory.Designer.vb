@@ -25,7 +25,10 @@ Partial Class StockHistory
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         dgvHistory = New Guna.UI2.WinForms.Guna2DataGridView()
+        btBatchEdit = New Guna.UI2.WinForms.Guna2Button()
         CType(dgvHistory, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -58,7 +61,7 @@ Partial Class StockHistory
         dgvHistory.Name = "dgvHistory"
         dgvHistory.ReadOnly = True
         dgvHistory.RowHeadersVisible = False
-        dgvHistory.Size = New Size(890, 306)
+        dgvHistory.Size = New Size(890, 308)
         dgvHistory.TabIndex = 0
         dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -82,14 +85,35 @@ Partial Class StockHistory
         dgvHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
+        ' btBatchEdit
+        ' 
+        btBatchEdit.BackColor = Color.Transparent
+        btBatchEdit.BorderRadius = 25
+        btBatchEdit.CustomizableEdges = CustomizableEdges1
+        btBatchEdit.DisabledState.BorderColor = Color.DarkGray
+        btBatchEdit.DisabledState.CustomBorderColor = Color.DarkGray
+        btBatchEdit.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btBatchEdit.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btBatchEdit.FillColor = Color.DimGray
+        btBatchEdit.Font = New Font("Segoe UI", 9F)
+        btBatchEdit.ForeColor = Color.White
+        btBatchEdit.Location = New Point(722, 326)
+        btBatchEdit.Name = "btBatchEdit"
+        btBatchEdit.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btBatchEdit.Size = New Size(180, 45)
+        btBatchEdit.TabIndex = 2
+        btBatchEdit.Text = "Edit Batch"
+        ' 
         ' StockHistory
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(914, 330)
+        ClientSize = New Size(914, 395)
+        Controls.Add(btBatchEdit)
         Controls.Add(dgvHistory)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "StockHistory"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Stock History"
         TopMost = True
         CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()
@@ -97,4 +121,5 @@ Partial Class StockHistory
     End Sub
 
     Friend WithEvents dgvHistory As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents btBatchEdit As Guna.UI2.WinForms.Guna2Button
 End Class

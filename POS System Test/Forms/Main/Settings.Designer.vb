@@ -41,8 +41,8 @@ Partial Class Settings
         btSeach.CustomizableEdges = CustomizableEdges1
         btSeach.DisabledState.BorderColor = Color.DarkGray
         btSeach.DisabledState.CustomBorderColor = Color.DarkGray
-        btSeach.DisabledState.FillColor = Color.FromArgb(169, 169, 169)
-        btSeach.DisabledState.ForeColor = Color.FromArgb(141, 141, 141)
+        btSeach.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btSeach.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btSeach.FillColor = Color.DimGray
         btSeach.Font = New Font("Segoe UI", 9F)
         btSeach.ForeColor = Color.White
@@ -68,13 +68,13 @@ Partial Class Settings
         txbxProduct.BackColor = Color.Transparent
         txbxProduct.CustomizableEdges = CustomizableEdges3
         txbxProduct.DefaultText = ""
-        txbxProduct.DisabledState.BorderColor = Color.FromArgb(208, 208, 208)
-        txbxProduct.DisabledState.FillColor = Color.FromArgb(226, 226, 226)
-        txbxProduct.DisabledState.ForeColor = Color.FromArgb(138, 138, 138)
-        txbxProduct.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138)
-        txbxProduct.FocusedState.BorderColor = Color.FromArgb(94, 148, 255)
+        txbxProduct.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txbxProduct.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txbxProduct.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxProduct.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txbxProduct.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxProduct.Font = New Font("Segoe UI", 9F)
-        txbxProduct.HoverState.BorderColor = Color.FromArgb(94, 148, 255)
+        txbxProduct.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txbxProduct.Location = New Point(12, 27)
         txbxProduct.Name = "txbxProduct"
         txbxProduct.PasswordChar = ChrW(0)
@@ -90,8 +90,8 @@ Partial Class Settings
         btSave.CustomizableEdges = CustomizableEdges5
         btSave.DisabledState.BorderColor = Color.DarkGray
         btSave.DisabledState.CustomBorderColor = Color.DarkGray
-        btSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169)
-        btSave.DisabledState.ForeColor = Color.FromArgb(141, 141, 141)
+        btSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btSave.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btSave.FillColor = Color.DimGray
         btSave.Font = New Font("Segoe UI", 9F)
         btSave.ForeColor = Color.White
@@ -113,6 +113,7 @@ Partial Class Settings
         Controls.Add(txbxProduct)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Settings"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Settings"
         ResumeLayout(False)
         PerformLayout()

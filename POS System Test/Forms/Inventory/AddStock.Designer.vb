@@ -52,6 +52,12 @@ Partial Class AddStock
         cbxCategory = New ComboBox()
         btAddStock = New Guna.UI2.WinForms.Guna2Button()
         dgvAddedList = New Guna.UI2.WinForms.Guna2DataGridView()
+        Category = New DataGridViewTextBoxColumn()
+        ID = New DataGridViewTextBoxColumn()
+        Product = New DataGridViewTextBoxColumn()
+        Price = New DataGridViewTextBoxColumn()
+        Quantity = New DataGridViewTextBoxColumn()
+        ItemCost = New DataGridViewTextBoxColumn()
         btSave = New Guna.UI2.WinForms.Guna2Button()
         lblQuantity = New Label()
         lblPrice = New Label()
@@ -66,12 +72,6 @@ Partial Class AddStock
         txbxQty = New Guna.UI2.WinForms.Guna2TextBox()
         lbCost = New Label()
         txbxCost = New Guna.UI2.WinForms.Guna2TextBox()
-        Category = New DataGridViewTextBoxColumn()
-        ID = New DataGridViewTextBoxColumn()
-        Product = New DataGridViewTextBoxColumn()
-        Price = New DataGridViewTextBoxColumn()
-        Quantity = New DataGridViewTextBoxColumn()
-        ItemCost = New DataGridViewTextBoxColumn()
         CType(dgvAddedList, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -187,6 +187,43 @@ Partial Class AddStock
         dgvAddedList.ThemeStyle.RowsStyle.Height = 25
         dgvAddedList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvAddedList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' Category
+        ' 
+        Category.HeaderText = "Category"
+        Category.Name = "Category"
+        Category.ReadOnly = True
+        ' 
+        ' ID
+        ' 
+        ID.HeaderText = "ID"
+        ID.Name = "ID"
+        ID.ReadOnly = True
+        ' 
+        ' Product
+        ' 
+        Product.HeaderText = "Product"
+        Product.Name = "Product"
+        Product.ReadOnly = True
+        ' 
+        ' Price
+        ' 
+        Price.HeaderText = "Price"
+        Price.Name = "Price"
+        Price.ReadOnly = True
+        ' 
+        ' Quantity
+        ' 
+        Quantity.HeaderText = "Quantity"
+        Quantity.Name = "Quantity"
+        Quantity.ReadOnly = True
+        ' 
+        ' ItemCost
+        ' 
+        ItemCost.HeaderText = "Cost"
+        ItemCost.Name = "ItemCost"
+        ItemCost.ReadOnly = True
+        ItemCost.Visible = False
         ' 
         ' btSave
         ' 
@@ -433,43 +470,6 @@ Partial Class AddStock
         txbxCost.Size = New Size(88, 36)
         txbxCost.TabIndex = 45
         ' 
-        ' Category
-        ' 
-        Category.HeaderText = "Category"
-        Category.Name = "Category"
-        Category.ReadOnly = True
-        ' 
-        ' ID
-        ' 
-        ID.HeaderText = "ID"
-        ID.Name = "ID"
-        ID.ReadOnly = True
-        ' 
-        ' Product
-        ' 
-        Product.HeaderText = "Product"
-        Product.Name = "Product"
-        Product.ReadOnly = True
-        ' 
-        ' Price
-        ' 
-        Price.HeaderText = "Price"
-        Price.Name = "Price"
-        Price.ReadOnly = True
-        ' 
-        ' Quantity
-        ' 
-        Quantity.HeaderText = "Quantity"
-        Quantity.Name = "Quantity"
-        Quantity.ReadOnly = True
-        ' 
-        ' ItemCost
-        ' 
-        ItemCost.HeaderText = "Cost"
-        ItemCost.Name = "ItemCost"
-        ItemCost.ReadOnly = True
-        ItemCost.Visible = False
-        ' 
         ' AddStock
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -495,6 +495,7 @@ Partial Class AddStock
         Controls.Add(txbxProduct)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "AddStock"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Add Stock"
         TopMost = True
         CType(dgvAddedList, ComponentModel.ISupportInitialize).EndInit()

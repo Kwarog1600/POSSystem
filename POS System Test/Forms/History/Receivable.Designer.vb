@@ -160,6 +160,7 @@ Partial Class Receivable
         Controls.Add(Label2)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Receivable"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Sale"
         TopMost = True
         ResumeLayout(False)

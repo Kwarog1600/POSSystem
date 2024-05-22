@@ -10,7 +10,7 @@ Public Class History
                 .pnlContainer.Location = New Point(50, 50)
             End With
             RefreshTable($"{srcFolder}/Resources/Sales History.csv", dgvSaleHistory)
-            If LoginForm.Acc = 1 Then
+            If Acc = 1 Then
                 dgvSaleHistory.Columns("Profit").Visible = False
             End If
         Catch ex As Exception
@@ -22,6 +22,12 @@ Public Class History
         Try
             Dim filepath = $"{srcFolder}/Receipts/{dgvSaleHistory.Rows(e.RowIndex).Cells(1).Value}.csv"
             ReceiptViewer.ShowReceipt(filepath)
+            If Acc = 3 Then
+                ReceiptViewer.dgvHistory.Columns(5).Visible = True
+            Else
+                ReceiptViewer.dgvHistory.Columns(5).Visible = False
+            End If
+            ReceiptViewer.dgvHistory.Columns(5).ReadOnly = True
             If dgvSaleHistory.Rows(e.RowIndex).Index >= 0 Or dgvSaleHistory.Rows(e.RowIndex).Index <= dgvSaleHistory.Rows.Count - 1 Then
                 If Not dgvSaleHistory.Rows(e.RowIndex).Cells(6).Value = "Cash" Then
                     If dgvSaleHistory.Rows(e.RowIndex).Cells(7).Value < dgvSaleHistory.Rows(e.RowIndex).Cells(3).Value Then

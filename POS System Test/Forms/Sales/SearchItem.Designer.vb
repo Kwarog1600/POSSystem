@@ -142,6 +142,7 @@ Partial Class SearchItem
         Controls.Add(cbxCategory)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "SearchItem"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Search Item"
         TopMost = True
         CType(dgvStockList, ComponentModel.ISupportInitialize).EndInit()

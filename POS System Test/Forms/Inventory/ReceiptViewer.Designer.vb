@@ -57,7 +57,6 @@ Partial Class ReceiptViewer
         dgvHistory.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvHistory.Location = New Point(12, 12)
         dgvHistory.Name = "dgvHistory"
-        dgvHistory.ReadOnly = True
         dgvHistory.RowHeadersVisible = False
         dgvHistory.Size = New Size(511, 469)
         dgvHistory.TabIndex = 0
@@ -74,7 +73,7 @@ Partial Class ReceiptViewer
         dgvHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgvHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvHistory.ThemeStyle.HeaderStyle.Height = 17
-        dgvHistory.ThemeStyle.ReadOnly = True
+        dgvHistory.ThemeStyle.ReadOnly = False
         dgvHistory.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         dgvHistory.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
@@ -91,6 +90,7 @@ Partial Class ReceiptViewer
         Controls.Add(dgvHistory)
         FormBorderStyle = FormBorderStyle.SizableToolWindow
         Name = "ReceiptViewer"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "View"
         TopMost = True
         CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()

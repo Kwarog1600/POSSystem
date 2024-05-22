@@ -16,7 +16,9 @@ Public Class ReceiptViewer
                 Next
                 dgvHistory.Rows.Add(lineContents)
             Next
-            dgvHistory.Columns(5).Visible = False
+            For Each Col As DataGridViewColumn In dgvHistory.Columns
+                Col.ReadOnly = True
+            Next
             Me.Show()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)

@@ -247,6 +247,7 @@ Partial Class StockCategoryAdd
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "StockCategoryAdd"
         ShowIcon = False
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Category"
         TopMost = True
         CType(dgvCatList, ComponentModel.ISupportInitialize).EndInit()

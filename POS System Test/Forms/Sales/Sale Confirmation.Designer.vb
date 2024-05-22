@@ -246,6 +246,7 @@ Partial Class Sale_Confirmation
         Controls.Add(Label2)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Sale_Confirmation"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Sale"
         TopMost = True
         ResumeLayout(False)

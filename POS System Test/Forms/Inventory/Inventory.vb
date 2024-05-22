@@ -30,6 +30,12 @@ Public Class Inventory
     Private Sub btStockHistory_Click(sender As Object, e As EventArgs) Handles btStockHistory.Click
         Try
             RefreshTable($"{srcFolder}/Resources/Stock History.csv", StockHistory.dgvHistory)
+            For Each column As DataGridViewColumn In StockHistory.dgvHistory.Columns
+                column.ReadOnly = True
+            Next
+            If Acc = 3 Then
+                StockHistory.dgvHistory.Columns(4).ReadOnly = False
+            End If
             StockHistory.Show()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)

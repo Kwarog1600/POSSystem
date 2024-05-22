@@ -229,6 +229,7 @@ Partial Class PriceChange
         Controls.Add(txbxProduct)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "PriceChange"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Price Change"
         TopMost = True
         CType(dgvAddDescr, ComponentModel.ISupportInitialize).EndInit()

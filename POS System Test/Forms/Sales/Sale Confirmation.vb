@@ -22,7 +22,7 @@ Public Class Sale_Confirmation
                     items(0) = String.Join(",", head)
                     For Each item As String In items.Skip(1)
                         Dim itemInfo() As String = item.Split(","c)
-                        itemInfo(4) &= $",{itemCosts((items.IndexOf(item) - 1))}"
+                        itemInfo(4) &= $",{itemCosts((items.IndexOf(item) - 1)).ToString("0.00")}"
                         items(items.IndexOf(item)) = String.Join(",", itemInfo)
                     Next
                     UpdateQty(filename, content, headers, True)

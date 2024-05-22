@@ -235,7 +235,7 @@ Module AppModule
                 .Controls.Add(panel)
                 panel.Show()
             End With
-            AccessLevel(LoginForm.Acc)
+            AccessLevel(Acc)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
         End Try

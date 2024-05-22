@@ -5,7 +5,7 @@ Imports Mysqlx.Notice.Warning.Types
 
 Public Class LoginForm
 
-    Public Acc As Int16
+
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = btLogin
