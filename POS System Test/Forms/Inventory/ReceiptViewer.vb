@@ -26,7 +26,7 @@ Public Class ReceiptViewer
     End Sub
 
     Private Sub ReceiptViewer_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
-        dgvHistory.Size = New Size(Me.Width, Me.Height)
+        dgvHistory.Size = New Size(Me.Width - 45, Me.Height - 75)
     End Sub
 
     Private Sub ReceiptViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load

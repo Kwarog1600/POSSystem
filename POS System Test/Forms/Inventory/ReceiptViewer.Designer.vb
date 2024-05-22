@@ -33,6 +33,7 @@ Partial Class ReceiptViewer
         ' 
         dgvHistory.AllowUserToAddRows = False
         dgvHistory.AllowUserToDeleteRows = False
+        dgvHistory.AllowUserToResizeColumns = False
         DataGridViewCellStyle1.BackColor = Color.White
         dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -58,7 +59,7 @@ Partial Class ReceiptViewer
         dgvHistory.Location = New Point(12, 12)
         dgvHistory.Name = "dgvHistory"
         dgvHistory.RowHeadersVisible = False
-        dgvHistory.Size = New Size(511, 469)
+        dgvHistory.Size = New Size(476, 476)
         dgvHistory.TabIndex = 0
         dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -86,7 +87,7 @@ Partial Class ReceiptViewer
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(535, 493)
+        ClientSize = New Size(484, 461)
         Controls.Add(dgvHistory)
         FormBorderStyle = FormBorderStyle.SizableToolWindow
         Name = "ReceiptViewer"

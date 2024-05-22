@@ -69,7 +69,7 @@ Public Class AddStock
             Dim headers As New List(Of String)
             Dim stockCount As Integer = 0
             Dim StockAdded As New List(Of String)
-            Dim BatchCost As String = InputBox("Enter the Total Amount of Additional Batch Cost(Shipping, Labor, etc.):", "Additional Costs")
+            Dim BatchCost As String = InputBox("Enter the Total Amount of Additional Batch Cost(Shipping, Labor, etc.):", "Additional Costs", TopMost = True)
             If IsNumeric(BatchCost) Then
                 For i As Integer = 1 To dgvAddedList.Columns.Count - 1
                     If Not dgvAddedList.Columns(i).HeaderText = "Cost" Then
@@ -195,10 +195,10 @@ Public Class AddStock
             Dim isFirstItem As Boolean = True
             For Each item As String In items
                 If isFirstItem Then
-                    stocklist += item & ", Sold" & Environment.NewLine
+                    stocklist += item & ", Sold"
                     isFirstItem = False
                 Else
-                    stocklist += item & ",0" & Environment.NewLine
+                    stocklist += Environment.NewLine & item & ",0"
                 End If
             Next
             Dim line As String = $"{logDate.ToString()},SAR-{ReadCsv(logpath).Count - 1},{info},{inputuser},{BatchCost}" & Environment.NewLine
