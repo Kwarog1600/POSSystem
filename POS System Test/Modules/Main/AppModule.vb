@@ -263,8 +263,21 @@ Module AppModule
             Dashboard.pnlProfit.Visible = False
         ElseIf level = 2 Then
             MainForm.pnlAdminContainer.Visible = False
+            MainForm.btExpenses.Visible = True
+            Dashboard.pnlttlSold.Visible = False
+            Dashboard.pnlProfit.Visible = False
+            Inventory.btAddCategory.Visible = False
+            Inventory.btStockHistory.Visible = False
+            Inventory.btAddStock.Visible = True
         ElseIf level = 3 Then
             MainForm.pnlAdminContainer.Visible = True
+            MainForm.btExpenses.Visible = True
+            MainForm.btExpenses.Visible = True
+            Dashboard.pnlttlSold.Visible = True
+            Dashboard.pnlProfit.Visible = True
+            Inventory.btAddCategory.Visible = True
+            Inventory.btStockHistory.Visible = True
+            Inventory.btAddStock.Visible = True
         End If
     End Sub
 
