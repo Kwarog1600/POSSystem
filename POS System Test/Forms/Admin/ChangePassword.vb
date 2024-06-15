@@ -14,7 +14,7 @@ Public Class ChangePassword
                     End If
                 Next
             End If
-            File.WriteAllLines("Resources/Users.csv", contents)
+            File.WriteAllLines($"{srcFolder}/Resources/Users.csv", contents)
             Me.Hide()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)
