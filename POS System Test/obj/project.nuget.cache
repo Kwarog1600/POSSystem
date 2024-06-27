@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EV2gBa8Lsh1ktwCZRR73wDrp+68ERSH8GhOpBb0j6LNVXdhSQTstL/UXRAg4MQ01w3ZW1Cb7AjB/BG2qoxXvxA==",
+  "dgSpecHash": "3+Bx9GRWpWqzv/joiYEA7UXQtn/YCd6rhCp1XSB3Etrdzxv6bChZUvVNNQOMsfALo0+/afAiSgpC0cBpxVlrwg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
+  "projectFilePath": "C:\\Users\\cacca\\OneDrive\\Desktop\\hIDE\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
   "expectedPackageFiles": [
     "C:\\Users\\cacca\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\cacca\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

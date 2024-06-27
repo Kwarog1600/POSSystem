@@ -12,7 +12,7 @@ Public Class PriceChange
                     contents(i) = String.Join(",", line)
                 End If
             Next
-            File.WriteAllLines($"Stock\{txbxCategory.Text}.csv", contents)
+            File.WriteAllLines($"{srcFolder}/Stock\{txbxCategory.Text}.csv", contents)
             Inventory.cbxCategory_SelectedIndexChanged(sender, e)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK)

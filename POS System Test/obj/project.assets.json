@@ -1976,11 +1976,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
+      "projectUniqueName": "C:\\Users\\cacca\\OneDrive\\Desktop\\hIDE\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
       "projectName": "POSINVENTORY",
-      "projectPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
+      "projectPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\hIDE\\Centralized POS System\\POS\\POS System Test\\POS And Inventory.vbproj",
       "packagesPath": "C:\\Users\\cacca\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\Centralized POS System\\POS\\POS System Test\\obj\\",
+      "outputPath": "C:\\Users\\cacca\\OneDrive\\Desktop\\hIDE\\Centralized POS System\\POS\\POS System Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
